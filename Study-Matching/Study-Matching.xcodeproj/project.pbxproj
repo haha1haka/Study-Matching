@@ -7,16 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F46340332918FE53008A50D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46340322918FE53008A50D6 /* AppDelegate.swift */; };
-		F46340352918FE53008A50D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46340342918FE53008A50D6 /* SceneDelegate.swift */; };
+		F4034CC529191B1400423FAF /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CAD29191B1400423FAF /* MainViewModel.swift */; };
+		F4034CC629191B1400423FAF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CAF29191B1400423FAF /* MainViewController.swift */; };
+		F4034CC729191B1400423FAF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CB029191B1400423FAF /* MainView.swift */; };
+		F4034CC829191B1400423FAF /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CB129191B1400423FAF /* MainCell.swift */; };
+		F4034CC929191B1400423FAF /* BaseViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CB429191B1400423FAF /* BaseViewCollectionViewCell.swift */; };
+		F4034CCA29191B1400423FAF /* BaseViewContoroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CB529191B1400423FAF /* BaseViewContoroller.swift */; };
+		F4034CCB29191B1400423FAF /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CB629191B1400423FAF /* BaseView.swift */; };
+		F4034CCC29191B1400423FAF /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CB929191B1400423FAF /* UIViewController.swift */; };
+		F4034CCD29191B1400423FAF /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CBB29191B1400423FAF /* NSObject.swift */; };
+		F4034CCE29191B1400423FAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CBF29191B1400423FAF /* AppDelegate.swift */; };
+		F4034CCF29191B1400423FAF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CC029191B1400423FAF /* SceneDelegate.swift */; };
+		F4034CD029191B1400423FAF /* BaseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CC429191B1400423FAF /* BaseCode.swift */; };
+		F45119972919230B0058571C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45119962919230B0058571C /* Color.swift */; };
 		F463403C2918FE54008A50D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F463403B2918FE54008A50D6 /* Assets.xcassets */; };
 		F463403F2918FE54008A50D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F463403D2918FE54008A50D6 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F4034CAD29191B1400423FAF /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		F4034CAF29191B1400423FAF /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F4034CB029191B1400423FAF /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		F4034CB129191B1400423FAF /* MainCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
+		F4034CB429191B1400423FAF /* BaseViewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewCollectionViewCell.swift; sourceTree = "<group>"; };
+		F4034CB529191B1400423FAF /* BaseViewContoroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewContoroller.swift; sourceTree = "<group>"; };
+		F4034CB629191B1400423FAF /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		F4034CB929191B1400423FAF /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		F4034CBB29191B1400423FAF /* NSObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
+		F4034CBF29191B1400423FAF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F4034CC029191B1400423FAF /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		F4034CC429191B1400423FAF /* BaseCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCode.swift; sourceTree = "<group>"; };
+		F45119962919230B0058571C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		F463402F2918FE53008A50D6 /* Study-Matching.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Study-Matching.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F46340322918FE53008A50D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F46340342918FE53008A50D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F463403B2918FE54008A50D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F463403E2918FE54008A50D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F46340402918FE54008A50D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -33,6 +55,163 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F4034CA829191B1400423FAF /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				F4034CBE29191B1400423FAF /* Application */,
+				F4034CA929191B1400423FAF /* DataBase */,
+				F4034CBD29191B1400423FAF /* Networking */,
+				F4034CAA29191B1400423FAF /* Scenes */,
+				F4034CB229191B1400423FAF /* Commons */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		F4034CA929191B1400423FAF /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
+		F4034CAA29191B1400423FAF /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				F4034CAB29191B1400423FAF /* Main */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		F4034CAB29191B1400423FAF /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				F4034CAC29191B1400423FAF /* ViewModel */,
+				F4034CAE29191B1400423FAF /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		F4034CAC29191B1400423FAF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F4034CAD29191B1400423FAF /* MainViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F4034CAE29191B1400423FAF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F4034CAF29191B1400423FAF /* MainViewController.swift */,
+				F4034CB029191B1400423FAF /* MainView.swift */,
+				F4034CB129191B1400423FAF /* MainCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F4034CB229191B1400423FAF /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				F4511995291922AE0058571C /* Constants */,
+				F4034CB329191B1400423FAF /* Bases */,
+				F4034CB729191B1400423FAF /* Extensions */,
+				F4034CBC29191B1400423FAF /* Components */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		F4034CB329191B1400423FAF /* Bases */ = {
+			isa = PBXGroup;
+			children = (
+				F4034CB629191B1400423FAF /* BaseView.swift */,
+				F4034CB429191B1400423FAF /* BaseViewCollectionViewCell.swift */,
+				F4034CB529191B1400423FAF /* BaseViewContoroller.swift */,
+			);
+			path = Bases;
+			sourceTree = "<group>";
+		};
+		F4034CB729191B1400423FAF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F4034CB829191B1400423FAF /* UIKit */,
+				F4034CBA29191B1400423FAF /* Foundation */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F4034CB829191B1400423FAF /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				F4034CB929191B1400423FAF /* UIViewController.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		F4034CBA29191B1400423FAF /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				F4034CBB29191B1400423FAF /* NSObject.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		F4034CBC29191B1400423FAF /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F4034CBD29191B1400423FAF /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		F4034CBE29191B1400423FAF /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				F4034CBF29191B1400423FAF /* AppDelegate.swift */,
+				F4034CC029191B1400423FAF /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		F4034CC129191B1400423FAF /* Supportings */ = {
+			isa = PBXGroup;
+			children = (
+				F46340402918FE54008A50D6 /* Info.plist */,
+			);
+			path = Supportings;
+			sourceTree = "<group>";
+		};
+		F4034CC229191B1400423FAF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F463403D2918FE54008A50D6 /* LaunchScreen.storyboard */,
+				F463403B2918FE54008A50D6 /* Assets.xcassets */,
+				F4034CC329191B1400423FAF /* BaseCode */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F4034CC329191B1400423FAF /* BaseCode */ = {
+			isa = PBXGroup;
+			children = (
+				F4034CC429191B1400423FAF /* BaseCode.swift */,
+			);
+			path = BaseCode;
+			sourceTree = "<group>";
+		};
+		F4511995291922AE0058571C /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				F45119962919230B0058571C /* Color.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		F46340262918FE53008A50D6 = {
 			isa = PBXGroup;
 			children = (
@@ -52,11 +231,9 @@
 		F46340312918FE53008A50D6 /* Study-Matching */ = {
 			isa = PBXGroup;
 			children = (
-				F46340322918FE53008A50D6 /* AppDelegate.swift */,
-				F46340342918FE53008A50D6 /* SceneDelegate.swift */,
-				F463403B2918FE54008A50D6 /* Assets.xcassets */,
-				F463403D2918FE54008A50D6 /* LaunchScreen.storyboard */,
-				F46340402918FE54008A50D6 /* Info.plist */,
+				F4034CA829191B1400423FAF /* Sources */,
+				F4034CC229191B1400423FAF /* Resources */,
+				F4034CC129191B1400423FAF /* Supportings */,
 			);
 			path = "Study-Matching";
 			sourceTree = "<group>";
@@ -131,8 +308,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F46340332918FE53008A50D6 /* AppDelegate.swift in Sources */,
-				F46340352918FE53008A50D6 /* SceneDelegate.swift in Sources */,
+				F4034CCE29191B1400423FAF /* AppDelegate.swift in Sources */,
+				F4034CCD29191B1400423FAF /* NSObject.swift in Sources */,
+				F4034CD029191B1400423FAF /* BaseCode.swift in Sources */,
+				F4034CC829191B1400423FAF /* MainCell.swift in Sources */,
+				F45119972919230B0058571C /* Color.swift in Sources */,
+				F4034CC529191B1400423FAF /* MainViewModel.swift in Sources */,
+				F4034CCC29191B1400423FAF /* UIViewController.swift in Sources */,
+				F4034CC929191B1400423FAF /* BaseViewCollectionViewCell.swift in Sources */,
+				F4034CCF29191B1400423FAF /* SceneDelegate.swift in Sources */,
+				F4034CCA29191B1400423FAF /* BaseViewContoroller.swift in Sources */,
+				F4034CCB29191B1400423FAF /* BaseView.swift in Sources */,
+				F4034CC729191B1400423FAF /* MainView.swift in Sources */,
+				F4034CC629191B1400423FAF /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
