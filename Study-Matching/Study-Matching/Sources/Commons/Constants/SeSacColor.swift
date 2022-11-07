@@ -12,3 +12,4 @@ extension SeSacColor {
         return UIColor(named: self.rawValue)!
     }
 }
+

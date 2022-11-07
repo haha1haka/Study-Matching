@@ -23,6 +23,12 @@
 		F451199A291926A00058571C /* SeSacButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4511999291926A00058571C /* SeSacButton.swift */; };
 		F451199D291928C10058571C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F451199C291928C10058571C /* SnapKit */; };
 		F451199F29192DC80058571C /* SeSacFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = F451199E29192DC80058571C /* SeSacFont.swift */; };
+		F45119A229193AB20058571C /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45119A129193AB20058571C /* AuthViewController.swift */; };
+		F45119A429193AEB0058571C /* SMSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45119A329193AEB0058571C /* SMSViewController.swift */; };
+		F45119A629193B930058571C /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45119A529193B930058571C /* AuthView.swift */; };
+		F45119A829193B9F0058571C /* SMSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45119A729193B9F0058571C /* SMSView.swift */; };
+		F45119AA29193BBA0058571C /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45119A929193BBA0058571C /* AuthViewModel.swift */; };
+		F45119AC29193BCD0058571C /* SMSViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45119AB29193BCD0058571C /* SMSViewModel.swift */; };
 		F463403C2918FE54008A50D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F463403B2918FE54008A50D6 /* Assets.xcassets */; };
 		F463403F2918FE54008A50D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F463403D2918FE54008A50D6 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -43,6 +49,12 @@
 		F45119962919230B0058571C /* SeSacColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacColor.swift; sourceTree = "<group>"; };
 		F4511999291926A00058571C /* SeSacButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacButton.swift; sourceTree = "<group>"; };
 		F451199E29192DC80058571C /* SeSacFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacFont.swift; sourceTree = "<group>"; };
+		F45119A129193AB20058571C /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		F45119A329193AEB0058571C /* SMSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSViewController.swift; sourceTree = "<group>"; };
+		F45119A529193B930058571C /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		F45119A729193B9F0058571C /* SMSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSView.swift; sourceTree = "<group>"; };
+		F45119A929193BBA0058571C /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		F45119AB29193BCD0058571C /* SMSViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSViewModel.swift; sourceTree = "<group>"; };
 		F463402F2918FE53008A50D6 /* Study-Matching.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Study-Matching.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F463403B2918FE54008A50D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F463403E2918FE54008A50D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -83,6 +95,8 @@
 		F4034CAA29191B1400423FAF /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				F45119B829193F280058571C /* Onboarding */,
+				F45119B329193C8C0058571C /* Signup */,
 				F4034CAB29191B1400423FAF /* Main */,
 			);
 			path = Scenes;
@@ -91,8 +105,8 @@
 		F4034CAB29191B1400423FAF /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				F4034CAC29191B1400423FAF /* ViewModel */,
 				F4034CAE29191B1400423FAF /* View */,
+				F4034CAC29191B1400423FAF /* ViewModel */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -220,6 +234,106 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
+		F45119A029193A020058571C /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				F45119AD29193BD40058571C /* View */,
+				F45119AF29193BDD0058571C /* ViewModel */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		F45119AD29193BD40058571C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F45119A529193B930058571C /* AuthView.swift */,
+				F45119A129193AB20058571C /* AuthViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F45119AF29193BDD0058571C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F45119A929193BBA0058571C /* AuthViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F45119B029193C170058571C /* SMS */ = {
+			isa = PBXGroup;
+			children = (
+				F45119B129193C250058571C /* View */,
+				F45119B229193C290058571C /* ViewModel */,
+			);
+			path = SMS;
+			sourceTree = "<group>";
+		};
+		F45119B129193C250058571C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F45119A729193B9F0058571C /* SMSView.swift */,
+				F45119A329193AEB0058571C /* SMSViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F45119B229193C290058571C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F45119AB29193BCD0058571C /* SMSViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F45119B329193C8C0058571C /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				F45119A029193A020058571C /* Auth */,
+				F45119B029193C170058571C /* SMS */,
+				F45119B429193E550058571C /* Nickname */,
+				F45119B529193E660058571C /* Birth */,
+				F45119B629193E6E0058571C /* Email */,
+				F45119B729193E730058571C /* Gender */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		F45119B429193E550058571C /* Nickname */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Nickname;
+			sourceTree = "<group>";
+		};
+		F45119B529193E660058571C /* Birth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Birth;
+			sourceTree = "<group>";
+		};
+		F45119B629193E6E0058571C /* Email */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Email;
+			sourceTree = "<group>";
+		};
+		F45119B729193E730058571C /* Gender */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Gender;
+			sourceTree = "<group>";
+		};
+		F45119B829193F280058571C /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		F46340262918FE53008A50D6 = {
 			isa = PBXGroup;
 			children = (
@@ -322,13 +436,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F45119AA29193BBA0058571C /* AuthViewModel.swift in Sources */,
 				F4034CCE29191B1400423FAF /* AppDelegate.swift in Sources */,
 				F451199A291926A00058571C /* SeSacButton.swift in Sources */,
 				F4034CCD29191B1400423FAF /* NSObject.swift in Sources */,
+				F45119A829193B9F0058571C /* SMSView.swift in Sources */,
 				F4034CD029191B1400423FAF /* BaseCode.swift in Sources */,
+				F45119AC29193BCD0058571C /* SMSViewModel.swift in Sources */,
+				F45119A229193AB20058571C /* AuthViewController.swift in Sources */,
 				F451199F29192DC80058571C /* SeSacFont.swift in Sources */,
 				F4034CC829191B1400423FAF /* MainCell.swift in Sources */,
 				F45119972919230B0058571C /* SeSacColor.swift in Sources */,
+				F45119A629193B930058571C /* AuthView.swift in Sources */,
 				F4034CC529191B1400423FAF /* MainViewModel.swift in Sources */,
 				F4034CCC29191B1400423FAF /* UIViewController.swift in Sources */,
 				F4034CC929191B1400423FAF /* BaseViewCollectionViewCell.swift in Sources */,
@@ -337,6 +456,7 @@
 				F4034CCB29191B1400423FAF /* BaseView.swift in Sources */,
 				F4034CC729191B1400423FAF /* MainView.swift in Sources */,
 				F4034CC629191B1400423FAF /* MainViewController.swift in Sources */,
+				F45119A429193AEB0058571C /* SMSViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
