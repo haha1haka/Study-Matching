@@ -1,10 +1,13 @@
 import UIKit
+import SnapKit
 
 class MainViewController: BaseViewController {
     let selfView = MainView()
     override func loadView() {
         view = selfView
     }
+    
+    let button = SeSacButton()
     
     let viewModel = MainViewModel()
     
@@ -14,6 +17,12 @@ extension MainViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
+        selfView.addSubview(button)
+        
+        button.snp.makeConstraints {
+            $0.top.leading.trailing.equalTo(selfView.safeAreaLayoutGuide).inset(20)
+        }
+        
     }
 }
 extension MainViewController {

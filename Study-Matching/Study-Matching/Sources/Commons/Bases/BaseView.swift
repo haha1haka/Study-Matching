@@ -4,7 +4,7 @@ class BaseView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor(named: "green")
+        self.backgroundColor = SeSacColor.white.set
         configureAttributes()
         configureHierarchy()
         configureLayout()
