@@ -22,6 +22,7 @@
 		F45119972919230B0058571C /* SeSacColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45119962919230B0058571C /* SeSacColor.swift */; };
 		F451199A291926A00058571C /* SeSacButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4511999291926A00058571C /* SeSacButton.swift */; };
 		F451199D291928C10058571C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F451199C291928C10058571C /* SnapKit */; };
+		F451199F29192DC80058571C /* SeSacFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = F451199E29192DC80058571C /* SeSacFont.swift */; };
 		F463403C2918FE54008A50D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F463403B2918FE54008A50D6 /* Assets.xcassets */; };
 		F463403F2918FE54008A50D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F463403D2918FE54008A50D6 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -41,6 +42,7 @@
 		F4034CC429191B1400423FAF /* BaseCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCode.swift; sourceTree = "<group>"; };
 		F45119962919230B0058571C /* SeSacColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacColor.swift; sourceTree = "<group>"; };
 		F4511999291926A00058571C /* SeSacButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacButton.swift; sourceTree = "<group>"; };
+		F451199E29192DC80058571C /* SeSacFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacFont.swift; sourceTree = "<group>"; };
 		F463402F2918FE53008A50D6 /* Study-Matching.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Study-Matching.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F463403B2918FE54008A50D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F463403E2918FE54008A50D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				F45119962919230B0058571C /* SeSacColor.swift */,
+				F451199E29192DC80058571C /* SeSacFont.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				F451199A291926A00058571C /* SeSacButton.swift in Sources */,
 				F4034CCD29191B1400423FAF /* NSObject.swift in Sources */,
 				F4034CD029191B1400423FAF /* BaseCode.swift in Sources */,
+				F451199F29192DC80058571C /* SeSacFont.swift in Sources */,
 				F4034CC829191B1400423FAF /* MainCell.swift in Sources */,
 				F45119972919230B0058571C /* SeSacColor.swift in Sources */,
 				F4034CC529191B1400423FAF /* MainViewModel.swift in Sources */,

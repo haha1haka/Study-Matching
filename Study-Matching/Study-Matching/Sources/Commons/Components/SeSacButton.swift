@@ -3,7 +3,6 @@ import UIKit
 
 class SeSacButton: UIButton {
     
-    
     convenience init(frame: CGRect, title: String) {
         self.init(frame: frame)
         setTitle(title, for: .normal)
@@ -20,9 +19,7 @@ class SeSacButton: UIButton {
     }
     
     func configureAttributes() {
-        backgroundColor = UIColor(named: "green")
-        
-        
+        backgroundColor = SeSacColor.black.set
     }
     
 }
