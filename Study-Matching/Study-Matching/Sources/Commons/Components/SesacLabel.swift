@@ -3,8 +3,13 @@ import UIKit
 
 class SeSacLabel: UILabel {
     
-    convenience init(frame: CGRect = .zero, text_: String, font_: UIFont = SeSacFont.Display1_R20.set) {
+    convenience init(frame: CGRect = .zero,
+                     text_: String,
+                     color: UIColor = SeSacColor.black.set,
+                     font_: UIFont = SeSacFont.Display1_R20.set)
+    {
         self.init(frame: frame)
+        textColor = color
         font = font_
         text = text_
     }
