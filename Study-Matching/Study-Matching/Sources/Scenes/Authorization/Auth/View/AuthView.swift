@@ -3,10 +3,11 @@ import SnapKit
 
 class AuthView: BaseView {
 
-    let label = UILabel()
-    let textFiled = SeSacTexField()
-    let button = SeSacButton()
+    let label = SeSacLabel(text_: "인증번호가 문자로 전송되었어요", font_: SeSacFont.Display1_R20.set)
+    let textFiled = SeSacTexField(title: "휴대폰 번호(-없이 숫자만 입력)")
+    let button = SeSacButton(title: "인증하고 시작하기", color: SeSacColor.gray6.set)
     
+
     
     override func configureHierarchy() {
         [label, textFiled, button].forEach { self.addSubview($0) }
@@ -30,25 +31,6 @@ class AuthView: BaseView {
             
         }
     }
-    
-    override func configureAttributes() {
-        
-        
-    
-        label.numberOfLines = .zero
-        label.textAlignment = .center
-        label.font = UIFont(name: "NotoSansCJKkr-Regular", size: 20)
-        label.text = """
-                    새싹 서비스 이용을 위해
-                    휴대폰 번호를 입력해 주세요
-                    """
-        
-        textFiled.placeholder = "휴대폰 번호(-없이 숫자만 입력)"
-        textFiled.tintColor = .clear
-        
-        
-        button.setTitle("인증 문자 받기", for: .normal)
-        
-    }
+
 
 }

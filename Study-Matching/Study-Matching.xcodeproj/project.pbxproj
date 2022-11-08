@@ -40,6 +40,7 @@
 		F45119CB291942720058571C /* SeSacTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45119CA291942720058571C /* SeSacTextField.swift */; };
 		F454E4A2291A1CDB0064BCC4 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F454E4A0291A1CDA0064BCC4 /* NotoSansCJKkr-Medium.otf */; };
 		F454E4A3291A1CDB0064BCC4 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F454E4A1291A1CDB0064BCC4 /* NotoSansCJKkr-Regular.otf */; };
+		F454E4A7291A24610064BCC4 /* SesacLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F454E4A6291A24610064BCC4 /* SesacLabel.swift */; };
 		F463403C2918FE54008A50D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F463403B2918FE54008A50D6 /* Assets.xcassets */; };
 		F463403F2918FE54008A50D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F463403D2918FE54008A50D6 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -77,6 +78,7 @@
 		F45119CA291942720058571C /* SeSacTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacTextField.swift; sourceTree = "<group>"; };
 		F454E4A0291A1CDA0064BCC4 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
 		F454E4A1291A1CDB0064BCC4 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
+		F454E4A6291A24610064BCC4 /* SesacLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacLabel.swift; sourceTree = "<group>"; };
 		F463402F2918FE53008A50D6 /* Study-Matching.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Study-Matching.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F463403B2918FE54008A50D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F463403E2918FE54008A50D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 		F4034CBC29191B1400423FAF /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				F454E4A6291A24610064BCC4 /* SesacLabel.swift */,
 				F4511999291926A00058571C /* SeSacButton.swift */,
 				F45119CA291942720058571C /* SeSacTextField.swift */,
 			);
@@ -297,8 +300,8 @@
 		F45119B129193C250058571C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F45119A729193B9F0058571C /* SMSView.swift */,
 				F45119A329193AEB0058571C /* SMSViewController.swift */,
+				F45119A729193B9F0058571C /* SMSView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				F45119AA29193BBA0058571C /* AuthViewModel.swift in Sources */,
 				F4034CCE29191B1400423FAF /* AppDelegate.swift in Sources */,
 				F451199A291926A00058571C /* SeSacButton.swift in Sources */,
+				F454E4A7291A24610064BCC4 /* SesacLabel.swift in Sources */,
 				F4034CCD29191B1400423FAF /* NSObject.swift in Sources */,
 				F45119A829193B9F0058571C /* SMSView.swift in Sources */,
 				F45119BF291941620058571C /* EmailView.swift in Sources */,

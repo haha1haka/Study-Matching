@@ -8,6 +8,11 @@ class SeSacTexField: UITextField {
         return view
     }()
     
+    convenience init(frame: CGRect = .zero, title: String) {
+        self.init(frame: frame)
+        placeholder = title
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureHierarcy()
@@ -35,8 +40,10 @@ extension SeSacTexField {
     }
     
     func configureAttributes() {
-        self.backgroundColor = .clear
+        backgroundColor = .clear
+        tintColor = .clear
         dividerView.backgroundColor = .opaqueSeparator
     }
     
 }
+

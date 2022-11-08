@@ -1,18 +1,18 @@
 import UIKit
 
 
-class SeSacButton: UIButton {
+class SeSacLabel: UILabel {
     
-    convenience init(frame: CGRect = .zero, title: String, color: UIColor) {
+    convenience init(frame: CGRect = .zero, text_: String, font_: UIFont) {
         self.init(frame: frame)
-        setTitle(title, for: .normal)
-        backgroundColor = color
+        font = font_
+        text = text_
+        
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureAttributes()
-
     }
     
     required init?(coder: NSCoder) {
@@ -20,11 +20,10 @@ class SeSacButton: UIButton {
     }
 }
 
-extension SeSacButton {
+extension SeSacLabel {
     func configureAttributes() {
-        layer.cornerRadius = 8
-        layer.masksToBounds = true
+        numberOfLines = .zero
+        textAlignment = .center
     }
 }
-
 
