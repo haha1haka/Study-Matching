@@ -3,15 +3,22 @@ import SnapKit
 
 class GenderView: BaseView {
 
-    let label = SeSacLabel(text_: "인증번호가 문자로 전송되었어요", font_: SeSacFont.Display1_R20.set)
-    let textFiled = SeSacTexField(title: "휴대폰 번호(-없이 숫자만 입력)")
-    let reSandButton = SeSacButton(title: "재전송", color: SeSacColor.green.set)
-    let button = SeSacButton(title: "인증하고 시작하기", color: SeSacColor.gray6.set)
+    let label = SeSacLabel(text_: "성별을 선택해 주세요")
+    let subLabel = SeSacLabel(text_: "새싹 찾기 기능을 이용하기 위해서 필요해요!",
+                              color: SeSacColor.gray7.set,
+                              font_: SeSacFont.Title2_R16.set)
     
-
+    lazy var collectionView: UICollectionView = {
+        let view = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionViewLayout())
+        return view
+    }()
     
+    let button = SeSacButton(title: "다음")
+        
     override func configureHierarchy() {
-        [label, textFiled, reSandButton, button].forEach { self.addSubview($0) }
+        [label, subLabel, button].forEach { self.addSubview($0) }
+        self.addSubview(collectionView)
+        
     }
     
     override func configureLayout() {
@@ -20,26 +27,46 @@ class GenderView: BaseView {
             $0.leading.trailing.equalTo(self.safeAreaLayoutGuide).inset(74)
             $0.height.equalTo(64)
         }
-        textFiled.snp.makeConstraints {
-            $0.top.equalTo(label.snp.bottom).offset(64)
-            $0.leading.equalTo(self.safeAreaLayoutGuide).inset(16)
-            $0.width.equalTo(270)
-            $0.height.equalTo(48)
-        }
-        reSandButton.snp.makeConstraints {
-            $0.trailing.equalTo(self.safeAreaLayoutGuide).inset(16)
-            $0.leading.equalTo(textFiled.snp.trailing).offset(8)
-            $0.centerY.equalTo(textFiled.snp.centerY)
-            $0.height.equalTo(40)
-        }
         
+        subLabel.snp.makeConstraints {
+            $0.top.equalTo(label.snp.bottom)
+            $0.leading.trailing.equalTo(self.safeAreaLayoutGuide).inset(50)
+            $0.height.equalTo(26)
+        }
+        collectionView.snp.makeConstraints {
+            $0.top.equalTo(subLabel.snp.bottom).offset(32)
+            $0.leading.trailing.equalTo(self.safeAreaLayoutGuide).inset(16)
+            $0.height.equalTo(120)
+        }
+
         button.snp.makeConstraints {
-            $0.top.equalTo(textFiled.snp.bottom).offset(72)
+            $0.top.equalTo(collectionView.snp.bottom).offset(32)
             $0.leading.trailing.equalTo(self.safeAreaLayoutGuide).inset(16)
             $0.height.equalTo(48)
             
         }
     }
+    
+    func configureCollectionViewLayout() -> UICollectionViewLayout{
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item,count: 2)
+        let section = NSCollectionLayoutSection(group: group)
+        
+        return UICollectionViewCompositionalLayout(section: section)
+        
+    }
+    
+
+    
+    
+ 
+    
+
 
 
 }
+
