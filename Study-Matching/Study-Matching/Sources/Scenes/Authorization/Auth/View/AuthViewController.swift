@@ -1,8 +1,21 @@
-//
-//  AuthViewController.swift
-//  Study-Matching
-//
-//  Created by HWAKSEONG KIM on 2022/11/07.
-//
+import UIKit
 
-import Foundation
+class AuthViewController: BaseViewController {
+    let selfView = AuthView()
+    override func loadView() {
+        view = selfView
+    }
+}
+
+extension AuthViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+}
+extension AuthViewController {
+
+}
+
+extension AuthViewController {
+
+}

@@ -1,8 +1,20 @@
+//import UIKit
+//class MainViewController: BaseViewController {
+//    let selfView = MainView()
+//    override func loadView() {
+//        view = selfView
+//    }
+//}
 //
-//  AuthCodeViewController.swift
-//  Study-Matching
+//extension MainViewController {
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//    }
+//}
+//extension MainViewController {
 //
-//  Created by HWAKSEONG KIM on 2022/11/07.
+//}
 //
-
-import Foundation
+//extension MainViewController {
+//
+//}

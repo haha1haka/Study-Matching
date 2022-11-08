@@ -1,8 +1,15 @@
+//import UIKit
+//class MainView: BaseView {
 //
-//  VertifyView.swift
-//  Study-Matching
 //
-//  Created by HWAKSEONG KIM on 2022/11/07.
+//    override func configureHierarchy() {
+//        <#code#>
+//    }
+//    override func configureLayout() {
+//        <#code#>
+//    }
+//    override func configureAttributes() {
+//        <#code#>
+//    }
 //
-
-import Foundation
+//}
