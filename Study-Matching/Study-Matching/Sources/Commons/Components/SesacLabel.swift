@@ -3,7 +3,7 @@ import UIKit
 
 class SeSacLabel: UILabel {
     
-    convenience init(frame: CGRect = .zero, text_: String, font_: UIFont) {
+    convenience init(frame: CGRect = .zero, text_: String, font_: UIFont = SeSacFont.Display1_R20.set) {
         self.init(frame: frame)
         font = font_
         text = text_

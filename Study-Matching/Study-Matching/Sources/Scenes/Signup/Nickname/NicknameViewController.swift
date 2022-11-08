@@ -1,20 +1,20 @@
-//import UIKit
-//class MainViewController: BaseViewController {
-//    let selfView = MainView()
-//    override func loadView() {
-//        view = selfView
-//    }
-//}
-//
-//extension MainViewController {
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//    }
-//}
-//extension MainViewController {
-//
-//}
-//
-//extension MainViewController {
-//
-//}
+import UIKit
+class NicknameViewController: BaseViewController {
+    let selfView = NicknameView()
+    override func loadView() {
+        view = selfView
+    }
+}
+
+extension NicknameViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+}
+extension NicknameViewController {
+
+}
+
+extension NicknameViewController {
+
+}

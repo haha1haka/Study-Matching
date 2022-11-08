@@ -3,9 +3,9 @@ import SnapKit
 
 class AuthView: BaseView {
 
-    let label = SeSacLabel(text_: "인증번호가 문자로 전송되었어요", font_: SeSacFont.Display1_R20.set)
+    let label = SeSacLabel(text_: "인증번호가 문자로 전송되었어요")
     let textFiled = SeSacTexField(title: "휴대폰 번호(-없이 숫자만 입력)")
-    let button = SeSacButton(title: "인증하고 시작하기", color: SeSacColor.gray6.set)
+    let button = SeSacButton(title: "인증하고 시작하기")
     
 
     
