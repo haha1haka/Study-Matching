@@ -7,7 +7,6 @@ class SeSacLabel: UILabel {
         self.init(frame: frame)
         font = font_
         text = text_
-        
     }
     
     override init(frame: CGRect) {

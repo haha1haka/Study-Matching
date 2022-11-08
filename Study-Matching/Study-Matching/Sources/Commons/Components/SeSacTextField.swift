@@ -8,8 +8,9 @@ class SeSacTexField: UITextField {
         return view
     }()
     
-    convenience init(frame: CGRect = .zero, title: String) {
+    convenience init(frame: CGRect = .zero, title: String, font_: UIFont = SeSacFont.Title4_R14.set) {
         self.init(frame: frame)
+        font = font_
         placeholder = title
     }
     

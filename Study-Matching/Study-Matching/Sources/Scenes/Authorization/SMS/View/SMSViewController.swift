@@ -1,20 +1,22 @@
-//import UIKit
-//class MainViewController: BaseViewController {
-//    let selfView = MainView()
-//    override func loadView() {
-//        view = selfView
-//    }
-//}
-//
-//extension MainViewController {
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//    }
-//}
-//extension MainViewController {
-//
-//}
-//
-//extension MainViewController {
-//
-//}
+import UIKit
+import SnapKit
+
+class SMSViewController: BaseViewController {
+    let selfView = SMSView()
+    override func loadView() {
+        view = selfView
+    }
+}
+
+extension SMSViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+}
+extension SMSViewController {
+
+}
+
+extension SMSViewController {
+
+}

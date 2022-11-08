@@ -3,13 +3,15 @@ import SnapKit
 
 class SMSView: BaseView {
 
-    let label = UILabel()
-    let textFiled = SeSacTexField()
-    let button = SeSacButton()
+    let label = SeSacLabel(text_: "인증번호가 문자로 전송되었어요", font_: SeSacFont.Display1_R20.set)
+    let textFiled = SeSacTexField(title: "휴대폰 번호(-없이 숫자만 입력)")
+    let reSandButton = SeSacButton(title: "재전송", color: SeSacColor.green.set)
+    let button = SeSacButton(title: "인증하고 시작하기", color: SeSacColor.gray6.set)
     
+
     
     override func configureHierarchy() {
-        [label, textFiled, button].forEach { self.addSubview($0) }
+        [label, textFiled, reSandButton, button].forEach { self.addSubview($0) }
     }
     
     override func configureLayout() {
@@ -20,9 +22,17 @@ class SMSView: BaseView {
         }
         textFiled.snp.makeConstraints {
             $0.top.equalTo(label.snp.bottom).offset(64)
-            $0.leading.trailing.equalTo(self.safeAreaLayoutGuide).inset(16)
+            $0.leading.equalTo(self.safeAreaLayoutGuide).inset(16)
+            $0.width.equalTo(270)
             $0.height.equalTo(48)
         }
+        reSandButton.snp.makeConstraints {
+            $0.trailing.equalTo(self.safeAreaLayoutGuide).inset(16)
+            $0.leading.equalTo(textFiled.snp.trailing).offset(8)
+            $0.centerY.equalTo(textFiled.snp.centerY)
+            $0.height.equalTo(40)
+        }
+        
         button.snp.makeConstraints {
             $0.top.equalTo(textFiled.snp.bottom).offset(72)
             $0.leading.trailing.equalTo(self.safeAreaLayoutGuide).inset(16)
@@ -30,24 +40,6 @@ class SMSView: BaseView {
             
         }
     }
-    
-    override func configureAttributes() {
-        
-        
-    
-        label.numberOfLines = .zero
-        label.textAlignment = .center
-        label.font = SeSacFont.Display1_R20.set
-        label.text = """
-                    인증번호가 문자로 전송되었습니다
-                    """
-        
-        textFiled.placeholder = "휴대폰 번호(-없이 숫자만 입력)"
-        textFiled.tintColor = .clear
-        
-        
-        button.setTitle("인증 문자 받기", for: .normal)
-        
-    }
+
 
 }
