@@ -1,6 +1,6 @@
 import UIKit
 class BirthViewController: BaseViewController {
-    let selfView = BaseView()
+    let selfView = BirthView()
     override func loadView() {
         view = selfView
     }

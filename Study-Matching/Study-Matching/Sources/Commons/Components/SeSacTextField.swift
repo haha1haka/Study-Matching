@@ -33,6 +33,7 @@ extension SeSacTexField {
     func configureHierarcy() {
         self.addSubview(dividerView)
     }
+    
     func configureLayout() {
         dividerView.snp.makeConstraints {
             $0.leading.trailing.bottom.equalTo(self)
