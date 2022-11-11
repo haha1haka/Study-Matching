@@ -65,9 +65,9 @@ class GenderCell: BaseCollectionViewCell {
     
     func isSelectedCell() {
         if isSelected {
-            imageView.backgroundColor = SeSacColor.whitegreen.set
+            imageView.backgroundColor = SeSacColor.whitegreen
         } else {
-            imageView.backgroundColor = SeSacColor.white.set
+            imageView.backgroundColor = SeSacColor.white
         }
         
         

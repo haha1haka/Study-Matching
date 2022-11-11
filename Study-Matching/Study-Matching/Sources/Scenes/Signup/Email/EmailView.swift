@@ -5,7 +5,7 @@ class EmailView: BaseView {
 
     let label = SeSacLabel(text_: "이메일을 입력해 주세요")
     let subLabel = SeSacLabel(text_: "휴대폰 번호 변경 시 인증을 위해 사용해요",
-                              color: SeSacColor.gray7.set,
+                              color: SeSacColor.gray7,
                               font_: SeSacFont.Title2_R16.set)
     let textFiled = SeSacTexField(title: "10자 이내로 입력")
     let button = SeSacButton(title: "다음")

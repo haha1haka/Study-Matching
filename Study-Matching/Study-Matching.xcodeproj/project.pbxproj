@@ -19,6 +19,9 @@
 		F4034CCE29191B1400423FAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CBF29191B1400423FAF /* AppDelegate.swift */; };
 		F4034CCF29191B1400423FAF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CC029191B1400423FAF /* SceneDelegate.swift */; };
 		F4034CD029191B1400423FAF /* BaseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CC429191B1400423FAF /* BaseCode.swift */; };
+		F4334030291E12FA00F46725 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F433402F291E12FA00F46725 /* RxCocoa */; };
+		F4334032291E12FA00F46725 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F4334031291E12FA00F46725 /* RxSwift */; };
+		F4334034291E177400F46725 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4334033291E177400F46725 /* OnboardingViewModel.swift */; };
 		F45119972919230B0058571C /* SeSacColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45119962919230B0058571C /* SeSacColor.swift */; };
 		F451199A291926A00058571C /* SeSacButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4511999291926A00058571C /* SeSacButton.swift */; };
 		F451199D291928C10058571C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F451199C291928C10058571C /* SnapKit */; };
@@ -40,10 +43,15 @@
 		F45119CB291942720058571C /* SeSacTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45119CA291942720058571C /* SeSacTextField.swift */; };
 		F454E4A2291A1CDB0064BCC4 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F454E4A0291A1CDA0064BCC4 /* NotoSansCJKkr-Medium.otf */; };
 		F454E4A3291A1CDB0064BCC4 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F454E4A1291A1CDB0064BCC4 /* NotoSansCJKkr-Regular.otf */; };
-		F454E4A7291A24610064BCC4 /* SesacLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F454E4A6291A24610064BCC4 /* SesacLabel.swift */; };
+		F454E4A7291A24610064BCC4 /* SeSacLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F454E4A6291A24610064BCC4 /* SeSacLabel.swift */; };
 		F454E4A9291A66070064BCC4 /* DateLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F454E4A8291A66070064BCC4 /* DateLabel.swift */; };
 		F463403C2918FE54008A50D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F463403B2918FE54008A50D6 /* Assets.xcassets */; };
 		F463403F2918FE54008A50D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F463403D2918FE54008A50D6 /* LaunchScreen.storyboard */; };
+		F4F103CA291CBD0E00C2020C /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103C9291CBD0E00C2020C /* OnBoardingViewController.swift */; };
+		F4F103CC291CBD1700C2020C /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103CB291CBD1700C2020C /* OnBoardingView.swift */; };
+		F4F103CE291CBF8A00C2020C /* SeSacImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103CD291CBF8A00C2020C /* SeSacImage.swift */; };
+		F4F103D0291CC1C300C2020C /* OnboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103CF291CC1C300C2020C /* OnboardCell.swift */; };
+		F4F103D2291CC66600C2020C /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103D1291CC66600C2020C /* FooterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +67,7 @@
 		F4034CBF29191B1400423FAF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4034CC029191B1400423FAF /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F4034CC429191B1400423FAF /* BaseCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCode.swift; sourceTree = "<group>"; };
+		F4334033291E177400F46725 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		F45119962919230B0058571C /* SeSacColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacColor.swift; sourceTree = "<group>"; };
 		F4511999291926A00058571C /* SeSacButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacButton.swift; sourceTree = "<group>"; };
 		F451199E29192DC80058571C /* SeSacFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacFont.swift; sourceTree = "<group>"; };
@@ -79,12 +88,17 @@
 		F45119CA291942720058571C /* SeSacTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacTextField.swift; sourceTree = "<group>"; };
 		F454E4A0291A1CDA0064BCC4 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
 		F454E4A1291A1CDB0064BCC4 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
-		F454E4A6291A24610064BCC4 /* SesacLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacLabel.swift; sourceTree = "<group>"; };
+		F454E4A6291A24610064BCC4 /* SeSacLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacLabel.swift; sourceTree = "<group>"; };
 		F454E4A8291A66070064BCC4 /* DateLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateLabel.swift; sourceTree = "<group>"; };
 		F463402F2918FE53008A50D6 /* Study-Matching.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Study-Matching.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F463403B2918FE54008A50D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F463403E2918FE54008A50D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F46340402918FE54008A50D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4F103C9291CBD0E00C2020C /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
+		F4F103CB291CBD1700C2020C /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
+		F4F103CD291CBF8A00C2020C /* SeSacImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacImage.swift; sourceTree = "<group>"; };
+		F4F103CF291CC1C300C2020C /* OnboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardCell.swift; sourceTree = "<group>"; };
+		F4F103D1291CC66600C2020C /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +106,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4334032291E12FA00F46725 /* RxSwift in Frameworks */,
+				F4334030291E12FA00F46725 /* RxCocoa in Frameworks */,
 				F451199D291928C10058571C /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -205,10 +221,10 @@
 		F4034CBC29191B1400423FAF /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				F454E4A6291A24610064BCC4 /* SesacLabel.swift */,
+				F454E4A8291A66070064BCC4 /* DateLabel.swift */,
+				F454E4A6291A24610064BCC4 /* SeSacLabel.swift */,
 				F4511999291926A00058571C /* SeSacButton.swift */,
 				F45119CA291942720058571C /* SeSacTextField.swift */,
-				F454E4A8291A66070064BCC4 /* DateLabel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -261,6 +277,7 @@
 			children = (
 				F45119962919230B0058571C /* SeSacColor.swift */,
 				F451199E29192DC80058571C /* SeSacFont.swift */,
+				F4F103CD291CBF8A00C2020C /* SeSacImage.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -367,6 +384,11 @@
 		F45119B829193F280058571C /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				F4F103C9291CBD0E00C2020C /* OnBoardingViewController.swift */,
+				F4F103CB291CBD1700C2020C /* OnBoardingView.swift */,
+				F4334033291E177400F46725 /* OnboardingViewModel.swift */,
+				F4F103CF291CC1C300C2020C /* OnboardCell.swift */,
+				F4F103D1291CC66600C2020C /* FooterView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -433,6 +455,8 @@
 			name = "Study-Matching";
 			packageProductDependencies = (
 				F451199C291928C10058571C /* SnapKit */,
+				F433402F291E12FA00F46725 /* RxCocoa */,
+				F4334031291E12FA00F46725 /* RxSwift */,
 			);
 			productName = "Study-Matching";
 			productReference = F463402F2918FE53008A50D6 /* Study-Matching.app */;
@@ -464,6 +488,7 @@
 			mainGroup = F46340262918FE53008A50D6;
 			packageReferences = (
 				F451199B291928C10058571C /* XCRemoteSwiftPackageReference "SnapKit" */,
+				F433402E291E12FA00F46725 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = F46340302918FE53008A50D6 /* Products */;
 			projectDirPath = "";
@@ -496,14 +521,16 @@
 				F45119AA29193BBA0058571C /* AuthViewModel.swift in Sources */,
 				F4034CCE29191B1400423FAF /* AppDelegate.swift in Sources */,
 				F451199A291926A00058571C /* SeSacButton.swift in Sources */,
-				F454E4A7291A24610064BCC4 /* SesacLabel.swift in Sources */,
+				F454E4A7291A24610064BCC4 /* SeSacLabel.swift in Sources */,
 				F4034CCD29191B1400423FAF /* NSObject.swift in Sources */,
 				F45119A829193B9F0058571C /* SMSView.swift in Sources */,
 				F45119BF291941620058571C /* EmailView.swift in Sources */,
+				F4F103D2291CC66600C2020C /* FooterView.swift in Sources */,
 				F4034CD029191B1400423FAF /* BaseCode.swift in Sources */,
 				F454E4A9291A66070064BCC4 /* DateLabel.swift in Sources */,
 				F45119AC29193BCD0058571C /* SMSViewModel.swift in Sources */,
 				F45119C3291941A00058571C /* NicknameViewController.swift in Sources */,
+				F4F103CE291CBF8A00C2020C /* SeSacImage.swift in Sources */,
 				F45119A229193AB20058571C /* AuthViewController.swift in Sources */,
 				F45119C9291941B80058571C /* GenderViewController.swift in Sources */,
 				F45119BB291941550058571C /* NicknameView.swift in Sources */,
@@ -514,15 +541,19 @@
 				F45119A629193B930058571C /* AuthView.swift in Sources */,
 				F45119CB291942720058571C /* SeSacTextField.swift in Sources */,
 				F4034CC529191B1400423FAF /* MainViewModel.swift in Sources */,
+				F4F103CA291CBD0E00C2020C /* OnBoardingViewController.swift in Sources */,
 				F4034CCC29191B1400423FAF /* UIViewController.swift in Sources */,
 				F4034CC929191B1400423FAF /* BaseViewCollectionViewCell.swift in Sources */,
 				F45119C7291941B10058571C /* EmailViewController.swift in Sources */,
+				F4F103CC291CBD1700C2020C /* OnBoardingView.swift in Sources */,
 				F4034CCF29191B1400423FAF /* SceneDelegate.swift in Sources */,
 				F45119C5291941AB0058571C /* BirthViewController.swift in Sources */,
 				F4034CCA29191B1400423FAF /* BaseViewContoroller.swift in Sources */,
+				F4334034291E177400F46725 /* OnboardingViewModel.swift in Sources */,
 				F4034CCB29191B1400423FAF /* BaseView.swift in Sources */,
 				F45119C1291941680058571C /* GenderView.swift in Sources */,
 				F4034CC729191B1400423FAF /* MainView.swift in Sources */,
+				F4F103D0291CC1C300C2020C /* OnboardCell.swift in Sources */,
 				F4034CC629191B1400423FAF /* MainViewController.swift in Sources */,
 				F45119A429193AEB0058571C /* SMSViewController.swift in Sources */,
 			);
@@ -670,6 +701,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -700,6 +732,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -740,6 +773,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F433402E291E12FA00F46725 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 		F451199B291928C10058571C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -751,6 +792,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F433402F291E12FA00F46725 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F433402E291E12FA00F46725 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		F4334031291E12FA00F46725 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F433402E291E12FA00F46725 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
 		F451199C291928C10058571C /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F451199B291928C10058571C /* XCRemoteSwiftPackageReference "SnapKit" */;

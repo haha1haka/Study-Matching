@@ -5,7 +5,7 @@ class SMSView: BaseView {
 
     let label = SeSacLabel(text_: "인증번호가 문자로 전송되었어요")
     let textFiled = SeSacTexField(title: "휴대폰 번호(-없이 숫자만 입력)")
-    let reSandButton = SeSacButton(title: "재전송", color: SeSacColor.green.set)
+    let reSandButton = SeSacButton(title: "재전송", color: SeSacColor.green)
     let button = SeSacButton(title: "인증하고 시작하기")
     
 

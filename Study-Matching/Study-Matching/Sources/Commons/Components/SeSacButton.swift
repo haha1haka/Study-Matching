@@ -5,7 +5,7 @@ class SeSacButton: UIButton {
     
     convenience init(frame: CGRect = .zero,
                      title: String,
-                     color: UIColor = SeSacColor.gray6.set,
+                     color: UIColor = SeSacColor.gray6,
                      font_: UIFont = SeSacFont.Body3_R14.set)
     {
         self.init(frame: frame)

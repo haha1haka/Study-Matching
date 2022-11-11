@@ -5,7 +5,7 @@ class SeSacLabel: UILabel {
     
     convenience init(frame: CGRect = .zero,
                      text_: String,
-                     color: UIColor = SeSacColor.black.set,
+                     color: UIColor = SeSacColor.black,
                      font_: UIFont = SeSacFont.Display1_R20.set)
     {
         self.init(frame: frame)

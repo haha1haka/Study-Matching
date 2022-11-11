@@ -4,17 +4,17 @@ import SnapKit
 class BirthView: BaseView {
 
     let label = SeSacLabel(text_: "생년월일을 알려주세요")
-    let containerView = UIView()
-    let yearDateLabel = DateLabel()
+    let button = SeSacButton(title: "다음")
+    let datePicker = UIDatePicker()
     let monthDateLabel = DateLabel()
+    let yearDateLabel = DateLabel()
     let dayDateLabel = DateLabel()
+    let containerView = UIView()
     let yearLabel = UILabel()
     let monthLabel = UILabel()
     let dayLabel = UILabel()
-    let button = SeSacButton(title: "다음")
-    let datePicker = UIDatePicker()
     
-
+    
     override func configureHierarchy() {
         [label, button, datePicker].forEach { self.addSubview($0) }
         self.addSubview(containerView)

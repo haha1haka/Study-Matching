@@ -9,6 +9,7 @@ class BirthViewController: BaseViewController {
 extension BirthViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        //configureNavigationBar()
     }
 }
 extension BirthViewController {

@@ -5,7 +5,7 @@ class GenderView: BaseView {
 
     let label = SeSacLabel(text_: "성별을 선택해 주세요")
     let subLabel = SeSacLabel(text_: "새싹 찾기 기능을 이용하기 위해서 필요해요!",
-                              color: SeSacColor.gray7.set,
+                              color: SeSacColor.gray7,
                               font_: SeSacFont.Title2_R16.set)
     
     lazy var collectionView: UICollectionView = {

@@ -8,7 +8,6 @@ class AuthView: BaseView {
     let button = SeSacButton(title: "인증하고 시작하기")
     
 
-    
     override func configureHierarchy() {
         [label, textFiled, button].forEach { self.addSubview($0) }
     }
