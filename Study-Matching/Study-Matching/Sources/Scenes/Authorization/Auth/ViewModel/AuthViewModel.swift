@@ -3,9 +3,16 @@ import RxSwift
 import RxCocoa
 
 class AuthViewModel {
-    var textFieldTextObserverable = BehaviorSubject<String>(value: "")
-    var validation = BehaviorRelay<Bool>(value: false)
     
+    var textFieldTextObserverable = BehaviorSubject<String>(value: "")
+    var dividerViewFlag = BehaviorRelay<Bool>(value: false)
+    var validationFlag = BehaviorRelay<Bool>(value: false)
+    
+    
+    
+    func applydividerView(_ inputText: String) -> Bool {
+        return inputText.isEmpty
+    }
     
     func validHandler(text: String) -> Bool {
         let textRegex = "^01([0-9])+-([0-9]{3,4})+-([0-9]{4})$"
