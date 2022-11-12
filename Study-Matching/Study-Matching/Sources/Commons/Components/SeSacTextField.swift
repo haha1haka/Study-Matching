@@ -43,8 +43,8 @@ extension SeSacTexField {
     
     func configureAttributes() {
         backgroundColor = .clear
-        tintColor = .clear
-        dividerView.backgroundColor = .opaqueSeparator
+        
+        dividerView.backgroundColor = SeSacColor.gray3
     }
     
 }

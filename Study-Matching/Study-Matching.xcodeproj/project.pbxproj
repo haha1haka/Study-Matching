@@ -47,6 +47,7 @@
 		F454E4A9291A66070064BCC4 /* DateLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F454E4A8291A66070064BCC4 /* DateLabel.swift */; };
 		F463403C2918FE54008A50D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F463403B2918FE54008A50D6 /* Assets.xcassets */; };
 		F463403F2918FE54008A50D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F463403D2918FE54008A50D6 /* LaunchScreen.storyboard */; };
+		F46B4A31291E9070003910E2 /* ValidationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46B4A30291E9070003910E2 /* ValidationManager.swift */; };
 		F4F103CA291CBD0E00C2020C /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103C9291CBD0E00C2020C /* OnBoardingViewController.swift */; };
 		F4F103CC291CBD1700C2020C /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103CB291CBD1700C2020C /* OnBoardingView.swift */; };
 		F4F103CE291CBF8A00C2020C /* SeSacImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103CD291CBF8A00C2020C /* SeSacImage.swift */; };
@@ -94,6 +95,7 @@
 		F463403B2918FE54008A50D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F463403E2918FE54008A50D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F46340402918FE54008A50D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F46B4A30291E9070003910E2 /* ValidationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationManager.swift; sourceTree = "<group>"; };
 		F4F103C9291CBD0E00C2020C /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		F4F103CB291CBD1700C2020C /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		F4F103CD291CBF8A00C2020C /* SeSacImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacImage.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 		F4034CB229191B1400423FAF /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				F46B4A2E291E9055003910E2 /* Manager */,
 				F4511995291922AE0058571C /* Constants */,
 				F4034CB329191B1400423FAF /* Bases */,
 				F4034CB729191B1400423FAF /* Extensions */,
@@ -437,6 +440,22 @@
 			path = "Study-Matching";
 			sourceTree = "<group>";
 		};
+		F46B4A2E291E9055003910E2 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				F46B4A2F291E9059003910E2 /* ValidationManager */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		F46B4A2F291E9059003910E2 /* ValidationManager */ = {
+			isa = PBXGroup;
+			children = (
+				F46B4A30291E9070003910E2 /* ValidationManager.swift */,
+			);
+			path = ValidationManager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -527,6 +546,7 @@
 				F45119BF291941620058571C /* EmailView.swift in Sources */,
 				F4F103D2291CC66600C2020C /* FooterView.swift in Sources */,
 				F4034CD029191B1400423FAF /* BaseCode.swift in Sources */,
+				F46B4A31291E9070003910E2 /* ValidationManager.swift in Sources */,
 				F454E4A9291A66070064BCC4 /* DateLabel.swift in Sources */,
 				F45119AC29193BCD0058571C /* SMSViewModel.swift in Sources */,
 				F45119C3291941A00058571C /* NicknameViewController.swift in Sources */,
