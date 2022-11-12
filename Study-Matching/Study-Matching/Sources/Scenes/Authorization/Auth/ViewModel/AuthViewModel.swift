@@ -10,15 +10,18 @@ class AuthViewModel {
     
     
     
-    func applydividerView(_ inputText: String) -> Bool {
-        return inputText.isEmpty
-    }
     
     func validHandler(text: String) -> Bool {
         let textRegex = "^01([0-9])+-([0-9]{3,4})+-([0-9]{4})$"
         let predicate = NSPredicate(format:"SELF MATCHES %@", textRegex)
         return predicate.evaluate(with: text)
     }
+    
+    
+    func applydividerView(_ inputText: String) -> Bool {
+        return inputText.isEmpty
+    }
+
     
     func applyHyphen(_ inputText: String) -> String {
         let string = inputText.replacingOccurrences(of: "-", with: "")

@@ -2,6 +2,11 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+enum AuthStatus {
+    case succcess
+    case overAuth
+    case error
+}
 
 
 
