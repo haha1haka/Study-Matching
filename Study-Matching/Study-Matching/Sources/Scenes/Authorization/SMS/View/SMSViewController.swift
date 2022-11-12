@@ -7,20 +7,72 @@ class SMSViewController: BaseViewController {
     override func loadView() {
         view = selfView
     }
-    let viewModel = AuthViewModel()
+    let viewModel = SMSViewModel()
     let disposeBag = DisposeBag()
 }
 
 extension SMSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        input()
+        output()
+        buttonRxTap()
     }
 }
 extension SMSViewController {
-
+    func input() {
+        selfView.textFiled.rx.text.orEmpty
+            .bind(to: viewModel.textFieldTextObserverable)
+            .disposed(by: disposeBag)
+        
+        selfView.textFiled.rx.text.orEmpty
+            .map(viewModel.applydividerView)
+            .bind(to: viewModel.dividerViewFlag)
+            .disposed(by: disposeBag)
+        
+        viewModel.textFieldTextObserverable
+            .map(viewModel.validHandler) // bool
+            .bind(to: viewModel.validationFlag)
+            .disposed(by: disposeBag)
+    }
+    
+    func output() {
+        
+        
+        viewModel.validationFlag
+            .bind(onNext: { b in
+                if b {
+                    self.selfView.button.backgroundColor = SeSacColor.green
+                } else {
+                    self.selfView.button.backgroundColor = SeSacColor.gray3
+                }
+            })
+            .disposed(by: disposeBag)
+        
+    }
+    func buttonRxTap() {
+        selfView.button.rx.tap
+            .bind(onNext: { _ in
+                if self.viewModel.validationFlag.value { //최소조건 : 6자리 -- true 면, 로그인 시작 --> success, error 처리 어디서?
+                    print(" 파베에 vertification 과 함게 로그인 로직 타겠끔 해주자 --> 파베 service 안에서 에러 처리 하는게 맞는거 같다 그래서 true 면 화면 전환 고고 ")
+                    AuthManager.shared.verifyCode(smsCode: "111111") { b in
+                        if b {
+                            let vc = NicknameViewController()
+                            self.transition(vc, transitionStyle: .push)
+                        } else {
+                            print("인증 번호 불일치?")
+                        }
+                    }
+                } else {
+                    
+                    self.showToast(message: "인증번호 숫자만 6자리로 입력 해달라구요!")
+                }
+            })
+            .disposed(by: disposeBag)
+        
+    }
 }
 
 extension SMSViewController {
-
+    
 }

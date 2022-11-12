@@ -19,6 +19,7 @@ class AuthManager {
                 completion(false)
                 return
             }
+            //에러 어떻게 넘어 오냐 에 따라 분기 처리 해주기
             print("🔥🔥🔥\(error.debugDescription)")
             self.vertificationId = vertificationID
             print("🐙🐙🐙🐙\(vertificationID)")
@@ -30,6 +31,7 @@ class AuthManager {
     }
     
     func verifyCode(smsCode: String, completion: @escaping (Bool) -> Void) {
+        print(UserDefaultsManager.shared.getVertificationID())
         guard let vertificationId = UserDefaultsManager.shared.getVertificationID() else {
             completion(false)
             return
@@ -38,6 +40,7 @@ class AuthManager {
         let credential = PhoneAuthProvider.provider().credential(withVerificationID: vertificationId, verificationCode: smsCode)
         
         Auth.auth().signIn(with: credential) { result, error in
+            print("🔥🔥🔥\(error.debugDescription)")
             guard result != nil, error == nil else {
                 completion(false)
                 return

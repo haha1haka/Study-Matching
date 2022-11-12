@@ -8,14 +8,16 @@ class AuthViewModel {
     var dividerViewFlag = BehaviorRelay<Bool>(value: false)
     var validationFlag = BehaviorRelay<Bool>(value: false)
     
-    
-    
-    
     func validHandler(text: String) -> Bool {
-        let textRegex = "^01([0-9])+-([0-9]{3,4})+-([0-9]{4})$"
-        let predicate = NSPredicate(format:"SELF MATCHES %@", textRegex)
-        return predicate.evaluate(with: text)
+     return true
     }
+    
+    
+//    func validHandler(text: String) -> Bool {
+//        let textRegex = "^01([0-9])+-([0-9]{3,4})+-([0-9]{4})$"
+//        let predicate = NSPredicate(format:"SELF MATCHES %@", textRegex)
+//        return predicate.evaluate(with: text)
+//    }
     
     
     func applydividerView(_ inputText: String) -> Bool {
@@ -34,5 +36,5 @@ class AuthViewModel {
         }
         return inputText
     }
-    
+
 }

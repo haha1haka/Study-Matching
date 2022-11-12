@@ -87,11 +87,21 @@ extension AuthViewController {
                     
                     // firebase 번호 보내기
                         // 1. 성공 --> 화면 이동
-                    
+                    guard let phoneNumber = self.selfView.textFiled.text else { return }
+                    AuthManager.shared.startAuth(phoneNumber: "+1\(phoneNumber)") { b in
+                        
+                        if b {
+                            print("인증 확인 true면 --> 화면 전환")
+                            let vc = SMSViewController()
+                            self.transition(vc, transitionStyle: .push)
+                        } else {
+                            print("가상번호 없음")
+                        }
+                    }
                         // 2. 많은 요청 --> 알럿
-                    self.showToast(message: "너무 많은 요청이요~")
+                    //self.showToast(message: "너무 많은 요청이요~")
                         // 3. 에러 --> 알럿
-                    self.showToast(message: "인증 되었습니다")
+                    //self.showToast(message: "인증 되었습니다")
                 } else {
                     // 전화 번호 패턴 아닐때 --> 알럿
                     self.showToast(message: "전화 번호 패턴을 확인해 주세요")
