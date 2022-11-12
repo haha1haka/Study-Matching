@@ -1,21 +1,45 @@
 import UIKit
-import SnapKit
+import RxSwift
+import RxCocoa
 
 class GenderViewController: BaseViewController {
     let selfView = GenderView()
     override func loadView() {
         view = selfView
     }
+    
+    let viewModel = GenderViewModel()
+    
+    let disposeBag = DisposeBag()
+    
     var collectionViewDataSource: UICollectionViewDiffableDataSource<String, String>!
 }
 
 extension GenderViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        selfView.collectionView.delegate = self
         configureCollectionViewDataSource()
         applySnapshot()
     }
 }
+
+extension GenderViewController {
+    func input() {
+        
+    }
+    func output() {
+        
+    }
+    func buttonRxTap() {
+        
+    }
+    
+}
+
+
+
+
 extension GenderViewController {
     
     func configureCollectionViewDataSource() {
@@ -46,7 +70,4 @@ extension GenderViewController {
 
 }
 
-extension GenderViewController {
-
-}
 

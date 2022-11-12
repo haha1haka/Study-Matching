@@ -47,12 +47,7 @@ extension UIViewController {
          })
      }
     
-    var dateFormatter: DateFormatter {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .none
-        formatter.dateFormat = "dd일 HH시 mm분"
-        return formatter
-    }
+
     
     
 }
