@@ -2,7 +2,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-enum AuthStatus {
+enum AuthStatus: Error {
     case succcess
     case overAuth
     case error
@@ -82,8 +82,9 @@ extension AuthViewController {
     
     func buttonRxTap() {
         self.selfView.button.rx.tap
-            .bind(onNext: { b in
+            .bind(onNext: { _ in
                 if self.viewModel.validationFlag.value {
+                    
                     // firebase 번호 보내기
                         // 1. 성공 --> 화면 이동
                     

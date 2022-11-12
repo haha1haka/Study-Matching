@@ -50,6 +50,8 @@
 		F46B4A31291E9070003910E2 /* ValidationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46B4A30291E9070003910E2 /* ValidationManager.swift */; };
 		F499C445291F52A400C4B117 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F499C444291F52A400C4B117 /* FirebaseAuth */; };
 		F499C447291F53DA00C4B117 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F499C446291F53DA00C4B117 /* GoogleService-Info.plist */; };
+		F499C449291F546000C4B117 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F499C448291F546000C4B117 /* AuthManager.swift */; };
+		F499C44C291F55C200C4B117 /* UserdefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F499C44B291F55C200C4B117 /* UserdefaultsManager.swift */; };
 		F4F103CA291CBD0E00C2020C /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103C9291CBD0E00C2020C /* OnBoardingViewController.swift */; };
 		F4F103CC291CBD1700C2020C /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103CB291CBD1700C2020C /* OnBoardingView.swift */; };
 		F4F103CE291CBF8A00C2020C /* SeSacImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103CD291CBF8A00C2020C /* SeSacImage.swift */; };
@@ -99,6 +101,8 @@
 		F46340402918FE54008A50D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F46B4A30291E9070003910E2 /* ValidationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationManager.swift; sourceTree = "<group>"; };
 		F499C446291F53DA00C4B117 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F499C448291F546000C4B117 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		F499C44B291F55C200C4B117 /* UserdefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserdefaultsManager.swift; sourceTree = "<group>"; };
 		F4F103C9291CBD0E00C2020C /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		F4F103CB291CBD1700C2020C /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		F4F103CD291CBF8A00C2020C /* SeSacImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacImage.swift; sourceTree = "<group>"; };
@@ -448,6 +452,7 @@
 		F46B4A2E291E9055003910E2 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				F499C44A291F55B000C4B117 /* UserdefaultsManager */,
 				F4EDE07B291F469900A74E04 /* AuthManager */,
 				F46B4A2F291E9059003910E2 /* ValidationManager */,
 			);
@@ -462,9 +467,18 @@
 			path = ValidationManager;
 			sourceTree = "<group>";
 		};
+		F499C44A291F55B000C4B117 /* UserdefaultsManager */ = {
+			isa = PBXGroup;
+			children = (
+				F499C44B291F55C200C4B117 /* UserdefaultsManager.swift */,
+			);
+			path = UserdefaultsManager;
+			sourceTree = "<group>";
+		};
 		F4EDE07B291F469900A74E04 /* AuthManager */ = {
 			isa = PBXGroup;
 			children = (
+				F499C448291F546000C4B117 /* AuthManager.swift */,
 			);
 			path = AuthManager;
 			sourceTree = "<group>";
@@ -562,6 +576,7 @@
 				F45119BF291941620058571C /* EmailView.swift in Sources */,
 				F4F103D2291CC66600C2020C /* FooterView.swift in Sources */,
 				F4034CD029191B1400423FAF /* BaseCode.swift in Sources */,
+				F499C449291F546000C4B117 /* AuthManager.swift in Sources */,
 				F46B4A31291E9070003910E2 /* ValidationManager.swift in Sources */,
 				F454E4A9291A66070064BCC4 /* DateLabel.swift in Sources */,
 				F45119AC29193BCD0058571C /* SMSViewModel.swift in Sources */,
@@ -585,6 +600,7 @@
 				F4034CCF29191B1400423FAF /* SceneDelegate.swift in Sources */,
 				F45119C5291941AB0058571C /* BirthViewController.swift in Sources */,
 				F4034CCA29191B1400423FAF /* BaseViewContoroller.swift in Sources */,
+				F499C44C291F55C200C4B117 /* UserdefaultsManager.swift in Sources */,
 				F4334034291E177400F46725 /* OnboardingViewModel.swift in Sources */,
 				F4034CCB29191B1400423FAF /* BaseView.swift in Sources */,
 				F45119C1291941680058571C /* GenderView.swift in Sources */,
