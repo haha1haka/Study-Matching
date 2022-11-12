@@ -47,9 +47,9 @@ extension AuthViewController {
         viewModel.validation
             .bind(onNext: { b in
                 if b {
-                    self.selfView.button.backgroundColor = SeSacColor.gray3
-                } else {
                     self.selfView.button.backgroundColor = SeSacColor.green
+                } else {
+                    self.selfView.button.backgroundColor = SeSacColor.gray3
                 }
             })
             .disposed(by: disposeBag)
@@ -63,6 +63,7 @@ extension AuthViewController {
                         // 1. 성공 --> 화면 이동
                         // 2. 많은 요청 --> 알럿
                         // 3. 에러 --> 알럿
+                    self.showToast(message: "인증 되었습니다")
                 } else {
                     // 전화 번호 패턴 아닐때 --> 알럿
                 }

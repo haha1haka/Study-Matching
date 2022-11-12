@@ -6,13 +6,11 @@ class AuthViewModel {
     var textFieldTextObserverable = BehaviorSubject<String>(value: "")
     var validation = BehaviorRelay<Bool>(value: false)
     
-    //⚠️ 핸들러 개선
+    
     func validHandler(text: String) -> Bool {
-        if text.count < 13 {
-            return true
-        } else {
-            return false
-        }
+        let textRegex = "^01([0-9])+-([0-9]{3,4})+-([0-9]{4})$"
+        let predicate = NSPredicate(format:"SELF MATCHES %@", textRegex)
+        return predicate.evaluate(with: text)
     }
     
     func applyHyphen(_ inputText: String) -> String {

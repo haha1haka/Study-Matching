@@ -443,6 +443,7 @@
 		F46B4A2E291E9055003910E2 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				F4EDE07B291F469900A74E04 /* AuthManager */,
 				F46B4A2F291E9059003910E2 /* ValidationManager */,
 			);
 			path = Manager;
@@ -454,6 +455,13 @@
 				F46B4A30291E9070003910E2 /* ValidationManager.swift */,
 			);
 			path = ValidationManager;
+			sourceTree = "<group>";
+		};
+		F4EDE07B291F469900A74E04 /* AuthManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AuthManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
