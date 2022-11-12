@@ -45,6 +45,7 @@
 		F454E4A3291A1CDB0064BCC4 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F454E4A1291A1CDB0064BCC4 /* NotoSansCJKkr-Regular.otf */; };
 		F454E4A7291A24610064BCC4 /* SeSacLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F454E4A6291A24610064BCC4 /* SeSacLabel.swift */; };
 		F454E4A9291A66070064BCC4 /* DateLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F454E4A8291A66070064BCC4 /* DateLabel.swift */; };
+		F4586462291F77AB00993A6D /* NickNameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4586461291F77AB00993A6D /* NickNameViewModel.swift */; };
 		F463403C2918FE54008A50D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F463403B2918FE54008A50D6 /* Assets.xcassets */; };
 		F463403F2918FE54008A50D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F463403D2918FE54008A50D6 /* LaunchScreen.storyboard */; };
 		F46B4A31291E9070003910E2 /* ValidationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46B4A30291E9070003910E2 /* ValidationManager.swift */; };
@@ -95,6 +96,7 @@
 		F454E4A1291A1CDB0064BCC4 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		F454E4A6291A24610064BCC4 /* SeSacLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacLabel.swift; sourceTree = "<group>"; };
 		F454E4A8291A66070064BCC4 /* DateLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateLabel.swift; sourceTree = "<group>"; };
+		F4586461291F77AB00993A6D /* NickNameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewModel.swift; sourceTree = "<group>"; };
 		F463402F2918FE53008A50D6 /* Study-Matching.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Study-Matching.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F463403B2918FE54008A50D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F463403E2918FE54008A50D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 			children = (
 				F45119BA291941550058571C /* NicknameView.swift */,
 				F45119C2291941A00058571C /* NicknameViewController.swift */,
+				F4586461291F77AB00993A6D /* NickNameViewModel.swift */,
 			);
 			path = Nickname;
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 				F4034CC929191B1400423FAF /* BaseViewCollectionViewCell.swift in Sources */,
 				F45119C7291941B10058571C /* EmailViewController.swift in Sources */,
 				F4F103CC291CBD1700C2020C /* OnBoardingView.swift in Sources */,
+				F4586462291F77AB00993A6D /* NickNameViewModel.swift in Sources */,
 				F4034CCF29191B1400423FAF /* SceneDelegate.swift in Sources */,
 				F45119C5291941AB0058571C /* BirthViewController.swift in Sources */,
 				F4034CCA29191B1400423FAF /* BaseViewContoroller.swift in Sources */,

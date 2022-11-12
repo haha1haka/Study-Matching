@@ -26,14 +26,17 @@ extension SMSViewController {
             .disposed(by: disposeBag)
         
         selfView.textFiled.rx.text.orEmpty
-            .map(viewModel.applydividerView)
+            .map(viewModel.applydividerView) // true
             .bind(to: viewModel.dividerViewFlag)
             .disposed(by: disposeBag)
+        
+
         
         viewModel.textFieldTextObserverable
             .map(viewModel.validHandler) // bool
             .bind(to: viewModel.validationFlag)
             .disposed(by: disposeBag)
+        
     }
     
     func output() {
@@ -49,13 +52,26 @@ extension SMSViewController {
             })
             .disposed(by: disposeBag)
         
+        
+        viewModel.dividerViewFlag
+            .bind(onNext: { b in
+                if b {
+                    self.selfView.textFiled.dividerView.backgroundColor = SeSacColor.gray3
+                    
+                } else {
+                    self.selfView.textFiled.dividerView.backgroundColor = SeSacColor.black
+                }
+            })
+            .disposed(by: disposeBag)
+        
     }
     func buttonRxTap() {
         selfView.button.rx.tap
             .bind(onNext: { _ in
                 if self.viewModel.validationFlag.value { //최소조건 : 6자리 -- true 면, 로그인 시작 --> success, error 처리 어디서?
                     print(" 파베에 vertification 과 함게 로그인 로직 타겠끔 해주자 --> 파베 service 안에서 에러 처리 하는게 맞는거 같다 그래서 true 면 화면 전환 고고 ")
-                    AuthManager.shared.verifyCode(smsCode: "111111") { b in
+                    guard let smsCode = self.selfView.textFiled.text else { return }
+                    AuthManager.shared.verifyCode(smsCode: smsCode) { b in
                         if b {
                             let vc = NicknameViewController()
                             self.transition(vc, transitionStyle: .push)
