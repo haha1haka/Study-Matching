@@ -21,19 +21,23 @@ extension GenderViewController {
         selfView.collectionView.delegate = self
         configureCollectionViewDataSource()
         applySnapshot()
+        
+        input()
     }
 }
 
+
+
+
 extension GenderViewController {
     func input() {
-        
+        viewModel.collectionViewObservable
+            .bind(onNext: { _ in
+                self.selfView.button.backgroundColor = SeSacColor.green
+            })
+            .disposed(by: disposeBag)
     }
-    func output() {
-        
-    }
-    func buttonRxTap() {
-        
-    }
+
     
 }
 
@@ -71,3 +75,14 @@ extension GenderViewController {
 }
 
 
+extension GenderViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if indexPath.item == 0 {
+            viewModel.collectionViewObservable.onNext(false)
+        } else {
+            viewModel.collectionViewObservable.onNext(true)
+        }
+        
+    }
+}

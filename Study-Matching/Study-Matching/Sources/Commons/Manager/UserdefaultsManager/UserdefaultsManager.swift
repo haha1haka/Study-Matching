@@ -9,18 +9,25 @@ import Foundation
 
 class UserDefaultsManager  {
     
-    static let shared = UserDefaultsManager()
+    static let standard = UserDefaultsManager()
     
+    let userDefaults = UserDefaults.standard
+        
     private init() {}
     
-    //⚠️ 개선 해보기 --> 시간 너무 많이 걸림
-    func setVertificationID(_ str: String) {
-        UserDefaults.standard.set(str, forKey: "vertificationID")
+    enum UserDefaultsKey: String {
+        case vertificationID
     }
     
-    func getVertificationID() -> String? {
-        return UserDefaults.standard.string(forKey: "vertificationID")
+    var vertificationID: String {
+        get {
+            return userDefaults.string(forKey: UserDefaultsKey.vertificationID.rawValue)!
+        }
+        set {
+            userDefaults.set(newValue, forKey: UserDefaultsKey.vertificationID.rawValue)
+        }
     }
+    
     
     
 }
