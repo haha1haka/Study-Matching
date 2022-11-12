@@ -4,6 +4,7 @@ class EmailViewController: BaseViewController {
     override func loadView() {
         view = selfView
     }
+    let emailViewModel = EmailViewModel()
 }
 
 extension EmailViewController {
@@ -18,3 +19,4 @@ extension EmailViewController {
 extension EmailViewController {
 
 }
+
