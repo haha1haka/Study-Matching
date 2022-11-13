@@ -54,8 +54,13 @@ extension BirthViewController {
             .bind(onNext: { _ in
                 if self.viewModel.validationFlag.value {
                     print("17세 이상임")
+                    
+                    let birth = self.selfView.datePicker.date
+                    UserDefaultsManager.standard.birth = "\(birth)"
+                    
                     let vc = EmailViewController()
                     self.transition(vc, transitionStyle: .push)
+                    
                 } else {
                     self.showToast(message: "17세 이상 가입이 가능 합니다")
                 }

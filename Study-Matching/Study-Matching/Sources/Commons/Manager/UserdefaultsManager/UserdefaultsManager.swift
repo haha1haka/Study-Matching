@@ -17,6 +17,7 @@ class UserDefaultsManager  {
     
     enum UserDefaultsKey: String {
         case vertificationID, FCMToken, idToken
+        case phoneNumber, nick, birth, email, gender
     }
     
     var vertificationID: String {
@@ -45,6 +46,57 @@ class UserDefaultsManager  {
             userDefaults.set(newValue, forKey: UserDefaultsKey.idToken.rawValue)
         }
     }
+    
+    
+    var phoneNumber: String {
+        get {
+            return userDefaults.string(forKey: UserDefaultsKey.phoneNumber.rawValue)!
+        }
+        set {
+            userDefaults.set(newValue, forKey: UserDefaultsKey.phoneNumber.rawValue)
+        }
+    }
+    
+    var nick: String {
+        get {
+            return userDefaults.string(forKey: UserDefaultsKey.nick.rawValue)!
+        }
+        set {
+            userDefaults.set(newValue, forKey: UserDefaultsKey.nick.rawValue)
+        }
+    }
+    
+    var birth: String {
+        get {
+            return userDefaults.string(forKey: UserDefaultsKey.birth.rawValue)!
+        }
+        set {
+            userDefaults.set(newValue, forKey: UserDefaultsKey.birth.rawValue)
+        }
+    }
+    
+    
+    var email: String {
+        get {
+            return userDefaults.string(forKey: UserDefaultsKey.email.rawValue)!
+        }
+        set {
+            userDefaults.set(newValue, forKey: UserDefaultsKey.email.rawValue)
+        }
+    }
+    
+    
+    var gender: Bool {
+        get {
+            return userDefaults.bool(forKey: UserDefaultsKey.gender.rawValue)
+        }
+        set {
+            userDefaults.set(newValue, forKey: UserDefaultsKey.gender.rawValue)
+        }
+    }
+    
+
+
     
     
     

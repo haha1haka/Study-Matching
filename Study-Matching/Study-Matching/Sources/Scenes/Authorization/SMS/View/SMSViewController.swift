@@ -28,14 +28,14 @@ extension SMSViewController {
             .bind(to: viewModel.dividerViewFlag)
             .disposed(by: disposeBag)
         
-
+        
         
         viewModel.textFieldTextObserverable
             .map(viewModel.validHandler) // bool
             .bind(to: viewModel.validationFlag)
             .disposed(by: disposeBag)
         
-
+        
         
         
         viewModel.validationFlag
@@ -60,18 +60,25 @@ extension SMSViewController {
             })
             .disposed(by: disposeBag)
         
-
+        
         selfView.button.rx.tap
             .bind(onNext: { _ in
                 if self.viewModel.validationFlag.value { //최소조건 : 6자리 -- true 면, 로그인 시작 --> success, error 처리 어디서?
                     print(" 파베에 vertification 과 함게 로그인 로직 타겠끔 해주자 --> 파베 service 안에서 에러 처리 하는게 맞는거 같다 그래서 true 면 화면 전환 고고 ")
                     guard let smsCode = self.selfView.textFiled.text else { return }
                     FirebaseService.shared.requestSignIn(smsCode: smsCode) { b in
-                        if b {
+                        
+                        switch b {
+                        case .success:
                             let vc = NicknameViewController()
                             self.transition(vc, transitionStyle: .push)
-                        } else {
-                            print("인증 번호 불일치?")
+                        case .failure(let error):
+                            switch error {
+                            case .unknown:
+                                print("인증번호 불일치")
+                            default:
+                                return
+                            }
                         }
                     }
                 } else {
@@ -82,6 +89,7 @@ extension SMSViewController {
             .disposed(by: disposeBag)
         
     }
+    
 }
 
 extension SMSViewController {

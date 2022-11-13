@@ -65,6 +65,10 @@ extension NicknameViewController {
             .bind(onNext: { _ in
                 if self.viewModel.validationFlag.value {
                     //일단은 화면 전환
+                    guard let nick = self.selfView.textFiled.text else { return }
+                    
+                    UserDefaultsManager.standard.nick = nick
+                    
                     let vc = BirthViewController()
                     self.transition(vc, transitionStyle: .push)
                 } else {

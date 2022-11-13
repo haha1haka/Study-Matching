@@ -71,8 +71,14 @@ extension EmailViewController {
         selfView.button.rx.tap
             .bind(onNext: { _ in
                 if self.viewModel.validationFlag.value {
+                    
+                    guard let email = self.selfView.textFiled.text else { return }
+                    UserDefaultsManager.standard.email = email
+                    
+                    
                     let vc = GenderViewController()
                     self.transition(vc,transitionStyle: .push)
+                    
                 } else {
                     self.showToast(message: "이메일 형식이 맞지 않습니다.")
                 }

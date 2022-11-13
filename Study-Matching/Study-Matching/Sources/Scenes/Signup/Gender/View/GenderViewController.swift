@@ -30,15 +30,40 @@ extension GenderViewController {
 
 
 extension GenderViewController {
+    
     func bind() {
         viewModel.collectionViewObservable
-            .bind(onNext: { _ in
+            .bind(onNext: { b in
+                if b { //남자: 1
+                    UserDefaultsManager.standard.gender = true
+                } else {
+                    UserDefaultsManager.standard.gender = false
+                }
                 self.selfView.button.backgroundColor = SeSacColor.green
+            })
+            .disposed(by: disposeBag)
+        
+        
+        
+        
+        
+        selfView.button.rx.tap
+            .bind(onNext: { _ in
+                
+                print("\(UserDefaultsManager.standard.phoneNumber)")
+                print("\(UserDefaultsManager.standard.FCMToken)")
+                print("\(UserDefaultsManager.standard.nick)")
+                print("\(UserDefaultsManager.standard.birth)")
+                print("\(UserDefaultsManager.standard.email)")
+                print("\(UserDefaultsManager.standard.gender)") //남자 : 1
+                
+                // 📣 서버 에 올리기 
+                
+                
             })
             .disposed(by: disposeBag)
     }
 
-    
 }
 
 
@@ -78,7 +103,7 @@ extension GenderViewController {
 extension GenderViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        if indexPath.item == 0 {
+        if indexPath.item == 1 {
             viewModel.collectionViewObservable.onNext(false)
         } else {
             viewModel.collectionViewObservable.onNext(true)

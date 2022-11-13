@@ -2,11 +2,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-enum AuthStatus: Error {
-    case succcess
-    case overAuth
-    case error
-}
 
 
 
@@ -29,7 +24,7 @@ extension AuthViewController {
 
 
 extension AuthViewController {
-
+    
     func bind() {
         selfView.textFiled.rx.text.orEmpty
             .map(viewModel.applyHyphen)
@@ -46,9 +41,9 @@ extension AuthViewController {
             .bind(to: viewModel.validationFlag)
             .disposed(by: disposeBag)
         
-    
-    
-    
+        
+        
+        
         
         viewModel.textFieldTextObserverable
             .bind(onNext: { text in
@@ -76,32 +71,38 @@ extension AuthViewController {
                 }
             })
             .disposed(by: disposeBag)
-    
-    
-    
+        
+        
+        
         self.selfView.button.rx.tap
             .bind(onNext: { _ in
                 if self.viewModel.validationFlag.value {
                     
                     // firebase 번호 보내기
-                        // 1. 성공 --> 화면 이동
+                    // 1. 성공 --> 화면 이동
                     guard let phoneNumber = self.selfView.textFiled.text else { return }
                     //guard let phoneNumber = self.selfView.textFiled.text?.toPureNumber else { return }
                     //print("pure: \(phoneNumber)")
+                    UserDefaultsManager.standard.phoneNumber = phoneNumber // 마지막 서버 연결할때 순정 번호로 바꾸기.
                     FirebaseService.shared.requestVertificationID(phoneNumber: "+1\(phoneNumber)") { b in
                         
-                        if b {
-                            print("인증 확인 true면 --> 화면 전환")
+                        
+                        switch b {
+                        case .success:
                             let vc = SMSViewController()
                             self.transition(vc, transitionStyle: .push)
-                        } else {
-                            print("가상번호 없음")
+                        case .failure(let error):
+                            switch error {
+                            case .tooManyRequest:
+                                print(self.description)
+                            default:
+                                print("unKnown 으로 빠진것 == 가상 번호 없음")
+                                return
+                            }
+                            
                         }
                     }
-                        // 2. 많은 요청 --> 알럿
-                    //self.showToast(message: "너무 많은 요청이요~")
-                        // 3. 에러 --> 알럿
-                    //self.showToast(message: "인증 되었습니다")
+                    
                 } else {
                     // 전화 번호 패턴 아닐때 --> 알럿
                     self.showToast(message: "전화 번호 패턴을 확인해 주세요")
@@ -109,9 +110,9 @@ extension AuthViewController {
             })
             .disposed(by: disposeBag)
     }
-
+    
 }
 
 extension AuthViewController {
-
+    
 }
