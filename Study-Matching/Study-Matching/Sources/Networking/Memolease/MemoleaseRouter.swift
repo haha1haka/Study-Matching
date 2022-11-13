@@ -4,14 +4,15 @@ enum MemoleaseRouter {
     
     case signup(phoneNumber: String, FCMToken: String, nick: String, birth: String, email: String, gender:Int)
     
-    static let baseURL: String = "http://api.sesac.co.kr:1207"
+    
     static let headers: [String: String] = ["Content-Type" : "application/x-www-form-urlencoded"]
 }
 
 extension MemoleaseRouter {
     var path: String {
+        let baseURL: String = "http://api.sesac.co.kr:1207"
         switch self {
-        case .signup: return "/v1/user"
+        case .signup: return "\(baseURL)/v1/user"
         }
     }
     var queryItems: [URLQueryItem] {
@@ -19,7 +20,7 @@ extension MemoleaseRouter {
         case .signup(let phoneNumber, let FCMToken, let nick, let birth, let email, let gender):
             
             return [URLQueryItem(name: "phoneNumber", value: phoneNumber),
-                    URLQueryItem(name: "FCMToken", value: FCMToken),
+                    URLQueryItem(name: "FCMtoken", value: FCMToken),
                     URLQueryItem(name: "nick", value: nick),
                     URLQueryItem(name: "birth", value: birth),
                     URLQueryItem(name: "email", value: email),

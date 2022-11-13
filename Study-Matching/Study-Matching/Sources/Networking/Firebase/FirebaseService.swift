@@ -76,13 +76,14 @@ class FirebaseService {
         currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
             if let error = error {
                 print(" ❌ \(error)")
-                completion(.failure(.unknown))
+                completion(.failure(.refreshError))
                 return
             }
             
             guard let idToken = idToken else { print("idToken == nil"); return }
             UserDefaultsManager.standard.idToken = idToken
             completion(.success(.perfact))
+            print("♻️♻️♻️\(UserDefaultsManager.standard.idToken)♻️♻️♻️")
         }
         
         

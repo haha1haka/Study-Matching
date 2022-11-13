@@ -80,12 +80,12 @@ extension AuthViewController {
                     
                     // firebase 번호 보내기
                     // 1. 성공 --> 화면 이동
-                    guard let phoneNumber = self.selfView.textFiled.text else { return }
-                    //guard let phoneNumber = self.selfView.textFiled.text?.toPureNumber else { return }
-                    //print("pure: \(phoneNumber)")
+                    //guard let phoneNumber = self.selfView.textFiled.text else { return }
+                    guard let phoneNumber = self.selfView.textFiled.text?.toPureNumber else { return }
+                    print("pure: \(phoneNumber)")
                     UserDefaultsManager.standard.phoneNumber = phoneNumber // 마지막 서버 연결할때 순정 번호로 바꾸기.
                     
-                    FirebaseService.shared.requestVertificationID(phoneNumber: "+1\(phoneNumber)") { status in
+                    FirebaseService.shared.requestVertificationID(phoneNumber: "\(phoneNumber)") { status in
                         switch status {
                         case .success:
                             let vc = SMSViewController()

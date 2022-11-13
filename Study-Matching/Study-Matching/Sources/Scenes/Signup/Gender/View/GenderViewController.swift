@@ -67,28 +67,29 @@ extension GenderViewController {
                     print(UserDefaultsManager.standard.birth)
                     print(UserDefaultsManager.standard.email)
                     print(UserDefaultsManager.standard.gender)
+                    print(UserDefaultsManager.standard.idToken)
                     
-//                    MemoleaseService.shared.requestSignup(path: api.path, queryItems: api.queryItems, httpMethod: api.httpMethod, headers: api.headers) { result in
-//                        switch result {
-//                        case .success:
-//                            print("⚠️성공 --> 홈화면 이동 ")
-//                        case .failure(let error):
-//                            switch error {
-//                            case .alreadyUser:
-//                                print("⚠️이미 유저 있음 --> 홈화면 이동")
-//                            case .nickError:
-//                                print("⚠️닉네임 에러 --> 닉네임화면gogo 다시 설정 하게 돌아가야됨")
-//                            case .firebaseTokenError:
-//                                print("⚠️토큰 만료 --> 토큰 재갱신")
-//                            case .serverError:
-//                                print("서버에러")
-//                            case .clientError:
-//                                print("헤더와 바디 잘 확인 하기")
-//                            case .unknown:
-//                                print("알수 없는 유저임")
-//                            }
-//                        }
-//                    }
+                    MemoleaseService.shared.requestSignup(path: api.path, queryItems: api.queryItems, httpMethod: api.httpMethod, headers: api.headers) { result in
+                        switch result {
+                        case .success:
+                            print("⚠️성공 --> 홈화면 이동 ")
+                        case .failure(let error):
+                            switch error {
+                            case .alreadyUser:
+                                print("⚠️이미 유저 있음 --> 홈화면 이동")
+                            case .nickError:
+                                print("⚠️닉네임 에러 --> 닉네임화면gogo 다시 설정 하게 돌아가야됨")
+                            case .firebaseTokenError:
+                                print("⚠️토큰 만료 --> 토큰 재갱신")
+                            case .serverError:
+                                print("서버에러")
+                            case .clientError:
+                                print("헤더와 바디 잘 확인 하기")
+                            case .unknown:
+                                print("알수 없는 유저임")
+                            }
+                        }
+                    }
                 }
                                 
                 

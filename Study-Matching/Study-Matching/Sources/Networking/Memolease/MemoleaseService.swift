@@ -11,8 +11,10 @@ class MemoleaseService {
     
     func requestSignup(path: String, queryItems: [URLQueryItem], httpMethod: HTTPMethod, headers: [String: String], completion: @escaping(Result<Succeess, MemoleaseError>) -> Void) {
         
-        var urlComponents = URLComponents(string: MemoleaseRouter.baseURL)
-        urlComponents?.path = path
+        var urlComponents = URLComponents(string: path)
+        
+        print("\(path)🟩\(urlComponents?.url)")
+        
         urlComponents?.queryItems = queryItems
 
         var urlRequest = URLRequest(url: (urlComponents?.url)!)
@@ -22,27 +24,37 @@ class MemoleaseService {
         
         URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             
-            guard let httpResponse = response as? HTTPURLResponse else { return }
             
-            print("📭 Request \(urlRequest.url!)")
-            print("🚩 Response \(httpResponse.statusCode)")
+            if let data = data {
+                print("🌟\(data.description)")
+            } else {
+                print("\(error?.localizedDescription)")
+            }
             
-            
-            switch httpResponse.statusCode {
-            case 200:
-                completion(.success(.perfact))
-            case 201:
-                completion(.failure(.alreadyUser))
-            case 202:
-                completion(.failure(.nickError))
-            case 401:
-                completion(.failure(.firebaseTokenError))
-            case 500:
-                completion(.failure(.serverError))
-            case 501:
-                completion(.failure(.clientError))
-            default:
-                completion(.failure(.unknown))
+            DispatchQueue.main.async {
+                guard let httpResponse = response as? HTTPURLResponse else { return }
+                
+                print("📭 Request \(urlRequest.url!)")
+                print("🚩 Response \(httpResponse.statusCode)")
+                
+                
+                switch httpResponse.statusCode {
+                case 200:
+                    completion(.success(.perfact))
+                case 201:
+                    completion(.failure(.alreadyUser))
+                case 202:
+                    completion(.failure(.nickError))
+                case 401:
+                    completion(.failure(.firebaseTokenError))
+                case 500:
+                    completion(.failure(.serverError))
+                case 501:
+                    completion(.failure(.clientError))
+                default:
+                    completion(.failure(.unknown))
+                }
+
             }
             
             

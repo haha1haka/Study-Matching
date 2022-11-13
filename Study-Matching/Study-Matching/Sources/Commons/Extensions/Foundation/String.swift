@@ -6,6 +6,6 @@ extension String {
         var pureNumber = String(self[startIndex...])
         pureNumber =  pureNumber.replacingOccurrences(of: "-", with: "")
         print(pureNumber)
-        return "+1\(pureNumber)"
+        return "+82\(pureNumber)"
     }
 }
