@@ -16,7 +16,7 @@ class UserDefaultsManager  {
     private init() {}
     
     enum UserDefaultsKey: String {
-        case vertificationID, FCMToken
+        case vertificationID, FCMToken, idToken
     }
     
     var vertificationID: String {
@@ -34,6 +34,15 @@ class UserDefaultsManager  {
         }
         set {
             userDefaults.set(newValue, forKey: UserDefaultsKey.FCMToken.rawValue)
+        }
+    }
+    
+    var idToken: String {
+        get {
+            return userDefaults.string(forKey: UserDefaultsKey.idToken.rawValue)!
+        }
+        set {
+            userDefaults.set(newValue, forKey: UserDefaultsKey.idToken.rawValue)
         }
     }
     

@@ -9,9 +9,9 @@ class FirebaseService {
     
     private init() {}
     
-    func startAuth(phoneNumber: String, completion: @escaping (Bool) -> Void) {
-        PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { [weak self] vertificationID, error in
-            guard let self = self else { return }
+    func requestVertificationID(phoneNumber: String, completion: @escaping (Bool) -> Void) {
+        PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { vertificationID, error in
+            
             guard let vertificationID = vertificationID, error == nil else {
                 completion(false)
                 return
@@ -29,14 +29,14 @@ class FirebaseService {
         
     }
     
-
     
-    func verifyCode(smsCode: String, completion: @escaping (Bool) -> Void) {
     
+    func requestSignIn(smsCode: String, completion: @escaping (Bool) -> Void) {
+        
         print("🟩 VerrificationID : \(UserDefaultsManager.standard.vertificationID)")
         
         let vertificationId = UserDefaultsManager.standard.vertificationID
-            
+        
         let credential = PhoneAuthProvider.provider().credential(withVerificationID: vertificationId, verificationCode: smsCode)
         
         Auth.auth().signIn(with: credential) { result, error in
@@ -48,6 +48,28 @@ class FirebaseService {
             completion(true)
         }
     }
+    
+    
+    
+    func requestRefreshIdToken(completion: @escaping (Bool) -> Void) {
+        let currentUser = Auth.auth().currentUser
+        currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
+            if let error = error {
+                print(" ❌ \(error)")
+                completion(false)
+                return
+            }
+            
+            guard let idToken = idToken else { print("idToken == nil"); return }
+            UserDefaultsManager.standard.idToken = idToken
+            completion(true)
+        }
+        
+        
+    }
+    
+    
+    
     
     
     

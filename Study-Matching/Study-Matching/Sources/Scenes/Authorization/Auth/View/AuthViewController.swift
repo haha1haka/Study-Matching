@@ -86,7 +86,7 @@ extension AuthViewController {
                     // firebase 번호 보내기
                         // 1. 성공 --> 화면 이동
                     guard let phoneNumber = self.selfView.textFiled.text else { return }
-                    FirebaseService.shared.startAuth(phoneNumber: "+1\(phoneNumber)") { b in
+                    FirebaseService.shared.requestVertificationID(phoneNumber: "+1\(phoneNumber)") { b in
                         
                         if b {
                             print("인증 확인 true면 --> 화면 전환")
