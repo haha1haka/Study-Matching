@@ -68,3 +68,4 @@ extension AppDelegate: MessagingDelegate {
         print("🌟 Firebase registration FCMToken:  \(UserDefaultsManager.standard.FCMToken)")
     }
 }
+

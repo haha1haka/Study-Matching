@@ -53,6 +53,7 @@
 		F4586475291FB33600993A6D /* GenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4586474291FB33600993A6D /* GenderCell.swift */; };
 		F4594E702920A5330071CFC2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F4594E6F2920A5330071CFC2 /* FirebaseAuth */; };
 		F4594E722920A5330071CFC2 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = F4594E712920A5330071CFC2 /* FirebaseMessaging */; };
+		F4594E752920C29F0071CFC2 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4594E742920C29F0071CFC2 /* String.swift */; };
 		F463403C2918FE54008A50D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F463403B2918FE54008A50D6 /* Assets.xcassets */; };
 		F463403F2918FE54008A50D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F463403D2918FE54008A50D6 /* LaunchScreen.storyboard */; };
 		F499C447291F53DA00C4B117 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F499C446291F53DA00C4B117 /* GoogleService-Info.plist */; };
@@ -108,6 +109,7 @@
 		F4586472291FB32800993A6D /* GenderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewModel.swift; sourceTree = "<group>"; };
 		F4586474291FB33600993A6D /* GenderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCell.swift; sourceTree = "<group>"; };
 		F4594E732920A9810071CFC2 /* Study-Matching.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Study-Matching.entitlements"; sourceTree = "<group>"; };
+		F4594E742920C29F0071CFC2 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		F463402F2918FE53008A50D6 /* Study-Matching.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Study-Matching.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F463403B2918FE54008A50D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F463403E2918FE54008A50D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 			children = (
 				F4034CBB29191B1400423FAF /* NSObject.swift */,
 				F4586467291FA90600993A6D /* Date.swift */,
+				F4594E742920C29F0071CFC2 /* String.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -697,6 +700,7 @@
 				F4F103D0291CC1C300C2020C /* OnboardCell.swift in Sources */,
 				F4034CC629191B1400423FAF /* MainViewController.swift in Sources */,
 				F45119A429193AEB0058571C /* SMSViewController.swift in Sources */,
+				F4594E752920C29F0071CFC2 /* String.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

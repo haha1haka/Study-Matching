@@ -9,7 +9,7 @@ class AuthViewModel {
     var validationFlag = BehaviorRelay<Bool>(value: false)
     
     func validHandler(text: String) -> Bool {
-     return true
+        return true
     }
     
     
@@ -19,7 +19,7 @@ class AuthViewModel {
 //        return predicate.evaluate(with: text)
 //    }
     
-    
+
     func applydividerView(_ inputText: String) -> Bool {
         return inputText.isEmpty
     }
@@ -38,3 +38,6 @@ class AuthViewModel {
     }
 
 }
+
+
+
