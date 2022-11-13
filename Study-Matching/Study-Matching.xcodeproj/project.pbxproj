@@ -57,6 +57,10 @@
 		F463403C2918FE54008A50D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F463403B2918FE54008A50D6 /* Assets.xcassets */; };
 		F463403F2918FE54008A50D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F463403D2918FE54008A50D6 /* LaunchScreen.storyboard */; };
 		F488D78729211AE6002E4B57 /* FirebaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F488D78629211AE6002E4B57 /* FirebaseError.swift */; };
+		F488D78929212290002E4B57 /* MemoleaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F488D78829212290002E4B57 /* MemoleaseService.swift */; };
+		F488D78C29212324002E4B57 /* MemoleaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F488D78B29212324002E4B57 /* MemoleaseRouter.swift */; };
+		F488D78E29212665002E4B57 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = F488D78D29212665002E4B57 /* HTTPMethod.swift */; };
+		F488D7902921308A002E4B57 /* MemoleaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F488D78F2921308A002E4B57 /* MemoleaseError.swift */; };
 		F499C447291F53DA00C4B117 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F499C446291F53DA00C4B117 /* GoogleService-Info.plist */; };
 		F499C449291F546000C4B117 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F499C448291F546000C4B117 /* FirebaseService.swift */; };
 		F499C44C291F55C200C4B117 /* UserdefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F499C44B291F55C200C4B117 /* UserdefaultsManager.swift */; };
@@ -116,6 +120,10 @@
 		F463403E2918FE54008A50D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F46340402918FE54008A50D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F488D78629211AE6002E4B57 /* FirebaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseError.swift; sourceTree = "<group>"; };
+		F488D78829212290002E4B57 /* MemoleaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoleaseService.swift; sourceTree = "<group>"; };
+		F488D78B29212324002E4B57 /* MemoleaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoleaseRouter.swift; sourceTree = "<group>"; };
+		F488D78D29212665002E4B57 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		F488D78F2921308A002E4B57 /* MemoleaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoleaseError.swift; sourceTree = "<group>"; };
 		F499C446291F53DA00C4B117 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F499C448291F546000C4B117 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		F499C44B291F55C200C4B117 /* UserdefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserdefaultsManager.swift; sourceTree = "<group>"; };
@@ -560,6 +568,10 @@
 		F47D76422920959900F747DA /* Memolease */ = {
 			isa = PBXGroup;
 			children = (
+				F488D78D29212665002E4B57 /* HTTPMethod.swift */,
+				F488D78F2921308A002E4B57 /* MemoleaseError.swift */,
+				F488D78B29212324002E4B57 /* MemoleaseRouter.swift */,
+				F488D78829212290002E4B57 /* MemoleaseService.swift */,
 			);
 			path = Memolease;
 			sourceTree = "<group>";
@@ -678,6 +690,7 @@
 				F45119C9291941B80058571C /* GenderViewController.swift in Sources */,
 				F45119BB291941550058571C /* NicknameView.swift in Sources */,
 				F451199F29192DC80058571C /* SeSacFont.swift in Sources */,
+				F488D78C29212324002E4B57 /* MemoleaseRouter.swift in Sources */,
 				F45119BD2919415D0058571C /* BirthView.swift in Sources */,
 				F4034CC829191B1400423FAF /* MainCell.swift in Sources */,
 				F45119972919230B0058571C /* SeSacColor.swift in Sources */,
@@ -685,12 +698,15 @@
 				F45119A629193B930058571C /* AuthView.swift in Sources */,
 				F45119CB291942720058571C /* SeSacTextField.swift in Sources */,
 				F4034CC529191B1400423FAF /* MainViewModel.swift in Sources */,
+				F488D78E29212665002E4B57 /* HTTPMethod.swift in Sources */,
 				F4F103CA291CBD0E00C2020C /* OnBoardingViewController.swift in Sources */,
 				F4034CCC29191B1400423FAF /* UIViewController.swift in Sources */,
 				F4034CC929191B1400423FAF /* BaseViewCollectionViewCell.swift in Sources */,
+				F488D78929212290002E4B57 /* MemoleaseService.swift in Sources */,
 				F45119C7291941B10058571C /* EmailViewController.swift in Sources */,
 				F4F103CC291CBD1700C2020C /* OnBoardingView.swift in Sources */,
 				F4586466291F900E00993A6D /* EmailViewModel.swift in Sources */,
+				F488D7902921308A002E4B57 /* MemoleaseError.swift in Sources */,
 				F4586462291F77AB00993A6D /* NickNameViewModel.swift in Sources */,
 				F4034CCF29191B1400423FAF /* SceneDelegate.swift in Sources */,
 				F45119C5291941AB0058571C /* BirthViewController.swift in Sources */,

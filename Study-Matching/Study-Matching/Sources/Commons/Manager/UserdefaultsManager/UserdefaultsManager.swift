@@ -86,9 +86,9 @@ class UserDefaultsManager  {
     }
     
     
-    var gender: Bool {
+    var gender: Int {
         get {
-            return userDefaults.bool(forKey: UserDefaultsKey.gender.rawValue)
+            return userDefaults.integer(forKey: UserDefaultsKey.gender.rawValue)
         }
         set {
             userDefaults.set(newValue, forKey: UserDefaultsKey.gender.rawValue)
