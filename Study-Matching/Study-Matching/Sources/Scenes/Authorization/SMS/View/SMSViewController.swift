@@ -74,15 +74,17 @@ extension SMSViewController {
                             self.transition(vc, transitionStyle: .push)
                         case .failure(let error):
                             switch error {
-                            case .unknown:
+                            case .invalidVerificationCode:
                                 print("인증번호 불일치")
+                            case .tooManyRequest:
+                                print("너무 잦은 요철")
                             default:
-                                return
+                                print("그외 모든 에러 --> \(error.localizedDescription)")
                             }
                         }
                     }
-                } else {
-                    
+                }
+                else {
                     self.showToast(message: "인증번호 숫자만 6자리로 입력 해달라구요!")
                 }
             })

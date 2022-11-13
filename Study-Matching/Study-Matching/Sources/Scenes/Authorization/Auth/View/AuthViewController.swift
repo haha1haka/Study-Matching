@@ -84,10 +84,9 @@ extension AuthViewController {
                     //guard let phoneNumber = self.selfView.textFiled.text?.toPureNumber else { return }
                     //print("pure: \(phoneNumber)")
                     UserDefaultsManager.standard.phoneNumber = phoneNumber // 마지막 서버 연결할때 순정 번호로 바꾸기.
-                    FirebaseService.shared.requestVertificationID(phoneNumber: "+1\(phoneNumber)") { b in
-                        
-                        
-                        switch b {
+                    
+                    FirebaseService.shared.requestVertificationID(phoneNumber: "+1\(phoneNumber)") { status in
+                        switch status {
                         case .success:
                             let vc = SMSViewController()
                             self.transition(vc, transitionStyle: .push)
@@ -99,7 +98,6 @@ extension AuthViewController {
                                 print("unKnown 으로 빠진것 == 가상 번호 없음")
                                 return
                             }
-                            
                         }
                     }
                     
