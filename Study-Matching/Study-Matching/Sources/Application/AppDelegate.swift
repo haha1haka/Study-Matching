@@ -60,8 +60,11 @@ extension AppDelegate: MessagingDelegate {
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken
                    fcmToken: String?)
     {
-        print("🌟 Firebase registration FCMToken: \(String(describing: fcmToken))")
-        let dataDict: [String: String] = ["token": fcmToken ?? ""]
+        guard let fcmToken = fcmToken else { return }
+        let dataDict: [String: String] = ["token": fcmToken]
         NotificationCenter.default.post( name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
+
+        UserDefaultsManager.standard.FCMToken = fcmToken
+        print("🌟 Firebase registration FCMToken:  \(UserDefaultsManager.standard.FCMToken)")
     }
 }
