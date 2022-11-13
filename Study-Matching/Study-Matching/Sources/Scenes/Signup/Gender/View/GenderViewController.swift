@@ -22,7 +22,7 @@ extension GenderViewController {
         configureCollectionViewDataSource()
         applySnapshot()
         
-        input()
+        bind()
     }
 }
 
@@ -30,7 +30,7 @@ extension GenderViewController {
 
 
 extension GenderViewController {
-    func input() {
+    func bind() {
         viewModel.collectionViewObservable
             .bind(onNext: { _ in
                 self.selfView.button.backgroundColor = SeSacColor.green

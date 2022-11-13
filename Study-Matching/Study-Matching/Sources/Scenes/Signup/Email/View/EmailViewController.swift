@@ -14,13 +14,12 @@ class EmailViewController: BaseViewController {
 extension EmailViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        input()
-        output()
-        buttonRxTap()
+        bind()
+
     }
 }
 extension EmailViewController {
-    func input() {
+    func bind() {
         selfView.textFiled.rx.text.orEmpty
             .bind(to: viewModel.textFieldTextObserverable)
             .disposed(by: disposeBag)
@@ -35,8 +34,7 @@ extension EmailViewController {
             .bind(to: viewModel.validationFlag)
             .disposed(by: disposeBag)
         
-    }
-    func output() {
+
         
         
         viewModel.textFieldTextObserverable
@@ -69,8 +67,7 @@ extension EmailViewController {
             .disposed(by: disposeBag)
         
         
-    }
-    func buttonRxTap() {
+
         selfView.button.rx.tap
             .bind(onNext: { _ in
                 if self.viewModel.validationFlag.value {

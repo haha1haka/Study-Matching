@@ -14,13 +14,12 @@ class NicknameViewController: BaseViewController {
 extension NicknameViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        input()
-        output()
-        buttonRxTap()
+        bind()
+
     }
 }
 extension NicknameViewController {
-    func input() {
+    func bind() {
         selfView.textFiled.rx.text.orEmpty
             .bind(to: viewModel.textFieldTextObserverable)
             .disposed(by: disposeBag)
@@ -36,11 +35,8 @@ extension NicknameViewController {
             .bind(to: viewModel.validationFlag)
             .disposed(by: disposeBag)
                 
-    }
-    
-    
-    
-    func output() {
+
+        
         viewModel.validationFlag
             .bind(onNext: { b in
                 if b {
@@ -65,9 +61,6 @@ extension NicknameViewController {
         
 
 
-        
-    }
-    func buttonRxTap() {
         self.selfView.button.rx.tap
             .bind(onNext: { _ in
                 if self.viewModel.validationFlag.value {

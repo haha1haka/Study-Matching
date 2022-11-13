@@ -3,14 +3,11 @@ import FirebaseAuth
 
 
 
-
-class AuthManager {
+class FirebaseService {
     
-    static let shared = AuthManager()
+    static let shared = FirebaseService()
     
     private init() {}
-    
-    var vertificationId: String?
     
     func startAuth(phoneNumber: String, completion: @escaping (Bool) -> Void) {
         PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { [weak self] vertificationID, error in
@@ -21,9 +18,11 @@ class AuthManager {
             }
             //에러 어떻게 넘어 오냐 에 따라 분기 처리 해주기
             print("🔥🔥🔥\(error.debugDescription)")
-            self.vertificationId = vertificationID
+            
             print("🐙🐙🐙🐙\(vertificationID)")
-            UserDefaultsManager.shared.setVertificationID(vertificationID)
+            
+            UserDefaultsManager.standard.vertificationID = vertificationID
+            
             completion(true)
             
         }
@@ -31,12 +30,11 @@ class AuthManager {
     }
     
     func verifyCode(smsCode: String, completion: @escaping (Bool) -> Void) {
-        print(UserDefaultsManager.shared.getVertificationID())
-        guard let vertificationId = UserDefaultsManager.shared.getVertificationID() else {
-            completion(false)
-            return
-        }
+    
+        print("🟩 VerrificationID : \(UserDefaultsManager.standard.vertificationID)")
         
+        let vertificationId = UserDefaultsManager.standard.vertificationID
+            
         let credential = PhoneAuthProvider.provider().credential(withVerificationID: vertificationId, verificationCode: smsCode)
         
         Auth.auth().signIn(with: credential) { result, error in
@@ -48,4 +46,13 @@ class AuthManager {
             completion(true)
         }
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

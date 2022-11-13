@@ -23,16 +23,14 @@ class AuthViewController: BaseViewController {
 extension AuthViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        input()
-        output()
-        buttonRxTap()
+        bind()
     }
 }
 
 
 extension AuthViewController {
 
-    func input() {
+    func bind() {
         selfView.textFiled.rx.text.orEmpty
             .map(viewModel.applyHyphen)
             .bind(to: viewModel.textFieldTextObserverable)
@@ -48,9 +46,9 @@ extension AuthViewController {
             .bind(to: viewModel.validationFlag)
             .disposed(by: disposeBag)
         
-    }
     
-    func output() {
+    
+    
         
         viewModel.textFieldTextObserverable
             .bind(onNext: { text in
@@ -78,9 +76,9 @@ extension AuthViewController {
                 }
             })
             .disposed(by: disposeBag)
-    }
     
-    func buttonRxTap() {
+    
+    
         self.selfView.button.rx.tap
             .bind(onNext: { _ in
                 if self.viewModel.validationFlag.value {
@@ -88,7 +86,7 @@ extension AuthViewController {
                     // firebase 번호 보내기
                         // 1. 성공 --> 화면 이동
                     guard let phoneNumber = self.selfView.textFiled.text else { return }
-                    AuthManager.shared.startAuth(phoneNumber: "+1\(phoneNumber)") { b in
+                    FirebaseService.shared.startAuth(phoneNumber: "+1\(phoneNumber)") { b in
                         
                         if b {
                             print("인증 확인 true면 --> 화면 전환")

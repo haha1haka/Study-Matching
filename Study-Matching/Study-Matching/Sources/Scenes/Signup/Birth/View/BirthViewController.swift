@@ -14,14 +14,12 @@ class BirthViewController: BaseViewController {
 extension BirthViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        input()
-        output()
-        buttonRxTap()
+        bind()
         
     }
 }
 extension BirthViewController {
-    func input() {
+    func bind() {
         selfView.datePicker.rx.date
             .bind(to: viewModel.datePickerObservable)
             .disposed(by: disposeBag)
@@ -30,10 +28,8 @@ extension BirthViewController {
             .map(viewModel.validHandler) // bool
             .bind(to: viewModel.validationFlag)
             .disposed(by: disposeBag)
-        }
 
-    
-    func output() {
+        
         
         viewModel.datePickerObservable
             .bind(onNext: { d in
@@ -53,9 +49,7 @@ extension BirthViewController {
             })
             .disposed(by: disposeBag)
         
-        
-    }
-    func buttonRxTap() {
+
         self.selfView.button.rx.tap
             .bind(onNext: { _ in
                 if self.viewModel.validationFlag.value {
