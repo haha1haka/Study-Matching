@@ -15,7 +15,11 @@ extension NicknameViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
-
+        
+        if UserDefaultsManager.standard.nickFlag {
+            self.showToast(message: "해당 닉네임을 사용 할 수 없습니다")
+            UserDefaultsManager.standard.nickFlag = false
+        }
     }
     
     /*

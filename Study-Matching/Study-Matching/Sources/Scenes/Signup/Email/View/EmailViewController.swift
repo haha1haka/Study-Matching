@@ -80,7 +80,7 @@ extension EmailViewController {
                     self.transition(vc,transitionStyle: .push)
                     
                 } else {
-                    self.showToast(message: "이메일 형식이 맞지 않습니다.")
+                    self.showToast(message: "이메일 형식이 올바르지 않습니다.")
                 }
             })
             .disposed(by: disposeBag)

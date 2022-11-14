@@ -73,12 +73,16 @@ extension GenderViewController {
                         switch result {
                         case .success:
                             print("⚠️성공 --> 홈화면 이동 ")
+                            let vc = MainViewController()
+                            self.transitionRootViewController(vc)
                         case .failure(let error):
                             switch error {
                             case .alreadyUser:
                                 print("⚠️이미 유저 있음 --> 홈화면 이동")
                             case .nickError:
                                 print("⚠️닉네임 에러 --> 닉네임화면gogo 다시 설정 하게 돌아가야됨")
+                                self.toNickNameViewController()
+                                UserDefaultsManager.standard.nickFlag = true
                             case .firebaseTokenError:
                                 print("⚠️토큰 만료 --> 토큰 재갱신")
                             case .serverError:
@@ -91,15 +95,29 @@ extension GenderViewController {
                         }
                     }
                 }
-                                
+                
                 
             })
             .disposed(by: disposeBag)
     }
-
+    
 }
 
-
+extension GenderViewController {
+    func toNickNameViewController() {
+        guard let presentingVC = self.presentingViewController as? UINavigationController else { return }
+        let viewControllerStack = presentingVC.viewControllers
+        print("✅ viewControllerStack: \(viewControllerStack)")
+        self.dismiss(animated: true) {
+            for viewController in viewControllerStack {
+                if let nickVC = viewController as? NicknameViewController {
+                    print("✅ rootVC: \(nickVC)")
+                    presentingVC.popToViewController(nickVC, animated: true)
+                }
+            }
+        }
+    }
+}
 
 
 extension GenderViewController {
@@ -129,7 +147,7 @@ extension GenderViewController {
         snapshot.appendItems(["1", "2"])
         collectionViewDataSource.apply(snapshot)
     }
-
+    
 }
 
 
