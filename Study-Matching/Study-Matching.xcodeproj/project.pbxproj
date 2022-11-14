@@ -59,6 +59,7 @@
 		F463403F2918FE54008A50D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F463403D2918FE54008A50D6 /* LaunchScreen.storyboard */; };
 		F47AF0B82922019700AA0789 /* FakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AF0B72922019700AA0789 /* FakerViewController.swift */; };
 		F47AF0BA292201A800AA0789 /* FakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AF0B9292201A800AA0789 /* FakerView.swift */; };
+		F47AF0BE2922097800AA0789 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F47AF0BD2922097800AA0789 /* GoogleService-Info.plist */; };
 		F488D78729211AE6002E4B57 /* FirebaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F488D78629211AE6002E4B57 /* FirebaseError.swift */; };
 		F488D78929212290002E4B57 /* MemoleaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F488D78829212290002E4B57 /* MemoleaseService.swift */; };
 		F488D78C29212324002E4B57 /* MemoleaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F488D78B29212324002E4B57 /* MemoleaseRouter.swift */; };
@@ -124,6 +125,7 @@
 		F46340402918FE54008A50D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F47AF0B72922019700AA0789 /* FakerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakerViewController.swift; sourceTree = "<group>"; };
 		F47AF0B9292201A800AA0789 /* FakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakerView.swift; sourceTree = "<group>"; };
+		F47AF0BD2922097800AA0789 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F488D78629211AE6002E4B57 /* FirebaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseError.swift; sourceTree = "<group>"; };
 		F488D78829212290002E4B57 /* MemoleaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoleaseService.swift; sourceTree = "<group>"; };
 		F488D78B29212324002E4B57 /* MemoleaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoleaseRouter.swift; sourceTree = "<group>"; };
@@ -544,6 +546,7 @@
 		F46340312918FE53008A50D6 /* Study-Matching */ = {
 			isa = PBXGroup;
 			children = (
+				F47AF0BD2922097800AA0789 /* GoogleService-Info.plist */,
 				F4594E732920A9810071CFC2 /* Study-Matching.entitlements */,
 				F4034CA829191B1400423FAF /* Sources */,
 				F4034CC229191B1400423FAF /* Resources */,
@@ -669,6 +672,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F463403F2918FE54008A50D6 /* LaunchScreen.storyboard in Resources */,
+				F47AF0BE2922097800AA0789 /* GoogleService-Info.plist in Resources */,
 				F454E4A3291A1CDB0064BCC4 /* NotoSansCJKkr-Regular.otf in Resources */,
 				F463403C2918FE54008A50D6 /* Assets.xcassets in Resources */,
 				F454E4A2291A1CDB0064BCC4 /* NotoSansCJKkr-Medium.otf in Resources */,
