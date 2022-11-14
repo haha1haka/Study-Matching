@@ -56,7 +56,8 @@ extension BirthViewController {
                     print("17세 이상임")
                     
                     let birth = self.selfView.datePicker.date
-                    UserDefaultsManager.standard.birth = "\(birth)"
+                    
+                    UserDefaultsManager.standard.birth = self.dateformatter.string(from: birth)
                     
                     let vc = EmailViewController()
                     self.transition(vc, transitionStyle: .push)
