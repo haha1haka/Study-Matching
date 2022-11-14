@@ -79,7 +79,7 @@ extension SMSViewController {
 
                         switch result {
                         case .success:
-                            
+                            UserDefaultsManager.standard.smsFlag = true //⭐️ 전화번호 인증완료된후에는 시작 화면 Nick 으로 나오게 할려고
                             FirebaseService.shared.fetchIdToken { reuslt in
                                 switch reuslt {
                                 case .success(.perfact):
@@ -125,6 +125,7 @@ extension SMSViewController {
             switch result {
             case .success:
                 print("로그인성공")
+                
                 let vc = MainViewController()
                 self.transitionRootViewController(vc)
             case .failure(let error):

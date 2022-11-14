@@ -23,10 +23,20 @@ class FakerViewController: BaseViewController {
 extension FakerViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        sleep(3)
-        saveSceneType()
-        coordinator()
         
+        if UserDefaultsManager.standard.smsFlag == false {
+            sleep(3)
+            saveSceneType()
+            coordinator()
+            
+        } else {
+            UserDefaultsManager.standard.smsFlag = false
+            let vc = NicknameViewController()
+            self.transitionRootViewController(vc)
+        }
+        
+        
+                
     }
 }
 extension FakerViewController {
@@ -65,7 +75,7 @@ extension FakerViewController {
                         switch error {
                         case .firebaseTokenError:
                             print("FakerVC - 토큰 만료")
-                            self.requestRefreshIdToken()
+                            self.requestRefreshIdToken() //재발급 + 다시 유저 요청
                         case .unRegistedUser:
                             print("FakerVC - 미가입 유저")
                             UserDefaultsManager.standard.sceneType = SceneType.nick.rawValue
