@@ -61,6 +61,8 @@ extension SMSViewController {
             .disposed(by: disposeBag)
         
         
+        //🥶 토큰 받았는데도 에러 나면 다시 보내야 되는 경우 토의 해보기
+        
         selfView.button.rx.tap
             .bind(onNext: { _ in
                 if self.viewModel.validationFlag.value {

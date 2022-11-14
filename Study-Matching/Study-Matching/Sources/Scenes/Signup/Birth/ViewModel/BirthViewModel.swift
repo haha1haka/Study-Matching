@@ -13,15 +13,19 @@ class BirthViewModel {
     //너무 안예쁘다 개선 해보기
     func validHandler(_ date: Date) -> Bool {
         let today = Date()
-        if today.year - date.year >= 17 {
+        if today.year - date.year == 17 {
             if today.month - date.month >= 0 {
                 if today.day - date.day >= 0 {
                     return true
                 }
                 return false
             }
+        } else if today.year - date.year > 17 {
+            return true
+        } else {
             return false
         }
+        
         return false
     }
     

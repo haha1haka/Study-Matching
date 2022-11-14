@@ -62,7 +62,7 @@ extension BirthViewController {
                     self.transition(vc, transitionStyle: .push)
                     
                 } else {
-                    self.showToast(message: "17세 이상 가입이 가능 합니다")
+                    self.showToast(message: "새싹 스터디는 만 17 세 이상만 사용할 수 있습니다.")
                 }
             })
             .disposed(by: disposeBag)

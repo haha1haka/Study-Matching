@@ -17,6 +17,13 @@ extension NicknameViewController {
         bind()
 
     }
+    
+    /*
+     flag 그 젤 마지막에 심어 줬다가 닉네임 오류 메세지 넘어 왔을때
+     뷰컨 돌려,
+     그다음 그 flag 일치하면 로직 다겠끔
+     flag 해주는 이유:
+     */
 }
 extension NicknameViewController {
     func bind() {
@@ -72,7 +79,7 @@ extension NicknameViewController {
                     let vc = BirthViewController()
                     self.transition(vc, transitionStyle: .push)
                 } else {
-                    //그냥 두기 --> gender 에서 확인 할거니깐
+                    self.showToast(message: "닉네임은 1자 이상 10자 이내로 부탁드려요")
                 }
             })
             .disposed(by: disposeBag)
