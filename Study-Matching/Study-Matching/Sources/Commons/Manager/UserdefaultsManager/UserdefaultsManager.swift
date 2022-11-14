@@ -18,7 +18,7 @@ class UserDefaultsManager  {
     enum UserDefaultsKey: String {
         case vertificationID, FCMToken, idToken
         case phoneNumber, nick, birth, email, gender
-        case startScene
+        case onboardFlag, sceneType
     }
     
     var vertificationID: String {
@@ -41,7 +41,7 @@ class UserDefaultsManager  {
     
     var idToken: String {
         get {
-            return userDefaults.string(forKey: UserDefaultsKey.idToken.rawValue)!
+            return userDefaults.string(forKey: UserDefaultsKey.idToken.rawValue) ?? ""
         }
         set {
             userDefaults.set(newValue, forKey: UserDefaultsKey.idToken.rawValue)
@@ -97,7 +97,23 @@ class UserDefaultsManager  {
     }
     
 
+    var onboardFlag: Bool {
+        get {
+            return userDefaults.bool(forKey: UserDefaultsKey.onboardFlag.rawValue)
+        }
+        set {
+            userDefaults.set(newValue, forKey: UserDefaultsKey.onboardFlag.rawValue)
+        }
+    }
 
+    var sceneType: String {
+        get {
+            return userDefaults.string(forKey: UserDefaultsKey.sceneType.rawValue)!
+        }
+        set {
+            userDefaults.set(newValue, forKey: UserDefaultsKey.sceneType.rawValue)
+        }
+    }
     
     
     

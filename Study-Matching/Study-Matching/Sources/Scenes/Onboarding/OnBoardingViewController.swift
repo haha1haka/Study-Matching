@@ -30,6 +30,10 @@ class OnBoardingViewController: BaseViewController {
     
     var collectionViewDataSource: UICollectionViewDiffableDataSource<Section, Page>!
     
+    deinit {
+        print("deinit - OnBoardingViewController")
+    }
+    
 }
 
 extension OnBoardingViewController {
@@ -38,9 +42,26 @@ extension OnBoardingViewController {
         selfView.eventDelegate = self
         configureCollectionViewDataSource()
         applySnapshot()
+        bind()
     }
 }
+extension OnBoardingViewController {
+    func bind() {
+        selfView.button.rx.tap
+            .bind(onNext: { _ in
+                
+                UserDefaultsManager.standard.onboardFlag = true
+                
+                print("🟩",UserDefaultsManager.standard.onboardFlag)
+                
+                let vc = AuthViewController()
+                self.transitionRootViewController(vc, transitionStyle: .presentNavigation)
 
+            })
+            .disposed(by: disposeBag)
+        
+    }
+}
 extension OnBoardingViewController {
     func configureCollectionViewDataSource() {
         let cellRegistration = UICollectionView.CellRegistration<OnboardCell, Page> { cell, indexPath, itemIdentifier in

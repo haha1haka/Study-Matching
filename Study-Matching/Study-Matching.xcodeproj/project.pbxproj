@@ -178,8 +178,8 @@
 		F4034CAA29191B1400423FAF /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				F45119B829193F280058571C /* Onboarding */,
 				F47AF0B62922018200AA0789 /* Faker */,
+				F45119B829193F280058571C /* Onboarding */,
 				F45119B9291940B60058571C /* Authorization */,
 				F45119B329193C8C0058571C /* Signup */,
 				F4034CAB29191B1400423FAF /* Main */,

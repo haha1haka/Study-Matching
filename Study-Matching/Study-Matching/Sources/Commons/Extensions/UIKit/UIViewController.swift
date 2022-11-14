@@ -5,6 +5,7 @@ extension UIViewController {
     enum TransitionStyle {
         case push
         case present
+        case presentfull
         case presentNavigation
         case presentFullNavigation
         
@@ -19,7 +20,11 @@ extension UIViewController {
             self.navigationController?.pushViewController(viewController, animated: true)
         case .present:
             self.present(viewController, animated: true)
+        case .presentfull:
+            self.modalTransitionStyle = .coverVertical
+            self.modalPresentationStyle = .fullScreen
             
+            self.present(viewController, animated: true)
         case .presentNavigation:
             let navi = UINavigationController(rootViewController: viewController)
             
@@ -30,7 +35,23 @@ extension UIViewController {
             self.present(navi, animated: true)
         }
     }
+    func transitionRootViewController<T: UIViewController>(_ viewController: T,
+                                         transitionStyle: TransitionStyle = .present)
+    {
+        switch transitionStyle {
+        case .presentNavigation:
+            let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+            let sceneDelegate =  windowScene?.delegate as? SceneDelegate
+            let navi = UINavigationController(rootViewController: viewController)
+            sceneDelegate?.window?.rootViewController = navi
+            sceneDelegate?.window?.makeKeyAndVisible()
+            self.present(navi, animated: true)
+        default:
+            return
+        }
+    }
     
+
     func showToast(message : String, font: UIFont = UIFont.systemFont(ofSize: 14.0)) {
          let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
          toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
