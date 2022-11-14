@@ -12,7 +12,7 @@ extension UIViewController {
     }
     
     func transition<T: UIViewController>(_ viewController: T,
-                                         transitionStyle: TransitionStyle = .present)
+                                         transitionStyle: TransitionStyle = .push)
     {
         switch transitionStyle {
             
@@ -36,7 +36,7 @@ extension UIViewController {
         }
     }
     func transitionRootViewController<T: UIViewController>(_ viewController: T,
-                                         transitionStyle: TransitionStyle = .present)
+                                         transitionStyle: TransitionStyle = .presentNavigation)
     {
         switch transitionStyle {
         case .presentNavigation:

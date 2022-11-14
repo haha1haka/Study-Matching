@@ -63,26 +63,41 @@ extension SMSViewController {
         
         selfView.button.rx.tap
             .bind(onNext: { _ in
-                if self.viewModel.validationFlag.value { //최소조건 : 6자리 -- true 면, 로그인 시작 --> success, error 처리 어디서?
+                if self.viewModel.validationFlag.value {
                     print(" 파베에 vertification 과 함게 로그인 로직 타겠끔 해주자 --> 파베 service 안에서 에러 처리 하는게 맞는거 같다 그래서 true 면 화면 전환 고고 ")
                     guard let smsCode = self.selfView.textFiled.text else { return }
                     
-                    FirebaseService.shared.requestSignIn(smsCode: smsCode) { b in
-                        
-                        switch b {
+                    
+                    //통신 3개 일어 나는 곳
+                    // sms코드 일치 여부 확인
+                    // 성공 : idToken 깔고 잘 깔리면 내가 가입 했었는지 확인
+                        //이미 가입했었으면, 홈
+                        //미 가입 유저면, nickVC
+                    FirebaseService.shared.vertifySMSCode(smsCode: smsCode) { result in
+
+                        switch result {
                         case .success:
                             
-                            self.requestRefreshIdToken()
-                            
-                            let vc = NicknameViewController()
-                            self.transition(vc, transitionStyle: .push)
-                            
+                            FirebaseService.shared.fetchIdToken { reuslt in
+                                switch reuslt {
+                                case .success(.perfact):
+                                    self.requestUserInfo() //🚨
+                                case .failure(let error):
+                                    switch error {
+                                    case .refreshError:
+                                        self.showToast(message: "ID토큰오류: 에러가 발생했습니다. 잠시 후 다시 시도해주세요")
+                                    default:
+                                        self.showToast(message: "알수없는 토큰 업데이트 에러")
+                                    }
+                                }
+                            }
+
                         case .failure(let error):
                             switch error {
                             case .invalidVerificationCode:
-                                print("인증번호 불일치")
+                                self.showToast(message: "인증번호불일치: 전화번호 인증 실패")
                             case .tooManyRequest:
-                                print("너무 잦은 요철")
+                                print("너무 잦은 요청")
                             default:
                                 print("그외 모든 에러 --> \(error.localizedDescription)")
                             }
@@ -99,34 +114,25 @@ extension SMSViewController {
     
 }
 
+
+
 extension SMSViewController {
-    func requestRefreshIdToken() {
-        FirebaseService.shared.requestRefreshIdToken { result in
-            switch result {
-            case .success(.perfact):
-                print()
-            case .failure(.refreshError):
-                print("리프레시 하다가 발생한 에러")
-            default:
-                print("리프레쉬 그외 에러")
-            }
-        }
-    }
-}
-extension SMSViewController {
-    func requestSignIn() {
+    func requestUserInfo() {
         let api = MemoleaseRouter.signIn
-        MemoleaseService.shared.requestSignIn(path: api.path, queryItems: api.queryItems, httpMethod: api.httpMethod, headers: api.headers) { result in
+        MemoleaseService.shared.requestUserInfo(path: api.path, queryItems: api.queryItems, httpMethod: api.httpMethod, headers: api.headers) { result in
             switch result {
             case .success:
                 print("로그인성공")
-                
+                let vc = MainViewController()
+                self.transitionRootViewController(vc)
             case .failure(let error):
                 switch error {
                 case .firebaseTokenError:
                     print("signIn - 토큰에러")
                 case .unRegistedUser:
-                    print("signIn - 등록된 사용자 없데")
+                    print("signIn - 406 미가입 유저 --> 닉네임 화면부터다시")
+                    let vc = NicknameViewController()
+                    self.transition(vc)
                 case .serverError:
                     print("signIn - 서버에러")
                 case .clientError:

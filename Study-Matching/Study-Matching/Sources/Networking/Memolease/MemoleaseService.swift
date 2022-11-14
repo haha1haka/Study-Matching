@@ -62,7 +62,7 @@ class MemoleaseService {
         
     }
     
-    func requestSignIn(path: String, queryItems: [URLQueryItem]?, httpMethod: HTTPMethod, headers: [String: String], completion: @escaping(Result<MemoleaseUser, MemoleaseError>) -> Void) {
+    func requestUserInfo(path: String, queryItems: [URLQueryItem]?, httpMethod: HTTPMethod, headers: [String: String], completion: @escaping(Result<MemoleaseUser, MemoleaseError>) -> Void) {
         
         var urlComponents = URLComponents(string: path)
         

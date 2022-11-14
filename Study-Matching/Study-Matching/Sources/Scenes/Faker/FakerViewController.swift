@@ -34,18 +34,14 @@ extension FakerViewController {
         print("❌\(UserDefaultsManager.standard.onboardFlag)")
         
         if UserDefaultsManager.standard.onboardFlag == false {
-            
-            //온보딩 화면으로 고고
-            
+
             print("❌\(UserDefaultsManager.standard.onboardFlag)")
             
             UserDefaultsManager.standard.sceneType = SceneType.onboarding.rawValue
             
         } else {
             if UserDefaultsManager.standard.idToken == "" {
-                // 로그인부터 -> 회원가입까지 쭉 진행
-//                let vc = AuthViewController()
-//                self.transition(vc, transitionStyle: .present)
+
                 UserDefaultsManager.standard.sceneType = SceneType.auth.rawValue
                 
             } else {
@@ -58,15 +54,10 @@ extension FakerViewController {
                  3일때 -> 얼럿
                  */
                 let api = MemoleaseRouter.signIn
-                MemoleaseService.shared.requestSignIn(path: api.path, queryItems: nil, httpMethod: api.httpMethod, headers: api.headers) { result in
+                MemoleaseService.shared.requestUserInfo(path: api.path, queryItems: nil, httpMethod: api.httpMethod, headers: api.headers) { result in
                     switch result {
                     case .success(let user):
-                        
                         print("🥰\(user)")
-                        
-                    
-//                        let vc = MainViewController()
-//                        self.transition(vc, transitionStyle: .present)
                         UserDefaultsManager.standard.sceneType = SceneType.home.rawValue
                                                     
                     case .failure(let error):
@@ -75,12 +66,8 @@ extension FakerViewController {
                         case .firebaseTokenError:
                             print("FakerVC - 토큰 만료")
                             self.requestRefreshIdToken()
-                            
                         case .unRegistedUser:
-                            
                             print("FakerVC - 미가입 유저")
-//                            let vc = NicknameViewController()
-//                            self.transition(vc, transitionStyle: .present)
                             UserDefaultsManager.standard.sceneType = SceneType.nick.rawValue
                         case .serverError:
                             print("FakerVC - 서버에러")
@@ -113,11 +100,11 @@ extension FakerViewController {
 
         case .nick:
             let vc = NicknameViewController()
-            self.transition(vc, transitionStyle: .presentfull)
+            self.transitionRootViewController(vc, transitionStyle: .presentNavigation)
 
         case .home:
             let vc = MainViewController()
-            self.transition(vc, transitionStyle: .presentfull)
+            self.transitionRootViewController(vc, transitionStyle: .presentNavigation)
 
         default:
             print("나도 몰라")
@@ -129,7 +116,7 @@ extension FakerViewController {
 
 extension FakerViewController {
     func requestRefreshIdToken() {
-        FirebaseService.shared.requestRefreshIdToken { result in
+        FirebaseService.shared.fetchIdToken { result in
             switch result {
             case .success(.perfact):
                 self.coordinator()

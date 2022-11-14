@@ -78,32 +78,29 @@ extension AuthViewController {
             .bind(onNext: { _ in
                 if self.viewModel.validationFlag.value {
                     
-                    // firebase 번호 보내기
-                    // 1. 성공 --> 화면 이동
-                    //guard let phoneNumber = self.selfView.textFiled.text else { return }
                     guard let phoneNumber = self.selfView.textFiled.text?.toPureNumber else { return }
-                    print("pure: \(phoneNumber)")
-                    UserDefaultsManager.standard.phoneNumber = phoneNumber // 마지막 서버 연결할때 순정 번호로 바꾸기.
+                    
+                    UserDefaultsManager.standard.phoneNumber = phoneNumber
                     
                     FirebaseService.shared.requestVertificationID(phoneNumber: "\(phoneNumber)") { status in
                         switch status {
                         case .success:
+                            self.showToast(message: "전화번호 인증 시작")
                             let vc = SMSViewController()
                             self.transition(vc, transitionStyle: .push)
                         case .failure(let error):
                             switch error {
                             case .tooManyRequest:
-                                print(self.description)
+                                self.showToast(message: "과도한 인증 시도가 있었습니다. 나중에 다시 시도해 주세요.")
                             default:
-                                print("unKnown 으로 빠진것 == 가상 번호 없음")
+                                self.showToast(message: "에러가 발생했습니다 다시 시도해주세요")
                                 return
                             }
                         }
                     }
                     
                 } else {
-                    // 전화 번호 패턴 아닐때 --> 알럿
-                    self.showToast(message: "전화 번호 패턴을 확인해 주세요")
+                    self.showToast(message: "잘못된 전화번호 형식입니다.")
                 }
             })
             .disposed(by: disposeBag)

@@ -42,7 +42,7 @@ class FirebaseService {
     
     
     
-    func requestSignIn(smsCode: String, completion: @escaping (Result<Succeess, FirebaseError>) -> Void) {
+    func vertifySMSCode(smsCode: String, completion: @escaping (Result<Succeess, FirebaseError>) -> Void) {
         
         print("🟩 VerrificationID : \(UserDefaultsManager.standard.vertificationID)")
         
@@ -71,7 +71,7 @@ class FirebaseService {
     
     
     
-    func requestRefreshIdToken(completion: @escaping (Result<Succeess, FirebaseError>) -> Void) {
+    func fetchIdToken(completion: @escaping (Result<Succeess, FirebaseError>) -> Void) {
         let currentUser = Auth.auth().currentUser
         currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
             if let error = error {
