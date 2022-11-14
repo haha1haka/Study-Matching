@@ -85,7 +85,7 @@ extension GenderViewController {
                                 print("서버에러")
                             case .clientError:
                                 print("헤더와 바디 잘 확인 하기")
-                            case .unknown:
+                            default:
                                 print("알수 없는 유저임")
                             }
                         }

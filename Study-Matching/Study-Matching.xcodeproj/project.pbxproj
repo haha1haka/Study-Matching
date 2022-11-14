@@ -45,6 +45,7 @@
 		F454E4A3291A1CDB0064BCC4 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F454E4A1291A1CDB0064BCC4 /* NotoSansCJKkr-Regular.otf */; };
 		F454E4A7291A24610064BCC4 /* SeSacLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F454E4A6291A24610064BCC4 /* SeSacLabel.swift */; };
 		F454E4A9291A66070064BCC4 /* DateLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F454E4A8291A66070064BCC4 /* DateLabel.swift */; };
+		F456375D2921538700CDF1BA /* MemoleaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F456375C2921538700CDF1BA /* MemoleaseUser.swift */; };
 		F4586462291F77AB00993A6D /* NickNameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4586461291F77AB00993A6D /* NickNameViewModel.swift */; };
 		F4586464291F8A0900993A6D /* BirthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4586463291F8A0900993A6D /* BirthViewModel.swift */; };
 		F4586466291F900E00993A6D /* EmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4586465291F900E00993A6D /* EmailViewModel.swift */; };
@@ -56,6 +57,8 @@
 		F4594E752920C29F0071CFC2 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4594E742920C29F0071CFC2 /* String.swift */; };
 		F463403C2918FE54008A50D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F463403B2918FE54008A50D6 /* Assets.xcassets */; };
 		F463403F2918FE54008A50D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F463403D2918FE54008A50D6 /* LaunchScreen.storyboard */; };
+		F47AF0B82922019700AA0789 /* FakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AF0B72922019700AA0789 /* FakerViewController.swift */; };
+		F47AF0BA292201A800AA0789 /* FakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AF0B9292201A800AA0789 /* FakerView.swift */; };
 		F488D78729211AE6002E4B57 /* FirebaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F488D78629211AE6002E4B57 /* FirebaseError.swift */; };
 		F488D78929212290002E4B57 /* MemoleaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F488D78829212290002E4B57 /* MemoleaseService.swift */; };
 		F488D78C29212324002E4B57 /* MemoleaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F488D78B29212324002E4B57 /* MemoleaseRouter.swift */; };
@@ -107,6 +110,7 @@
 		F454E4A1291A1CDB0064BCC4 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		F454E4A6291A24610064BCC4 /* SeSacLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacLabel.swift; sourceTree = "<group>"; };
 		F454E4A8291A66070064BCC4 /* DateLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateLabel.swift; sourceTree = "<group>"; };
+		F456375C2921538700CDF1BA /* MemoleaseUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoleaseUser.swift; sourceTree = "<group>"; };
 		F4586461291F77AB00993A6D /* NickNameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewModel.swift; sourceTree = "<group>"; };
 		F4586463291F8A0900993A6D /* BirthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthViewModel.swift; sourceTree = "<group>"; };
 		F4586465291F900E00993A6D /* EmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewModel.swift; sourceTree = "<group>"; };
@@ -119,6 +123,8 @@
 		F463403B2918FE54008A50D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F463403E2918FE54008A50D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F46340402918FE54008A50D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F47AF0B72922019700AA0789 /* FakerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakerViewController.swift; sourceTree = "<group>"; };
+		F47AF0B9292201A800AA0789 /* FakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakerView.swift; sourceTree = "<group>"; };
 		F488D78629211AE6002E4B57 /* FirebaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseError.swift; sourceTree = "<group>"; };
 		F488D78829212290002E4B57 /* MemoleaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoleaseService.swift; sourceTree = "<group>"; };
 		F488D78B29212324002E4B57 /* MemoleaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoleaseRouter.swift; sourceTree = "<group>"; };
@@ -173,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				F45119B829193F280058571C /* Onboarding */,
+				F47AF0B62922018200AA0789 /* Faker */,
 				F45119B9291940B60058571C /* Authorization */,
 				F45119B329193C8C0058571C /* Signup */,
 				F4034CAB29191B1400423FAF /* Main */,
@@ -556,6 +563,15 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		F47AF0B62922018200AA0789 /* Faker */ = {
+			isa = PBXGroup;
+			children = (
+				F47AF0B72922019700AA0789 /* FakerViewController.swift */,
+				F47AF0B9292201A800AA0789 /* FakerView.swift */,
+			);
+			path = Faker;
+			sourceTree = "<group>";
+		};
 		F47D76402920958800F747DA /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
@@ -569,6 +585,7 @@
 			isa = PBXGroup;
 			children = (
 				F488D78D29212665002E4B57 /* HTTPMethod.swift */,
+				F456375C2921538700CDF1BA /* MemoleaseUser.swift */,
 				F488D78F2921308A002E4B57 /* MemoleaseError.swift */,
 				F488D78B29212324002E4B57 /* MemoleaseRouter.swift */,
 				F488D78829212290002E4B57 /* MemoleaseService.swift */,
@@ -684,6 +701,7 @@
 				F454E4A9291A66070064BCC4 /* DateLabel.swift in Sources */,
 				F45119AC29193BCD0058571C /* SMSViewModel.swift in Sources */,
 				F45119C3291941A00058571C /* NicknameViewController.swift in Sources */,
+				F47AF0BA292201A800AA0789 /* FakerView.swift in Sources */,
 				F4F103CE291CBF8A00C2020C /* SeSacImage.swift in Sources */,
 				F4586468291FA90600993A6D /* Date.swift in Sources */,
 				F45119A229193AB20058571C /* AuthViewController.swift in Sources */,
@@ -695,6 +713,7 @@
 				F4034CC829191B1400423FAF /* MainCell.swift in Sources */,
 				F45119972919230B0058571C /* SeSacColor.swift in Sources */,
 				F4586475291FB33600993A6D /* GenderCell.swift in Sources */,
+				F47AF0B82922019700AA0789 /* FakerViewController.swift in Sources */,
 				F45119A629193B930058571C /* AuthView.swift in Sources */,
 				F45119CB291942720058571C /* SeSacTextField.swift in Sources */,
 				F4034CC529191B1400423FAF /* MainViewModel.swift in Sources */,
@@ -713,6 +732,7 @@
 				F4034CCA29191B1400423FAF /* BaseViewContoroller.swift in Sources */,
 				F499C44C291F55C200C4B117 /* UserdefaultsManager.swift in Sources */,
 				F4334034291E177400F46725 /* OnboardingViewModel.swift in Sources */,
+				F456375D2921538700CDF1BA /* MemoleaseUser.swift in Sources */,
 				F4586473291FB32800993A6D /* GenderViewModel.swift in Sources */,
 				F4034CCB29191B1400423FAF /* BaseView.swift in Sources */,
 				F45119C1291941680058571C /* GenderView.swift in Sources */,

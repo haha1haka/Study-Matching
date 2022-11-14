@@ -15,4 +15,6 @@ enum SeSacImage {
     static let firstPageMainImage = UIImage(named: "onboarding_img1")
     static let secondPageMainImage = UIImage(named: "onboarding_img2")
     static let thirdPageMainImage = UIImage(named: "onboarding_img2")
+    static let splashLogo = UIImage(named: "splashLogo")
+    static let splashTxt = UIImage(named: "splashTxt")
 }

@@ -113,3 +113,28 @@ extension SMSViewController {
         }
     }
 }
+extension SMSViewController {
+    func requestSignIn() {
+        let api = MemoleaseRouter.signIn
+        MemoleaseService.shared.requestSignIn(path: api.path, queryItems: api.queryItems, httpMethod: api.httpMethod, headers: api.headers) { result in
+            switch result {
+            case .success:
+                print("로그인성공")
+                
+            case .failure(let error):
+                switch error {
+                case .firebaseTokenError:
+                    print("signIn - 토큰에러")
+                case .unRegistedUser:
+                    print("signIn - 등록된 사용자 없데")
+                case .serverError:
+                    print("signIn - 서버에러")
+                case .clientError:
+                    print("signIn - 내 휴먼 에러일 가능성 높아 바디 확인")
+                default:
+                    print("signIn - 아직 알 수 없음")
+                }
+            }
+        }
+    }
+}

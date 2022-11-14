@@ -19,8 +19,10 @@ extension UIViewController {
             self.navigationController?.pushViewController(viewController, animated: true)
         case .present:
             self.present(viewController, animated: true)
+            
         case .presentNavigation:
             let navi = UINavigationController(rootViewController: viewController)
+            
             self.present(navi, animated: true)
         case .presentFullNavigation:
             let navi = UINavigationController(rootViewController: viewController)

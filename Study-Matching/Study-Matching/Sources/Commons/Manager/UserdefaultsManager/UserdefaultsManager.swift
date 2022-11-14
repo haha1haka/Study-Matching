@@ -18,6 +18,7 @@ class UserDefaultsManager  {
     enum UserDefaultsKey: String {
         case vertificationID, FCMToken, idToken
         case phoneNumber, nick, birth, email, gender
+        case startScene
     }
     
     var vertificationID: String {
