@@ -18,7 +18,7 @@ class UserDefaultsManager  {
     enum UserDefaultsKey: String {
         case vertificationID, FCMToken, idToken
         case phoneNumber, nick, birth, email, gender
-        case onboardFlag, sceneType, nickFlag, smsFlag
+        case onboardFlag, sceneType, nickFlag, smsFlag, mainFlag
     }
     
     var vertificationID: String {
@@ -132,6 +132,16 @@ class UserDefaultsManager  {
             userDefaults.set(newValue, forKey: UserDefaultsKey.smsFlag.rawValue)
         }
     }
+    
+    var mainFlag: Bool {
+        get {
+            return userDefaults.bool(forKey: UserDefaultsKey.mainFlag.rawValue)
+        }
+        set {
+            userDefaults.set(newValue, forKey: UserDefaultsKey.mainFlag.rawValue)
+        }
+    }
+
 
 
     

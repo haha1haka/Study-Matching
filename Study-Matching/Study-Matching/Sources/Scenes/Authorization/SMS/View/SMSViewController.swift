@@ -127,7 +127,8 @@ extension SMSViewController {
                 print("로그인성공")
                 
                 let vc = MainViewController()
-                self.transitionRootViewController(vc)
+                //self.transitionRootViewController(vc)//⚠️여기서부터 다시하기
+                
             case .failure(let error):
                 switch error {
                 case .firebaseTokenError:

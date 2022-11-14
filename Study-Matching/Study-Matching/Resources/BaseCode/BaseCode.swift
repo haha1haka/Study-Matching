@@ -63,6 +63,7 @@
 
     // MARK: - Cell
     //import UIKit
+
     //class MainCell: BaseCollectionViewCell {
     //    override func configureHierarchy() {
     //        <#code#>
