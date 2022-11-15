@@ -191,7 +191,7 @@ extension GenderViewController {
     
     func configureCollectionViewDataSource() {
         
-        let CellRegistration = UICollectionView.CellRegistration<GenderCell,String> { cell, indexPath, itemIdentifier in
+        let cellRegistration = UICollectionView.CellRegistration<GenderCell,String> { cell, indexPath, itemIdentifier in
             switch indexPath.item {
             case .zero:
                 cell.imageView.image = UIImage(named: "man")
@@ -203,7 +203,7 @@ extension GenderViewController {
         
         collectionViewDataSource = UICollectionViewDiffableDataSource<String, String>(collectionView: selfView.collectionView) {
             collectionView, indexPath, itemIdentifier in
-            let cell = collectionView.dequeueConfiguredReusableCell(using: CellRegistration, for: indexPath, item: itemIdentifier)
+            let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
             return cell
         }
     }

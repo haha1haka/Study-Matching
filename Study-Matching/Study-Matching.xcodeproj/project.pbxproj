@@ -67,14 +67,14 @@
 		F488D7902921308A002E4B57 /* MemoleaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F488D78F2921308A002E4B57 /* MemoleaseError.swift */; };
 		F48B3070292270A800DD5E12 /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B306F292270A800DD5E12 /* MyInfoViewController.swift */; };
 		F48B3072292270B100DD5E12 /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B3071292270B100DD5E12 /* MyInfoView.swift */; };
-		F48B3074292270B800DD5E12 /* MyInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B3073292270B800DD5E12 /* MyInfoCell.swift */; };
-		F48B3076292278E500DD5E12 /* GenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B3075292278E500DD5E12 /* GenderCell.swift */; };
-		F48B3078292278E900DD5E12 /* StudyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B3077292278E900DD5E12 /* StudyCell.swift */; };
+		F48B3074292270B800DD5E12 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B3073292270B800DD5E12 /* HeaderCell.swift */; };
+		F48B3076292278E500DD5E12 /* ItemCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B3075292278E500DD5E12 /* ItemCell2.swift */; };
+		F48B3078292278E900DD5E12 /* ItemCell3.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B3077292278E900DD5E12 /* ItemCell3.swift */; };
 		F48B307A2922791200DD5E12 /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B30792922791200DD5E12 /* SwitchCell.swift */; };
 		F48B307C2922791D00DD5E12 /* AgeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B307B2922791D00DD5E12 /* AgeCell.swift */; };
 		F48B307E2922794600DD5E12 /* WithdrawCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B307D2922794600DD5E12 /* WithdrawCell.swift */; };
 		F48B30802922795A00DD5E12 /* MyInfoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B307F2922795A00DD5E12 /* MyInfoHeaderView.swift */; };
-		F48B3082292279C900DD5E12 /* HiddenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B3081292279C900DD5E12 /* HiddenCell.swift */; };
+		F48B3082292279C900DD5E12 /* ItemCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B3081292279C900DD5E12 /* ItemCell1.swift */; };
 		F499C449291F546000C4B117 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F499C448291F546000C4B117 /* FirebaseService.swift */; };
 		F499C44C291F55C200C4B117 /* UserdefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F499C44B291F55C200C4B117 /* UserdefaultsManager.swift */; };
 		F4F103CA291CBD0E00C2020C /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103C9291CBD0E00C2020C /* OnBoardingViewController.swift */; };
@@ -143,14 +143,14 @@
 		F488D78F2921308A002E4B57 /* MemoleaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoleaseError.swift; sourceTree = "<group>"; };
 		F48B306F292270A800DD5E12 /* MyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewController.swift; sourceTree = "<group>"; };
 		F48B3071292270B100DD5E12 /* MyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoView.swift; sourceTree = "<group>"; };
-		F48B3073292270B800DD5E12 /* MyInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoCell.swift; sourceTree = "<group>"; };
-		F48B3075292278E500DD5E12 /* GenderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCell.swift; sourceTree = "<group>"; };
-		F48B3077292278E900DD5E12 /* StudyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyCell.swift; sourceTree = "<group>"; };
+		F48B3073292270B800DD5E12 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		F48B3075292278E500DD5E12 /* ItemCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell2.swift; sourceTree = "<group>"; };
+		F48B3077292278E900DD5E12 /* ItemCell3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell3.swift; sourceTree = "<group>"; };
 		F48B30792922791200DD5E12 /* SwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCell.swift; sourceTree = "<group>"; };
 		F48B307B2922791D00DD5E12 /* AgeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeCell.swift; sourceTree = "<group>"; };
 		F48B307D2922794600DD5E12 /* WithdrawCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawCell.swift; sourceTree = "<group>"; };
 		F48B307F2922795A00DD5E12 /* MyInfoHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoHeaderView.swift; sourceTree = "<group>"; };
-		F48B3081292279C900DD5E12 /* HiddenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenCell.swift; sourceTree = "<group>"; };
+		F48B3081292279C900DD5E12 /* ItemCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell1.swift; sourceTree = "<group>"; };
 		F499C448291F546000C4B117 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		F499C44B291F55C200C4B117 /* UserdefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserdefaultsManager.swift; sourceTree = "<group>"; };
 		F4F103C9291CBD0E00C2020C /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
@@ -620,10 +620,10 @@
 				F48B306F292270A800DD5E12 /* MyInfoViewController.swift */,
 				F48B3071292270B100DD5E12 /* MyInfoView.swift */,
 				F48B307F2922795A00DD5E12 /* MyInfoHeaderView.swift */,
-				F48B3073292270B800DD5E12 /* MyInfoCell.swift */,
-				F48B3081292279C900DD5E12 /* HiddenCell.swift */,
-				F48B3075292278E500DD5E12 /* GenderCell.swift */,
-				F48B3077292278E900DD5E12 /* StudyCell.swift */,
+				F48B3073292270B800DD5E12 /* HeaderCell.swift */,
+				F48B3081292279C900DD5E12 /* ItemCell1.swift */,
+				F48B3075292278E500DD5E12 /* ItemCell2.swift */,
+				F48B3077292278E900DD5E12 /* ItemCell3.swift */,
 				F48B30792922791200DD5E12 /* SwitchCell.swift */,
 				F48B307B2922791D00DD5E12 /* AgeCell.swift */,
 				F48B307D2922794600DD5E12 /* WithdrawCell.swift */,
@@ -732,7 +732,7 @@
 				F4034CCD29191B1400423FAF /* NSObject.swift in Sources */,
 				F45119A829193B9F0058571C /* SMSView.swift in Sources */,
 				F488D78729211AE6002E4B57 /* FirebaseError.swift in Sources */,
-				F48B3078292278E900DD5E12 /* StudyCell.swift in Sources */,
+				F48B3078292278E900DD5E12 /* ItemCell3.swift in Sources */,
 				F45119BF291941620058571C /* EmailView.swift in Sources */,
 				F4F103D2291CC66600C2020C /* FooterView.swift in Sources */,
 				F4586464291F8A0900993A6D /* BirthViewModel.swift in Sources */,
@@ -745,13 +745,13 @@
 				F4F103CE291CBF8A00C2020C /* SeSacImage.swift in Sources */,
 				F4586468291FA90600993A6D /* Date.swift in Sources */,
 				F45119A229193AB20058571C /* AuthViewController.swift in Sources */,
-				F48B3082292279C900DD5E12 /* HiddenCell.swift in Sources */,
+				F48B3082292279C900DD5E12 /* ItemCell1.swift in Sources */,
 				F45119C9291941B80058571C /* GenderViewController.swift in Sources */,
 				F45119BB291941550058571C /* NicknameView.swift in Sources */,
 				F451199F29192DC80058571C /* SeSacFont.swift in Sources */,
 				F488D78C29212324002E4B57 /* MemoleaseRouter.swift in Sources */,
 				F45119BD2919415D0058571C /* BirthView.swift in Sources */,
-				F48B3076292278E500DD5E12 /* GenderCell.swift in Sources */,
+				F48B3076292278E500DD5E12 /* ItemCell2.swift in Sources */,
 				F4034CC829191B1400423FAF /* MainCell.swift in Sources */,
 				F45119972919230B0058571C /* SeSacColor.swift in Sources */,
 				F4586475291FB33600993A6D /* GenderCell.swift in Sources */,
@@ -780,7 +780,7 @@
 				F456375D2921538700CDF1BA /* MemoleaseUser.swift in Sources */,
 				F4586473291FB32800993A6D /* GenderViewModel.swift in Sources */,
 				F4034CCB29191B1400423FAF /* BaseView.swift in Sources */,
-				F48B3074292270B800DD5E12 /* MyInfoCell.swift in Sources */,
+				F48B3074292270B800DD5E12 /* HeaderCell.swift in Sources */,
 				F48B307E2922794600DD5E12 /* WithdrawCell.swift in Sources */,
 				F45119C1291941680058571C /* GenderView.swift in Sources */,
 				F4034CC729191B1400423FAF /* MainView.swift in Sources */,

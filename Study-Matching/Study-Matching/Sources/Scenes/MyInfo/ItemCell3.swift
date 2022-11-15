@@ -1,6 +1,7 @@
-//import UIKit
+import UIKit
+import SnapKit
 
-//class MainCell: BaseCollectionViewCell {
+class ItemCell3: BaseCollectionViewCell {
 //    override func configureHierarchy() {
 //        <#code#>
 //    }
@@ -10,4 +11,4 @@
 //    override func configureAttributesInit() {
 //        <#code#>
 //    }
-//}
+}
