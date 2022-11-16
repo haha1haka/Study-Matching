@@ -84,7 +84,7 @@
 		F4D29802292508D100A3AAB7 /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D29801292508D100A3AAB7 /* MyInfoViewController.swift */; };
 		F4D29804292508D700A3AAB7 /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D29803292508D700A3AAB7 /* MyInfoView.swift */; };
 		F4D29806292508E000A3AAB7 /* MyInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D29805292508E000A3AAB7 /* MyInfoCell.swift */; };
-		F4D29808292508F500A3AAB7 /* MyInfoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D29807292508F500A3AAB7 /* MyInfoHeader.swift */; };
+		F4D29808292508F500A3AAB7 /* MyInfoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D29807292508F500A3AAB7 /* MyInfoHeaderView.swift */; };
 		F4F103CA291CBD0E00C2020C /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103C9291CBD0E00C2020C /* OnBoardingViewController.swift */; };
 		F4F103CC291CBD1700C2020C /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103CB291CBD1700C2020C /* OnBoardingView.swift */; };
 		F4F103CE291CBF8A00C2020C /* SeSacImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103CD291CBF8A00C2020C /* SeSacImage.swift */; };
@@ -168,7 +168,7 @@
 		F4D29801292508D100A3AAB7 /* MyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewController.swift; sourceTree = "<group>"; };
 		F4D29803292508D700A3AAB7 /* MyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoView.swift; sourceTree = "<group>"; };
 		F4D29805292508E000A3AAB7 /* MyInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoCell.swift; sourceTree = "<group>"; };
-		F4D29807292508F500A3AAB7 /* MyInfoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoHeader.swift; sourceTree = "<group>"; };
+		F4D29807292508F500A3AAB7 /* MyInfoHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoHeaderView.swift; sourceTree = "<group>"; };
 		F4F103C9291CBD0E00C2020C /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		F4F103CB291CBD1700C2020C /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		F4F103CD291CBF8A00C2020C /* SeSacImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacImage.swift; sourceTree = "<group>"; };
@@ -674,7 +674,7 @@
 			children = (
 				F4D29801292508D100A3AAB7 /* MyInfoViewController.swift */,
 				F4D29803292508D700A3AAB7 /* MyInfoView.swift */,
-				F4D29807292508F500A3AAB7 /* MyInfoHeader.swift */,
+				F4D29807292508F500A3AAB7 /* MyInfoHeaderView.swift */,
 				F4D29805292508E000A3AAB7 /* MyInfoCell.swift */,
 			);
 			path = MyInfo;
@@ -823,7 +823,7 @@
 				F48B3082292279C900DD5E12 /* SubCell.swift in Sources */,
 				F4A8A77E292487DE00B94EC7 /* StudyView.swift in Sources */,
 				F45119C9291941B80058571C /* GenderViewController.swift in Sources */,
-				F4D29808292508F500A3AAB7 /* MyInfoHeader.swift in Sources */,
+				F4D29808292508F500A3AAB7 /* MyInfoHeaderView.swift in Sources */,
 				F4A8A77C292487CB00B94EC7 /* Gender2View.swift in Sources */,
 				F45119BB291941550058571C /* NicknameView.swift in Sources */,
 				F451199F29192DC80058571C /* SeSacFont.swift in Sources */,

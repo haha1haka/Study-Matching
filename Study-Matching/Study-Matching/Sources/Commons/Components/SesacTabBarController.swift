@@ -6,7 +6,7 @@ class TabBarController: UITabBarController {
     let homeViewController = UINavigationController(rootViewController: MainViewController())
     let shopViewController = UINavigationController(rootViewController: MainViewController())
     let friendViewController = UINavigationController(rootViewController: MainViewController())
-    let profileViewController = UINavigationController(rootViewController: ProfileViewController())
+    let myInfoViewController = UINavigationController(rootViewController: MyInfoViewController())
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,7 @@ class TabBarController: UITabBarController {
         homeViewController.tabBarItem = UITabBarItem(title: "홈", image: SeSacImage.homeIndAct, selectedImage: SeSacImage.homeAct)
         shopViewController.tabBarItem = UITabBarItem(title: "새싹샵", image: SeSacImage.shopInAct, selectedImage: SeSacImage.shopAct)
         friendViewController.tabBarItem = UITabBarItem(title: "새싹친구", image: SeSacImage.friendInAct, selectedImage: SeSacImage.friendAct)
-        profileViewController.tabBarItem = UITabBarItem(title: "내정보", image: SeSacImage.ProfileInAct, selectedImage: SeSacImage.ProfileAct)
+        myInfoViewController.tabBarItem = UITabBarItem(title: "내정보", image: SeSacImage.ProfileInAct, selectedImage: SeSacImage.ProfileAct)
         
 
         setViewControllers([homeViewController, shopViewController, friendViewController, myInfoViewController], animated: true)

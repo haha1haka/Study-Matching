@@ -26,10 +26,24 @@ enum SeSacImage {
     static let shopAct = UIImage(named: "shopAct")
     static let shopInAct = UIImage(named: "shopInAct")
     
+    
     static let friendAct = UIImage(named: "friendAct")
     static let friendInAct = UIImage(named: "friendInAct")
 
     static let ProfileAct = UIImage(named: "ProfileAct")
     static let ProfileInAct = UIImage(named: "ProfileInAct")
+    
+    
+    // MARK: - MyInfo
+    static let profileImg = UIImage(named: "profile_img")
+    static let moreArrow = UIImage(named: "more_arrow")
+    
+    
+    static let notice = UIImage(named: "notice")
+    static let faq = UIImage(named: "faq")
+    static let qna = UIImage(named: "qna")
+    static let settingAlarm = UIImage(named: "setting_alarm")
+    static let permit = UIImage(named: "permit")
+
     
 }
