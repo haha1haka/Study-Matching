@@ -2,7 +2,7 @@ import UIKit
 import SnapKit
 
 
-class DateLabel: UILabel {
+class SesacDateLabel: UILabel {
 
     let dividerView: UIView = {
         let view = UIView()
@@ -23,7 +23,7 @@ class DateLabel: UILabel {
     
 }
 
-extension DateLabel {
+extension SesacDateLabel {
 
     func configureLayout() {
         dividerView.snp.makeConstraints {

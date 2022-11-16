@@ -9,6 +9,7 @@ enum SeSacFont: String {
     
     static let notoSansCJKkrRegular = "NotoSansCJKkr-Regular"
     static let notoSansCJKkrMedium = "NotoSansCJKkr-Medium"
+    
 }
 
 extension SeSacFont {

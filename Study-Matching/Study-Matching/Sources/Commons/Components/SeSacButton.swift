@@ -1,17 +1,39 @@
 import UIKit
-
+enum SeSacButtonType {
+    case login
+    case myInfo
+}
 
 class SeSacButton: UIButton {
     
     convenience init(frame: CGRect = .zero,
                      title: String,
                      color: UIColor = SeSacColor.gray6,
-                     font_: UIFont = SeSacFont.Body3_R14.set)
+                     font_: UIFont = SeSacFont.Body3_R14.set,
+                     type: SeSacButtonType = .login)
     {
         self.init(frame: frame)
-        titleLabel?.font = font_
-        setTitle(title, for: .normal)
-        backgroundColor = color
+
+        switch type {
+        case .login:
+            backgroundColor = color
+            titleLabel?.font = font_
+            setTitle(title, for: .normal)
+        case .myInfo:
+            setTitleColor(SeSacColor.black, for: .normal)
+            layer.cornerRadius = 8
+            layer.borderWidth = 1
+            layer.masksToBounds = true
+            backgroundColor = SeSacColor.white
+            layer.borderColor = SeSacColor.gray4.cgColor
+            setTitleColor(.blue, for: .normal)
+            //titleLabel?.textColor = SeSacColor.black
+            //tintColor = .black
+            
+            
+        }
+                
+
     }
     
     override init(frame: CGRect) {

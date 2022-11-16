@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 
-class MyInfoView: BaseView {
+class ProfileView: BaseView {
     
     lazy var collectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionViewLayout())
@@ -49,8 +49,8 @@ class MyInfoView: BaseView {
     
     func headerCellLayout() -> NSCollectionLayoutSection {
         
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                             heightDimension: .estimated(50))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(343),
+                                             heightDimension: .estimated(400))
         
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
       
@@ -58,12 +58,13 @@ class MyInfoView: BaseView {
                                                          subitems: [item])
 
         let section = NSCollectionLayoutSection(group: group)
-        section.interGroupSpacing = 12
-        section.contentInsets = .init(top: 12, leading: 12, bottom: 12, trailing: 12)
+        //section.interGroupSpacing = 12
+        //section.contentInsets = .init(top: 0, leading: 12, bottom: 12, trailing: 12)
         
         
         
-        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(100))
+        let headerSize = NSCollectionLayoutSize(widthDimension: .absolute(373),
+                                                heightDimension: .absolute(194))
         let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
         section.boundarySupplementaryItems = [header]
         
@@ -78,7 +79,7 @@ class MyInfoView: BaseView {
     func subCellLayout() -> NSCollectionLayoutSection {
         
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                             heightDimension: .absolute(400))
+                                             heightDimension: .estimated(400))
         
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
       

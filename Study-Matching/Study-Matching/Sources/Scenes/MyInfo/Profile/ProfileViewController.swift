@@ -15,9 +15,9 @@ struct Sub: Hashable {
 
 
 
-class MyInfoViewController: BaseViewController {
+class ProfileViewController: BaseViewController {
     
-    let selfView = MyInfoView()
+    let selfView = ProfileView()
     
     override func loadView() {
         view = selfView
@@ -28,37 +28,29 @@ class MyInfoViewController: BaseViewController {
     
     var collectionViewDataSource: UICollectionViewDiffableDataSource<Int, Item>!
     
-
-
 }
 
-extension MyInfoViewController {
+extension ProfileViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionViewDataSource()
         applySnapshot()
+        selfView.collectionView.delegate = self
     }
 }
 
-extension MyInfoViewController {
+extension ProfileViewController {
     
     func configureCollectionViewDataSource() {
         
-        
-
-        
-        
-        
-        
-        
-            
         let headercellRegistration = UICollectionView.CellRegistration<HeaderCell,Header> { cell, indexPath, itemIdentifier in
+            cell.cardStackView.button1.setTitleColor(.black, for: .normal)
         }
         
         let subCellRegistration = UICollectionView.CellRegistration<SubCell,Sub> { cell, indexPath, itemIdentifier in
+            cell.backgroundColor = .white
         }
         
-
         collectionViewDataSource = UICollectionViewDiffableDataSource<Int, Item>(collectionView: selfView.collectionView) {
             collectionView, indexPath, itemIdentifier in
             switch itemIdentifier {
@@ -76,15 +68,8 @@ extension MyInfoViewController {
         
         collectionViewDataSource.supplementaryViewProvider =  { collectionView, elementKind, indexPath in
             let suppleymentaryView  = collectionView.dequeueConfiguredReusableSupplementary(using: headerRegistration, for: indexPath)
-            
             return suppleymentaryView
         }
-        
-        
-        
-        
-
-        
     }
     
     
@@ -100,8 +85,32 @@ extension MyInfoViewController {
     
 }
 
-extension MyInfoViewController {
-    
+
+
+
+
+
+extension ProfileViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView,
+                        shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        guard let dataSource = collectionViewDataSource else { return false }
+        
+        
+        if collectionView.indexPathsForSelectedItems?.contains(indexPath) ?? false {
+            collectionView.deselectItem(at: indexPath, animated: true)
+        } else {
+            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
+        }
+        
+        dataSource.refresh()
+        
+        return false
+    }
 }
 
+extension UICollectionViewDiffableDataSource {
 
+    func refresh(completion: (() -> Void)? = nil) {
+        self.apply(self.snapshot(), animatingDifferences: true, completion: completion)
+    }
+}

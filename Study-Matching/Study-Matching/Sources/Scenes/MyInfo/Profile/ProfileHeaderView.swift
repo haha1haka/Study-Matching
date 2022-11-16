@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 
-class MyInfoHeaderView: UICollectionReusableView {
+class ProfileHeaderView: UICollectionReusableView {
     
     let imageView: UIImageView = {
         let view = UIImageView()
@@ -33,6 +33,7 @@ class MyInfoHeaderView: UICollectionReusableView {
     func configureAttributes() {
         layer.cornerRadius = 8
         layer.masksToBounds = true
+        self.imageView.image = SeSacImage.sesacBg01
     }
 
     
