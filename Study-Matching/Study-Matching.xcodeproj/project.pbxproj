@@ -22,6 +22,7 @@
 		F41E0E322925A12E00B28291 /* ProfileDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E0E312925A12E00B28291 /* ProfileDataSource.swift */; };
 		F41E0E342925A64D00B28291 /* MyInfoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E0E332925A64D00B28291 /* MyInfoDataSource.swift */; };
 		F41E0E362925A83000B28291 /* OnBoardingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E0E352925A83000B28291 /* OnBoardingDataSource.swift */; };
+		F41E0E382925AB0000B28291 /* GenderDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E0E372925AB0000B28291 /* GenderDataSource.swift */; };
 		F4334030291E12FA00F46725 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F433402F291E12FA00F46725 /* RxCocoa */; };
 		F4334032291E12FA00F46725 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F4334031291E12FA00F46725 /* RxSwift */; };
 		F4334034291E177400F46725 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4334033291E177400F46725 /* OnboardingViewModel.swift */; };
@@ -111,6 +112,7 @@
 		F41E0E312925A12E00B28291 /* ProfileDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataSource.swift; sourceTree = "<group>"; };
 		F41E0E332925A64D00B28291 /* MyInfoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoDataSource.swift; sourceTree = "<group>"; };
 		F41E0E352925A83000B28291 /* OnBoardingDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingDataSource.swift; sourceTree = "<group>"; };
+		F41E0E372925AB0000B28291 /* GenderDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderDataSource.swift; sourceTree = "<group>"; };
 		F4334033291E177400F46725 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		F45119962919230B0058571C /* SeSacColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacColor.swift; sourceTree = "<group>"; };
 		F4511999291926A00058571C /* SeSacButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacButton.swift; sourceTree = "<group>"; };
@@ -561,6 +563,7 @@
 				F45119C8291941B80058571C /* GenderViewController.swift */,
 				F45119C0291941680058571C /* GenderView.swift */,
 				F4586474291FB33600993A6D /* GenderCell.swift */,
+				F41E0E372925AB0000B28291 /* GenderDataSource.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -823,6 +826,7 @@
 				F454E4A9291A66070064BCC4 /* SesacDateLabel.swift in Sources */,
 				F45119AC29193BCD0058571C /* SMSViewModel.swift in Sources */,
 				F45119C3291941A00058571C /* NicknameViewController.swift in Sources */,
+				F41E0E382925AB0000B28291 /* GenderDataSource.swift in Sources */,
 				F47AF0BA292201A800AA0789 /* FakerView.swift in Sources */,
 				F4F103CE291CBF8A00C2020C /* SeSacImage.swift in Sources */,
 				F4A8A78F2924B1BA00B94EC7 /* MiddleStackView.swift in Sources */,

@@ -9,19 +9,16 @@ class GenderViewController: BaseViewController {
     }
     
     let viewModel = GenderViewModel()
-    
     let disposeBag = DisposeBag()
     
-    var collectionViewDataSource: UICollectionViewDiffableDataSource<String, String>!
+    lazy var dataSource = GenderDataSource(collectionView: selfView.collectionView)
 }
 
 extension GenderViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         selfView.collectionView.delegate = self
-        configureCollectionViewDataSource()
-        applySnapshot()
-        
+        dataSource.applySnapshot()
         bind()
     }
 }
@@ -186,36 +183,6 @@ extension GenderViewController {
     }
 }
 
-
-extension GenderViewController {
-    
-    func configureCollectionViewDataSource() {
-        
-        let cellRegistration = UICollectionView.CellRegistration<GenderCell,String> { cell, indexPath, itemIdentifier in
-            switch indexPath.item {
-            case .zero:
-                cell.imageView.image = UIImage(named: "man")
-            default:
-                cell.imageView.image = UIImage(named: "woman")
-            }
-            
-        }
-        
-        collectionViewDataSource = UICollectionViewDiffableDataSource<String, String>(collectionView: selfView.collectionView) {
-            collectionView, indexPath, itemIdentifier in
-            let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
-            return cell
-        }
-    }
-    
-    func applySnapshot() {
-        var snapshot = collectionViewDataSource.snapshot()
-        snapshot.appendSections(["첫번째"])
-        snapshot.appendItems(["1", "2"])
-        collectionViewDataSource.apply(snapshot)
-    }
-    
-}
 
 
 extension GenderViewController: UICollectionViewDelegate {
