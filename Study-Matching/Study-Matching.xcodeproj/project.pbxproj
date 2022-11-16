@@ -19,6 +19,8 @@
 		F4034CCE29191B1400423FAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CBF29191B1400423FAF /* AppDelegate.swift */; };
 		F4034CCF29191B1400423FAF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CC029191B1400423FAF /* SceneDelegate.swift */; };
 		F4034CD029191B1400423FAF /* BaseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CC429191B1400423FAF /* BaseCode.swift */; };
+		F41E0E322925A12E00B28291 /* ProfileDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E0E312925A12E00B28291 /* ProfileDataSource.swift */; };
+		F41E0E342925A64D00B28291 /* MyInfoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E0E332925A64D00B28291 /* MyInfoDataSource.swift */; };
 		F4334030291E12FA00F46725 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F433402F291E12FA00F46725 /* RxCocoa */; };
 		F4334032291E12FA00F46725 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F4334031291E12FA00F46725 /* RxSwift */; };
 		F4334034291E177400F46725 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4334033291E177400F46725 /* OnboardingViewModel.swift */; };
@@ -105,6 +107,8 @@
 		F4034CBF29191B1400423FAF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4034CC029191B1400423FAF /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F4034CC429191B1400423FAF /* BaseCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCode.swift; sourceTree = "<group>"; };
+		F41E0E312925A12E00B28291 /* ProfileDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataSource.swift; sourceTree = "<group>"; };
+		F41E0E332925A64D00B28291 /* MyInfoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoDataSource.swift; sourceTree = "<group>"; };
 		F4334033291E177400F46725 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		F45119962919230B0058571C /* SeSacColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacColor.swift; sourceTree = "<group>"; };
 		F4511999291926A00058571C /* SeSacButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacButton.swift; sourceTree = "<group>"; };
@@ -664,6 +668,7 @@
 				F48B306F292270A800DD5E12 /* ProfileViewController.swift */,
 				F48B3071292270B100DD5E12 /* ProfileView.swift */,
 				F48B307F2922795A00DD5E12 /* ProfileHeaderView.swift */,
+				F41E0E312925A12E00B28291 /* ProfileDataSource.swift */,
 				F4A8A776292469CD00B94EC7 /* Cell */,
 			);
 			path = Profile;
@@ -676,6 +681,7 @@
 				F4D29803292508D700A3AAB7 /* MyInfoView.swift */,
 				F4D29807292508F500A3AAB7 /* MyInfoHeaderView.swift */,
 				F4D29805292508E000A3AAB7 /* MyInfoCell.swift */,
+				F41E0E332925A64D00B28291 /* MyInfoDataSource.swift */,
 			);
 			path = MyInfo;
 			sourceTree = "<group>";
@@ -817,6 +823,7 @@
 				F47AF0BA292201A800AA0789 /* FakerView.swift in Sources */,
 				F4F103CE291CBF8A00C2020C /* SeSacImage.swift in Sources */,
 				F4A8A78F2924B1BA00B94EC7 /* MiddleStackView.swift in Sources */,
+				F41E0E342925A64D00B28291 /* MyInfoDataSource.swift in Sources */,
 				F4586468291FA90600993A6D /* Date.swift in Sources */,
 				F4D29804292508D700A3AAB7 /* MyInfoView.swift in Sources */,
 				F45119A229193AB20058571C /* AuthViewController.swift in Sources */,
@@ -826,6 +833,7 @@
 				F4D29808292508F500A3AAB7 /* MyInfoHeaderView.swift in Sources */,
 				F4A8A77C292487CB00B94EC7 /* Gender2View.swift in Sources */,
 				F45119BB291941550058571C /* NicknameView.swift in Sources */,
+				F41E0E322925A12E00B28291 /* ProfileDataSource.swift in Sources */,
 				F451199F29192DC80058571C /* SeSacFont.swift in Sources */,
 				F488D78C29212324002E4B57 /* MemoleaseRouter.swift in Sources */,
 				F45119BD2919415D0058571C /* BirthView.swift in Sources */,

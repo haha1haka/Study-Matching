@@ -1,6 +1,10 @@
 import UIKit
 import SnapKit
 
+
+
+
+
 class MyInfoHeaderView: UICollectionReusableView {
     
     let imageView: UIImageView = {
