@@ -21,6 +21,7 @@
 		F4034CD029191B1400423FAF /* BaseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CC429191B1400423FAF /* BaseCode.swift */; };
 		F41E0E322925A12E00B28291 /* ProfileDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E0E312925A12E00B28291 /* ProfileDataSource.swift */; };
 		F41E0E342925A64D00B28291 /* MyInfoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E0E332925A64D00B28291 /* MyInfoDataSource.swift */; };
+		F41E0E362925A83000B28291 /* OnBoardingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E0E352925A83000B28291 /* OnBoardingDataSource.swift */; };
 		F4334030291E12FA00F46725 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F433402F291E12FA00F46725 /* RxCocoa */; };
 		F4334032291E12FA00F46725 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F4334031291E12FA00F46725 /* RxSwift */; };
 		F4334034291E177400F46725 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4334033291E177400F46725 /* OnboardingViewModel.swift */; };
@@ -109,6 +110,7 @@
 		F4034CC429191B1400423FAF /* BaseCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCode.swift; sourceTree = "<group>"; };
 		F41E0E312925A12E00B28291 /* ProfileDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataSource.swift; sourceTree = "<group>"; };
 		F41E0E332925A64D00B28291 /* MyInfoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoDataSource.swift; sourceTree = "<group>"; };
+		F41E0E352925A83000B28291 /* OnBoardingDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingDataSource.swift; sourceTree = "<group>"; };
 		F4334033291E177400F46725 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		F45119962919230B0058571C /* SeSacColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacColor.swift; sourceTree = "<group>"; };
 		F4511999291926A00058571C /* SeSacButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacButton.swift; sourceTree = "<group>"; };
@@ -479,6 +481,7 @@
 				F4334033291E177400F46725 /* OnboardingViewModel.swift */,
 				F4F103CF291CC1C300C2020C /* OnboardCell.swift */,
 				F4F103D1291CC66600C2020C /* FooterView.swift */,
+				F41E0E352925A83000B28291 /* OnBoardingDataSource.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -877,6 +880,7 @@
 				F4034CC629191B1400423FAF /* MainViewController.swift in Sources */,
 				F45119A429193AEB0058571C /* SMSViewController.swift in Sources */,
 				F4594E752920C29F0071CFC2 /* String.swift in Sources */,
+				F41E0E362925A83000B28291 /* OnBoardingDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
