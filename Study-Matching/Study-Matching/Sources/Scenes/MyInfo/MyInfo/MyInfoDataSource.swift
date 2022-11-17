@@ -20,8 +20,7 @@ class MyInfoDataSource: UICollectionViewDiffableDataSource<MyInfoSection, Settin
     convenience init(collectionView: UICollectionView) {
         
         let cellRegistration = UICollectionView.CellRegistration<MyInfoCell,Setting> { cell, indexPath, itemIdentifier in
-            cell.imageView.image = itemIdentifier.image
-            cell.label.text = itemIdentifier.label
+            cell.configure(with: itemIdentifier)
         }
         
         self.init(collectionView: collectionView) {

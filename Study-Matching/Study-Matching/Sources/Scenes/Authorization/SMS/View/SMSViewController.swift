@@ -126,7 +126,7 @@ extension SMSViewController {
             case .success:
                 print("로그인성공")
                 
-                let vc = MainViewController()
+                let vc = HomeViewController()
                 //self.transitionRootViewController(vc)//⚠️여기서부터 다시하기
                 
             case .failure(let error):

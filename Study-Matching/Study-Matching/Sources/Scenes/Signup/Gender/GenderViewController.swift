@@ -70,13 +70,13 @@ extension GenderViewController {
                         switch result {
                         case .success:
                             print("⚠️성공 --> 홈화면 이동 ")
-                            let vc = MainViewController()
+                            let vc = HomeViewController()
                             self.transitionRootViewController(vc)
                         case .failure(let error):
                             switch error {
                             case .alreadyUser:
                                 print("⚠️이미 유저 있음 --> 홈화면 이동")
-                                let vc = MainViewController()
+                                let vc = HomeViewController()
                                 self.transitionRootViewController(vc)
                             case .nickError:
                                 print("⚠️닉네임 에러 --> 닉네임화면gogo 다시 설정 하게 돌아가야됨")
@@ -116,13 +116,13 @@ extension GenderViewController {
             switch result {
             case .success:
                 print("⚠️성공 --> 홈화면 이동 ")
-                let vc = MainViewController()
+                let vc = HomeViewController()
                 self.transitionRootViewController(vc)
             case .failure(let error):
                 switch error {
                 case .alreadyUser: //201
                     print("⚠️이미 유저 있음 --> 홈화면 이동")
-                    let vc = MainViewController()
+                    let vc = HomeViewController()
                     self.transitionRootViewController(vc)
                 case .nickError:
                     print("⚠️닉네임 에러 --> 닉네임화면gogo 다시 설정 하게 돌아가야됨")

@@ -1,19 +1,19 @@
 import UIKit
 import SnapKit
 
-class MainViewController: BaseViewController {
-    let selfView = MainView()
+class HomeViewController: BaseViewController {
+    let selfView = HomeView()
     override func loadView() {
         view = selfView
     }
     
     let button = SeSacButton()
     
-    let viewModel = MainViewModel()
+    let viewModel = HomeViewModel()
     
 }
 
-extension MainViewController {
+extension HomeViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
@@ -29,7 +29,7 @@ extension MainViewController {
         
     }
 }
-extension MainViewController {
+extension HomeViewController {
     func configureNavigationBar() {
         self.navigationItem.title = "Welcome!!"
         let appearance = UINavigationBarAppearance()
@@ -41,6 +41,6 @@ extension MainViewController {
     }
 }
 
-extension MainViewController {
+extension HomeViewController {
 
 }

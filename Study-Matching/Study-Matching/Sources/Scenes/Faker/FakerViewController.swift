@@ -113,7 +113,7 @@ extension FakerViewController {
             self.transitionRootViewController(vc, transitionStyle: .presentNavigation)
 
         case .home:
-            let vc = MainViewController()
+            let vc = HomeViewController()
             self.transitionRootViewController(vc, transitionStyle: .presentNavigation)
 
         default:

@@ -3,9 +3,9 @@ import UIKit
 class TabBarController: UITabBarController {
 
 
-    let homeViewController = UINavigationController(rootViewController: MainViewController())
-    let shopViewController = UINavigationController(rootViewController: MainViewController())
-    let friendViewController = UINavigationController(rootViewController: MainViewController())
+    let homeViewController = UINavigationController(rootViewController: HomeViewController())
+    let shopViewController = UINavigationController(rootViewController: MyInfoViewController())
+    let friendViewController = UINavigationController(rootViewController: MyInfoViewController())
     let myInfoViewController = UINavigationController(rootViewController: MyInfoViewController())
 
     override func viewDidLoad() {

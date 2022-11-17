@@ -1,24 +1,37 @@
 import UIKit
+import RxSwift
+import RxCocoa
 
+
+protocol ProfileDataSourceDelegate: AnyObject {
+    func mainCell(maincell: ProfileMainCell)
+    func subCell(subcell: ProfileSubCell)
+}
 
 
 class ProfileDataSource: UICollectionViewDiffableDataSource<Int, Item> {
     
+    
+    var delegate: ProfileDataSourceDelegate?
+    
     convenience init(collectionView: UICollectionView) {
+        
+        let mainCellRegistration = UICollectionView.CellRegistration<ProfileMainCell,Main> { cell, indexPath, itemIdentifier in
 
-        let headercellRegistration = UICollectionView.CellRegistration<HeaderCell,Header> { cell, indexPath, itemIdentifier in
-            cell.cardStackView.button1.setTitleColor(.black, for: .normal)
         }
         
-        let subCellRegistration = UICollectionView.CellRegistration<SubCell,Sub> { cell, indexPath, itemIdentifier in
-            cell.backgroundColor = .white
+        let subCellRegistration = UICollectionView.CellRegistration<ProfileSubCell,Sub> { cell, indexPath, itemIdentifier in
         }
+        
         
         self.init(collectionView: collectionView) {
+            
             collectionView, indexPath, itemIdentifier in
             switch itemIdentifier {
-            case .header(let header):
-                let cell = collectionView.dequeueConfiguredReusableCell(using: headercellRegistration, for: indexPath, item: header)
+            case .main(let main):
+                let cell = collectionView.dequeueConfiguredReusableCell(using: mainCellRegistration, for: indexPath, item: main)
+                print(indexPath)
+                
                 return cell
             case .sub(let sub):
                 let cell = collectionView.dequeueConfiguredReusableCell(using: subCellRegistration, for: indexPath, item: sub)
@@ -38,7 +51,7 @@ class ProfileDataSource: UICollectionViewDiffableDataSource<Int, Item> {
     func applyInitialSnapshot() {
         var snapshot = snapshot()
         snapshot.appendSections([0, 1])
-        snapshot.appendItems(Item.headerData.map(Item.header))
+        snapshot.appendItems(Item.mainData.map(Item.main))
         snapshot.appendItems(Item.subData.map(Item.sub))
         apply(snapshot)
     }
@@ -50,13 +63,13 @@ class ProfileDataSource: UICollectionViewDiffableDataSource<Int, Item> {
 
 
 enum Item: Hashable {
-    case header(Header)
+    case main(Main)
     case sub(Sub)
     
-    static let headerData = [Header(title: "안녕")]
+    static let mainData = [Main(title: "안녕")]
     static let subData = [Sub(title: "hi")]
 }
-struct Header: Hashable {
+struct Main: Hashable {
     var title: String
 }
 

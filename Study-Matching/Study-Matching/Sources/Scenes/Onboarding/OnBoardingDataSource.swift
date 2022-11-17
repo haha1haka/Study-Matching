@@ -21,7 +21,6 @@ class OnBoardingDataSource: UICollectionViewDiffableDataSource<OnBoardingSection
             return cell
         }
         
-        
         let footerRegistration = UICollectionView.SupplementaryRegistration<OnBoardingFooterView>(elementKind: UICollectionView.elementKindSectionFooter) { [weak self] supplementaryView, elementKind, indexPath in
             
             guard let self = self else { return }

@@ -40,6 +40,11 @@ class MyInfoCell: BaseCollectionViewCell {
         }
     }
     
+    func configure(with item: Setting) {
+        imageView.image = item.image
+        label.text = item.label
+    }
+    
     
     
 

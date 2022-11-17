@@ -1,13 +1,13 @@
 import UIKit
 import SnapKit
 
-class HeaderCell: BaseCollectionViewCell {
+class ProfileMainCell: BaseCollectionViewCell {
             
     var closedConstraint: NSLayoutConstraint?
     var openConstraint: NSLayoutConstraint?
     
-    lazy var rootStack: UIStackView = {
-        let rootStack = UIStackView(arrangedSubviews: [topStack, middleStack])
+    lazy var totalStackView: UIStackView = {
+        let rootStack = UIStackView(arrangedSubviews: [topStackView, middleStackView, bottomStackView])
         rootStack.alignment = .top
         rootStack.distribution = .fillProportionally
         rootStack.axis = .vertical
@@ -16,9 +16,15 @@ class HeaderCell: BaseCollectionViewCell {
     }()
     
     
-    lazy var topStack: UIStackView = {
+    lazy var topStackView: UIStackView = {
+        let view = UIStackView(arrangedSubviews: [nameLabel, disclosureView])
+        view.distribution = .fillProportionally
+        view.axis = .horizontal
+        return view
+    }()
+    
+    lazy var middleStackView: UIStackView = {
         let view = UIStackView(arrangedSubviews: [
-            cellStackView,
             sectionLabel1,
             cardStackView
         ])
@@ -26,17 +32,19 @@ class HeaderCell: BaseCollectionViewCell {
         view.spacing = 16
         return view
     }()
-    
-    
-    
-    lazy var cellStackView: UIStackView = {
-        let view = UIStackView(arrangedSubviews: [sectionLabel0, disclosureView])
-        view.distribution = .fillProportionally
-        view.axis = .horizontal
+    lazy var bottomStackView: UIStackView = {
+        let view = UIStackView(arrangedSubviews: [
+            sectionLabel2,
+            textField
+        ])
+        view.axis = .vertical
+        view.spacing = 16
+        
         return view
     }()
+
     
-    var sectionLabel0: UILabel = {
+    var nameLabel: UILabel = {
         let view = UILabel()
         view.text = "김새싹"
         view.font = SeSacFont.Title1_M16.set
@@ -67,19 +75,6 @@ class HeaderCell: BaseCollectionViewCell {
     }()
     
 
-
-    lazy var middleStack: UIStackView = {
-        let view = UIStackView(arrangedSubviews: [
-            sectionLabel2,
-            textField
-        ])
-        view.axis = .vertical
-        view.spacing = 16
-        
-        return view
-    }()
-    
-    
     var sectionLabel2: UILabel = {
         let view = UILabel()
         view.text = "새싹 리뷰"
@@ -105,43 +100,49 @@ class HeaderCell: BaseCollectionViewCell {
     
 
     override func configureHierarchy() {
-        contentView.addSubview(rootStack)
+        contentView.addSubview(totalStackView)
     }
     
     override func configureLayout() {
         contentView.snp.makeConstraints {
             $0.top.leading.trailing.bottom.equalToSuperview()
         }
-        rootStack.snp.makeConstraints {
+        totalStackView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
             $0.leading.trailing.equalTo(self).inset(16)
         }
-        sectionLabel0.snp.makeConstraints {
+        
+        topStackView.snp.makeConstraints {
+            $0.top.leading.trailing.equalToSuperview()
+        }
+        
+        middleStackView.snp.makeConstraints( {
+            $0.top.equalTo(topStackView.snp.bottom)
+            $0.leading.trailing.equalToSuperview()
+        })
+        
+        bottomStackView.snp.makeConstraints {
+            $0.top.equalTo(middleStackView.snp.bottom).offset(24)
+            $0.leading.trailing.equalToSuperview()
+        }
+        
+        nameLabel.snp.makeConstraints {
             $0.height.equalTo(58)
         }
+        
         disclosureView.snp.makeConstraints {
             $0.trailing.equalToSuperview().inset(26)
             $0.width.equalTo(12)
             
         }
-        topStack.snp.makeConstraints {
-            $0.top.leading.trailing.equalToSuperview()
-        }
-        
-        middleStack.snp.makeConstraints {
-            $0.top.equalTo(topStack.snp.bottom).offset(24)
-            $0.leading.trailing.equalToSuperview()
-        }
-        
-        
+
         closedConstraint =
-        sectionLabel0.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0)
+        nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0)
         closedConstraint?.priority = .defaultLow
         
         openConstraint =
         textField.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
         openConstraint?.priority = .defaultLow
-        
         
         updateAppearance()
     }
@@ -154,10 +155,14 @@ class HeaderCell: BaseCollectionViewCell {
         layer.cornerRadius = 8
     }
     
+    func configure(with item: Main) {
+        
+    }
+    
 }
 
 
-extension HeaderCell {
+extension ProfileMainCell {
     func updateAppearance() {
         closedConstraint?.isActive = !isSelected
         openConstraint?.isActive = isSelected

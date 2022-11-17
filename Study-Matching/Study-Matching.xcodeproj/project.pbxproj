@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F4034CC529191B1400423FAF /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CAD29191B1400423FAF /* MainViewModel.swift */; };
-		F4034CC629191B1400423FAF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CAF29191B1400423FAF /* MainViewController.swift */; };
-		F4034CC729191B1400423FAF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CB029191B1400423FAF /* MainView.swift */; };
+		F4034CC529191B1400423FAF /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CAD29191B1400423FAF /* HomeViewModel.swift */; };
+		F4034CC629191B1400423FAF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CAF29191B1400423FAF /* HomeViewController.swift */; };
+		F4034CC729191B1400423FAF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CB029191B1400423FAF /* HomeView.swift */; };
 		F4034CC829191B1400423FAF /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CB129191B1400423FAF /* MainCell.swift */; };
 		F4034CC929191B1400423FAF /* BaseViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CB429191B1400423FAF /* BaseViewCollectionViewCell.swift */; };
 		F4034CCA29191B1400423FAF /* BaseViewContoroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CB529191B1400423FAF /* BaseViewContoroller.swift */; };
@@ -23,6 +23,7 @@
 		F41E0E342925A64D00B28291 /* MyInfoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E0E332925A64D00B28291 /* MyInfoDataSource.swift */; };
 		F41E0E362925A83000B28291 /* OnBoardingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E0E352925A83000B28291 /* OnBoardingDataSource.swift */; };
 		F41E0E382925AB0000B28291 /* GenderDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E0E372925AB0000B28291 /* GenderDataSource.swift */; };
+		F41E0E422925D7DC00B28291 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E0E412925D7DC00B28291 /* ProfileViewModel.swift */; };
 		F4334030291E12FA00F46725 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F433402F291E12FA00F46725 /* RxCocoa */; };
 		F4334032291E12FA00F46725 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F4334031291E12FA00F46725 /* RxSwift */; };
 		F4334034291E177400F46725 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4334033291E177400F46725 /* OnboardingViewModel.swift */; };
@@ -71,9 +72,9 @@
 		F488D7902921308A002E4B57 /* MemoleaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F488D78F2921308A002E4B57 /* MemoleaseError.swift */; };
 		F48B3070292270A800DD5E12 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B306F292270A800DD5E12 /* ProfileViewController.swift */; };
 		F48B3072292270B100DD5E12 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B3071292270B100DD5E12 /* ProfileView.swift */; };
-		F48B3074292270B800DD5E12 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B3073292270B800DD5E12 /* HeaderCell.swift */; };
+		F48B3074292270B800DD5E12 /* ProfileMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B3073292270B800DD5E12 /* ProfileMainCell.swift */; };
 		F48B30802922795A00DD5E12 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B307F2922795A00DD5E12 /* ProfileHeaderView.swift */; };
-		F48B3082292279C900DD5E12 /* SubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B3081292279C900DD5E12 /* SubCell.swift */; };
+		F48B3082292279C900DD5E12 /* ProfileSubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B3081292279C900DD5E12 /* ProfileSubCell.swift */; };
 		F499C449291F546000C4B117 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F499C448291F546000C4B117 /* FirebaseService.swift */; };
 		F499C44C291F55C200C4B117 /* UserdefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F499C44B291F55C200C4B117 /* UserdefaultsManager.swift */; };
 		F4A8A77C292487CB00B94EC7 /* Gender2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A8A77B292487CB00B94EC7 /* Gender2View.swift */; };
@@ -82,8 +83,6 @@
 		F4A8A782292487F200B94EC7 /* AgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A8A781292487F200B94EC7 /* AgeView.swift */; };
 		F4A8A7842924885100B94EC7 /* WithDrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A8A7832924885100B94EC7 /* WithDrawView.swift */; };
 		F4A8A78B2924B0F900B94EC7 /* CardStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A8A78A2924B0F900B94EC7 /* CardStackView.swift */; };
-		F4A8A78D2924B1B200B94EC7 /* TopStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A8A78C2924B1B200B94EC7 /* TopStackView.swift */; };
-		F4A8A78F2924B1BA00B94EC7 /* MiddleStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A8A78E2924B1BA00B94EC7 /* MiddleStackView.swift */; };
 		F4A94AA82924FD87007B96AE /* SesacTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A94AA72924FD87007B96AE /* SesacTabBarController.swift */; };
 		F4D29802292508D100A3AAB7 /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D29801292508D100A3AAB7 /* MyInfoViewController.swift */; };
 		F4D29804292508D700A3AAB7 /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D29803292508D700A3AAB7 /* MyInfoView.swift */; };
@@ -97,9 +96,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F4034CAD29191B1400423FAF /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
-		F4034CAF29191B1400423FAF /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		F4034CB029191B1400423FAF /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		F4034CAD29191B1400423FAF /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		F4034CAF29191B1400423FAF /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F4034CB029191B1400423FAF /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F4034CB129191B1400423FAF /* MainCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
 		F4034CB429191B1400423FAF /* BaseViewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		F4034CB529191B1400423FAF /* BaseViewContoroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewContoroller.swift; sourceTree = "<group>"; };
@@ -113,6 +112,7 @@
 		F41E0E332925A64D00B28291 /* MyInfoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoDataSource.swift; sourceTree = "<group>"; };
 		F41E0E352925A83000B28291 /* OnBoardingDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingDataSource.swift; sourceTree = "<group>"; };
 		F41E0E372925AB0000B28291 /* GenderDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderDataSource.swift; sourceTree = "<group>"; };
+		F41E0E412925D7DC00B28291 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		F4334033291E177400F46725 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		F45119962919230B0058571C /* SeSacColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacColor.swift; sourceTree = "<group>"; };
 		F4511999291926A00058571C /* SeSacButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacButton.swift; sourceTree = "<group>"; };
@@ -159,9 +159,9 @@
 		F488D78F2921308A002E4B57 /* MemoleaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoleaseError.swift; sourceTree = "<group>"; };
 		F48B306F292270A800DD5E12 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F48B3071292270B100DD5E12 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		F48B3073292270B800DD5E12 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		F48B3073292270B800DD5E12 /* ProfileMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainCell.swift; sourceTree = "<group>"; };
 		F48B307F2922795A00DD5E12 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
-		F48B3081292279C900DD5E12 /* SubCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCell.swift; sourceTree = "<group>"; };
+		F48B3081292279C900DD5E12 /* ProfileSubCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSubCell.swift; sourceTree = "<group>"; };
 		F499C448291F546000C4B117 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		F499C44B291F55C200C4B117 /* UserdefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserdefaultsManager.swift; sourceTree = "<group>"; };
 		F4A8A77B292487CB00B94EC7 /* Gender2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender2View.swift; sourceTree = "<group>"; };
@@ -170,8 +170,6 @@
 		F4A8A781292487F200B94EC7 /* AgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeView.swift; sourceTree = "<group>"; };
 		F4A8A7832924885100B94EC7 /* WithDrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithDrawView.swift; sourceTree = "<group>"; };
 		F4A8A78A2924B0F900B94EC7 /* CardStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStackView.swift; sourceTree = "<group>"; };
-		F4A8A78C2924B1B200B94EC7 /* TopStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStackView.swift; sourceTree = "<group>"; };
-		F4A8A78E2924B1BA00B94EC7 /* MiddleStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleStackView.swift; sourceTree = "<group>"; };
 		F4A94AA72924FD87007B96AE /* SesacTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacTabBarController.swift; sourceTree = "<group>"; };
 		F4D29801292508D100A3AAB7 /* MyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewController.swift; sourceTree = "<group>"; };
 		F4D29803292508D700A3AAB7 /* MyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoView.swift; sourceTree = "<group>"; };
@@ -244,7 +242,7 @@
 		F4034CAC29191B1400423FAF /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				F4034CAD29191B1400423FAF /* MainViewModel.swift */,
+				F4034CAD29191B1400423FAF /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -252,8 +250,8 @@
 		F4034CAE29191B1400423FAF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F4034CAF29191B1400423FAF /* MainViewController.swift */,
-				F4034CB029191B1400423FAF /* MainView.swift */,
+				F4034CAF29191B1400423FAF /* HomeViewController.swift */,
+				F4034CB029191B1400423FAF /* HomeView.swift */,
 				F4034CB129191B1400423FAF /* MainCell.swift */,
 			);
 			path = View;
@@ -316,7 +314,6 @@
 				F45119CA291942720058571C /* SeSacTextField.swift */,
 				F454E4A8291A66070064BCC4 /* SesacDateLabel.swift */,
 				F4A94AA72924FD87007B96AE /* SesacTabBarController.swift */,
-				F4D297FE2925087A00A3AAB7 /* MyInfo */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -364,6 +361,35 @@
 				F4034CC429191B1400423FAF /* BaseCode.swift */,
 			);
 			path = BaseCode;
+			sourceTree = "<group>";
+		};
+		F41E0E3D2925D39D00B28291 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F41E0E3E2925D3A700B28291 /* ProfileMainCell */,
+				F41E0E3F2925D3AC00B28291 /* ProfileSubCell */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F41E0E3E2925D3A700B28291 /* ProfileMainCell */ = {
+			isa = PBXGroup;
+			children = (
+				F4A8A78A2924B0F900B94EC7 /* CardStackView.swift */,
+			);
+			path = ProfileMainCell;
+			sourceTree = "<group>";
+		};
+		F41E0E3F2925D3AC00B28291 /* ProfileSubCell */ = {
+			isa = PBXGroup;
+			children = (
+				F4A8A77B292487CB00B94EC7 /* Gender2View.swift */,
+				F4A8A77D292487DE00B94EC7 /* StudyView.swift */,
+				F4A8A77F292487E800B94EC7 /* SwitchView.swift */,
+				F4A8A781292487F200B94EC7 /* AgeView.swift */,
+				F4A8A7832924885100B94EC7 /* WithDrawView.swift */,
+			);
+			path = ProfileSubCell;
 			sourceTree = "<group>";
 		};
 		F4511995291922AE0058571C /* Constants */ = {
@@ -643,23 +669,17 @@
 			path = UserdefaultsManager;
 			sourceTree = "<group>";
 		};
-		F4A8A776292469CD00B94EC7 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				F48B3073292270B800DD5E12 /* HeaderCell.swift */,
-				F48B3081292279C900DD5E12 /* SubCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
 		F4D297FC2925072E00A3AAB7 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
 				F48B306F292270A800DD5E12 /* ProfileViewController.swift */,
 				F48B3071292270B100DD5E12 /* ProfileView.swift */,
+				F41E0E412925D7DC00B28291 /* ProfileViewModel.swift */,
 				F48B307F2922795A00DD5E12 /* ProfileHeaderView.swift */,
 				F41E0E312925A12E00B28291 /* ProfileDataSource.swift */,
-				F4A8A776292469CD00B94EC7 /* Cell */,
+				F48B3073292270B800DD5E12 /* ProfileMainCell.swift */,
+				F48B3081292279C900DD5E12 /* ProfileSubCell.swift */,
+				F41E0E3D2925D39D00B28291 /* Components */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -669,42 +689,11 @@
 			children = (
 				F4D29801292508D100A3AAB7 /* MyInfoViewController.swift */,
 				F4D29803292508D700A3AAB7 /* MyInfoView.swift */,
-				F4D29807292508F500A3AAB7 /* MyInfoHeaderView.swift */,
 				F4D29805292508E000A3AAB7 /* MyInfoCell.swift */,
+				F4D29807292508F500A3AAB7 /* MyInfoHeaderView.swift */,
 				F41E0E332925A64D00B28291 /* MyInfoDataSource.swift */,
 			);
 			path = MyInfo;
-			sourceTree = "<group>";
-		};
-		F4D297FE2925087A00A3AAB7 /* MyInfo */ = {
-			isa = PBXGroup;
-			children = (
-				F4D298002925088200A3AAB7 /* SubCell */,
-				F4D297FF2925087D00A3AAB7 /* HeaderCell */,
-			);
-			path = MyInfo;
-			sourceTree = "<group>";
-		};
-		F4D297FF2925087D00A3AAB7 /* HeaderCell */ = {
-			isa = PBXGroup;
-			children = (
-				F4A8A78A2924B0F900B94EC7 /* CardStackView.swift */,
-				F4A8A78C2924B1B200B94EC7 /* TopStackView.swift */,
-				F4A8A78E2924B1BA00B94EC7 /* MiddleStackView.swift */,
-			);
-			path = HeaderCell;
-			sourceTree = "<group>";
-		};
-		F4D298002925088200A3AAB7 /* SubCell */ = {
-			isa = PBXGroup;
-			children = (
-				F4A8A77B292487CB00B94EC7 /* Gender2View.swift */,
-				F4A8A77D292487DE00B94EC7 /* StudyView.swift */,
-				F4A8A77F292487E800B94EC7 /* SwitchView.swift */,
-				F4A8A781292487F200B94EC7 /* AgeView.swift */,
-				F4A8A7832924885100B94EC7 /* WithDrawView.swift */,
-			);
-			path = SubCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -806,19 +795,17 @@
 				F4586464291F8A0900993A6D /* BirthViewModel.swift in Sources */,
 				F4034CD029191B1400423FAF /* BaseCode.swift in Sources */,
 				F499C449291F546000C4B117 /* FirebaseService.swift in Sources */,
-				F4A8A78D2924B1B200B94EC7 /* TopStackView.swift in Sources */,
 				F454E4A9291A66070064BCC4 /* SesacDateLabel.swift in Sources */,
 				F45119AC29193BCD0058571C /* SMSViewModel.swift in Sources */,
 				F45119C3291941A00058571C /* NicknameViewController.swift in Sources */,
 				F41E0E382925AB0000B28291 /* GenderDataSource.swift in Sources */,
 				F47AF0BA292201A800AA0789 /* FakerView.swift in Sources */,
 				F4F103CE291CBF8A00C2020C /* SeSacImage.swift in Sources */,
-				F4A8A78F2924B1BA00B94EC7 /* MiddleStackView.swift in Sources */,
 				F41E0E342925A64D00B28291 /* MyInfoDataSource.swift in Sources */,
 				F4586468291FA90600993A6D /* Date.swift in Sources */,
 				F4D29804292508D700A3AAB7 /* MyInfoView.swift in Sources */,
 				F45119A229193AB20058571C /* AuthViewController.swift in Sources */,
-				F48B3082292279C900DD5E12 /* SubCell.swift in Sources */,
+				F48B3082292279C900DD5E12 /* ProfileSubCell.swift in Sources */,
 				F4A8A77E292487DE00B94EC7 /* StudyView.swift in Sources */,
 				F45119C9291941B80058571C /* GenderViewController.swift in Sources */,
 				F4D29808292508F500A3AAB7 /* MyInfoHeaderView.swift in Sources */,
@@ -834,7 +821,7 @@
 				F47AF0B82922019700AA0789 /* FakerViewController.swift in Sources */,
 				F45119A629193B930058571C /* AuthView.swift in Sources */,
 				F45119CB291942720058571C /* SeSacTextField.swift in Sources */,
-				F4034CC529191B1400423FAF /* MainViewModel.swift in Sources */,
+				F4034CC529191B1400423FAF /* HomeViewModel.swift in Sources */,
 				F488D78E29212665002E4B57 /* HTTPMethod.swift in Sources */,
 				F4F103CA291CBD0E00C2020C /* OnBoardingViewController.swift in Sources */,
 				F4034CCC29191B1400423FAF /* UIViewController.swift in Sources */,
@@ -852,6 +839,7 @@
 				F4D29802292508D100A3AAB7 /* MyInfoViewController.swift in Sources */,
 				F4A8A780292487E800B94EC7 /* SwitchView.swift in Sources */,
 				F4A8A782292487F200B94EC7 /* AgeView.swift in Sources */,
+				F41E0E422925D7DC00B28291 /* ProfileViewModel.swift in Sources */,
 				F45119C5291941AB0058571C /* BirthViewController.swift in Sources */,
 				F4034CCA29191B1400423FAF /* BaseViewContoroller.swift in Sources */,
 				F499C44C291F55C200C4B117 /* UserdefaultsManager.swift in Sources */,
@@ -860,12 +848,12 @@
 				F4D29806292508E000A3AAB7 /* MyInfoCell.swift in Sources */,
 				F4586473291FB32800993A6D /* GenderViewModel.swift in Sources */,
 				F4034CCB29191B1400423FAF /* BaseView.swift in Sources */,
-				F48B3074292270B800DD5E12 /* HeaderCell.swift in Sources */,
+				F48B3074292270B800DD5E12 /* ProfileMainCell.swift in Sources */,
 				F45119C1291941680058571C /* GenderView.swift in Sources */,
 				F4A8A78B2924B0F900B94EC7 /* CardStackView.swift in Sources */,
-				F4034CC729191B1400423FAF /* MainView.swift in Sources */,
+				F4034CC729191B1400423FAF /* HomeView.swift in Sources */,
 				F4F103D0291CC1C300C2020C /* OnboardCell.swift in Sources */,
-				F4034CC629191B1400423FAF /* MainViewController.swift in Sources */,
+				F4034CC629191B1400423FAF /* HomeViewController.swift in Sources */,
 				F45119A429193AEB0058571C /* SMSViewController.swift in Sources */,
 				F4594E752920C29F0071CFC2 /* String.swift in Sources */,
 				F41E0E362925A83000B28291 /* OnBoardingDataSource.swift in Sources */,

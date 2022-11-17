@@ -8,7 +8,6 @@ class Gender2View: UIView {
         label.text = "내 성별"
         label.font = SeSacFont.Title4_R14.set
         label.textColor = SeSacColor.black
-        label.setContentHuggingPriority(.defaultLow, for: .horizontal)
         return label
     }()
     

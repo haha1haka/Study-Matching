@@ -1,12 +1,11 @@
 import UIKit
 import SnapKit
 
-class SubCell: BaseCollectionViewCell {
+class ProfileSubCell: BaseCollectionViewCell {
     
 
     let genderView: Gender2View = {
         let view = Gender2View()
-        
         return view
     }()
     
