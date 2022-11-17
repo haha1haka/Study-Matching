@@ -7,22 +7,15 @@
 
 import UIKit
 
-enum Section1 {
-    case main
+
+protocol MyInfoDataSourceDelegate: AnyObject {
+    func supplementaryView(_ dataSource: MyInfoDataSource, supplementaryView: MyInfoHeaderView)
 }
-struct Setting: Hashable {
-    let image: UIImage
-    let label: String
-    static let data = [Setting(image: SeSacImage.notice!, label: "공지사항"),
-                       Setting(image: SeSacImage.faq!, label: "자주 묻는 질문"),
-                       Setting(image: SeSacImage.qna!, label: "1:1 문의"),
-                       Setting(image: SeSacImage.settingAlarm!, label: "알림 설정"),
-                       Setting(image: SeSacImage.permit!, label: "이용 약관"),]
+
+
+class MyInfoDataSource: UICollectionViewDiffableDataSource<MyInfoSection, Setting> {
     
-}
-
-
-class MyInfoDataSource: UICollectionViewDiffableDataSource<Section, Setting> {
+    var delegate: MyInfoDataSourceDelegate?
     
     convenience init(collectionView: UICollectionView) {
         
@@ -37,13 +30,10 @@ class MyInfoDataSource: UICollectionViewDiffableDataSource<Section, Setting> {
             return cell
         }
         
-        let headerRegistration = UICollectionView.SupplementaryRegistration<MyInfoHeaderView>(elementKind: UICollectionView.elementKindSectionHeader) { supplementaryView, elementKind, indexPath in
-            //supplementaryView.nextButton.rx.tap
-                //.bind(onNext: { _ in
-                //    let vc = ProfileViewController()
-                //    self.transition(vc, transitionStyle: .push)
-                //})
-                //.disposed(by: self.disposeBag)
+        let headerRegistration = UICollectionView.SupplementaryRegistration<MyInfoHeaderView>(elementKind: UICollectionView.elementKindSectionHeader) { [weak self] supplementaryView, elementKind, indexPath in
+            guard let self = self else { return }
+            self.delegate?.supplementaryView(self, supplementaryView: supplementaryView)
+
             
         }
         
@@ -59,5 +49,20 @@ class MyInfoDataSource: UICollectionViewDiffableDataSource<Section, Setting> {
         snapshot.appendItems(Setting.data)
         apply(snapshot)
     }
+    
+}
+
+
+enum MyInfoSection {
+    case main
+}
+struct Setting: Hashable {
+    let image: UIImage
+    let label: String
+    static let data = [Setting(image: SeSacImage.notice!, label: "공지사항"),
+                       Setting(image: SeSacImage.faq!, label: "자주 묻는 질문"),
+                       Setting(image: SeSacImage.qna!, label: "1:1 문의"),
+                       Setting(image: SeSacImage.settingAlarm!, label: "알림 설정"),
+                       Setting(image: SeSacImage.permit!, label: "이용 약관"),]
     
 }

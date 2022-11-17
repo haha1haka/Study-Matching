@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 
-class FooterView: UICollectionReusableView {
+class OnBoardingFooterView: UICollectionReusableView {
     
     
     

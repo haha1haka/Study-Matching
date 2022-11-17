@@ -2,10 +2,10 @@ import UIKit
 
 
 protocol OnBoardingDataSourceDelegate: AnyObject {
-    func supplementaryView(_ dataSource: OnBoardingDataSource, supplementaryView: FooterView)
+    func supplementaryView(_ dataSource: OnBoardingDataSource, supplementaryView: OnBoardingFooterView)
 }
 
-class OnBoardingDataSource: UICollectionViewDiffableDataSource<Section, Page> {
+class OnBoardingDataSource: UICollectionViewDiffableDataSource<OnBoardingSection, Page> {
     
     var delegate: OnBoardingDataSourceDelegate?
     
@@ -22,14 +22,15 @@ class OnBoardingDataSource: UICollectionViewDiffableDataSource<Section, Page> {
         }
         
         
-        let footerRegistration = UICollectionView.SupplementaryRegistration<FooterView>(elementKind: UICollectionView.elementKindSectionFooter) { [weak self] supplementaryView, elementKind, indexPath in
+        let footerRegistration = UICollectionView.SupplementaryRegistration<OnBoardingFooterView>(elementKind: UICollectionView.elementKindSectionFooter) { [weak self] supplementaryView, elementKind, indexPath in
+            
             guard let self = self else { return }
+            
             let itemCount = self.snapshot().numberOfItems
             
             supplementaryView.configure(with: itemCount)
             
             self.delegate?.supplementaryView(self, supplementaryView: supplementaryView)
-            
 
         }
         
@@ -48,7 +49,7 @@ class OnBoardingDataSource: UICollectionViewDiffableDataSource<Section, Page> {
 }
 
 
-enum Section {
+enum OnBoardingSection {
     case main
 }
 

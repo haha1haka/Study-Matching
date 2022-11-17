@@ -63,7 +63,7 @@ extension OnBoardingViewController: OnBoardingViewEvent {
 }
 
 extension OnBoardingViewController: OnBoardingDataSourceDelegate {
-    func supplementaryView(_ dataSource: OnBoardingDataSource, supplementaryView: FooterView) {
+    func supplementaryView(_ dataSource: OnBoardingDataSource, supplementaryView: OnBoardingFooterView) {
         self.viewModel.pageIndex.bind(onNext: { int in
             supplementaryView.pageControl.currentPage = int
         })

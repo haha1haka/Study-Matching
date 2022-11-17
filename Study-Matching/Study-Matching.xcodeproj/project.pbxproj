@@ -93,7 +93,7 @@
 		F4F103CC291CBD1700C2020C /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103CB291CBD1700C2020C /* OnBoardingView.swift */; };
 		F4F103CE291CBF8A00C2020C /* SeSacImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103CD291CBF8A00C2020C /* SeSacImage.swift */; };
 		F4F103D0291CC1C300C2020C /* OnboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103CF291CC1C300C2020C /* OnboardCell.swift */; };
-		F4F103D2291CC66600C2020C /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103D1291CC66600C2020C /* FooterView.swift */; };
+		F4F103D2291CC66600C2020C /* OnBoardingFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103D1291CC66600C2020C /* OnBoardingFooterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -181,7 +181,7 @@
 		F4F103CB291CBD1700C2020C /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		F4F103CD291CBF8A00C2020C /* SeSacImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacImage.swift; sourceTree = "<group>"; };
 		F4F103CF291CC1C300C2020C /* OnboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardCell.swift; sourceTree = "<group>"; };
-		F4F103D1291CC66600C2020C /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		F4F103D1291CC66600C2020C /* OnBoardingFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingFooterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -482,7 +482,7 @@
 				F4F103CB291CBD1700C2020C /* OnBoardingView.swift */,
 				F4334033291E177400F46725 /* OnboardingViewModel.swift */,
 				F4F103CF291CC1C300C2020C /* OnboardCell.swift */,
-				F4F103D1291CC66600C2020C /* FooterView.swift */,
+				F4F103D1291CC66600C2020C /* OnBoardingFooterView.swift */,
 				F41E0E352925A83000B28291 /* OnBoardingDataSource.swift */,
 			);
 			path = Onboarding;
@@ -818,7 +818,7 @@
 				F45119A829193B9F0058571C /* SMSView.swift in Sources */,
 				F488D78729211AE6002E4B57 /* FirebaseError.swift in Sources */,
 				F45119BF291941620058571C /* EmailView.swift in Sources */,
-				F4F103D2291CC66600C2020C /* FooterView.swift in Sources */,
+				F4F103D2291CC66600C2020C /* OnBoardingFooterView.swift in Sources */,
 				F4586464291F8A0900993A6D /* BirthViewModel.swift in Sources */,
 				F4034CD029191B1400423FAF /* BaseCode.swift in Sources */,
 				F499C449291F546000C4B117 /* FirebaseService.swift in Sources */,

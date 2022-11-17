@@ -19,9 +19,19 @@ extension MyInfoViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource.applySnapshot()
+        dataSource.delegate = self
     }
 }
 
-
+extension MyInfoViewController: MyInfoDataSourceDelegate  {
+    func supplementaryView(_ dataSource: MyInfoDataSource, supplementaryView: MyInfoHeaderView) {
+        supplementaryView.nextButton.rx.tap
+            .bind(onNext: { _ in
+                let vc = ProfileViewController()
+                self.transition(vc, transitionStyle: .push)
+            })
+            .disposed(by: self.disposeBag)
+    }
+}
 
 
