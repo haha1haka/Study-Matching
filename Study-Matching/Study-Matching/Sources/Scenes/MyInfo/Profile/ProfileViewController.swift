@@ -12,7 +12,6 @@ class ProfileViewController: BaseViewController {
     }
     lazy var dataSource = ProfileDataSource(collectionView: selfView.collectionView)
 
-    
 }
 
 extension ProfileViewController {
@@ -22,7 +21,6 @@ extension ProfileViewController {
         selfView.collectionView.delegate = self
     }
 }
-
 
 
 extension ProfileViewController: UICollectionViewDelegate {

@@ -469,8 +469,11 @@
 		F45119B729193E730058571C /* Gender */ = {
 			isa = PBXGroup;
 			children = (
-				F4586470291FB31C00993A6D /* View */,
-				F4586471291FB31E00993A6D /* ViewModel */,
+				F45119C8291941B80058571C /* GenderViewController.swift */,
+				F45119C0291941680058571C /* GenderView.swift */,
+				F4586472291FB32800993A6D /* GenderViewModel.swift */,
+				F4586474291FB33600993A6D /* GenderCell.swift */,
+				F41E0E372925AB0000B28291 /* GenderDataSource.swift */,
 			);
 			path = Gender;
 			sourceTree = "<group>";
@@ -553,25 +556,6 @@
 			isa = PBXGroup;
 			children = (
 				F4586465291F900E00993A6D /* EmailViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		F4586470291FB31C00993A6D /* View */ = {
-			isa = PBXGroup;
-			children = (
-				F45119C8291941B80058571C /* GenderViewController.swift */,
-				F45119C0291941680058571C /* GenderView.swift */,
-				F4586474291FB33600993A6D /* GenderCell.swift */,
-				F41E0E372925AB0000B28291 /* GenderDataSource.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		F4586471291FB31E00993A6D /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				F4586472291FB32800993A6D /* GenderViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";

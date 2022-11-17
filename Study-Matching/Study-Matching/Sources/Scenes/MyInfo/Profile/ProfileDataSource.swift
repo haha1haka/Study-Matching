@@ -1,26 +1,5 @@
-//
-//  MyInfoDataSource.swift
-//  Study-Matching
-//
-//  Created by HWAKSEONG KIM on 2022/11/17.
-//
-
 import UIKit
 
-enum Item: Hashable {
-    case header(Header)
-    case sub(Sub)
-    
-    static let headerData = [Header(title: "안녕")]
-    static let subData = [Sub(title: "hi")]
-}
-struct Header: Hashable {
-    var title: String
-}
-
-struct Sub: Hashable {
-    var title: String
-}
 
 
 class ProfileDataSource: UICollectionViewDiffableDataSource<Int, Item> {
@@ -67,4 +46,20 @@ class ProfileDataSource: UICollectionViewDiffableDataSource<Int, Item> {
     func refresh() {
         apply(snapshot(), animatingDifferences: true)
     }
+}
+
+
+enum Item: Hashable {
+    case header(Header)
+    case sub(Sub)
+    
+    static let headerData = [Header(title: "안녕")]
+    static let subData = [Sub(title: "hi")]
+}
+struct Header: Hashable {
+    var title: String
+}
+
+struct Sub: Hashable {
+    var title: String
 }

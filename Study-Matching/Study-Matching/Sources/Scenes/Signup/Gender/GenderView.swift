@@ -59,5 +59,6 @@ class GenderView: BaseView {
         return UICollectionViewCompositionalLayout(section: section)
         
     }
+
 }
 

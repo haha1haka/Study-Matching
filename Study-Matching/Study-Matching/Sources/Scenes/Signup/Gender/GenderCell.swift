@@ -26,8 +26,6 @@ class GenderCell: BaseCollectionViewCell {
         } else {
             imageView.backgroundColor = SeSacColor.white
         }
-        
-        
     }
     
     override func configureHierarchy() {
@@ -36,6 +34,15 @@ class GenderCell: BaseCollectionViewCell {
     override func configureLayout() {
         imageView.snp.makeConstraints {
             $0.edges.equalTo(self)
+        }
+    }
+    
+    func configure(with item: Int) {
+        switch item {
+        case .zero:
+            imageView.image = UIImage(named: "man")
+        default:
+            imageView.image = UIImage(named: "woman")
         }
     }
 

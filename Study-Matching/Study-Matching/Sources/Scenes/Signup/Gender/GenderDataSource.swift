@@ -13,13 +13,7 @@ class GenderDataSource: UICollectionViewDiffableDataSource<Int, Int> {
     convenience init(collectionView: UICollectionView) {
         
         let cellRegistration = UICollectionView.CellRegistration<GenderCell,Int> { cell, indexPath, itemIdentifier in
-            switch indexPath.item {
-            case .zero:
-                cell.imageView.image = UIImage(named: "man")
-            default:
-                cell.imageView.image = UIImage(named: "woman")
-            }
-            
+            cell.configure(with: itemIdentifier)
         }
         
         self.init(collectionView: collectionView) {
