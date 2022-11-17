@@ -12,7 +12,7 @@ class OnBoardingDataSource: UICollectionViewDiffableDataSource<OnBoardingSection
     convenience init(collectionView: UICollectionView) {
         
         let cellRegistration = UICollectionView.CellRegistration<OnboardCell, Page> { cell, indexPath, itemIdentifier in
-            cell.configureAttributes(item: itemIdentifier)
+            cell.configure(with: itemIdentifier)
             print("fdasfdasfdasfdsfdsfasdfsadfas")
         }
         

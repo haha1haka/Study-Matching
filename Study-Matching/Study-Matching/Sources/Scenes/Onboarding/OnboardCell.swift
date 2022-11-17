@@ -29,7 +29,7 @@ class OnboardCell: BaseCollectionViewCell {
         mainImageView.contentMode = .scaleAspectFit
     }
     
-    func configureAttributes(item: Page) {
+    func configure(with item: Page) {
         labelImageView.image = item.labelImage
         mainImageView.image = item.mainImage
         
