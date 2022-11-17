@@ -20,6 +20,7 @@ class OnBoardingViewController: BaseViewController {
     deinit {
         print("deinit - OnBoardingViewController")
     }
+    
 }
 
 
@@ -27,6 +28,7 @@ extension OnBoardingViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         selfView.eventDelegate = self
+        dataSoruce.delegate = self
         dataSoruce.applySnapshot()
         bind()
     }
@@ -34,6 +36,7 @@ extension OnBoardingViewController {
 
 extension OnBoardingViewController {
     func bind() {
+        
         selfView.button.rx.tap
             .bind(onNext: { _ in
                 
@@ -47,11 +50,23 @@ extension OnBoardingViewController {
             })
             .disposed(by: disposeBag)
         
+        print("fdsfadsfasdfa")
+
+        
     }
 }
 
 extension OnBoardingViewController: OnBoardingViewEvent {
     func page(_ view: OnBoardingView, pageIndex: Int) {
         viewModel.pageIndex.onNext(pageIndex)
+    }
+}
+
+extension OnBoardingViewController: OnBoardingDataSourceDelegate {
+    func supplementaryView(_ dataSource: OnBoardingDataSource, supplementaryView: FooterView) {
+        self.viewModel.pageIndex.bind(onNext: { int in
+            supplementaryView.pageControl.currentPage = int
+        })
+        .disposed(by: self.disposeBag)
     }
 }

@@ -1,20 +1,13 @@
 import UIKit
 
-enum Section {
-    case main
-}
 
-struct Page: Hashable {
-    var labelImage: UIImage
-    var mainImage: UIImage
-    
-    static let setData = [Page(labelImage: SeSacImage.firstPageImage!, mainImage: SeSacImage.firstPageMainImage!),
-                          Page(labelImage: SeSacImage.secondPageImage!, mainImage: SeSacImage.secondPageMainImage!),
-                          Page(labelImage: SeSacImage.thirdPageImage!, mainImage: SeSacImage.thirdPageMainImage!)]
+protocol OnBoardingDataSourceDelegate: AnyObject {
+    func supplementaryView(_ dataSource: OnBoardingDataSource, supplementaryView: FooterView)
 }
-
 
 class OnBoardingDataSource: UICollectionViewDiffableDataSource<Section, Page> {
+    
+    var delegate: OnBoardingDataSourceDelegate?
     
     convenience init(collectionView: UICollectionView) {
         
@@ -29,16 +22,15 @@ class OnBoardingDataSource: UICollectionViewDiffableDataSource<Section, Page> {
         }
         
         
-        let footerRegistration = UICollectionView.SupplementaryRegistration<FooterView>(elementKind: UICollectionView.elementKindSectionFooter) { supplementaryView, elementKind, indexPath in
+        let footerRegistration = UICollectionView.SupplementaryRegistration<FooterView>(elementKind: UICollectionView.elementKindSectionFooter) { [weak self] supplementaryView, elementKind, indexPath in
+            guard let self = self else { return }
             let itemCount = self.snapshot().numberOfItems
             
             supplementaryView.configure(with: itemCount)
             
-            //            print("fdsfadsfasdfa")
-            //            self.viewModel.pageIndex.bind(onNext: { int in
-            //                supplementaryView.pageControl.currentPage = int
-            //            })
-            //            .disposed(by: self.disposeBag)
+            self.delegate?.supplementaryView(self, supplementaryView: supplementaryView)
+            
+
         }
         
         supplementaryViewProvider = { collectionView, elementKind, indexPath in
@@ -53,4 +45,18 @@ class OnBoardingDataSource: UICollectionViewDiffableDataSource<Section, Page> {
         snapshot.appendItems(Page.setData)
         apply(snapshot)
     }
+}
+
+
+enum Section {
+    case main
+}
+
+struct Page: Hashable {
+    var labelImage: UIImage
+    var mainImage: UIImage
+    
+    static let setData = [Page(labelImage: SeSacImage.firstPageImage!, mainImage: SeSacImage.firstPageMainImage!),
+                          Page(labelImage: SeSacImage.secondPageImage!, mainImage: SeSacImage.secondPageMainImage!),
+                          Page(labelImage: SeSacImage.thirdPageImage!, mainImage: SeSacImage.thirdPageMainImage!)]
 }
