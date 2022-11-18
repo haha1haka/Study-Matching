@@ -16,7 +16,6 @@ class AgeView: UIView {
         label.text = "18 - 35"
         label.font = SeSacFont.Title3_M14.set
         label.textColor = SeSacColor.green
-        label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         return label
     }()
     

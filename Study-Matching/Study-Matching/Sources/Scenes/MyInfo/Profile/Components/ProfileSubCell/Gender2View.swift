@@ -13,13 +13,13 @@ class Gender2View: UIView {
     
     let manButton: SeSacButton = {
         let view = SeSacButton(title: "남자")
-        //view.addTarget(Gender.self, action: #selector(tappedButton), for: .touchUpInside)
+        
         return view
     }()
     
     let womanButton: SeSacButton = {
         let view = SeSacButton(title: "여자")
-        //view.addTarget(Gender.self, action: #selector(tappedButton), for: .touchUpInside)
+        
         return view
     }()
     
@@ -68,29 +68,6 @@ class Gender2View: UIView {
         }
     }
     
-    
-//    @objc
-//    func tappedButton(_ tappedButton: UIButton) {
-//
-//        if tappedButton == manButton {
-//
-//            manButton.isSelected = true
-//        } else {
-//
-//            manButton.isSelected = false
-//        }
-//
-//
-//        if tappedButton == womanButton {
-//
-//            womanButton.isSelected = true
-//        } else {
-//
-//            womanButton.isSelected = false
-//        }
-//
-//
-//
-//    }
+
 }
 

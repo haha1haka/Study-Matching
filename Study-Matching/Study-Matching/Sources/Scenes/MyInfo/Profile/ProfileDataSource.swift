@@ -3,44 +3,37 @@ import RxSwift
 import RxCocoa
 
 
-protocol ProfileDataSourceDelegate: AnyObject {
-    func mainCell(maincell: ProfileMainCell)
-    func subCell(subcell: ProfileSubCell)
-}
-
-
-
 class ProfileDataSource: UICollectionViewDiffableDataSource<Int, Item> {
 
-
-    var delegate: ProfileDataSourceDelegate?
-
     convenience init(collectionView: UICollectionView,_ mainCellRegistration: UICollectionView.CellRegistration<ProfileMainCell, Main>,_ subCellRegistration: UICollectionView.CellRegistration<ProfileSubCell, Sub>) {
-
-
-
+        
         self.init(collectionView: collectionView) {
-
             collectionView, indexPath, itemIdentifier in
             switch itemIdentifier {
             case .main(let main):
-                let cell = collectionView.dequeueConfiguredReusableCell(using: mainCellRegistration, for: indexPath, item: main)
-                print(indexPath)
-
+                let cell = collectionView.dequeueConfiguredReusableCell(
+                    using: mainCellRegistration,
+                    for: indexPath,
+                    item: main)
                 return cell
             case .sub(let sub):
-                let cell = collectionView.dequeueConfiguredReusableCell(using: subCellRegistration, for: indexPath, item: sub)
+                let cell = collectionView.dequeueConfiguredReusableCell(
+                    using: subCellRegistration,
+                    for: indexPath,
+                    item: sub)
                 return cell
             }
         }
 
-        let headerRegistration = UICollectionView.SupplementaryRegistration<ProfileHeaderView>(elementKind: UICollectionView.elementKindSectionHeader) { supplementaryView, elementKind, indexPath in
-        }
+        let headerRegistration = UICollectionView.SupplementaryRegistration<ProfileHeaderView>(
+            elementKind: UICollectionView.elementKindSectionHeader)
+        { supplementaryView, elementKind, indexPath in}
 
         supplementaryViewProvider =  { collectionView, elementKind, indexPath in
-            let suppleymentaryView  = collectionView.dequeueConfiguredReusableSupplementary(using: headerRegistration, for: indexPath)
-            return suppleymentaryView
-        }
+            let suppleymentaryView  = collectionView.dequeueConfiguredReusableSupplementary(
+                using: headerRegistration,
+                for: indexPath)
+            return suppleymentaryView }
     }
 
     func applyInitialSnapshot() {
