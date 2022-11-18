@@ -21,6 +21,7 @@ class MyInfoDataSource: UICollectionViewDiffableDataSource<MyInfoSection, Settin
         
         let cellRegistration = UICollectionView.CellRegistration<MyInfoCell,Setting> { cell, indexPath, itemIdentifier in
             cell.configure(with: itemIdentifier)
+            
         }
         
         self.init(collectionView: collectionView) {

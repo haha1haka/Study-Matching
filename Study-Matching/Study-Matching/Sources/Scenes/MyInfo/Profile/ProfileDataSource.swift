@@ -9,45 +9,40 @@ protocol ProfileDataSourceDelegate: AnyObject {
 }
 
 
-class ProfileDataSource: UICollectionViewDiffableDataSource<Int, Item> {
-    
-    
-    var delegate: ProfileDataSourceDelegate?
-    
-    convenience init(collectionView: UICollectionView) {
-        
-        let mainCellRegistration = UICollectionView.CellRegistration<ProfileMainCell,Main> { cell, indexPath, itemIdentifier in
 
-        }
-        
-        let subCellRegistration = UICollectionView.CellRegistration<ProfileSubCell,Sub> { cell, indexPath, itemIdentifier in
-        }
-        
-        
+class ProfileDataSource: UICollectionViewDiffableDataSource<Int, Item> {
+
+
+    var delegate: ProfileDataSourceDelegate?
+
+    convenience init(collectionView: UICollectionView,_ mainCellRegistration: UICollectionView.CellRegistration<ProfileMainCell, Main>,_ subCellRegistration: UICollectionView.CellRegistration<ProfileSubCell, Sub>) {
+
+
+
         self.init(collectionView: collectionView) {
-            
+
             collectionView, indexPath, itemIdentifier in
             switch itemIdentifier {
             case .main(let main):
                 let cell = collectionView.dequeueConfiguredReusableCell(using: mainCellRegistration, for: indexPath, item: main)
                 print(indexPath)
-                
+
                 return cell
             case .sub(let sub):
                 let cell = collectionView.dequeueConfiguredReusableCell(using: subCellRegistration, for: indexPath, item: sub)
                 return cell
             }
         }
-        
+
         let headerRegistration = UICollectionView.SupplementaryRegistration<ProfileHeaderView>(elementKind: UICollectionView.elementKindSectionHeader) { supplementaryView, elementKind, indexPath in
         }
-        
+
         supplementaryViewProvider =  { collectionView, elementKind, indexPath in
             let suppleymentaryView  = collectionView.dequeueConfiguredReusableSupplementary(using: headerRegistration, for: indexPath)
             return suppleymentaryView
         }
     }
-    
+
     func applyInitialSnapshot() {
         var snapshot = snapshot()
         snapshot.appendSections([0, 1])
@@ -55,7 +50,7 @@ class ProfileDataSource: UICollectionViewDiffableDataSource<Int, Item> {
         snapshot.appendItems(Item.subData.map(Item.sub))
         apply(snapshot)
     }
-    
+
     func refresh() {
         apply(snapshot(), animatingDifferences: true)
     }

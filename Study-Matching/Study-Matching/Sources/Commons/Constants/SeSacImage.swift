@@ -44,6 +44,11 @@ enum SeSacImage {
     static let qna = UIImage(named: "qna")
     static let settingAlarm = UIImage(named: "setting_alarm")
     static let permit = UIImage(named: "permit")
-
     
+    // MARK: - Map
+    static let btGps = UIImage(named: "bt_gps")
+    static let btRefresh = UIImage(named: "bt_refresh")
+    static let mapLocation = UIImage(named: "mapLocation")
+    static let mapMessage = UIImage(named: "mapMessage")
+    static let mapSearch = UIImage(named: "mapSearch")
 }
