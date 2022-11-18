@@ -3,9 +3,6 @@ import FirebaseAuth
 
 
 
-
-
-
 class FirebaseService {
     
     static let shared = FirebaseService()
@@ -89,7 +86,6 @@ class FirebaseService {
         
     }
     
-
 }
 
 

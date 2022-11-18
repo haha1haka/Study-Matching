@@ -14,7 +14,7 @@ class ProfileViewController: BaseViewController {
 
     lazy var dataSource = ProfileDataSource(collectionView: selfView.collectionView, self.mainCellRegistration!, self.subcCellRegistration!)
     
-    let viewModel = ProfileViewModel()
+    let viewModel = MyInfoViewModel()
     let disposeBag = DisposeBag()
     
 }
@@ -31,16 +31,13 @@ extension ProfileViewController {
 extension ProfileViewController {
     func registeredCell() {
         mainCellRegistration = UICollectionView.CellRegistration<ProfileMainCell,Main> { cell, indexPath, itemIdentifier in
-            cell.cardStackView.button1.rx.tap
-                .bind(onNext: { _ in
-                    print("fdsfsd")
-                })
-                .disposed(by: self.disposeBag)
+            
             
         }
         
         
         subcCellRegistration = UICollectionView.CellRegistration<ProfileSubCell,Sub> { cell, indexPath, itemIdentifier in
+            //cell.genderView.manButton.rx.tap
                     
         }
     }

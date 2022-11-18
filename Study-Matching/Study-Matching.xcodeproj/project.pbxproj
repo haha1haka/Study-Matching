@@ -23,7 +23,7 @@
 		F41E0E342925A64D00B28291 /* MyInfoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E0E332925A64D00B28291 /* MyInfoDataSource.swift */; };
 		F41E0E362925A83000B28291 /* OnBoardingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E0E352925A83000B28291 /* OnBoardingDataSource.swift */; };
 		F41E0E382925AB0000B28291 /* GenderDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E0E372925AB0000B28291 /* GenderDataSource.swift */; };
-		F41E0E422925D7DC00B28291 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E0E412925D7DC00B28291 /* ProfileViewModel.swift */; };
+		F41E0E422925D7DC00B28291 /* MyInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E0E412925D7DC00B28291 /* MyInfoViewModel.swift */; };
 		F4334030291E12FA00F46725 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F433402F291E12FA00F46725 /* RxCocoa */; };
 		F4334032291E12FA00F46725 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F4334031291E12FA00F46725 /* RxSwift */; };
 		F4334034291E177400F46725 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4334033291E177400F46725 /* OnboardingViewModel.swift */; };
@@ -112,7 +112,7 @@
 		F41E0E332925A64D00B28291 /* MyInfoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoDataSource.swift; sourceTree = "<group>"; };
 		F41E0E352925A83000B28291 /* OnBoardingDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingDataSource.swift; sourceTree = "<group>"; };
 		F41E0E372925AB0000B28291 /* GenderDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderDataSource.swift; sourceTree = "<group>"; };
-		F41E0E412925D7DC00B28291 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		F41E0E412925D7DC00B28291 /* MyInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewModel.swift; sourceTree = "<group>"; };
 		F4334033291E177400F46725 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		F45119962919230B0058571C /* SeSacColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacColor.swift; sourceTree = "<group>"; };
 		F4511999291926A00058571C /* SeSacButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacButton.swift; sourceTree = "<group>"; };
@@ -655,6 +655,7 @@
 		F48B306E2922708000DD5E12 /* MyInfo */ = {
 			isa = PBXGroup;
 			children = (
+				F41E0E412925D7DC00B28291 /* MyInfoViewModel.swift */,
 				F4D297FD2925073100A3AAB7 /* MyInfo */,
 				F4D297FC2925072E00A3AAB7 /* Profile */,
 			);
@@ -674,7 +675,6 @@
 			children = (
 				F48B306F292270A800DD5E12 /* ProfileViewController.swift */,
 				F48B3071292270B100DD5E12 /* ProfileView.swift */,
-				F41E0E412925D7DC00B28291 /* ProfileViewModel.swift */,
 				F48B307F2922795A00DD5E12 /* ProfileHeaderView.swift */,
 				F41E0E312925A12E00B28291 /* ProfileDataSource.swift */,
 				F48B3073292270B800DD5E12 /* ProfileMainCell.swift */,
@@ -839,7 +839,7 @@
 				F4D29802292508D100A3AAB7 /* MyInfoViewController.swift in Sources */,
 				F4A8A780292487E800B94EC7 /* SwitchView.swift in Sources */,
 				F4A8A782292487F200B94EC7 /* AgeView.swift in Sources */,
-				F41E0E422925D7DC00B28291 /* ProfileViewModel.swift in Sources */,
+				F41E0E422925D7DC00B28291 /* MyInfoViewModel.swift in Sources */,
 				F45119C5291941AB0058571C /* BirthViewController.swift in Sources */,
 				F4034CCA29191B1400423FAF /* BaseViewContoroller.swift in Sources */,
 				F499C44C291F55C200C4B117 /* UserdefaultsManager.swift in Sources */,

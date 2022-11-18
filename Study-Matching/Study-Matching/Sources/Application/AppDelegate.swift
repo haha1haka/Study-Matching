@@ -22,6 +22,7 @@ import UIKit
 import FirebaseCore
 import FirebaseMessaging
 
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -68,4 +69,3 @@ extension AppDelegate: MessagingDelegate {
         print("🌟 Firebase registration FCMToken:  \(UserDefaultsManager.standard.FCMToken)")
     }
 }
-

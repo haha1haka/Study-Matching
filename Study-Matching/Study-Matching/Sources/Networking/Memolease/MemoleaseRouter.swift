@@ -4,6 +4,7 @@ enum MemoleaseRouter {
     
     case signup(phoneNumber: String, FCMToken: String, nick: String, birth: String, email: String, gender:Int)
     case signIn
+    case updateToken
     
     static let headers: [String: String] = ["Content-Type" : "application/x-www-form-urlencoded"]
 }
@@ -14,6 +15,7 @@ extension MemoleaseRouter {
         switch self {
         case .signup: return "\(baseURL)/v1/user"
         case .signIn: return "\(baseURL)/v1/user"
+        case .updateToken: return "\(baseURL)/v1/update_fcm_token"
         }
     }
     var queryItems: [URLQueryItem]? {
@@ -28,12 +30,15 @@ extension MemoleaseRouter {
                     URLQueryItem(name: "gender", value: "\(gender)")]
         case .signIn:
             return nil
+        case .updateToken:
+            return nil
         }
     }
     var httpMethod: HTTPMethod {
         switch self {
         case .signup: return .post
         case .signIn: return .get
+        case .updateToken: return .put
         }
     }
     

@@ -13,7 +13,7 @@ class MemoleaseService {
         
         var urlComponents = URLComponents(string: path)
         
-        print("\(path)🟩\(urlComponents?.url)")
+        //print("\(path)🟩\(urlComponents?.url)")
         
         urlComponents?.queryItems = queryItems
         
@@ -25,11 +25,11 @@ class MemoleaseService {
         URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             
             
-            if let data = data {
-                print("🌟\(data.description)")
-            } else {
-                print("\(error?.localizedDescription)")
-            }
+            //if let data = data {
+            //    print("🌟\(data.description)")
+            //} else {
+            //    print("\(error?.localizedDescription)")
+            //}
             
             DispatchQueue.main.async {
                 guard let httpResponse = response as? HTTPURLResponse else { return }
@@ -66,7 +66,7 @@ class MemoleaseService {
         
         var urlComponents = URLComponents(string: path)
         
-        print("\(path)🟩\(urlComponents?.url)")
+        //print("\(path)🟩\(urlComponents?.url)")
         
         urlComponents?.queryItems = queryItems
         
@@ -115,6 +115,48 @@ class MemoleaseService {
         }.resume()
         
     }
+    
+    func requestUpdateFCMToken(path: String, queryItems: [URLQueryItem]?, httpMethod: HTTPMethod, headers: [String: String], completion: @escaping(Result<String, MemoleaseError>) -> Void) {
+        
+        var urlComponents = URLComponents(string: path)
+        urlComponents?.queryItems = queryItems
+        
+        var urlRequest = URLRequest(url: (urlComponents?.url)!)
+        urlRequest.httpMethod = httpMethod.rawValue.uppercased()
+        urlRequest.allHTTPHeaderFields = headers
+
+        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+            
+            guard let httpResponse = response as? HTTPURLResponse else { return }
+            print("📭 Request \(urlRequest.url!)")
+            print("🚩 Response \(httpResponse.statusCode)")
+            
+            guard let data = data else { print("데이터 없음"); return }
+            if let fcmToken = String(data: data, encoding: .utf8) {
+                DispatchQueue.main.async {
+                    completion(.success(fcmToken))
+                }
+            }
+            
+            switch httpResponse.statusCode {
+            case 401:
+                completion(.failure(.firebaseTokenError))
+            case 406:
+                completion(.failure(.unRegistedUser))
+            case 500:
+                completion(.failure(.serverError))
+            case 501:
+                completion(.failure(.clientError))
+            default:
+                completion(.failure(.unknown))
+            }
+    
+            
+        }.resume()
+    }
+    
+    
+    
     
     //    func requestTopics(onSuccess: @escaping (([USTopic]) -> Void), onFailure: @escaping ((USError) -> Void)) {
     //        var urlComponents = URLComponents(string: UnsplashEndPoint.baseURL)
