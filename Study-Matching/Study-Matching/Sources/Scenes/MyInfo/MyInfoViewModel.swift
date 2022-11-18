@@ -15,12 +15,10 @@ class MyInfoViewModel {
     
     //회원 탈퇴
     //저장버튼
-    var userMainDTO: UserMainDTO?
-    var userSubDTO: UserSubDTO?
-
 }
 
 extension MyInfoViewModel {
+    
     
     
     func fetchUserInfo(completion: @escaping (Result<Succeess, MemoleaseError>) -> Void) {
@@ -33,12 +31,15 @@ extension MyInfoViewModel {
             
             switch result {
             case .success(let user):
-                self.userMainDTO = UserMainDTO(nick: user.nick, comment: user.comment, reputation: user.reputation, sesac: user.sesac, background: user.background)
-                userSubDTO =  UserSubDTO(gender: user.gender, study: user.study, searchable: user.searchable, ageMin: user.ageMin, ageMax: user.ageMax)
-                
-                
-                
-                
+                self.background.accept(user.background)
+                self.sesac.accept(user.sesac)
+                self.nick.accept(user.nick)
+                self.reputation.accept(user.reputation)
+                self.comment.accept(user.comment)
+                self.gender.accept(user.gender)
+                self.study.accept(user.study)
+                self.searchable.accept(user.searchable)
+                self.age.accept([user.ageMin,user.ageMax])
                 completion(.success(.perfact))
             case .failure(let error):
                 switch error {
@@ -66,7 +67,6 @@ extension MyInfoViewModel {
             }
         }
     }
-    
     
     func updateFCMToken(completion: @escaping (Result<Succeess, MemoleaseError>) -> Void) {
         

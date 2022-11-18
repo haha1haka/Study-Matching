@@ -88,8 +88,7 @@ class MemoleaseService {
             do {
                 let user = try JSONDecoder().decode(MemoleaseUser.self, from: data)
                 DispatchQueue.main.async {
-                    UserMainDTO(nick: user.nick, comment: user.comment, reputation: user.reputation, sesac: user.sesac, background: user.background)
-                    UserSubDTO(gender: user.gender, study: user.study, searchable: user.searchable, ageMin: user.ageMin, ageMax: user.ageMax)
+
                     completion(.success(user))
                     
                     
