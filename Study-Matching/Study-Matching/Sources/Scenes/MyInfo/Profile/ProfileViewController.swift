@@ -37,7 +37,7 @@ extension ProfileViewController {
         
         
         subcCellRegistration = UICollectionView.CellRegistration<ProfileSubCell,Sub> { cell, indexPath, itemIdentifier in
-            //cell.genderView.manButton.rx.tap
+            
                     
         }
     }

@@ -21,7 +21,7 @@ extension MyInfoViewModel {
     
     
     
-    func fetchUserInfo(completion: @escaping (Result<MemoleaseUser, MemoleaseError>) -> Void) {
+    func fetchUserInfo(completion: @escaping (Result<Succeess, MemoleaseError>) -> Void) {
         
         let target = MemoleaseRouter.signIn
         
@@ -40,14 +40,14 @@ extension MyInfoViewModel {
                 self.study.accept(user.study)
                 self.searchable.accept(user.searchable)
                 self.age.accept([user.ageMin,user.ageMax])
-                
+                completion(.success(.perfact))
             case .failure(let error):
                 switch error {
                 case .firebaseTokenError:
                     self.updateFCMToken { result in
                         switch result {
-                        case .success(let fcmToken): //🚀 updateFCMToken
-                            UserDefaultsManager.standard.FCMToken = fcmToken
+                        case .success: //🚀 updateFCMToken
+                            return
                         case .failure:
                             return
                         }
@@ -66,12 +66,12 @@ extension MyInfoViewModel {
         }
     }
     
-    func updateFCMToken(completion: @escaping (Result<String, MemoleaseError>) -> Void) {
+    func updateFCMToken(completion: @escaping (Result<Succeess, MemoleaseError>) -> Void) {
         let target = MemoleaseRouter.updateToken
-        MemoleaseService.shared.requestUpdateFCMToken(path: target.path, queryItems: nil, httpMethod: target.httpMethod, headers: target.headers) { result in
+        MemoleaseService.shared.updateFCMToken(path: target.path, queryItems: nil, httpMethod: target.httpMethod, headers: target.headers) { result in
             switch result {
             case .success:
-                completion(result)
+                completion(.success(.perfact))
             case .failure(let error):
                 switch error {
                 case .firebaseTokenError:

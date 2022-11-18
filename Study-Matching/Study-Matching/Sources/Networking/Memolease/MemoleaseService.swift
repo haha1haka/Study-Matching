@@ -66,12 +66,12 @@ class MemoleaseService {
         
         var urlComponents = URLComponents(string: path)
         
-        //print("\(path)🟩\(urlComponents?.url)")
+        print("\(path)🟩\(urlComponents?.url)")
         
         urlComponents?.queryItems = queryItems
         
         var urlRequest = URLRequest(url: (urlComponents?.url)!)
-        //urlRequest.httpBody = urlComponents?.query?.data(using: .utf8) //바디
+        urlRequest.httpBody = urlComponents?.query?.data(using: .utf8) //바디
         urlRequest.httpMethod = httpMethod.rawValue.uppercased()
         urlRequest.allHTTPHeaderFields = headers //헤더
 
@@ -116,7 +116,7 @@ class MemoleaseService {
         
     }
     
-    func requestUpdateFCMToken(path: String, queryItems: [URLQueryItem]?, httpMethod: HTTPMethod, headers: [String: String], completion: @escaping(Result<String, MemoleaseError>) -> Void) {
+    func updateFCMToken(path: String, queryItems: [URLQueryItem]?, httpMethod: HTTPMethod, headers: [String: String], completion: @escaping(Result<Succeess, MemoleaseError>) -> Void) {
         
         var urlComponents = URLComponents(string: path)
         urlComponents?.queryItems = queryItems
@@ -130,15 +130,10 @@ class MemoleaseService {
             guard let httpResponse = response as? HTTPURLResponse else { return }
             print("📭 Request \(urlRequest.url!)")
             print("🚩 Response \(httpResponse.statusCode)")
-            
-            guard let data = data else { print("데이터 없음"); return }
-            if let fcmToken = String(data: data, encoding: .utf8) {
-                DispatchQueue.main.async {
-                    completion(.success(fcmToken))
-                }
-            }
-            
+                        
             switch httpResponse.statusCode {
+            case 200:
+                completion(.success(.perfact))
             case 401:
                 completion(.failure(.firebaseTokenError))
             case 406:

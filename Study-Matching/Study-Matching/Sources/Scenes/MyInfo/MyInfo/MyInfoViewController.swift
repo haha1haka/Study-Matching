@@ -23,18 +23,24 @@ extension MyInfoViewController {
         dataSource.delegate = self
     }
     
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         viewModel.fetchUserInfo { result in
             switch result {
-            case .success:
-                // 데이터 바인드 완료
+            case .success: // 데이터 바인드 완료
+                print(self.viewModel.age.value)
+                print(self.viewModel.nick)
+                print(self.viewModel.searchable)
                 return
             case .failure:
                 return
             }
         }
+
+
     }
 }
 
@@ -44,7 +50,6 @@ extension MyInfoViewController: MyInfoDataSourceDelegate  {
         supplementaryView.nextButton.rx.tap
             .bind(onNext: { _ in
                 let vc = ProfileViewController()
-                vc.viewModel
                 self.transition(vc, transitionStyle: .push)
             })
             .disposed(by: self.disposeBag)

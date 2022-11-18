@@ -25,6 +25,18 @@ extension HomeViewController {
         
         locationManager.delegate = self
         
+        
+        //⚠️ 임시로 해놓은것 지워야됨.
+        FirebaseService.shared.fetchIdToken { result in
+            print(result)
+            switch result {
+            case .success(let success):
+                print(success)
+            case .failure(let failure):
+                print(failure)
+            }
+        }
+        
     }
 }
 extension HomeViewController: CLLocationManagerDelegate {

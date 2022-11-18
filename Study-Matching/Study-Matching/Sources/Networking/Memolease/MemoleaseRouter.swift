@@ -11,11 +11,11 @@ enum MemoleaseRouter {
 
 extension MemoleaseRouter {
     var path: String {
-        let baseURL: String = "http://api.sesac.co.kr:1207"
+        let baseURL: String = "http://api.sesac.co.kr:1210"
         switch self {
         case .signup: return "\(baseURL)/v1/user"
         case .signIn: return "\(baseURL)/v1/user"
-        case .updateToken: return "\(baseURL)/v1/update_fcm_token"
+        case .updateToken: return "\(baseURL)/v1/user/update_fcm_token"
         }
     }
     var queryItems: [URLQueryItem]? {
@@ -31,7 +31,7 @@ extension MemoleaseRouter {
         case .signIn:
             return nil
         case .updateToken:
-            return nil
+            return [URLQueryItem(name: "idtoken", value: UserDefaultsManager.standard.idToken)]
         }
     }
     var httpMethod: HTTPMethod {
@@ -45,6 +45,7 @@ extension MemoleaseRouter {
     var headers: [String: String] {
         switch self {
         default:
+            print("idtoken: -->  \(UserDefaultsManager.standard.idToken)")
             return ["Content-Type" : "application/x-www-form-urlencoded",
                     "idtoken" : UserDefaultsManager.standard.idToken]
             
