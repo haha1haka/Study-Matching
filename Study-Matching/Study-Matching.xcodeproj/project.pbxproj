@@ -88,6 +88,8 @@
 		F4D29804292508D700A3AAB7 /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D29803292508D700A3AAB7 /* MyInfoView.swift */; };
 		F4D29806292508E000A3AAB7 /* MyInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D29805292508E000A3AAB7 /* MyInfoCell.swift */; };
 		F4D29808292508F500A3AAB7 /* MyInfoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D29807292508F500A3AAB7 /* MyInfoHeaderView.swift */; };
+		F4E019B32927CCB700760190 /* UserMainDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E019B22927CCB700760190 /* UserMainDTO.swift */; };
+		F4E019B52927CEA800760190 /* UserSubDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E019B42927CEA800760190 /* UserSubDTO.swift */; };
 		F4F103CA291CBD0E00C2020C /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103C9291CBD0E00C2020C /* OnBoardingViewController.swift */; };
 		F4F103CC291CBD1700C2020C /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103CB291CBD1700C2020C /* OnBoardingView.swift */; };
 		F4F103CE291CBF8A00C2020C /* SeSacImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103CD291CBF8A00C2020C /* SeSacImage.swift */; };
@@ -175,6 +177,8 @@
 		F4D29803292508D700A3AAB7 /* MyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoView.swift; sourceTree = "<group>"; };
 		F4D29805292508E000A3AAB7 /* MyInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoCell.swift; sourceTree = "<group>"; };
 		F4D29807292508F500A3AAB7 /* MyInfoHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoHeaderView.swift; sourceTree = "<group>"; };
+		F4E019B22927CCB700760190 /* UserMainDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMainDTO.swift; sourceTree = "<group>"; };
+		F4E019B42927CEA800760190 /* UserSubDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSubDTO.swift; sourceTree = "<group>"; };
 		F4F103C9291CBD0E00C2020C /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		F4F103CB291CBD1700C2020C /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		F4F103CD291CBF8A00C2020C /* SeSacImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacImage.swift; sourceTree = "<group>"; };
@@ -643,8 +647,8 @@
 		F47D76422920959900F747DA /* Memolease */ = {
 			isa = PBXGroup;
 			children = (
+				F4E019B02927CC2700760190 /* User */,
 				F488D78D29212665002E4B57 /* HTTPMethod.swift */,
-				F456375C2921538700CDF1BA /* MemoleaseUser.swift */,
 				F488D78F2921308A002E4B57 /* MemoleaseError.swift */,
 				F488D78B29212324002E4B57 /* MemoleaseRouter.swift */,
 				F488D78829212290002E4B57 /* MemoleaseService.swift */,
@@ -694,6 +698,16 @@
 				F41E0E332925A64D00B28291 /* MyInfoDataSource.swift */,
 			);
 			path = MyInfo;
+			sourceTree = "<group>";
+		};
+		F4E019B02927CC2700760190 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				F456375C2921538700CDF1BA /* MemoleaseUser.swift */,
+				F4E019B22927CCB700760190 /* UserMainDTO.swift */,
+				F4E019B42927CEA800760190 /* UserSubDTO.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -810,6 +824,7 @@
 				F45119C9291941B80058571C /* GenderViewController.swift in Sources */,
 				F4D29808292508F500A3AAB7 /* MyInfoHeaderView.swift in Sources */,
 				F4A8A77C292487CB00B94EC7 /* Gender2View.swift in Sources */,
+				F4E019B52927CEA800760190 /* UserSubDTO.swift in Sources */,
 				F45119BB291941550058571C /* NicknameView.swift in Sources */,
 				F41E0E322925A12E00B28291 /* ProfileDataSource.swift in Sources */,
 				F451199F29192DC80058571C /* SeSacFont.swift in Sources */,
@@ -828,6 +843,7 @@
 				F4034CC929191B1400423FAF /* BaseViewCollectionViewCell.swift in Sources */,
 				F48B30802922795A00DD5E12 /* ProfileHeaderView.swift in Sources */,
 				F488D78929212290002E4B57 /* MemoleaseService.swift in Sources */,
+				F4E019B32927CCB700760190 /* UserMainDTO.swift in Sources */,
 				F4A8A7842924885100B94EC7 /* WithDrawView.swift in Sources */,
 				F45119C7291941B10058571C /* EmailViewController.swift in Sources */,
 				F4F103CC291CBD1700C2020C /* OnBoardingView.swift in Sources */,

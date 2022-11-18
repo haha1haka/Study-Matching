@@ -88,7 +88,11 @@ class MemoleaseService {
             do {
                 let user = try JSONDecoder().decode(MemoleaseUser.self, from: data)
                 DispatchQueue.main.async {
+                    UserMainDTO(nick: user.nick, comment: user.comment, reputation: user.reputation, sesac: user.sesac, background: user.background)
+                    UserSubDTO(gender: user.gender, study: user.study, searchable: user.searchable, ageMin: user.ageMin, ageMax: user.ageMax)
                     completion(.success(user))
+                    
+                    
                 }
             }
             catch let decodingError {
@@ -210,5 +214,117 @@ class MemoleaseService {
     //        }.resume()
     //
     //    }
+    
+    func requestUserMainDTO(path: String, queryItems: [URLQueryItem]?, httpMethod: HTTPMethod, headers: [String: String], completion: @escaping(Result<UserMainDTO, MemoleaseError>) -> Void) {
+        
+        var urlComponents = URLComponents(string: path)
+        
+        print("\(path)🟩\(urlComponents?.url)")
+        
+        urlComponents?.queryItems = queryItems
+        
+        var urlRequest = URLRequest(url: (urlComponents?.url)!)
+        urlRequest.httpBody = urlComponents?.query?.data(using: .utf8) //바디
+        urlRequest.httpMethod = httpMethod.rawValue.uppercased()
+        urlRequest.allHTTPHeaderFields = headers //헤더
+
+        
+        
+        
+        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+            
+            guard let httpResponse = response as? HTTPURLResponse else { return }
+            print("📭 Request \(urlRequest.url!)")
+            print("🚩 Response \(httpResponse.statusCode)")
+            
+            guard let data = data else { print("데이터 없음"); return }
+            do {
+                let user = try JSONDecoder().decode(UserMainDTO.self, from: data)
+                DispatchQueue.main.async {
+                    completion(.success(user))
+                    
+                    
+                }
+            }
+            catch let decodingError {
+                print("⁉️ Failure", decodingError)
+                DispatchQueue.main.async {
+                    completion(.failure(.decodingError))
+                }
+            }
+            
+            switch httpResponse.statusCode {
+            case 401:
+                completion(.failure(.firebaseTokenError))
+            case 406:
+                completion(.failure(.unRegistedUser))
+            case 500:
+                completion(.failure(.serverError))
+            case 501:
+                completion(.failure(.clientError))
+            default:
+                completion(.failure(.unknown))
+            }
+    
+            
+        }.resume()
+        
+    }
+    
+    func requestUserSubDTO(path: String, queryItems: [URLQueryItem]?, httpMethod: HTTPMethod, headers: [String: String], completion: @escaping(Result<UserSubDTO, MemoleaseError>) -> Void) {
+        
+        var urlComponents = URLComponents(string: path)
+        
+        print("\(path)🟩\(urlComponents?.url)")
+        
+        urlComponents?.queryItems = queryItems
+        
+        var urlRequest = URLRequest(url: (urlComponents?.url)!)
+        urlRequest.httpBody = urlComponents?.query?.data(using: .utf8) //바디
+        urlRequest.httpMethod = httpMethod.rawValue.uppercased()
+        urlRequest.allHTTPHeaderFields = headers //헤더
+
+        
+        
+        
+        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+            
+            guard let httpResponse = response as? HTTPURLResponse else { return }
+            print("📭 Request \(urlRequest.url!)")
+            print("🚩 Response \(httpResponse.statusCode)")
+            
+            guard let data = data else { print("데이터 없음"); return }
+            do {
+                let user = try JSONDecoder().decode(UserSubDTO.self, from: data)
+                DispatchQueue.main.async {
+                    completion(.success(user))
+                    
+                    
+                }
+            }
+            catch let decodingError {
+                print("⁉️ Failure", decodingError)
+                DispatchQueue.main.async {
+                    completion(.failure(.decodingError))
+                }
+            }
+            
+            switch httpResponse.statusCode {
+            case 401:
+                completion(.failure(.firebaseTokenError))
+            case 406:
+                completion(.failure(.unRegistedUser))
+            case 500:
+                completion(.failure(.serverError))
+            case 501:
+                completion(.failure(.clientError))
+            default:
+                completion(.failure(.unknown))
+            }
+    
+            
+        }.resume()
+        
+    }
 }
 

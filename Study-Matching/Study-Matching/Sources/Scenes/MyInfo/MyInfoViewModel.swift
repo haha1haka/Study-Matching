@@ -15,10 +15,12 @@ class MyInfoViewModel {
     
     //회원 탈퇴
     //저장버튼
+    var userMainDTO: UserMainDTO?
+    var userSubDTO: UserSubDTO?
+
 }
 
 extension MyInfoViewModel {
-    
     
     
     func fetchUserInfo(completion: @escaping (Result<Succeess, MemoleaseError>) -> Void) {
@@ -31,27 +33,26 @@ extension MyInfoViewModel {
             
             switch result {
             case .success(let user):
-                self.background.accept(user.background)
-                self.sesac.accept(user.sesac)
-                self.nick.accept(user.nick)
-                self.reputation.accept(user.reputation)
-                self.comment.accept(user.comment)
-                self.gender.accept(user.gender)
-                self.study.accept(user.study)
-                self.searchable.accept(user.searchable)
-                self.age.accept([user.ageMin,user.ageMax])
+                self.userMainDTO = UserMainDTO(nick: user.nick, comment: user.comment, reputation: user.reputation, sesac: user.sesac, background: user.background)
+                userSubDTO =  UserSubDTO(gender: user.gender, study: user.study, searchable: user.searchable, ageMin: user.ageMin, ageMax: user.ageMax)
+                
+                
+                
+                
                 completion(.success(.perfact))
             case .failure(let error):
                 switch error {
                 case .firebaseTokenError:
-                    self.updateFCMToken { result in
+                    
+                    self.updateFCMToken { result in //🚀 updateFCMToken
                         switch result {
-                        case .success: //🚀 updateFCMToken
+                        case .success:
                             return
                         case .failure:
                             return
                         }
                     }
+                    
                     print("\(error.localizedDescription)")
                 case .unRegistedUser:
                     return
@@ -66,20 +67,22 @@ extension MyInfoViewModel {
         }
     }
     
+    
     func updateFCMToken(completion: @escaping (Result<Succeess, MemoleaseError>) -> Void) {
+        
         let target = MemoleaseRouter.updateToken
+        
         MemoleaseService.shared.updateFCMToken(path: target.path, queryItems: nil, httpMethod: target.httpMethod, headers: target.headers) { result in
             switch result {
             case .success:
                 completion(.success(.perfact))
             case .failure(let error):
                 switch error {
-                case .firebaseTokenError:
-                    //재갱신? 무한 츠크요미
+                case .firebaseTokenError: //또 재갱신? 무한 츠크요미
                     return
-                case .unRegistedUser:
+                case .unRegistedUser: // 이럴 경우 없음
                     return
-                case .serverError:
+                case .serverError: // 이럴 경우 없음
                     return
                 case .clientError:
                     print("\(error.localizedDescription)")

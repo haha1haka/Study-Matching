@@ -9,8 +9,8 @@ class ProfileViewController: BaseViewController {
         view = selfView
     }
     
-    var mainCellRegistration: UICollectionView.CellRegistration<ProfileMainCell, Main>?
-    var subcCellRegistration: UICollectionView.CellRegistration<ProfileSubCell, Sub>?
+    var mainCellRegistration: UICollectionView.CellRegistration<ProfileMainCell, UserMainDTO>?
+    var subcCellRegistration: UICollectionView.CellRegistration<ProfileSubCell, UserSubDTO>?
 
     lazy var dataSource = ProfileDataSource(collectionView: selfView.collectionView, self.mainCellRegistration!, self.subcCellRegistration!)
     
@@ -23,21 +23,32 @@ extension ProfileViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registeredCell()
-        dataSource.applyInitialSnapshot()
+        dataSource.applyInitialSnapshot(firstSectionData: viewModel.userMainDTO!, secondSectionData: viewModel.userSubDTO!)
         selfView.collectionView.delegate = self
     }
 }
 
 extension ProfileViewController {
+    func setData() {
+
+    }
+}
+
+
+
+extension ProfileViewController {
     func registeredCell() {
-        mainCellRegistration = UICollectionView.CellRegistration<ProfileMainCell,Main> { cell, indexPath, itemIdentifier in
+        mainCellRegistration = UICollectionView.CellRegistration<ProfileMainCell,UserMainDTO> { cell, indexPath, itemIdentifier in
             
             
         }
         
         
-        subcCellRegistration = UICollectionView.CellRegistration<ProfileSubCell,Sub> { cell, indexPath, itemIdentifier in
+        subcCellRegistration = UICollectionView.CellRegistration<ProfileSubCell,UserSubDTO> { cell, indexPath, itemIdentifier in
+            //viewModel.gender.bind(to: cell.genderView.manButton)
+                
             
+                
                     
         }
     }

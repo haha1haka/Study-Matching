@@ -1,6 +1,6 @@
 import Foundation
 
-struct MemoleaseUser: Codable {
+struct MemoleaseUser: Codable, Hashable {
     let id: String
     let v: Int
     let uid, phoneNumber, email, fcMtoken: String

@@ -4,8 +4,10 @@ import RxCocoa
 
 
 class ProfileDataSource: UICollectionViewDiffableDataSource<Int, Item> {
-
-    convenience init(collectionView: UICollectionView,_ mainCellRegistration: UICollectionView.CellRegistration<ProfileMainCell, Main>,_ subCellRegistration: UICollectionView.CellRegistration<ProfileSubCell, Sub>) {
+    
+    
+    
+    convenience init(collectionView: UICollectionView,_ mainCellRegistration: UICollectionView.CellRegistration<ProfileMainCell, UserMainDTO>,_ subCellRegistration: UICollectionView.CellRegistration<ProfileSubCell, UserSubDTO>) {
         
         self.init(collectionView: collectionView) {
             collectionView, indexPath, itemIdentifier in
@@ -36,11 +38,11 @@ class ProfileDataSource: UICollectionViewDiffableDataSource<Int, Item> {
             return suppleymentaryView }
     }
 
-    func applyInitialSnapshot() {
+    func applyInitialSnapshot(firstSectionData: UserMainDTO, secondSectionData: UserSubDTO) {
         var snapshot = snapshot()
         snapshot.appendSections([0, 1])
-        snapshot.appendItems(Item.mainData.map(Item.main))
-        snapshot.appendItems(Item.subData.map(Item.sub))
+        snapshot.appendItems([Item.main(firstSectionData)])
+        snapshot.appendItems([Item.sub(secondSectionData)])
         apply(snapshot)
     }
 
@@ -50,12 +52,11 @@ class ProfileDataSource: UICollectionViewDiffableDataSource<Int, Item> {
 }
 
 
+
 enum Item: Hashable {
-    case main(Main)
-    case sub(Sub)
-    
-    static let mainData = [Main(title: "안녕")]
-    static let subData = [Sub(title: "hi")]
+    case main(UserMainDTO)
+    case sub(UserSubDTO)
+
 }
 struct Main: Hashable {
     var title: String
