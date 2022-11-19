@@ -1,5 +1,8 @@
 import UIKit
 import SnapKit
+import MultiSlider
+
+ 
 
 class AgeView: UIView {
     
@@ -20,13 +23,40 @@ class AgeView: UIView {
         return label
     }()
     
-    let totalStackView: UIStackView = {
-        let stack = UIStackView()
+    
+    lazy var totalStackView: UIStackView = {
+        let stack = UIStackView(
+            arrangedSubviews: [
+            titleLabel,
+            ageLabel])
         stack.axis = .horizontal
         stack.alignment = .center
         stack.distribution = .fill
         return stack
     }()
+    
+    let multislider: MultiSlider = {
+        let slider = MultiSlider()
+        slider.minimumValue = 18
+        slider.maximumValue = 65
+        slider.thumbCount = 2
+        slider.backgroundColor = .clear
+        slider.orientation = .horizontal
+        slider.tintColor = SeSacColor.green
+        slider.outerTrackColor = SeSacColor.gray7
+        slider.thumbImage = SeSacImage.filterControl
+        slider.keepsDistanceBetweenThumbs = true
+        slider.addTarget(self, action: #selector(sliderChanged(_:)), for: .valueChanged)
+        return slider
+    }()
+    
+    @objc
+    func sliderChanged(_ slider: MultiSlider) {
+        let minAge = Int(slider.value[0])
+        let maxAge = Int(slider.value[1])
+        ageLabel.text = "\(minAge) - \(maxAge)"
+    }
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -40,12 +70,17 @@ class AgeView: UIView {
     
     func configureHierarchy() {
         addSubview(totalStackView)
-        [titleLabel, ageLabel].forEach { totalStackView.addArrangedSubview($0) }
+        addSubview(multislider)
     }
     
     func configureLayout() {
         totalStackView.snp.makeConstraints {
-            $0.edges.equalTo(self)
+            $0.top.leading.trailing.equalTo(self)
+            
+        }
+        multislider.snp.makeConstraints {
+            $0.top.equalTo(totalStackView.snp.bottom)
+            $0.leading.bottom.trailing.equalTo(self)
         }
     }
 

@@ -88,7 +88,7 @@ class MemoleaseService {
             do {
                 let user = try JSONDecoder().decode(MemoleaseUser.self, from: data)
                 DispatchQueue.main.async {
-
+                    
                     completion(.success(user))
                     
                     

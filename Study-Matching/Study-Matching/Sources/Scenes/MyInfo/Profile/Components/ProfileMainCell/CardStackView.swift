@@ -4,12 +4,12 @@ import SnapKit
 class CardStackView: UIStackView {
     
     
-    let button0 = SeSacButton(title: "좋은매너", type: .myInfo)
-    let button2 = SeSacButton(title: "정확한 시간 약속", type: .myInfo)
-    let button4 = SeSacButton(title: "빠른 응답", type: .myInfo)
-    let button1 = SeSacButton(title: "친절한 성격", type: .myInfo)
-    let button3 = SeSacButton(title: "능숙한 실력", type: .myInfo)
-    let button5 = SeSacButton(title: "유익한 시간", type: .myInfo)
+    let button0 = SeSacButton(title: "좋은매너", type: .myInfo, tag_: 0)
+    let button2 = SeSacButton(title: "정확한 시간 약속", type: .myInfo, tag_: 1)
+    let button4 = SeSacButton(title: "빠른 응답", type: .myInfo, tag_: 2)
+    let button1 = SeSacButton(title: "친절한 성격", type: .myInfo, tag_: 3)
+    let button3 = SeSacButton(title: "능숙한 실력", type: .myInfo, tag_: 4)
+    let button5 = SeSacButton(title: "유익한 시간", type: .myInfo, tag_: 5)
     
     let leftVerticalStackView: UIStackView = {
         let stack = UIStackView()
@@ -44,7 +44,7 @@ class CardStackView: UIStackView {
         
         configureHierarchy()
         configureLayout()
-        configureAttributes()
+        //configureAttributes()
     }
     
     required init(coder: NSCoder) {
@@ -76,9 +76,5 @@ class CardStackView: UIStackView {
         }
 
     }
-    func configureAttributes() {
 
-        
-    }
-    
 }

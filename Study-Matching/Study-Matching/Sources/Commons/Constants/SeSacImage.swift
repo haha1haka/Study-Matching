@@ -45,6 +45,10 @@ enum SeSacImage {
     static let settingAlarm = UIImage(named: "setting_alarm")
     static let permit = UIImage(named: "permit")
     
+    static let filterControl = UIImage(named: "filter_control")
+    
+    
+    
     // MARK: - Map
     static let btGps = UIImage(named: "bt_gps")
     static let btRefresh = UIImage(named: "bt_refresh")

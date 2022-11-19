@@ -62,6 +62,7 @@
 		F4594E752920C29F0071CFC2 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4594E742920C29F0071CFC2 /* String.swift */; };
 		F463403C2918FE54008A50D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F463403B2918FE54008A50D6 /* Assets.xcassets */; };
 		F463403F2918FE54008A50D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F463403D2918FE54008A50D6 /* LaunchScreen.storyboard */; };
+		F463F17C2929340600CE644C /* SeSacButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F463F17B2929340600CE644C /* SeSacButton+.swift */; };
 		F464068229287898008E6F8F /* MultiSlider in Frameworks */ = {isa = PBXBuildFile; productRef = F464068129287898008E6F8F /* MultiSlider */; };
 		F47AF0B82922019700AA0789 /* FakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AF0B72922019700AA0789 /* FakerViewController.swift */; };
 		F47AF0BA292201A800AA0789 /* FakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AF0B9292201A800AA0789 /* FakerView.swift */; };
@@ -152,6 +153,7 @@
 		F463403B2918FE54008A50D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F463403E2918FE54008A50D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F46340402918FE54008A50D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F463F17B2929340600CE644C /* SeSacButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SeSacButton+.swift"; sourceTree = "<group>"; };
 		F47AF0B72922019700AA0789 /* FakerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakerViewController.swift; sourceTree = "<group>"; };
 		F47AF0B9292201A800AA0789 /* FakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakerView.swift; sourceTree = "<group>"; };
 		F47AF0BD2922097800AA0789 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				F4034CB929191B1400423FAF /* UIViewController.swift */,
+				F463F17B2929340600CE644C /* SeSacButton+.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -831,6 +834,7 @@
 				F4E019B52927CEA800760190 /* UserSubDTO.swift in Sources */,
 				F45119BB291941550058571C /* NicknameView.swift in Sources */,
 				F41E0E322925A12E00B28291 /* ProfileDataSource.swift in Sources */,
+				F463F17C2929340600CE644C /* SeSacButton+.swift in Sources */,
 				F451199F29192DC80058571C /* SeSacFont.swift in Sources */,
 				F488D78C29212324002E4B57 /* MemoleaseRouter.swift in Sources */,
 				F45119BD2919415D0058571C /* BirthView.swift in Sources */,

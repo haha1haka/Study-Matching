@@ -10,7 +10,8 @@ class SeSacButton: UIButton {
                      title: String,
                      color: UIColor = SeSacColor.gray6,
                      font_: UIFont = SeSacFont.Body3_R14.set,
-                     type: SeSacButtonType = .login)
+                     type: SeSacButtonType = .login,
+                     tag_: Int = .zero)
                      
     {
         self.init(frame: frame)
@@ -29,6 +30,7 @@ class SeSacButton: UIButton {
             layer.borderColor = SeSacColor.gray4.cgColor
             setTitle(title, for: .normal)
             setTitleColor(SeSacColor.black, for: .normal)
+            tag = tag_
         }
                 
 

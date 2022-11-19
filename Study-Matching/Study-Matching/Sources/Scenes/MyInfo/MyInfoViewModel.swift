@@ -8,14 +8,16 @@ class MyInfoViewModel {
     
     private init() {}
     
-    let background = BehaviorRelay<Int>(value: 0)
-    let sesac      = BehaviorRelay<Int>(value: 0)
-    let nick       = BehaviorRelay<String>(value: "")
-    let reputation = BehaviorRelay<[Int]>(value: [])
-    let comment    = BehaviorRelay<[String]>(value: [])
-    let gender     = BehaviorRelay<Int>(value: 0)
-    let study      = BehaviorRelay<String>(value: "")
-    let searchable = BehaviorRelay<Int>(value: 0)
+    var background = BehaviorRelay<Int>(value: 0)
+    var sesac      = BehaviorRelay<Int>(value: 0)
+    var nick       = BehaviorRelay<String>(value: "")
+    var reputation = BehaviorRelay<[Int]>(value: [])
+    var comment    = BehaviorRelay<[String]>(value: [])
+    var gender     = BehaviorRelay<Int>(value: 0)
+    var study      = BehaviorRelay<String>(value: "")
+    var searchable = BehaviorRelay<Int>(value: 0)
+    var ageMax     = BehaviorRelay<Int>(value: 0)
+    var ageMin     = BehaviorRelay<Int>(value: 0)
     let age        = BehaviorRelay<[Int]>(value: [])
     var user       = BehaviorRelay<MemoleaseUser?>(value: nil)
     //회원 탈퇴
@@ -44,6 +46,8 @@ extension MyInfoViewModel {
                 self.gender.accept(user.gender)
                 self.study.accept(user.study)
                 self.searchable.accept(user.searchable)
+                self.ageMax.accept(user.ageMax)
+                self.ageMin.accept(user.ageMin)
                 self.age.accept([user.ageMin,user.ageMax])
                 self.user.accept(user)
                 completion(.success(.perfact))
@@ -97,6 +101,13 @@ extension MyInfoViewModel {
                     
                 }
             }
+        }
+    }
+    func genderHandler(_ tag: Int) -> Bool {
+        if tag == 1 {
+            return true
+        } else {
+            return false
         }
     }
     
