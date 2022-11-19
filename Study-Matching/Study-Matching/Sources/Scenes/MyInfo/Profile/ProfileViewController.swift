@@ -9,12 +9,15 @@ class ProfileViewController: BaseViewController {
         view = selfView
     }
     
-    var mainCellRegistration: UICollectionView.CellRegistration<ProfileMainCell, Main>?
-    var subcCellRegistration: UICollectionView.CellRegistration<ProfileSubCell, Sub>?
+    var mainCellRegistration: UICollectionView.CellRegistration<ProfileMainCell, MemoleaseUser>?
+    var subcCellRegistration: UICollectionView.CellRegistration<ProfileSubCell, MemoleaseUser>?
 
-    lazy var dataSource = ProfileDataSource(collectionView: selfView.collectionView, self.mainCellRegistration!, self.subcCellRegistration!)
+    lazy var dataSource = ProfileDataSource(
+        collectionView: selfView.collectionView,
+        self.mainCellRegistration!,
+        self.subcCellRegistration!)
     
-    let viewModel = MyInfoViewModel()
+    let viewModel = MyInfoViewModel.shared
     let disposeBag = DisposeBag()
     
 }
@@ -23,8 +26,16 @@ extension ProfileViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registeredCell()
-        dataSource.applyInitialSnapshot()
+        applyInitialSnapshot()
         selfView.collectionView.delegate = self
+    }
+    
+    func applyInitialSnapshot() {
+        var snapshot = dataSource.snapshot()
+        snapshot.appendSections([0, 1])
+        snapshot.appendItems([Item.main(viewModel.user.value!)])
+        snapshot.appendItems([Item.sub(viewModel.user.value!)])
+        dataSource.apply(snapshot)
     }
 }
 
@@ -38,13 +49,13 @@ extension ProfileViewController {
 
 extension ProfileViewController {
     func registeredCell() {
-        mainCellRegistration = UICollectionView.CellRegistration<ProfileMainCell,Main> { cell, indexPath, itemIdentifier in
+        mainCellRegistration = UICollectionView.CellRegistration<ProfileMainCell,MemoleaseUser> { cell, indexPath, itemIdentifier in
             
             
         }
         
         
-        subcCellRegistration = UICollectionView.CellRegistration<ProfileSubCell,Sub> { cell, indexPath, itemIdentifier in
+        subcCellRegistration = UICollectionView.CellRegistration<ProfileSubCell,MemoleaseUser> { cell, indexPath, itemIdentifier in
             
                 
             

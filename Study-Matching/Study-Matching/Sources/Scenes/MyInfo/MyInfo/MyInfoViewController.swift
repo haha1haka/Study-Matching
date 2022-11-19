@@ -11,7 +11,7 @@ class MyInfoViewController: BaseViewController {
     }
     lazy var dataSource = MyInfoDataSource(collectionView: selfView.collectionView)
 
-    let viewModel = MyInfoViewModel()
+    let viewModel = MyInfoViewModel.shared
     let disposeBag = DisposeBag()
     
 }
@@ -29,7 +29,8 @@ extension MyInfoViewController {
         viewModel.fetchUserInfo { result in
             switch result {
             case .success: // 데이터 바인드 완료
-                return
+                print("바인드 완료")
+                print(self.viewModel.user.value)
             case .failure:
                 return
             }

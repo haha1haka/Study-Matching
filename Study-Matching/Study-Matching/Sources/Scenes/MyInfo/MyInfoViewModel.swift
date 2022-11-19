@@ -3,16 +3,21 @@ import RxSwift
 import RxCocoa
 
 class MyInfoViewModel {
-    let background = BehaviorRelay<Int>(value: 0)
-    let sesac = BehaviorRelay<Int>(value: 0)
-    let nick = BehaviorRelay<String>(value: "")
-    let reputation = BehaviorRelay<[Int]>(value: [])
-    let comment = BehaviorRelay<[String]>(value: [])
-    let gender = BehaviorRelay<Int>(value: 0)
-    let study = BehaviorRelay<String>(value: "")
-    let searchable = BehaviorRelay<Int>(value: 0)
-    let age = BehaviorRelay<[Int]>(value: [])
     
+    static let shared = MyInfoViewModel()
+    
+    private init() {}
+    
+    let background = BehaviorRelay<Int>(value: 0)
+    let sesac      = BehaviorRelay<Int>(value: 0)
+    let nick       = BehaviorRelay<String>(value: "")
+    let reputation = BehaviorRelay<[Int]>(value: [])
+    let comment    = BehaviorRelay<[String]>(value: [])
+    let gender     = BehaviorRelay<Int>(value: 0)
+    let study      = BehaviorRelay<String>(value: "")
+    let searchable = BehaviorRelay<Int>(value: 0)
+    let age        = BehaviorRelay<[Int]>(value: [])
+    var user       = BehaviorRelay<MemoleaseUser?>(value: nil)
     //회원 탈퇴
     //저장버튼
 }
@@ -40,6 +45,7 @@ extension MyInfoViewModel {
                 self.study.accept(user.study)
                 self.searchable.accept(user.searchable)
                 self.age.accept([user.ageMin,user.ageMax])
+                self.user.accept(user)
                 completion(.success(.perfact))
             case .failure(let error):
                 switch error {

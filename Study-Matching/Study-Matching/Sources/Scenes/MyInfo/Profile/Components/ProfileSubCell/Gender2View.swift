@@ -5,6 +5,7 @@ class Gender2View: UIView {
     
     let genderLabel: UILabel = {
         let label = UILabel()
+        label.setContentHuggingPriority(.defaultLow, for: .horizontal)
         label.text = "내 성별"
         label.font = SeSacFont.Title4_R14.set
         label.textColor = SeSacColor.black
