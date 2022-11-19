@@ -170,13 +170,16 @@ class ProfileMainCell: BaseCollectionViewCell {
             cnt += 1
         }
         
+        if item.comment.isEmpty {
+            textField.placeholder = "첫 리뷰를 기다리는 중이에요~!"
+        } else {
+            textField.text = item.comment.first ?? ""
+        }
         
 
     
     }
-    func setButton(_ button: UIButton) {
-        
-    }
+
 }
 
 
