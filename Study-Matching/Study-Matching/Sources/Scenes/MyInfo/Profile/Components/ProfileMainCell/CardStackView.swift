@@ -4,12 +4,12 @@ import SnapKit
 class CardStackView: UIStackView {
     
     
-    let button1 = SeSacButton(title: "좋은매너", type: .myInfo)
+    let button0 = SeSacButton(title: "좋은매너", type: .myInfo)
     let button2 = SeSacButton(title: "정확한 시간 약속", type: .myInfo)
-    let button3 = SeSacButton(title: "빠른 응답", type: .myInfo)
-    let button4 = SeSacButton(title: "친절한 성격", type: .myInfo)
-    let button5 = SeSacButton(title: "능숙한 실력", type: .myInfo)
-    let button6 = SeSacButton(title: "유익한 시간", type: .myInfo)
+    let button4 = SeSacButton(title: "빠른 응답", type: .myInfo)
+    let button1 = SeSacButton(title: "친절한 성격", type: .myInfo)
+    let button3 = SeSacButton(title: "능숙한 실력", type: .myInfo)
+    let button5 = SeSacButton(title: "유익한 시간", type: .myInfo)
     
     let leftVerticalStackView: UIStackView = {
         let stack = UIStackView()
@@ -61,11 +61,11 @@ class CardStackView: UIStackView {
             totalStackView.addArrangedSubview(subView)
         }
         
-        [button1, button2, button3].forEach { subView in
+        [button0, button2, button4].forEach { subView in
             leftVerticalStackView.addArrangedSubview(subView)
         }
         
-        [button4, button5, button6].forEach { subView in
+        [button1, button3, button5].forEach { subView in
             rightVerticalStackView.addArrangedSubview(subView)
         }
 
@@ -77,11 +77,7 @@ class CardStackView: UIStackView {
 
     }
     func configureAttributes() {
-        button1.backgroundColor = .yellow
-        button2.backgroundColor = .blue
-        button1.setTitleColor(.black, for: .normal)
-        button1.tintColor = .black
-        button1.titleLabel?.textColor = .black
+
         
     }
     

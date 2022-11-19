@@ -50,13 +50,13 @@ extension ProfileViewController {
 extension ProfileViewController {
     func registeredCell() {
         mainCellRegistration = UICollectionView.CellRegistration<ProfileMainCell,MemoleaseUser> { cell, indexPath, itemIdentifier in
-            
+            cell.configure(with: itemIdentifier)
             
         }
         
         
         subcCellRegistration = UICollectionView.CellRegistration<ProfileSubCell,MemoleaseUser> { cell, indexPath, itemIdentifier in
-            
+            cell.configure(with: itemIdentifier)
                 
             
                 

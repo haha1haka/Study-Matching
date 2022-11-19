@@ -68,4 +68,8 @@ class ProfileSubCell: BaseCollectionViewCell {
         }
 
     }
+    
+    func configure(with item: MemoleaseUser) {
+        
+    }
 }

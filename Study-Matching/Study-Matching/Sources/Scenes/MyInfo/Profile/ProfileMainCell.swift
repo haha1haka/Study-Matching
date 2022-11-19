@@ -155,10 +155,28 @@ class ProfileMainCell: BaseCollectionViewCell {
         layer.cornerRadius = 8
     }
     
-    func configure(with item: Main) {
+    func configure(with item: MemoleaseUser) {
+        nameLabel.text = item.nick
+        
+        var cnt = 0
+        [cardStackView.button0, cardStackView.button1, cardStackView.button2, cardStackView.button3, cardStackView.button4, cardStackView.button5].forEach {
+            if item.reputation[cnt] == .zero {
+                $0.backgroundColor = SeSacColor.green
+                $0.setTitleColor(SeSacColor.white, for: .normal)
+                $0.layer.borderColor = SeSacColor.white.cgColor
+            } else {
+                //⚠️여기로 옮기기
+            }
+            cnt += 1
+        }
+        
+        
+
+    
+    }
+    func setButton(_ button: UIButton) {
         
     }
-    
 }
 
 

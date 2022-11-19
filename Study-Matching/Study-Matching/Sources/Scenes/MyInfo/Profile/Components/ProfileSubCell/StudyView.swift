@@ -8,6 +8,7 @@ class StudyView: UIView {
         label.text = "자주 하는 스터디"
         label.font = SeSacFont.Title4_R14.set
         label.textColor = SeSacColor.black
+        label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         return label
     }()
     

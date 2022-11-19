@@ -11,6 +11,7 @@ class SeSacButton: UIButton {
                      color: UIColor = SeSacColor.gray6,
                      font_: UIFont = SeSacFont.Body3_R14.set,
                      type: SeSacButtonType = .login)
+                     
     {
         self.init(frame: frame)
 
@@ -20,17 +21,14 @@ class SeSacButton: UIButton {
             titleLabel?.font = font_
             setTitle(title, for: .normal)
         case .myInfo:
-            setTitleColor(SeSacColor.black, for: .normal)
+            titleLabel?.font = font_
             layer.cornerRadius = 8
             layer.borderWidth = 1
             layer.masksToBounds = true
             backgroundColor = SeSacColor.white
             layer.borderColor = SeSacColor.gray4.cgColor
-            setTitleColor(.blue, for: .normal)
-            //titleLabel?.textColor = SeSacColor.black
-            //tintColor = .black
-            
-            
+            setTitle(title, for: .normal)
+            setTitleColor(SeSacColor.black, for: .normal)
         }
                 
 
