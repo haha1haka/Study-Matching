@@ -59,6 +59,20 @@ extension ProfileViewController {
             cell.configure(with: itemIdentifier)
                 
             
+            // MARK: - switch
+            cell.switchView.switchUI.rx.value
+                .bind(onNext: { b in
+                    if b {
+                        self.viewModel.searchable.accept(1)
+                    } else {
+                        self.viewModel.searchable.accept(0)
+                    }
+                })
+                .disposed(by: self.disposeBag)
+            
+
+            
+            
                 
                     
         }
