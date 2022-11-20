@@ -18,7 +18,8 @@ class ProfileView: BaseView {
     
     override func configureLayout() {
         collectionView.snp.makeConstraints {
-            $0.edges.equalTo(self)
+            $0.top.equalTo(self.safeAreaLayoutGuide).offset(16)
+            $0.leading.trailing.bottom.equalTo(self)
         }
         
 
@@ -59,13 +60,14 @@ class ProfileView: BaseView {
 
         let section = NSCollectionLayoutSection(group: group)
         //section.interGroupSpacing = 12
-        //section.contentInsets = .init(top: 0, leading: 12, bottom: 12, trailing: 12)
+        
         
         
         
         let headerSize = NSCollectionLayoutSize(widthDimension: .absolute(343),
                                                 heightDimension: .absolute(194))
         let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+        
         section.boundarySupplementaryItems = [header]
         
         

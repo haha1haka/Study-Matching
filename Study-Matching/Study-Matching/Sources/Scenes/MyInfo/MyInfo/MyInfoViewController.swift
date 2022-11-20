@@ -14,6 +14,9 @@ class MyInfoViewController: BaseViewController {
     let viewModel = MyInfoViewModel.shared
     let disposeBag = DisposeBag()
     
+    override func setNavigationBar(title: String) {
+        super.setNavigationBar(title: "내정보")
+    }
 }
 
 extension MyInfoViewController {

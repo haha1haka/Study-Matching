@@ -27,7 +27,7 @@ class SeSacAlertController: UIViewController {
         return view
     }()
     let subLabel: SeSacLabel = {
-        let view = SeSacLabel(text_: "탈퇴하시면 새싹 스터디를 이용할 수 업어요ㅠ", font_: SeSacFont.Title4_R14.set)
+        let view = SeSacLabel(text_: "탈퇴하시면 새싹 스터디를 이용할 수 없어요ㅠ", font_: SeSacFont.Title4_R14.set)
         return view
     }()
     

@@ -26,9 +26,16 @@ class MyInfoHeaderView: UICollectionReusableView {
         view.backgroundColor = .clear
         return view
     }()
+    
     let nextButton: UIButton = {
         let view = UIButton()
         
+        return view
+    }()
+    
+    let dividerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = SeSacColor.gray3
         return view
     }()
 
@@ -43,7 +50,7 @@ class MyInfoHeaderView: UICollectionReusableView {
     }
     
     func configureHierarchy() {
-        [imageView, label, nextImageView, nextButton].forEach { addSubview($0) }
+        [imageView, label, nextImageView, dividerView, nextButton].forEach { addSubview($0) }
     }
     
     func configureLayout() {
@@ -61,6 +68,13 @@ class MyInfoHeaderView: UICollectionReusableView {
             $0.trailing.equalTo(self).inset(23)
             $0.centerY.equalTo(self.snp.centerY)
         }
+        
+        dividerView.snp.makeConstraints {
+            $0.height.equalTo(1)
+            $0.leading.trailing.equalTo(self).inset(17)
+            $0.bottom.equalTo(self)
+        }
+        
         nextButton.snp.makeConstraints {
             $0.edges.equalTo(self)
         }

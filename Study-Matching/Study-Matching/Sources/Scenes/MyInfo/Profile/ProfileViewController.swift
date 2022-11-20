@@ -20,8 +20,8 @@ class ProfileViewController: BaseViewController {
         view = selfView
     }
     
-    override func setNavigationBar() {
-        super.setNavigationBar()
+    override func setNavigationBar(title: String) {
+        super.setNavigationBar(title: "내정보")
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "저장", style: .plain, target: self, action: nil)
     }
