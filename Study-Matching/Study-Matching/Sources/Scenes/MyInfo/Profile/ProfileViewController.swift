@@ -14,10 +14,10 @@ class ProfileViewController: BaseViewController, DataSourceRegistration {
     
     
     lazy var dataSource = ProfileDataSource(
-        collectionView:       selfView.collectionView,
-        headerRegistration:   self.header!,
+        collectionView      : selfView.collectionView,
+        headerRegistration  : self.header!,
         mainCellRegistration: self.mainCell!,
-        subCellRegistration:  self.subCell!)
+        subCellRegistration : self.subCell!)
         
     let viewModel = MyInfoViewModel.shared
     let disposeBag = DisposeBag()
@@ -216,7 +216,16 @@ extension ProfileViewController {
                     
                     vc.completeButton.rx.tap
                         .bind(onNext: { _ in
-                            
+                            //회원탈퇴 URLSession gogo
+                            self.viewModel.requestWithdraw { result in
+                                let vc = OnBoardingViewController()
+                                switch result {
+                                case .success: // 탈퇴 설공
+                                    self.transitionRootViewController(vc)
+                                case .failure: // 이미 탈퇴 되어 있음
+                                    self.transitionRootViewController(vc)
+                                }
+                            }
                         })
                         .disposed(by: self.disposeBag)
                     

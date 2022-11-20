@@ -41,9 +41,9 @@ class MemoleaseService {
                 case 202:
                     completion(.failure(.nickError)) //🚀 해당 vc 에서 처리
                 case 401:
-                    completion(.failure(.idTokenError))
                     FirebaseService.shared.fetchIdToken { _ in }
                     print("♻️idtoken update 완료")
+                    completion(.failure(.idTokenError)) //🚀 해당 viewModel 에서 재귀로그인
                 case 500:
                     completion(.failure(.serverError))
                     print("❌500")
@@ -106,9 +106,9 @@ class MemoleaseService {
                 }
                 
             case 401:
-                completion(.failure(.idTokenError)) //🚀 해당 vc 에서 처리
                 FirebaseService.shared.fetchIdToken { _ in }
                 print("♻️idtoken update 완료")
+                completion(.failure(.idTokenError)) //🚀 해당 viewModel 에서 재귀로그인
             case 406:
                 completion(.failure(.unRegistedUser)) //🚀 해당 vc 에서 처리
             case 500:
@@ -146,9 +146,9 @@ class MemoleaseService {
             case 200:
                 completion(.success(.perfact))//🚀 해당 vc 에서 처리
             case 401:
-                completion(.failure(.idTokenError))
-                FirebaseService.shared.fetchIdToken { _ in } //🚀 해당 vc 에서 처리
+                FirebaseService.shared.fetchIdToken { _ in }
                 print("♻️idtoken update 완료")
+                completion(.failure(.idTokenError)) //🚀 해당 viewModel 에서 재귀로그인
             case 406:
                 completion(.failure(.unRegistedUser)) //🚀 해당 vc 에서 처리
             case 500:
@@ -188,9 +188,9 @@ class MemoleaseService {
             case 200:
                 completion(.success(.perfact)) //🚀 해당 vc 에서 처리
             case 401:
-                completion(.failure(.idTokenError)) //🚀 해당 vc 에서 처리
                 FirebaseService.shared.fetchIdToken { _ in }
                 print("♻️idtoken update 완료")
+                completion(.failure(.idTokenError)) //🚀 해당 viewModel 에서 재귀로그인
             case 406:
                 completion(.failure(.unRegistedUser)) //🚀 해당 vc 에서 처리
             case 500:
@@ -235,9 +235,9 @@ class MemoleaseService {
                 case 200:
                     completion(.success(.perfact)) //🚀 해당 vc 에서 처리: 온보딩 화면으로
                 case 401:
-                    completion(.failure(.idTokenError))
                     FirebaseService.shared.fetchIdToken { _ in }
                     print("♻️idtoken update 완료")
+                    completion(.failure(.idTokenError))
                 case 406: //🚀 해당 vc 에서 처리: 온보딩 화면으로
                     completion(.failure(.aleadyWithdraw))
                 case 500:

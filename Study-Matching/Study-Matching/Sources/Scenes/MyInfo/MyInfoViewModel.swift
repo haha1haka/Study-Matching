@@ -145,6 +145,33 @@ extension MyInfoViewModel {
         }
     }
     
+    func requestWithdraw(completion: @escaping (Result<Succeess, MemoleaseError>) -> Void) {
+        
+        let target = MemoleaseRouter.withdraw
+        
+        MemoleaseService.shared.requestWithdraw(
+            path: target.path,
+            queryItems: target.queryItems,
+            httpMethod: target.httpMethod,
+            headers: target.headers) { result in
+                
+            switch result {
+            case .success:
+                completion(.success(.perfact)) //🚀 vc 에서 처리
+            case .failure(let error):
+                switch error {
+                case .idTokenError:
+                    self.updateUserInfo { _  in } // 💫 재귀 로그인 시작
+                case .aleadyWithdraw:
+                    completion(.failure(.aleadyWithdraw)) // 🚀 vc 에서 처리
+                default:
+                    return
+                }
+                
+            }
+        }
+    }
+    
 
     
     
