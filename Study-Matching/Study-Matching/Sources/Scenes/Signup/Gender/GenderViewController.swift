@@ -52,7 +52,7 @@ extension GenderViewController {
             .bind(onNext: { _ in
                 if self.viewModel.collectionViewObservable.value != -1 {
                     let api = MemoleaseRouter.signup(phoneNumber: UserDefaultsManager.standard.phoneNumber,
-                                                     FCMToken: UserDefaultsManager.standard.FCMToken,
+                                                     FCMtoken: UserDefaultsManager.standard.FCMToken,
                                                      nick: UserDefaultsManager.standard.nick,
                                                      birth: UserDefaultsManager.standard.birth,
                                                      email: UserDefaultsManager.standard.email,
@@ -82,7 +82,7 @@ extension GenderViewController {
                                 print("⚠️닉네임 에러 --> 닉네임화면gogo 다시 설정 하게 돌아가야됨")
                                 self.toNickNameViewController()
                                 UserDefaultsManager.standard.nickFlag = true
-                            case .firebaseTokenError:
+                            case .idTokenError:
                                 print("⚠️토큰 만료 --> 토큰 재갱신")
                                 self.fetchIdToken() // ⭐️토큰 다시 받기 + if succeess면 로그인 재도전    (무한 츠크요미 조심 )
                                 
@@ -106,7 +106,7 @@ extension GenderViewController {
 extension GenderViewController {
     func reReauestMemoleaseSignup() {
         let api = MemoleaseRouter.signup(phoneNumber: UserDefaultsManager.standard.phoneNumber,
-                                         FCMToken: UserDefaultsManager.standard.FCMToken,
+                                         FCMtoken: UserDefaultsManager.standard.FCMToken,
                                          nick: UserDefaultsManager.standard.nick,
                                          birth: UserDefaultsManager.standard.birth,
                                          email: UserDefaultsManager.standard.email,
@@ -128,7 +128,7 @@ extension GenderViewController {
                     print("⚠️닉네임 에러 --> 닉네임화면gogo 다시 설정 하게 돌아가야됨")
                     self.toNickNameViewController()
                     UserDefaultsManager.standard.nickFlag = true
-                case .firebaseTokenError:
+                case .idTokenError:
                     print("⚠️토큰 만료 --> 토큰 재갱신")
                     self.fetchIdToken() // ⭐️토큰 다시 받기 + if succeess면 로그인 재도전    (무한 츠크요미 조심 )
                 case .serverError:

@@ -64,7 +64,7 @@ extension FakerViewController {
                  3일때 -> 얼럿
                  */
                 let api = MemoleaseRouter.signIn
-                MemoleaseService.shared.requestUserInfo(path: api.path, queryItems: nil, httpMethod: api.httpMethod, headers: api.headers) { result in
+                MemoleaseService.shared.requestLogin(path: api.path, queryItems: nil, httpMethod: api.httpMethod, headers: api.headers) { result in
                     switch result {
                     case .success(let user):
                         print("🥰\(user)")
@@ -73,7 +73,7 @@ extension FakerViewController {
                     case .failure(let error):
                         
                         switch error {
-                        case .firebaseTokenError:
+                        case .idTokenError:
                             print("FakerVC - 토큰 만료")
                             self.requestRefreshIdToken() //재발급 + 다시 유저 요청
                         case .unRegistedUser:

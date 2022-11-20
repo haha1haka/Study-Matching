@@ -121,7 +121,7 @@ extension SMSViewController {
 extension SMSViewController {
     func requestUserInfo() {
         let api = MemoleaseRouter.signIn
-        MemoleaseService.shared.requestUserInfo(path: api.path, queryItems: api.queryItems, httpMethod: api.httpMethod, headers: api.headers) { result in
+        MemoleaseService.shared.requestLogin(path: api.path, queryItems: api.queryItems, httpMethod: api.httpMethod, headers: api.headers) { result in
             switch result {
             case .success:
                 print("로그인성공")
@@ -131,7 +131,7 @@ extension SMSViewController {
                 
             case .failure(let error):
                 switch error {
-                case .firebaseTokenError:
+                case .idTokenError:
                     print("signIn - 토큰에러")
                 case .unRegistedUser:
                     print("signIn - 406 미가입 유저 --> 닉네임 화면부터다시")

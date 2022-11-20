@@ -46,8 +46,17 @@ extension ProfileViewController {
     func bind() {
         
         self.navigationItem.rightBarButtonItem?.rx.tap
-            .bind(onNext: { _ in
-                print("🟥fdfsd")
+            .bind(onNext: { [weak self]_ in
+                guard let self = self else { return }
+                self.viewModel.updateUserInfo { result in
+                    switch result {
+                    case .success:
+                        print("성공적으로 userinfo 가 update 되었습니다.")
+                    case .failure:
+                        print("에러")
+                    
+                    }
+                }
             })
             .disposed(by: disposeBag)
         

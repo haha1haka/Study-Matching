@@ -32,7 +32,11 @@ extension MyInfoViewModel {
         
         let target = MemoleaseRouter.signIn
         
-        MemoleaseService.shared.requestUserInfo(path: target.path, queryItems: nil, httpMethod: target.httpMethod, headers: target.headers) { [weak self] result in
+        MemoleaseService.shared.requestLogin(
+            path: target.path,
+            queryItems: nil,
+            httpMethod: target.httpMethod,
+            headers: target.headers) { [weak self] result in
             
             guard let self = self else { return }
             
@@ -53,16 +57,16 @@ extension MyInfoViewModel {
                 completion(.success(.perfact))
             case .failure(let error):
                 switch error {
-                case .firebaseTokenError:
+                case .idTokenError:
                     
-                    self.updateFCMToken { result in //🚀 updateFCMToken
-                        switch result {
-                        case .success:
-                            return
-                        case .failure:
-                            return
-                        }
-                    }
+//                    self.updateFCMToken { result in //🚀 updateFCMToken
+//                        switch result {
+//                        case .success:
+//                            return
+//                        case .failure:
+//                            return
+//                        }
+//                    }
                     
                     print("\(error.localizedDescription)")
                 case .unRegistedUser:
@@ -78,35 +82,74 @@ extension MyInfoViewModel {
         }
     }
     
-    func updateFCMToken(completion: @escaping (Result<Succeess, MemoleaseError>) -> Void) {
+//    func updateFCMToken(completion: @escaping (Result<Succeess, MemoleaseError>) -> Void) {
+//
+//        let target = MemoleaseRouter.updateToken(FCMtoken: UserDefaultsManager.standard.FCMToken)
+//
+//        MemoleaseService.shared.updateFCMToken(
+//            path: target.path,
+//            queryItems: target.queryItems,
+//            httpMethod: target.httpMethod,
+//            headers: target.headers) { result in
+//
+//            switch result {
+//            case .success:
+//                completion(.success(.perfact))
+//            case .failure(let error):
+//                switch error {
+//                case .idTokenError: //또 재갱신? 무한 츠크요미
+//                    return
+//                case .unRegistedUser: // 이럴 경우 없음
+//                    return
+//                case .serverError: // 이럴 경우 없음
+//                    return
+//                case .clientError:
+//                    print("\(error.localizedDescription)")
+//                default:
+//                    print("\(error.localizedDescription)")
+//
+//                }
+//            }
+//        }
+//    }
+    
+    func updateUserInfo(completion: @escaping (Result<Succeess, MemoleaseError>) -> Void) {
         
-        let target = MemoleaseRouter.updateToken
+        let target = MemoleaseRouter.updateUserInfo(
+            searchable: searchable.value,
+            ageMin: ageMin.value,
+            ageMax: ageMax.value,
+            gender: gender.value,
+            study: study.value)
         
-        MemoleaseService.shared.updateFCMToken(path: target.path, queryItems: nil, httpMethod: target.httpMethod, headers: target.headers) { result in
+        MemoleaseService.shared.updateUserInfo(
+            path: target.path,
+            queryItems: target.queryItems,
+            httpMethod: target.httpMethod,
+            headers: target.headers) { result in
+                
             switch result {
             case .success:
                 completion(.success(.perfact))
             case .failure(let error):
                 switch error {
-                case .firebaseTokenError: //또 재갱신? 무한 츠크요미
-                    return
-                case .unRegistedUser: // 이럴 경우 없음
-                    return
-                case .serverError: // 이럴 경우 없음
-                    return
-                case .clientError:
-                    print("\(error.localizedDescription)")
-                default:
-                    print("\(error.localizedDescription)")
+                case .idTokenError:
+                    completion(.failure(.idTokenError))
                     
+                    self.updateUserInfo { _  in } // 다시 재귀 요청
+                    
+                case .unRegistedUser:
+                    completion(.failure(.unRegistedUser))
+                    //⚠️다시 회원가입 -> 로그인 로직 타야됨 --> 회원가입 으로 이동 
+                    
+                default:
+                    return
                 }
             }
         }
     }
     
-    func requestWithdraw() {
-        
-    }
+
     
     
     
