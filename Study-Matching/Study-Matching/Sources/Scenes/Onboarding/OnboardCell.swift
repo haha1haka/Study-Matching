@@ -32,8 +32,5 @@ class OnboardCell: BaseCollectionViewCell {
     func configure(with item: Page) {
         labelImageView.image = item.labelImage
         mainImageView.image = item.mainImage
-        
-        
-        
     }
 }

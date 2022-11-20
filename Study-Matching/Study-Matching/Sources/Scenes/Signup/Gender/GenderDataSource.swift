@@ -8,17 +8,17 @@
 import UIKit
 
 
-class GenderDataSource: UICollectionViewDiffableDataSource<Int, Int> {
+class GenderDataSource: UICollectionViewDiffableDataSource<Int, Int>, DataSourceRegistration {
     
-    convenience init(collectionView: UICollectionView) {
-        
-        let cellRegistration = UICollectionView.CellRegistration<GenderCell,Int> { cell, indexPath, itemIdentifier in
-            cell.configure(with: itemIdentifier)
-        }
-        
+    convenience init(collectionView: UICollectionView,
+                     cellRegistration: GenderCellRegistration)
+    {
         self.init(collectionView: collectionView) {
             collectionView, indexPath, itemIdentifier in
-            let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
+            let cell = collectionView.dequeueConfiguredReusableCell(
+                using: cellRegistration,
+                for: indexPath,
+                item: itemIdentifier)
             return cell
         }
     }

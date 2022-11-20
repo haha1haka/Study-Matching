@@ -2,24 +2,29 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class GenderViewController: BaseViewController {
+class GenderViewController: BaseViewController, DataSourceRegistration {
+    
     let selfView = GenderView()
     override func loadView() {
         view = selfView
     }
+
+    var cell: GenderCellRegistration?
+    
+    lazy var dataSource = GenderDataSource(
+            collectionView: selfView.collectionView,
+            cellRegistration: self.cell!)
     
     let viewModel = GenderViewModel()
     let disposeBag = DisposeBag()
-    
-    lazy var dataSource = GenderDataSource(collectionView: selfView.collectionView)
 }
 
 extension GenderViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        selfView.collectionView.delegate = self
-        dataSource.applySnapshot()
         bind()
+        dataSource.applySnapshot()
+        selfView.collectionView.delegate = self
     }
 }
 
@@ -29,6 +34,13 @@ extension GenderViewController {
 extension GenderViewController {
     
     func bind() {
+        
+        cell = GenderCellRegistration
+        { cell, indexPath, itemIdentifier in
+            cell.configure(with: itemIdentifier)
+        }
+        
+        
         viewModel.collectionViewObservable
             .bind(onNext: { b in
                 if b == 1 { //남자: 1
@@ -51,12 +63,13 @@ extension GenderViewController {
         selfView.button.rx.tap
             .bind(onNext: { _ in
                 if self.viewModel.collectionViewObservable.value != -1 {
-                    let api = MemoleaseRouter.signup(phoneNumber: UserDefaultsManager.standard.phoneNumber,
-                                                     FCMtoken: UserDefaultsManager.standard.FCMToken,
-                                                     nick: UserDefaultsManager.standard.nick,
-                                                     birth: UserDefaultsManager.standard.birth,
-                                                     email: UserDefaultsManager.standard.email,
-                                                     gender: UserDefaultsManager.standard.gender)
+                    let api = MemoleaseRouter.signup(
+                        phoneNumber: UserDefaultsManager.standard.phoneNumber,
+                        FCMtoken   : UserDefaultsManager.standard.FCMToken,
+                        nick       : UserDefaultsManager.standard.nick,
+                        birth      : UserDefaultsManager.standard.birth,
+                        email      : UserDefaultsManager.standard.email,
+                        gender     : UserDefaultsManager.standard.gender)
                     
                     print(UserDefaultsManager.standard.phoneNumber)
                     print(UserDefaultsManager.standard.FCMToken)

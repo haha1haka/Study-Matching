@@ -7,7 +7,12 @@ class ProfileMainCell: BaseCollectionViewCell {
     var openConstraint: NSLayoutConstraint?
     
     lazy var totalStackView: UIStackView = {
-        let rootStack = UIStackView(arrangedSubviews: [topStackView, middleStackView, bottomStackView])
+        let rootStack = UIStackView(
+        arrangedSubviews: [
+            topStackView,
+            middleStackView,
+            bottomStackView
+        ])
         rootStack.alignment = .top
         rootStack.distribution = .fillProportionally
         rootStack.axis = .vertical

@@ -3,19 +3,7 @@ import RxSwift
 import RxCocoa
 import MultiSlider
 
-protocol DataSourceRegistration {
-    
-    
-    
-    typealias MyInfoCellRegistration = UICollectionView.CellRegistration<MyInfoCell,Setting>
-    typealias MyInfoHeaderRegistration = UICollectionView.SupplementaryRegistration<MyInfoHeaderView>
-    
-    
-    
-    typealias ProfileHeaderRegistration = UICollectionView.SupplementaryRegistration<ProfileHeaderView>
-    typealias ProfileMainCellRegistration = UICollectionView.CellRegistration<ProfileMainCell, Main>
-    typealias ProfileSubCellRegistration = UICollectionView.CellRegistration<ProfileSubCell, Sub>
-}
+
 
 class ProfileViewController: BaseViewController, DataSourceRegistration {
     

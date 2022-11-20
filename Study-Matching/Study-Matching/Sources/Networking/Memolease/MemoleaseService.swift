@@ -209,7 +209,54 @@ class MemoleaseService {
     }
     
     
-    
+    func requestWithdraw(path: String, queryItems: [URLQueryItem]?, httpMethod: HTTPMethod, headers: [String: String], completion: @escaping(Result<Succeess, MemoleaseError>) -> Void) {
+        
+        var urlComponents = URLComponents(string: path)
+        urlComponents?.queryItems = queryItems
+        print("\(path)🟩\(String(describing: urlComponents?.url))")
+        
+        
+        var urlRequest = URLRequest(url: (urlComponents?.url)!)
+        urlRequest.httpBody = urlComponents?.query?.data(using: .utf8)
+        urlRequest.httpMethod = httpMethod.rawValue.uppercased()
+        urlRequest.allHTTPHeaderFields = headers
+        
+        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+
+            
+            DispatchQueue.main.async {
+                guard let httpResponse = response as? HTTPURLResponse else { return }
+                
+                print("📭 Request \(urlRequest.url!)")
+                print("🚩 Response \(httpResponse.statusCode)")
+                
+                
+                switch httpResponse.statusCode {
+                case 200:
+                    completion(.success(.perfact)) //🚀 해당 vc 에서 처리: 온보딩 화면으로
+                case 401:
+                    completion(.failure(.idTokenError))
+                    FirebaseService.shared.fetchIdToken { _ in }
+                    print("♻️idtoken update 완료")
+                case 406: //🚀 해당 vc 에서 처리: 온보딩 화면으로
+                    completion(.failure(.aleadyWithdraw))
+                case 500:
+                    completion(.failure(.serverError))
+                    print("❌500")
+                case 501:
+                    completion(.failure(.clientError))
+                    print("❌501")
+                default:
+                    completion(.failure(.unknown))
+                    print("❌unknown")
+                }
+                
+            }
+            
+            
+        }.resume()
+        
+    }
     
     
     

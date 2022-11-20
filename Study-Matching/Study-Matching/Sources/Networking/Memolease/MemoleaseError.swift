@@ -14,4 +14,7 @@ enum MemoleaseError: Int, Error {
     //로그인
     case decodingError
     case unRegistedUser
+    
+    //회원탈퇴
+    case aleadyWithdraw 
 }

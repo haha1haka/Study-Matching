@@ -19,6 +19,10 @@ enum SeSacImage {
     static let splashTxt = UIImage(named: "splashTxt")
     static let sesacBg01 = UIImage(named: "sesac_bg_01")
     static let sesacFace2 = UIImage(named: "sesac_face_2")
+    // MARK: - 로그인, 회원가입
+    static let man = UIImage(named: "man")
+    static let woman = UIImage(named: "woman")
+    
     
     // MARK: - NaviBar
     static let arrow = UIImage(named: "arrow")

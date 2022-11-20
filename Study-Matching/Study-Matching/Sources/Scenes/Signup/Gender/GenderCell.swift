@@ -39,10 +39,10 @@ class GenderCell: BaseCollectionViewCell {
     
     func configure(with item: Int) {
         switch item {
-        case .zero:
-            imageView.image = UIImage(named: "man")
+        case 1:
+            imageView.image = SeSacImage.man
         default:
-            imageView.image = UIImage(named: "woman")
+            imageView.image = SeSacImage.woman
         }
     }
 

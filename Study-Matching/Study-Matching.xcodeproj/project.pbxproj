@@ -92,6 +92,7 @@
 		F4D29808292508F500A3AAB7 /* MyInfoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D29807292508F500A3AAB7 /* MyInfoHeaderView.swift */; };
 		F4D3B38F2929B29E00FA6B04 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3B38E2929B29E00FA6B04 /* CGFloat.swift */; };
 		F4D3B3922929D21400FA6B04 /* SeSacAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3B3912929D21400FA6B04 /* SeSacAlertController.swift */; };
+		F4D3B396292A36F700FA6B04 /* DataSourceRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3B395292A36F700FA6B04 /* DataSourceRegistration.swift */; };
 		F4E019B32927CCB700760190 /* UserMainDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E019B22927CCB700760190 /* UserMainDTO.swift */; };
 		F4E019B52927CEA800760190 /* UserSubDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E019B42927CEA800760190 /* UserSubDTO.swift */; };
 		F4F103CA291CBD0E00C2020C /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103C9291CBD0E00C2020C /* OnBoardingViewController.swift */; };
@@ -184,6 +185,7 @@
 		F4D29807292508F500A3AAB7 /* MyInfoHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoHeaderView.swift; sourceTree = "<group>"; };
 		F4D3B38E2929B29E00FA6B04 /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
 		F4D3B3912929D21400FA6B04 /* SeSacAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacAlertController.swift; sourceTree = "<group>"; };
+		F4D3B395292A36F700FA6B04 /* DataSourceRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceRegistration.swift; sourceTree = "<group>"; };
 		F4E019B22927CCB700760190 /* UserMainDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMainDTO.swift; sourceTree = "<group>"; };
 		F4E019B42927CEA800760190 /* UserSubDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSubDTO.swift; sourceTree = "<group>"; };
 		F4F103C9291CBD0E00C2020C /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
@@ -715,6 +717,7 @@
 		F4D3B3942929EB2000FA6B04 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
+				F4D3B395292A36F700FA6B04 /* DataSourceRegistration.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -897,6 +900,7 @@
 				F45119A429193AEB0058571C /* SMSViewController.swift in Sources */,
 				F4594E752920C29F0071CFC2 /* String.swift in Sources */,
 				F41E0E362925A83000B28291 /* OnBoardingDataSource.swift in Sources */,
+				F4D3B396292A36F700FA6B04 /* DataSourceRegistration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

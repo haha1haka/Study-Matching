@@ -5,38 +5,65 @@ import RxCocoa
 
 
 
-class OnBoardingViewController: BaseViewController {
+class OnBoardingViewController: BaseViewController, DataSourceRegistration {
     
     let selfView = OnBoardingView()
     override func loadView() {
         view = selfView
     }
+
+    var cell: OnBoardingCellRegistration?
+    var footer: OnBoardingFooterRegistration?
+    
+    lazy var dataSoruce = OnBoardingDataSource(
+            collectionView:     selfView.collectionView,
+            cellRegistration:   self.cell!,
+            footerRegistration: self.footer!)
     
     let viewModel = OnboardingViewModel()
     let disposeBag = DisposeBag()
     
-    lazy var dataSoruce = OnBoardingDataSource(collectionView: selfView.collectionView)
-    
     deinit {
         print("deinit - OnBoardingViewController")
     }
-    
+
 }
 
 
 extension OnBoardingViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        selfView.eventDelegate = self
-        dataSoruce.delegate = self
-        dataSoruce.applySnapshot()
         bind()
+        dataSoruce.applySnapshot()
+        selfView.eventDelegate = self
     }
 }
 
 extension OnBoardingViewController {
+    
     func bind() {
         
+        cell = OnBoardingCellRegistration { cell, indexPath, itemIdentifier in
+            cell.configure(with: itemIdentifier)
+        }
+        
+        footer = OnBoardingFooterRegistration(elementKind: UICollectionView.elementKindSectionFooter)
+        { [weak self] supplementaryView, elementKind, indexPath in
+            
+            guard let self = self else { return }
+            
+            let itemCount = self.dataSoruce.snapshot().numberOfItems
+            
+            supplementaryView.configure(with: itemCount)
+            
+            self.viewModel.pageIndex.bind(onNext: { int in
+                supplementaryView.pageControl.currentPage = int
+            })
+            .disposed(by: self.disposeBag)
+        
+        }
+
+    
         selfView.button.rx.tap
             .bind(onNext: { _ in
                 
@@ -62,11 +89,4 @@ extension OnBoardingViewController: OnBoardingViewEvent {
     }
 }
 
-extension OnBoardingViewController: OnBoardingDataSourceDelegate {
-    func supplementaryView(_ dataSource: OnBoardingDataSource, supplementaryView: OnBoardingFooterView) {
-        self.viewModel.pageIndex.bind(onNext: { int in
-            supplementaryView.pageControl.currentPage = int
-        })
-        .disposed(by: self.disposeBag)
-    }
-}
+
