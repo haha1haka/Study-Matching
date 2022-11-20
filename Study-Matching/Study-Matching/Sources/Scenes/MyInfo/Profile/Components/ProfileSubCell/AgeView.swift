@@ -57,11 +57,9 @@ class AgeView: UIView {
     
     @objc
     func sliderChanged(_ slider: MultiSlider) {
-        
         let minAge = slider.value[0].toInt
         let maxAge = slider.value[1].toInt
         self.delegate?.slider(self, slider: [minAge, maxAge])
-        ageLabel.text = "\(minAge) - \(maxAge)"
     }
 
     
@@ -87,7 +85,8 @@ class AgeView: UIView {
         }
         multislider.snp.makeConstraints {
             $0.top.equalTo(totalStackView.snp.bottom)
-            $0.leading.bottom.trailing.equalTo(self)
+            $0.leading.trailing.equalToSuperview().inset(5)
+            $0.bottom.equalToSuperview()
         }
     }
 

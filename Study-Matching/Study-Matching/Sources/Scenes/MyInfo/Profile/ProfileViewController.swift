@@ -6,53 +6,56 @@ import MultiSlider
 class ProfileViewController: BaseViewController {
     
     let selfView = ProfileView()
+    var mainCell: MainCellRegistration?
+    var subCell:  SubCellRegistration?
+    lazy var dataSource = ProfileDataSource(
+            collectionView:       selfView.collectionView,
+            mainCellRegistration: self.mainCell!,
+            subCellRegistration:  self.subCell!)
+        
+    let viewModel = MyInfoViewModel.shared
+    let disposeBag = DisposeBag()
+    
     override func loadView() {
         view = selfView
     }
     
-    var mainCellRegistration: UICollectionView.CellRegistration<ProfileMainCell, MemoleaseUser>?
-    var subcCellRegistration: UICollectionView.CellRegistration<ProfileSubCell, MemoleaseUser>?
+    override func setNavigationBar() {
+        super.setNavigationBar()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "저장", style: .plain, target: self, action: nil)
+    }
 
-    lazy var dataSource = ProfileDataSource(
-        collectionView: selfView.collectionView,
-                        self.mainCellRegistration!,
-                        self.subcCellRegistration!)
-    
-    let viewModel = MyInfoViewModel.shared
-    let disposeBag = DisposeBag()
     
 }
 
 extension ProfileViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        registeredCell()
-        applyInitialSnapshot()
+        bind()
+        dataSource.applySnapshot()
         selfView.collectionView.delegate = self
-        
     }
+}
+
+
+
+
+extension ProfileViewController {
     
-    func applyInitialSnapshot() {
-        var snapshot = dataSource.snapshot()
-        snapshot.appendSections([0, 1])
-        snapshot.appendItems([Item.main(viewModel.user.value!)])
-        snapshot.appendItems([Item.sub(viewModel.user.value!)])
-        dataSource.apply(snapshot)
-    }
-}
-
-extension ProfileViewController {
-    func setData() {
-
-    }
-}
-
-
-
-extension ProfileViewController {
-    func registeredCell() {
-        mainCellRegistration = UICollectionView.CellRegistration<ProfileMainCell,MemoleaseUser> { cell, indexPath, itemIdentifier in
-            cell.configure(with: itemIdentifier)
+    func bind() {
+        
+        self.navigationItem.rightBarButtonItem?.rx.tap
+            .bind(onNext: { _ in
+                print("🟥fdfsd")
+            })
+            .disposed(by: disposeBag)
+        
+        
+        mainCell = MainCellRegistration
+        { [weak self] cell, indexPath, itemIdentifier in
+            guard let self = self else { return }
+    
             // MARK: - 김새싹
             self.viewModel.nick
                 .bind(to: cell.nameLabel.rx.text)
@@ -62,7 +65,13 @@ extension ProfileViewController {
             // MARK: - 버튼 6개
             self.viewModel.reputation
                 .bind(onNext: { arr in
-                    [cell.cardStackView.button0, cell.cardStackView.button1, cell.cardStackView.button2, cell.cardStackView.button3, cell.cardStackView.button4, cell.cardStackView.button5].forEach {
+                    [cell.cardStackView.button0,
+                     cell.cardStackView.button1,
+                     cell.cardStackView.button2,
+                     cell.cardStackView.button3,
+                     cell.cardStackView.button4,
+                     cell.cardStackView.button5]
+                    .forEach {
                         if !(arr[$0.tag] == 0) {
                             $0.toAct
                         }
@@ -80,12 +89,11 @@ extension ProfileViewController {
                     }
                 })
                 .disposed(by: self.disposeBag)
-            
-            
         }
         
-        
-        subcCellRegistration = UICollectionView.CellRegistration<ProfileSubCell,MemoleaseUser> { cell, indexPath, itemIdentifier in
+        subCell = SubCellRegistration
+        { [weak self] cell, indexPath, itemIdentifier in
+            guard let self = self else { return }
             cell.ageView.delegate = self
 //             MARK: - 성별
             //인풋
@@ -121,7 +129,7 @@ extension ProfileViewController {
             // MARK: - 자주 하는 스터디
             //인풋
             self.viewModel.study
-                .bind(to: cell.studyView.studyLable.rx.text)
+                .bind(to: cell.studyView.studyTextField.rx.text)
                 .disposed(by:self.disposeBag)
             
             
@@ -186,8 +194,6 @@ extension ProfileViewController {
                 })
                 .disposed(by: self.disposeBag)
             
-            
-            
         }
         
     }
@@ -208,8 +214,8 @@ extension ProfileViewController: UICollectionViewDelegate {
         
         return false
     }
-    
 }
+
 extension ProfileViewController: MultiSliderEventDeledate {
     func slider(_ view: AgeView, slider: [Int]) {
         self.viewModel.age.accept(slider)

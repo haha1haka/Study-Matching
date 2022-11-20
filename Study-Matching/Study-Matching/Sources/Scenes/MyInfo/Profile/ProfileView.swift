@@ -63,7 +63,7 @@ class ProfileView: BaseView {
         
         
         
-        let headerSize = NSCollectionLayoutSize(widthDimension: .absolute(373),
+        let headerSize = NSCollectionLayoutSize(widthDimension: .absolute(343),
                                                 heightDimension: .absolute(194))
         let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
         section.boundarySupplementaryItems = [header]
@@ -78,7 +78,7 @@ class ProfileView: BaseView {
     
     func subCellLayout() -> NSCollectionLayoutSection {
         
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+        let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(343),
                                              heightDimension: .estimated(400))
         
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -88,7 +88,7 @@ class ProfileView: BaseView {
 
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = 12
-        section.contentInsets = .init(top: 12, leading: 12, bottom: 12, trailing: 12)
+        section.contentInsets = .init(top: 0, leading: 16, bottom: 12, trailing: 16)
         
         return section
     }

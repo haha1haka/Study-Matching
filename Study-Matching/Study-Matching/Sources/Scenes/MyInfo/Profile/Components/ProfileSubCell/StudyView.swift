@@ -8,7 +8,7 @@ class StudyView: UIView {
         label.text = "자주 하는 스터디"
         label.font = SeSacFont.Title4_R14.set
         label.textColor = SeSacColor.black
-        label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        label.setContentHuggingPriority(.defaultLow, for: .horizontal)
         return label
     }()
     
@@ -17,8 +17,10 @@ class StudyView: UIView {
         return view
     }()
     
-    let totalStackView: UIStackView = {
-        let stack = UIStackView()
+    lazy var totalStackView: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [
+            studyLable,studyTextField
+        ])
         stack.axis = .horizontal
         stack.alignment = .center
         stack.distribution = .fillEqually
@@ -38,7 +40,6 @@ class StudyView: UIView {
     
     func configureHierarchy() {
         addSubview(totalStackView)
-        [studyLable, studyTextField].forEach { totalStackView.addArrangedSubview($0) }
     }
     
     

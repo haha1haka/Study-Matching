@@ -156,6 +156,10 @@ class MemoleaseService {
     
     
     
+    
+    
+    
+    
     //    func requestTopics(onSuccess: @escaping (([USTopic]) -> Void), onFailure: @escaping ((USError) -> Void)) {
     //        var urlComponents = URLComponents(string: UnsplashEndPoint.baseURL)
     //        urlComponents?.path = UnsplashEndPoint.topics.path

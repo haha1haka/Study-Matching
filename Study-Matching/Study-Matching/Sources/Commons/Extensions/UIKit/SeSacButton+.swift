@@ -16,5 +16,8 @@ extension SeSacButton {
     }
     var toInAct: Void {
         backgroundColor = SeSacColor.white
+        setTitleColor(SeSacColor.black, for: .normal)
+        layer.borderColor = SeSacColor.gray4.cgColor
+        layer.borderWidth = 1
     }
 }

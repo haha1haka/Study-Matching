@@ -68,14 +68,4 @@ class ProfileSubCell: BaseCollectionViewCell {
         }
 
     }
-    
-    func configure(with item: MemoleaseUser) {
-        if item.gender == 0 {
-            genderView.manButton.backgroundColor = SeSacColor.green
-            genderView.manButton.layer.borderColor = SeSacColor.white.cgColor
-        } else {
-            genderView.manButton.backgroundColor = SeSacColor.green
-            genderView.manButton.layer.borderColor = SeSacColor.white.cgColor
-        }
-    }
 }

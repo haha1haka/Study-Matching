@@ -5,7 +5,9 @@ import RxCocoa
 
 class ProfileDataSource: UICollectionViewDiffableDataSource<Int, Item> {
 
-    convenience init(collectionView: UICollectionView,_ mainCellRegistration: UICollectionView.CellRegistration<ProfileMainCell, MemoleaseUser>,_ subCellRegistration: UICollectionView.CellRegistration<ProfileSubCell, MemoleaseUser>) {
+    convenience init(collectionView: UICollectionView,
+                     mainCellRegistration: UICollectionView.CellRegistration<ProfileMainCell, Main>,
+                     subCellRegistration: UICollectionView.CellRegistration<ProfileSubCell, Sub>) {
         
         self.init(collectionView: collectionView) {
             collectionView, indexPath, itemIdentifier in
@@ -36,7 +38,13 @@ class ProfileDataSource: UICollectionViewDiffableDataSource<Int, Item> {
             return suppleymentaryView }
     }
 
-
+    func applySnapshot() {
+        var snapshot = snapshot()
+        snapshot.appendSections([0, 1])
+        snapshot.appendItems([Item.main(Main())])
+        snapshot.appendItems([Item.sub(Sub())])
+        apply(snapshot)
+    }
 
     func refresh() {
         apply(snapshot(), animatingDifferences: true)
@@ -45,13 +53,13 @@ class ProfileDataSource: UICollectionViewDiffableDataSource<Int, Item> {
 
 
 enum Item: Hashable {
-    case main(MemoleaseUser)
-    case sub(MemoleaseUser)
+    case main(Main)
+    case sub(Sub)
 }
 struct Main: Hashable {
-    var title: String
+    
 }
 
 struct Sub: Hashable {
-    var title: String
+    
 }

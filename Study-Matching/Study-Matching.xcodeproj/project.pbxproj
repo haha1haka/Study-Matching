@@ -272,6 +272,7 @@
 		F4034CB229191B1400423FAF /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				F4D3B3942929EB2000FA6B04 /* Protocol */,
 				F46B4A2E291E9055003910E2 /* Manager */,
 				F4511995291922AE0058571C /* Constants */,
 				F4034CB329191B1400423FAF /* Bases */,
@@ -709,6 +710,13 @@
 				F41E0E332925A64D00B28291 /* MyInfoDataSource.swift */,
 			);
 			path = MyInfo;
+			sourceTree = "<group>";
+		};
+		F4D3B3942929EB2000FA6B04 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		F4E019B02927CC2700760190 /* User */ = {

@@ -103,4 +103,11 @@ extension MyInfoViewModel {
             }
         }
     }
+    
+    func requestWithdraw() {
+        
+    }
+    
+    
+    
 }
