@@ -117,8 +117,8 @@ extension MyInfoViewModel {
         
         let target = MemoleaseRouter.updateUserInfo(
             searchable: searchable.value,
-            ageMin: ageMin.value,
-            ageMax: ageMax.value,
+            ageMin: age.value[0],
+            ageMax: age.value[1],
             gender: gender.value,
             study: study.value)
         

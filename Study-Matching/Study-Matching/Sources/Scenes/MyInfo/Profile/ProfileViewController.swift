@@ -174,11 +174,13 @@ extension ProfileViewController {
             self.viewModel.age //[Int]
                 .map{ $0.map{ $0.toCGFloat } }
                 .bind(onNext: { age in
+                    print("🔥\(age)")
                     cell.ageView.multislider.value = age
-
                     cell.ageView.ageLabel.text = "\(age[0].toInt) - \(age[1].toInt)"
                 })
                 .disposed(by: self.disposeBag)
+            
+            // MARK: - 회원 탈퇴
             
             cell.withDrawView.withdrawButton.rx.tap
                 .bind(onNext: { _ in
