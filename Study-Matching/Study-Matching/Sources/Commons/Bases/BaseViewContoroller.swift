@@ -3,10 +3,7 @@ import UIKit
 
 
 class BaseViewController: UIViewController {
-    
-    typealias MainCellRegistration = UICollectionView.CellRegistration<ProfileMainCell, Main>
-    typealias SubCellRegistration = UICollectionView.CellRegistration<ProfileSubCell, Sub>
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         configureInit()

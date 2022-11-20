@@ -3,12 +3,12 @@ import RxSwift
 import RxCocoa
 
 
-class ProfileDataSource: UICollectionViewDiffableDataSource<Int, Item> {
+class ProfileDataSource: UICollectionViewDiffableDataSource<Int, Item>, DataSourceRegistration {
 
     convenience init(collectionView:       UICollectionView,
-                     headerRegistration:   UICollectionView.SupplementaryRegistration<ProfileHeaderView>,
-                     mainCellRegistration: UICollectionView.CellRegistration<ProfileMainCell, Main>,
-                     subCellRegistration:  UICollectionView.CellRegistration<ProfileSubCell, Sub>)
+                     headerRegistration:   ProfileHeaderRegistration,
+                     mainCellRegistration: ProfileMainCellRegistration,
+                     subCellRegistration:  ProfileSubCellRegistration)
     {
         self.init(collectionView: collectionView) {
             collectionView, indexPath, itemIdentifier in

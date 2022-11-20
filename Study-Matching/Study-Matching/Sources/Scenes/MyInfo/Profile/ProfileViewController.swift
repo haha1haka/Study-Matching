@@ -3,12 +3,27 @@ import RxSwift
 import RxCocoa
 import MultiSlider
 
-class ProfileViewController: BaseViewController {
-    typealias HeaderRegistration = UICollectionView.SupplementaryRegistration<ProfileHeaderView>
+protocol DataSourceRegistration {
+    
+    
+    
+    typealias MyInfoCellRegistration = UICollectionView.CellRegistration<MyInfoCell,Setting>
+    typealias MyInfoHeaderRegistration = UICollectionView.SupplementaryRegistration<MyInfoHeaderView>
+    
+    
+    
+    typealias ProfileHeaderRegistration = UICollectionView.SupplementaryRegistration<ProfileHeaderView>
+    typealias ProfileMainCellRegistration = UICollectionView.CellRegistration<ProfileMainCell, Main>
+    typealias ProfileSubCellRegistration = UICollectionView.CellRegistration<ProfileSubCell, Sub>
+}
+
+class ProfileViewController: BaseViewController, DataSourceRegistration {
+    
     let selfView = ProfileView()
-    var mainCell: MainCellRegistration?
-    var subCell: SubCellRegistration?
-    var header: HeaderRegistration?
+    var header: ProfileHeaderRegistration?
+    var mainCell: ProfileMainCellRegistration?
+    var subCell: ProfileSubCellRegistration?
+    
     
     lazy var dataSource = ProfileDataSource(
         collectionView:       selfView.collectionView,
@@ -63,7 +78,7 @@ extension ProfileViewController {
             })
             .disposed(by: disposeBag)
         
-        header = HeaderRegistration (elementKind: UICollectionView.elementKindSectionHeader)
+        header = ProfileHeaderRegistration (elementKind: UICollectionView.elementKindSectionHeader)
         { [weak self] supplementaryView, elementKind, indexPath in
             guard let self = self else { return }
             
@@ -85,7 +100,7 @@ extension ProfileViewController {
 
         }
         
-        mainCell = MainCellRegistration
+        mainCell = ProfileMainCellRegistration
         { [weak self] cell, indexPath, itemIdentifier in
             guard let self = self else { return }
     
@@ -124,7 +139,7 @@ extension ProfileViewController {
                 .disposed(by: self.disposeBag)
         }
         
-        subCell = SubCellRegistration
+        subCell = ProfileSubCellRegistration
         { [weak self] cell, indexPath, itemIdentifier in
             guard let self = self else { return }
             cell.ageView.delegate = self

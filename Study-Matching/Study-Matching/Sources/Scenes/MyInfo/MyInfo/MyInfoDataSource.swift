@@ -8,37 +8,28 @@
 import UIKit
 
 
-protocol MyInfoDataSourceDelegate: AnyObject {
-    func supplementaryView(_ dataSource: MyInfoDataSource, supplementaryView: MyInfoHeaderView)
-}
 
 
-class MyInfoDataSource: UICollectionViewDiffableDataSource<MyInfoSection, Setting> {
+class MyInfoDataSource: UICollectionViewDiffableDataSource<MyInfoSection, Setting>, DataSourceRegistration {
     
-    var delegate: MyInfoDataSourceDelegate?
-    
-    convenience init(collectionView: UICollectionView) {
-        
-        let cellRegistration = UICollectionView.CellRegistration<MyInfoCell,Setting> { cell, indexPath, itemIdentifier in
-            cell.configure(with: itemIdentifier)
-            
-        }
+    convenience init(collectionView: UICollectionView,
+                     headerRegistration: MyInfoHeaderRegistration,
+                     cellRegistration: MyInfoCellRegistration)
+    {
         
         self.init(collectionView: collectionView) {
             collectionView, indexPath, itemIdentifier in
-            let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
+            let cell = collectionView.dequeueConfiguredReusableCell(
+                using: cellRegistration,
+                for: indexPath,
+                item: itemIdentifier)
             return cell
         }
-        
-        let headerRegistration = UICollectionView.SupplementaryRegistration<MyInfoHeaderView>(elementKind: UICollectionView.elementKindSectionHeader) { [weak self] supplementaryView, elementKind, indexPath in
-            guard let self = self else { return }
-            self.delegate?.supplementaryView(self, supplementaryView: supplementaryView)
-
-            
-        }
-        
+    
         supplementaryViewProvider =  { collectionView, elementKind, indexPath in
-            let suppleymentaryView  = collectionView.dequeueConfiguredReusableSupplementary(using: headerRegistration, for: indexPath)
+            let suppleymentaryView  = collectionView.dequeueConfiguredReusableSupplementary(
+                using: headerRegistration,
+                for: indexPath)
             return suppleymentaryView
         }
     }

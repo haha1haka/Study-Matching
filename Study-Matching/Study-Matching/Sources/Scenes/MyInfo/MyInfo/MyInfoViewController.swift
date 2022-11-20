@@ -3,28 +3,35 @@ import RxCocoa
 import RxSwift
 
 
-
-class MyInfoViewController: BaseViewController {
+class MyInfoViewController: BaseViewController, DataSourceRegistration {
     let selfView = MyInfoView()
     override func loadView() {
         view = selfView
     }
-    lazy var dataSource = MyInfoDataSource(collectionView: selfView.collectionView)
-
+    var `cell`: MyInfoCellRegistration?
+    var header: MyInfoHeaderRegistration?
+    
+    lazy var dataSource = MyInfoDataSource(
+        collectionView:     selfView.collectionView,
+        headerRegistration: self.header!,
+        cellRegistration:   self.cell!)
+    
     let viewModel = MyInfoViewModel.shared
     let disposeBag = DisposeBag()
     
     override func setNavigationBar(title: String) {
         super.setNavigationBar(title: "내정보")
     }
+    
 }
 
 extension MyInfoViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        bind()
         dataSource.applySnapshot()
-        dataSource.delegate = self
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -32,34 +39,40 @@ extension MyInfoViewController {
         viewModel.fetchUserInfo { result in
             switch result {
             case .success: // 데이터 바인드 완료
-                print("바인드 완료")
-                print(self.viewModel.user.value)
+                print("⭐️바인드 완료")
+                print(self.viewModel.user.value!)
             case .failure:
                 return
             }
         }
-
-
+        
+        
     }
 }
 
 
-extension MyInfoViewController: MyInfoDataSourceDelegate  {
-    func supplementaryView(_ dataSource: MyInfoDataSource, supplementaryView: MyInfoHeaderView) {
+extension MyInfoViewController  {
+    func bind() {
+        `cell` = MyInfoCellRegistration{ cell, indexPath, itemIdentifier in
+            cell.configure(with: itemIdentifier)
+        }
         
-
-        viewModel.nick
-            .bind(to: supplementaryView.label.rx.text)
-            .disposed(by: disposeBag)
+        header = MyInfoHeaderRegistration(elementKind: UICollectionView.elementKindSectionHeader) { [weak self] supplementaryView, elementKind, indexPath in
+            guard let self = self else { return }
             
+            self.viewModel.nick
+                .bind(to: supplementaryView.label.rx.text)
+                .disposed(by: self.disposeBag)
+            
+            supplementaryView.nextButton.rx.tap
+                .bind(onNext: { _ in
+                    let vc = ProfileViewController()
+                    self.transition(vc, transitionStyle: .push)
+                })
+                .disposed(by: self.disposeBag)
+        }
         
         
-        supplementaryView.nextButton.rx.tap
-            .bind(onNext: { _ in
-                let vc = ProfileViewController()
-                self.transition(vc, transitionStyle: .push)
-            })
-            .disposed(by: self.disposeBag)
     }
 }
 
