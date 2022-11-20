@@ -29,6 +29,7 @@ extension ProfileViewController {
         registeredCell()
         applyInitialSnapshot()
         selfView.collectionView.delegate = self
+        
     }
     
     func applyInitialSnapshot() {
@@ -51,7 +52,7 @@ extension ProfileViewController {
 extension ProfileViewController {
     func registeredCell() {
         mainCellRegistration = UICollectionView.CellRegistration<ProfileMainCell,MemoleaseUser> { cell, indexPath, itemIdentifier in
-            //cell.configure(with: itemIdentifier)
+            cell.configure(with: itemIdentifier)
             // MARK: - 김새싹
             self.viewModel.nick
                 .bind(to: cell.nameLabel.rx.text)
@@ -85,8 +86,9 @@ extension ProfileViewController {
         
         
         subcCellRegistration = UICollectionView.CellRegistration<ProfileSubCell,MemoleaseUser> { cell, indexPath, itemIdentifier in
-            //cell.configure(with: itemIdentifier)
+            cell.ageView.delegate = self
 //             MARK: - 성별
+            //인풋
             self.viewModel.gender
                 .bind(onNext: { int in
                     if int == 1 {
@@ -100,6 +102,7 @@ extension ProfileViewController {
                 })
                 .disposed(by: self.disposeBag)
             
+            //아웃풋
             cell.genderView.manButton.rx.tap
                 .bind(onNext: { _ in
                     self.viewModel.gender.accept(1)
@@ -115,27 +118,52 @@ extension ProfileViewController {
                 
         
             
-            // MARK: - 스터디
-            // MARK: - 내 번호 검색 허용
-            // MARK: - 연령대
+            // MARK: - 자주 하는 스터디
+            //인풋
+            self.viewModel.study
+                .bind(to: cell.studyView.studyLable.rx.text)
+                .disposed(by:self.disposeBag)
             
-            // MARK: - switch
+            
+            //거부: 0 허용: 1
+            // MARK: - 내번호 검색 허용
+            //인풋
+            self.viewModel.searchable
+                .bind(onNext: { able in
+                    if able == 1 {
+                        cell.switchView.switchUI.setOn(true, animated: true)
+                    }
+                })
+                .disposed(by: self.disposeBag)
+                
+            
+        
+            //아웃풋
             cell.switchView.switchUI.rx.value
-                .bind(onNext: { b in
-                    if b {
-                        self.viewModel.searchable.accept(1)
+                .bind(onNext: { isOn in
+                    if isOn { //true --> On
+                        self.viewModel.searchable.accept(1) //허용
+                        print(isOn)
                     } else {
                         self.viewModel.searchable.accept(0)
                     }
                 })
                 .disposed(by: self.disposeBag)
             
-            // MARK: - Slider
-                
+            // MARK: - 연령대, Slider
+            //인풋 --> addTarget + delegate 이용
 
+            //아웃풋
+            self.viewModel.age //[Int]
+                .map{ $0.map{ $0.toCGFloat } }
+                .bind(onNext: { age in
+                    cell.ageView.multislider.value = age
+
+                    cell.ageView.ageLabel.text = "\(age[0].toInt) - \(age[1].toInt)"
+                })
+                .disposed(by: self.disposeBag)
             
-                
-                    
+        
         }
     }
 
@@ -157,22 +185,15 @@ extension ProfileViewController: UICollectionViewDelegate {
     }
     
 }
+extension ProfileViewController: MultiSliderEventDeledate {
+    func slider(_ view: AgeView, slider: [Int]) {
+        self.viewModel.age.accept(slider)
+    }
+}
+
 
 extension UICollectionViewDiffableDataSource {
     typealias CellRegistraion = UICollectionView.CellRegistration
 }
+ 
 
-//extension Reactive where Base: MultiSlider {
-//
-//    /// Reactive wrapper for `value` property.
-//    public var value: ControlProperty<Float> {
-//        return base.rx.controlPropertyWithDefaultEvents(
-//            getter: { slider in
-//                slider.value
-//            }, setter: { slider, value in
-//                slider.value = value
-//            }
-//        )
-//    }
-//
-//}

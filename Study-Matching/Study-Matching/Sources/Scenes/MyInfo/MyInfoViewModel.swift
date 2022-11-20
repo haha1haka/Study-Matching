@@ -103,13 +103,4 @@ extension MyInfoViewModel {
             }
         }
     }
-    func genderHandler(_ tag: Int) -> Bool {
-        if tag == 1 {
-            return true
-        } else {
-            return false
-        }
-    }
-    
-
 }

@@ -2,9 +2,14 @@ import UIKit
 import SnapKit
 import MultiSlider
 
+protocol MultiSliderEventDeledate {
+    func slider(_ view: AgeView, slider: [Int])
+}
  
 
 class AgeView: UIView {
+    
+    var delegate: MultiSliderEventDeledate?
     
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -46,14 +51,16 @@ class AgeView: UIView {
         slider.outerTrackColor = SeSacColor.gray7
         slider.thumbImage = SeSacImage.filterControl
         slider.keepsDistanceBetweenThumbs = true
-        slider.addTarget(self, action: #selector(sliderChanged(_:)), for: .valueChanged)
+        slider.addTarget(self, action: #selector(sliderChanged), for: .valueChanged)
         return slider
     }()
     
     @objc
     func sliderChanged(_ slider: MultiSlider) {
-        let minAge = Int(slider.value[0])
-        let maxAge = Int(slider.value[1])
+        
+        let minAge = slider.value[0].toInt
+        let maxAge = slider.value[1].toInt
+        self.delegate?.slider(self, slider: [minAge, maxAge])
         ageLabel.text = "\(minAge) - \(maxAge)"
     }
 
