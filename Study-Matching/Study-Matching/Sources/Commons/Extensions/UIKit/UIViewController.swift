@@ -8,6 +8,7 @@ extension UIViewController {
         case presentfull
         case presentNavigation
         case presentFullNavigation
+        case SeSacAlertController
         
     }
     
@@ -33,6 +34,10 @@ extension UIViewController {
             let navi = UINavigationController(rootViewController: viewController)
             navi.modalPresentationStyle = .fullScreen
             self.present(navi, animated: true)
+        case .SeSacAlertController:
+            let vc = viewController
+            vc.modalPresentationStyle = .overFullScreen
+            self.present(vc, animated: true)
         }
     }
     func transitionRootViewController<T: UIViewController>(_ viewController: T,

@@ -163,8 +163,33 @@ extension ProfileViewController {
                 })
                 .disposed(by: self.disposeBag)
             
-        
+            cell.withDrawView.withdrawButton.rx.tap
+                .bind(onNext: { _ in
+                    
+                    let vc = SeSacAlertController()
+                    
+                    vc.completeButton.rx.tap
+                        .bind(onNext: { _ in
+                            
+                        })
+                        .disposed(by: self.disposeBag)
+                    
+                    vc.cancelButton.rx.tap
+                        .bind(onNext: { _ in
+                            vc.dismiss(animated: false)
+                        })
+                        .disposed(by: self.disposeBag)
+                    
+
+                    
+                    self.transition(vc, transitionStyle: .SeSacAlertController)
+                })
+                .disposed(by: self.disposeBag)
+            
+            
+            
         }
+        
     }
 
 }

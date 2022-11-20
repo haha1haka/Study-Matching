@@ -91,6 +91,7 @@
 		F4D29806292508E000A3AAB7 /* MyInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D29805292508E000A3AAB7 /* MyInfoCell.swift */; };
 		F4D29808292508F500A3AAB7 /* MyInfoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D29807292508F500A3AAB7 /* MyInfoHeaderView.swift */; };
 		F4D3B38F2929B29E00FA6B04 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3B38E2929B29E00FA6B04 /* CGFloat.swift */; };
+		F4D3B3922929D21400FA6B04 /* SeSacAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3B3912929D21400FA6B04 /* SeSacAlertController.swift */; };
 		F4E019B32927CCB700760190 /* UserMainDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E019B22927CCB700760190 /* UserMainDTO.swift */; };
 		F4E019B52927CEA800760190 /* UserSubDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E019B42927CEA800760190 /* UserSubDTO.swift */; };
 		F4F103CA291CBD0E00C2020C /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103C9291CBD0E00C2020C /* OnBoardingViewController.swift */; };
@@ -182,6 +183,7 @@
 		F4D29805292508E000A3AAB7 /* MyInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoCell.swift; sourceTree = "<group>"; };
 		F4D29807292508F500A3AAB7 /* MyInfoHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoHeaderView.swift; sourceTree = "<group>"; };
 		F4D3B38E2929B29E00FA6B04 /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
+		F4D3B3912929D21400FA6B04 /* SeSacAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacAlertController.swift; sourceTree = "<group>"; };
 		F4E019B22927CCB700760190 /* UserMainDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMainDTO.swift; sourceTree = "<group>"; };
 		F4E019B42927CEA800760190 /* UserSubDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSubDTO.swift; sourceTree = "<group>"; };
 		F4F103C9291CBD0E00C2020C /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 				F45119CA291942720058571C /* SeSacTextField.swift */,
 				F454E4A8291A66070064BCC4 /* SesacDateLabel.swift */,
 				F4A94AA72924FD87007B96AE /* SesacTabBarController.swift */,
+				F4D3B3912929D21400FA6B04 /* SeSacAlertController.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -877,6 +880,7 @@
 				F4586473291FB32800993A6D /* GenderViewModel.swift in Sources */,
 				F4034CCB29191B1400423FAF /* BaseView.swift in Sources */,
 				F48B3074292270B800DD5E12 /* ProfileMainCell.swift in Sources */,
+				F4D3B3922929D21400FA6B04 /* SeSacAlertController.swift in Sources */,
 				F45119C1291941680058571C /* GenderView.swift in Sources */,
 				F4A8A78B2924B0F900B94EC7 /* CardStackView.swift in Sources */,
 				F4034CC729191B1400423FAF /* HomeView.swift in Sources */,
