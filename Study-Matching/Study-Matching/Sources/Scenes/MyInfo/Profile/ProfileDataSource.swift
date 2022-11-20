@@ -5,10 +5,11 @@ import RxCocoa
 
 class ProfileDataSource: UICollectionViewDiffableDataSource<Int, Item> {
 
-    convenience init(collectionView: UICollectionView,
+    convenience init(collectionView:       UICollectionView,
+                     headerRegistration:   UICollectionView.SupplementaryRegistration<ProfileHeaderView>,
                      mainCellRegistration: UICollectionView.CellRegistration<ProfileMainCell, Main>,
-                     subCellRegistration: UICollectionView.CellRegistration<ProfileSubCell, Sub>) {
-        
+                     subCellRegistration:  UICollectionView.CellRegistration<ProfileSubCell, Sub>)
+    {
         self.init(collectionView: collectionView) {
             collectionView, indexPath, itemIdentifier in
             switch itemIdentifier {
@@ -26,10 +27,6 @@ class ProfileDataSource: UICollectionViewDiffableDataSource<Int, Item> {
                 return cell
             }
         }
-
-        let headerRegistration = UICollectionView.SupplementaryRegistration<ProfileHeaderView>(
-            elementKind: UICollectionView.elementKindSectionHeader)
-        { supplementaryView, elementKind, indexPath in}
 
         supplementaryViewProvider =  { collectionView, elementKind, indexPath in
             let suppleymentaryView  = collectionView.dequeueConfiguredReusableSupplementary(

@@ -3,11 +3,17 @@ import SnapKit
 
 class ProfileHeaderView: UICollectionReusableView {
     
-    let imageView: UIImageView = {
+    let mainImageView: UIImageView = {
         let view = UIImageView()
-        view.backgroundColor = .systemPink
+        
         return view
     }()
+    let subImageView: UIImageView = {
+        let view = UIImageView()
+        
+        return view
+    }()
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,19 +27,22 @@ class ProfileHeaderView: UICollectionReusableView {
     }
 
     func configureHierarcy() {
-        addSubview(imageView)
+        addSubview(mainImageView)
+        mainImageView.addSubview(subImageView)
     }
     
     func configureLayout() {
-        imageView.snp.makeConstraints {
+        mainImageView.snp.makeConstraints {
             $0.edges.equalTo(self)
+        }
+        subImageView.snp.makeConstraints {
+            $0.center.equalTo(mainImageView.snp.center)
         }
     }
     
     func configureAttributes() {
         layer.cornerRadius = 8
         layer.masksToBounds = true
-        self.imageView.image = SeSacImage.sesacBg01
     }
 
     

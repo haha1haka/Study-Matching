@@ -16,8 +16,6 @@ class MyInfoViewModel {
     var gender     = BehaviorRelay<Int>(value: 0)
     var study      = BehaviorRelay<String>(value: "")
     var searchable = BehaviorRelay<Int>(value: 0)
-    var ageMax     = BehaviorRelay<Int>(value: 0)
-    var ageMin     = BehaviorRelay<Int>(value: 0)
     let age        = BehaviorRelay<[Int]>(value: [])
     var user       = BehaviorRelay<MemoleaseUser?>(value: nil)
     //회원 탈퇴
@@ -50,8 +48,6 @@ extension MyInfoViewModel {
                 self.gender.accept(user.gender)
                 self.study.accept(user.study)
                 self.searchable.accept(user.searchable)
-                self.ageMax.accept(user.ageMax)
-                self.ageMin.accept(user.ageMin)
                 self.age.accept([user.ageMin,user.ageMax])
                 self.user.accept(user)
                 completion(.success(.perfact))

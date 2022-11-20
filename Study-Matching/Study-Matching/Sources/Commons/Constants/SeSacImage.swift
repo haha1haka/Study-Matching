@@ -18,7 +18,7 @@ enum SeSacImage {
     static let splashLogo = UIImage(named: "splashLogo")
     static let splashTxt = UIImage(named: "splashTxt")
     static let sesacBg01 = UIImage(named: "sesac_bg_01")
-    static let sesacBg02 = UIImage(named: "sesac_bg_02")
+    static let sesacFace2 = UIImage(named: "sesac_face_2")
     
     // MARK: - NaviBar
     static let arrow = UIImage(named: "arrow")

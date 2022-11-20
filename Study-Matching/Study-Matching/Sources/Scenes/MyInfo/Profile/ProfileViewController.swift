@@ -4,14 +4,17 @@ import RxCocoa
 import MultiSlider
 
 class ProfileViewController: BaseViewController {
-    
+    typealias HeaderRegistration = UICollectionView.SupplementaryRegistration<ProfileHeaderView>
     let selfView = ProfileView()
     var mainCell: MainCellRegistration?
-    var subCell:  SubCellRegistration?
+    var subCell: SubCellRegistration?
+    var header: HeaderRegistration?
+    
     lazy var dataSource = ProfileDataSource(
-            collectionView:       selfView.collectionView,
-            mainCellRegistration: self.mainCell!,
-            subCellRegistration:  self.subCell!)
+        collectionView:       selfView.collectionView,
+        headerRegistration:   self.header!,
+        mainCellRegistration: self.mainCell!,
+        subCellRegistration:  self.subCell!)
         
     let viewModel = MyInfoViewModel.shared
     let disposeBag = DisposeBag()
@@ -60,6 +63,27 @@ extension ProfileViewController {
             })
             .disposed(by: disposeBag)
         
+        header = HeaderRegistration (elementKind: UICollectionView.elementKindSectionHeader)
+        { [weak self] supplementaryView, elementKind, indexPath in
+            guard let self = self else { return }
+            
+            self.viewModel.background
+                .bind(onNext: { int in
+                    if int == 0 {
+                        supplementaryView.mainImageView.image = SeSacImage.sesacBg01
+                    }
+                })
+                .disposed(by: self.disposeBag)
+            
+            self.viewModel.sesac
+                .bind(onNext: { int in
+                    if int == 0 {
+                        supplementaryView.subImageView.image = SeSacImage.sesacFace2
+                    }
+                })
+                .disposed(by: self.disposeBag)
+
+        }
         
         mainCell = MainCellRegistration
         { [weak self] cell, indexPath, itemIdentifier in
