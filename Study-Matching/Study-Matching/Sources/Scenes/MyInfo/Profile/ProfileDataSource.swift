@@ -1,7 +1,4 @@
 import UIKit
-import RxSwift
-import RxCocoa
-
 
 class ProfileDataSource: UICollectionViewDiffableDataSource<Int, Item>, DataSourceRegistration {
 

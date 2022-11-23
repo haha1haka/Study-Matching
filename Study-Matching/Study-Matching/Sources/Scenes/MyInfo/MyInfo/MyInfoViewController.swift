@@ -38,11 +38,14 @@ extension MyInfoViewController {
         
         viewModel.fetchUserInfo { result in
             switch result {
-            case .success: // 데이터 바인드 완료
+            case .success:
                 print("⭐️바인드 완료")
                 print(self.viewModel.user.value!)
-            case .failure:
-                return
+            case .failure(let error):
+                switch error {
+                default:
+                    return
+                }
             }
         }
         

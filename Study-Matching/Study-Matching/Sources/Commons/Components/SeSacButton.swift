@@ -2,6 +2,7 @@ import UIKit
 enum SeSacButtonType {
     case login
     case myInfo
+    case map
 }
 
 class SeSacButton: UIButton {
@@ -21,6 +22,8 @@ class SeSacButton: UIButton {
             backgroundColor = color
             titleLabel?.font = font_
             setTitle(title, for: .normal)
+            layer.cornerRadius = 8
+            layer.masksToBounds = true
         case .myInfo:
             titleLabel?.font = font_
             layer.cornerRadius = 8
@@ -31,6 +34,11 @@ class SeSacButton: UIButton {
             setTitle(title, for: .normal)
             setTitleColor(SeSacColor.black, for: .normal)
             tag = tag_
+        case .map:
+            titleLabel?.font = SeSacFont.Title3_M14.set
+            backgroundColor = SeSacColor.white
+            setTitle(title, for: .normal)
+            setTitleColor(SeSacColor.black, for: .normal)
         }
                 
 
@@ -49,8 +57,7 @@ class SeSacButton: UIButton {
 
 extension SeSacButton {
     func configureAttributes() {
-        layer.cornerRadius = 8
-        layer.masksToBounds = true
+
     }
 }
 

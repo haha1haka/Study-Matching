@@ -21,5 +21,8 @@ class BaseViewController: UIViewController {
         let attributedStringKey = [NSAttributedString.Key.font: SeSacFont.Title3_M14.set]
         navigationController?.navigationBar.titleTextAttributes = attributedStringKey
         UIBarButtonItem.appearance().setTitleTextAttributes(attributedStringKey, for: .normal)
+        
+        
+
     }
 }

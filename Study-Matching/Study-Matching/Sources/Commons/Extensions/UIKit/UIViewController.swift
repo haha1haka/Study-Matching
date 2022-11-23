@@ -57,12 +57,13 @@ extension UIViewController {
     }
     
 
-    func showToast(message : String, font: UIFont = UIFont.systemFont(ofSize: 14.0)) {
-         let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
+    func showToast(message : String, font: UIFont = SeSacFont.Title4_R14.set) {
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: self.view.frame.width, height: self.view.frame.height))
+        
          toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
          toastLabel.textColor = UIColor.white
          toastLabel.font = font
-         toastLabel.textAlignment = .center;
+         toastLabel.textAlignment = .center
          toastLabel.text = message
          toastLabel.alpha = 1.0
          toastLabel.layer.cornerRadius = 10;
@@ -78,8 +79,10 @@ extension UIViewController {
     
     var dateformatter: DateFormatter {
         let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "ko_KR")
-        formatter.dateFormat = "YYYY-MM-DDTHH:mm:ss.SSSZ"
+        
+        
+        formatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z"
+        
         return formatter
     }
     

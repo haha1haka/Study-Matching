@@ -2,7 +2,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class MyInfoViewModel {
+class MyInfoViewModel: ResultType {
     
     static let shared = MyInfoViewModel()
     
@@ -18,27 +18,21 @@ class MyInfoViewModel {
     var searchable = BehaviorRelay<Int>(value: 0)
     let age        = BehaviorRelay<[Int]>(value: [])
     var user       = BehaviorRelay<MemoleaseUser?>(value: nil)
+    
     //회원 탈퇴
     //저장버튼
+    
+    
+    //UserRe 포지토리
 }
 
 extension MyInfoViewModel {
     
-    
-    
     func fetchUserInfo(completion: @escaping (Result<Succeess, MemoleaseError>) -> Void) {
         
-        let target = MemoleaseRouter.signIn
-        
-        MemoleaseService.shared.requestLogin(
-            path: target.path,
-            queryItems: nil,
-            httpMethod: target.httpMethod,
-            headers: target.headers) { [weak self] result in
+        MemoleaseService.shared.requestGetUser(target: MemoleaseRouter.signIn) {
             
-            guard let self = self else { return }
-            
-            switch result {
+            switch $0 {
             case .success(let user):
                 self.background.accept(user.background)
                 self.sesac.accept(user.sesac)
@@ -53,31 +47,15 @@ extension MyInfoViewModel {
                 completion(.success(.perfact))
             case .failure(let error):
                 switch error {
-                case .idTokenError:
-                    
-//                    self.updateFCMToken { result in //🚀 updateFCMToken
-//                        switch result {
-//                        case .success:
-//                            return
-//                        case .failure:
-//                            return
-//                        }
-//                    }
-                    
-                    print("\(error.localizedDescription)")
-                case .unRegistedUser:
-                    return
-                case .serverError:
-                    print("\(error.localizedDescription)")
-                case .clientError:
-                    print("\(error.localizedDescription)")
                 default:
                     return
                 }
             }
         }
     }
-    
+}
+
+
 //    func updateFCMToken(completion: @escaping (Result<Succeess, MemoleaseError>) -> Void) {
 //
 //        let target = MemoleaseRouter.updateToken(FCMtoken: UserDefaultsManager.standard.FCMToken)
@@ -108,43 +86,40 @@ extension MyInfoViewModel {
 //            }
 //        }
 //    }
-    
+extension MyInfoViewModel {
     func updateUserInfo(completion: @escaping (Result<Succeess, MemoleaseError>) -> Void) {
         
-        let target = MemoleaseRouter.updateUserInfo(
-            searchable: searchable.value,
-            ageMin: age.value[0],
-            ageMax: age.value[1],
-            gender: gender.value,
-            study: study.value)
-        
-        MemoleaseService.shared.updateUserInfo(
-            path: target.path,
-            queryItems: target.queryItems,
-            httpMethod: target.httpMethod,
-            headers: target.headers) { result in
-                
-            switch result {
+        MemoleaseService.shared.updateUser(
+            target:MemoleaseRouter.updateUser(
+                searchable: searchable.value,
+                ageMin: age.value[0],
+                ageMax: age.value[1],
+                gender: gender.value,
+                study: study.value)) {
+                    
+            switch $0 {
             case .success:
                 completion(.success(.perfact))
             case .failure(let error):
                 switch error {
                 case .idTokenError:
                     completion(.failure(.idTokenError))
-                    
-                    self.updateUserInfo { _  in } // 다시 재귀 요청
+                    self.updateUserInfo { _  in }
                     
                 case .unRegistedUser:
                     completion(.failure(.unRegistedUser))
-                    //⚠️다시 회원가입 -> 로그인 로직 타야됨 --> 회원가입 으로 이동 
-                    
+                    //⚠️다시 회원가입 -> 로그인 로직 타야됨 --> 회원가입 으로 이동
                 default:
                     return
                 }
             }
         }
     }
-    
+}
+
+
+
+extension MyInfoViewModel {
     func requestWithdraw(completion: @escaping (Result<Succeess, MemoleaseError>) -> Void) {
         
         let target = MemoleaseRouter.withdraw
@@ -155,25 +130,26 @@ extension MyInfoViewModel {
             httpMethod: target.httpMethod,
             headers: target.headers) { result in
                 
-            switch result {
-            case .success:
-                completion(.success(.perfact)) //🚀 vc 에서 처리
-            case .failure(let error):
-                switch error {
-                case .idTokenError:
-                    self.updateUserInfo { _  in } // 💫 재귀 로그인 시작
-                case .aleadyWithdraw:
-                    completion(.failure(.aleadyWithdraw)) // 🚀 vc 에서 처리
-                default:
-                    return
+                switch result {
+                case .success:
+                    completion(.success(.perfact)) //🚀 vc 에서 처리
+                case .failure(let error):
+                    switch error {
+                    case .idTokenError:
+                        self.updateUserInfo { _  in } // 💫 재귀 로그인 시작
+                    case .aleadyWithdraw:
+                        completion(.failure(.aleadyWithdraw)) // 🚀 vc 에서 처리
+                    default:
+                        return
+                    }
+                    
                 }
-                
             }
-        }
     }
+}
+    
+    
+    
     
 
     
-    
-    
-}

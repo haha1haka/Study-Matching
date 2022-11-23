@@ -2,17 +2,13 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-
-
-
-
 class AuthViewController: BaseViewController {
-    let selfView = AuthView()
-    override func loadView() {
-        view = selfView
-    }
-    let viewModel = AuthViewModel()
+    
+    let selfView   = AuthView()
+    let viewModel  = AuthViewModel()
     let disposeBag = DisposeBag()
+    
+    override func loadView() { view = selfView }
 }
 
 extension AuthViewController {
@@ -21,7 +17,6 @@ extension AuthViewController {
         bind()
     }
 }
-
 
 extension AuthViewController {
     
@@ -40,8 +35,6 @@ extension AuthViewController {
             .map(viewModel.validHandler) // bool
             .bind(to: viewModel.validationFlag)
             .disposed(by: disposeBag)
-        
-        
         
         
         
@@ -74,40 +67,37 @@ extension AuthViewController {
         
         
         
+        // MARK: - 🟨 1 vertificationID
         self.selfView.button.rx.tap
             .bind(onNext: { _ in
-                if self.viewModel.validationFlag.value {
-                    
+                if self.viewModel.validationFlag.value
+                {
                     guard let phoneNumber = self.selfView.textFiled.text?.toPureNumber else { return }
                     
                     UserDefaultsManager.standard.phoneNumber = phoneNumber
                     
-                    FirebaseService.shared.requestVertificationID(phoneNumber: "\(phoneNumber)") { status in
-                        switch status {
+                    self.viewModel.requestVertificationID(phoneNumber: phoneNumber) {
+                        switch $0 {
                         case .success:
                             self.showToast(message: "전화번호 인증 시작")
                             let vc = SMSViewController()
                             self.transition(vc, transitionStyle: .push)
                         case .failure(let error):
                             switch error {
-                            case .tooManyRequest:
+                            case .tooManyRequest :
                                 self.showToast(message: "과도한 인증 시도가 있었습니다. 나중에 다시 시도해 주세요.")
                             default:
                                 self.showToast(message: "에러가 발생했습니다 다시 시도해주세요")
-                                return
                             }
                         }
                     }
                     
-                } else {
+                }
+                else {
                     self.showToast(message: "잘못된 전화번호 형식입니다.")
                 }
             })
             .disposed(by: disposeBag)
     }
-    
-}
-
-extension AuthViewController {
     
 }

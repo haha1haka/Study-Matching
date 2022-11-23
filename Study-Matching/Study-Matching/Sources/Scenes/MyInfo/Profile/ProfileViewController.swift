@@ -22,9 +22,7 @@ class ProfileViewController: BaseViewController, DataSourceRegistration {
     let viewModel = MyInfoViewModel.shared
     let disposeBag = DisposeBag()
     
-    override func loadView() {
-        view = selfView
-    }
+    override func loadView() { view = selfView }
     
     override func setNavigationBar(title: String) {
         super.setNavigationBar(title: "내정보")

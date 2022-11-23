@@ -3,13 +3,14 @@ import SnapKit
 
 class AuthView: BaseView {
 
-    let label = SeSacLabel(text_: "핸드폰 번호를 입력해 주세요")
+    let label     = SeSacLabel(text_: "핸드폰 번호를 입력해 주세요")
     let textFiled = SeSacTexField(title: "휴대폰 번호(-없이 숫자만 입력)")
-    let button = SeSacButton(title: "인증하고 시작하기")
+    let button    = SeSacButton(title: "인증하고 시작하기")
     
-
     override func configureHierarchy() {
-        [label, textFiled, button].forEach { self.addSubview($0) }
+        addSubview(label)
+        addSubview(textFiled)
+        addSubview(button)
     }
     
     override func configureLayout() {
@@ -27,9 +28,6 @@ class AuthView: BaseView {
             $0.top.equalTo(textFiled.snp.bottom).offset(72)
             $0.leading.trailing.equalTo(self.safeAreaLayoutGuide).inset(16)
             $0.height.equalTo(48)
-            
         }
     }
-
-
 }

@@ -55,9 +55,11 @@ extension BirthViewController {
                 if self.viewModel.validationFlag.value {
                     print("17세 이상임")
                     
-                    let birth = self.selfView.datePicker.date
+                    let birth = self.viewModel.datePickerObservable.value
                     
                     UserDefaultsManager.standard.birth = self.dateformatter.string(from: birth)
+                    
+                    print(UserDefaultsManager.standard.birth)
                     
                     let vc = EmailViewController()
                     self.transition(vc, transitionStyle: .push)

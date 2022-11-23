@@ -3,10 +3,17 @@ import UIKit
 class TabBarController: UITabBarController {
 
 
-    let homeViewController  = UINavigationController(rootViewController: HomeViewController())
-    let shopViewController = UINavigationController(rootViewController: MyInfoViewController())
-    let friendViewController = UINavigationController(rootViewController: MyInfoViewController())
-    let myInfoViewController = UINavigationController(rootViewController: MyInfoViewController())
+    let homeViewController  = UINavigationController(
+        rootViewController: HomeViewController())
+    
+    let shopViewController = UINavigationController(
+        rootViewController: MyInfoViewController())
+    
+    let friendViewController = UINavigationController(
+        rootViewController: MyInfoViewController())
+    
+    let myInfoViewController = UINavigationController(
+        rootViewController: MyInfoViewController())
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,15 +23,31 @@ class TabBarController: UITabBarController {
         appearance.backgroundColor = .white
         tabBar.standardAppearance = appearance
         tabBar.tintColor = SeSacColor.green
-
         
-        homeViewController.tabBarItem = UITabBarItem(title: "홈", image: SeSacImage.homeIndAct, selectedImage: SeSacImage.homeAct)
-        shopViewController.tabBarItem = UITabBarItem(title: "새싹샵", image: SeSacImage.shopInAct, selectedImage: SeSacImage.shopAct)
-        friendViewController.tabBarItem = UITabBarItem(title: "새싹친구", image: SeSacImage.friendInAct, selectedImage: SeSacImage.friendAct)
-        myInfoViewController.tabBarItem = UITabBarItem(title: "내정보", image: SeSacImage.ProfileInAct, selectedImage: SeSacImage.ProfileAct)
+        homeViewController.tabBarItem = UITabBarItem(
+            title: "홈",
+            image: SeSacImage.homeIndAct,
+            selectedImage: SeSacImage.homeAct)
+        shopViewController.tabBarItem = UITabBarItem(
+            title: "새싹샵",
+            image: SeSacImage.shopInAct,
+            selectedImage: SeSacImage.shopAct)
+        friendViewController.tabBarItem = UITabBarItem(
+            title: "새싹친구",
+            image: SeSacImage.friendInAct,
+            selectedImage: SeSacImage.friendAct)
+        myInfoViewController.tabBarItem = UITabBarItem(
+            title: "내정보",
+            image: SeSacImage.ProfileInAct,
+            selectedImage: SeSacImage.ProfileAct)
         
 
-        setViewControllers([homeViewController, shopViewController, friendViewController, myInfoViewController], animated: true)
+        setViewControllers(
+            [homeViewController,
+             shopViewController,
+             friendViewController,
+             myInfoViewController],
+            animated: true)
         
     }
 

@@ -2,24 +2,28 @@ import Foundation
 
 enum MemoleaseRouter {
     
-    case signup(phoneNumber: String, FCMtoken: String, nick: String, birth: String, email: String, gender:Int)
     case signIn
-    case updateToken(FCMtoken: String)
-    case updateUserInfo(searchable: Int, ageMin: Int, ageMax: Int, gender: Int, study: String)
+    case signup(phoneNumber: String, FCMtoken: String, nick: String, birth: String, email: String, gender:Int)
+    case FCMtoken(FCMtoken: String)
+    case updateUser(searchable: Int, ageMin: Int, ageMax: Int, gender: Int, study: String)
     case withdraw
+    case queue(lat: Double, long: Double)
     
 }
 
-extension MemoleaseRouter {
-    
+
+extension MemoleaseRouter: TargetType {
+
+
     var path: String {
         let baseURL: String = "http://api.sesac.co.kr:1210"
         switch self {
-        case .signup:         return "\(baseURL)/v1/user"
         case .signIn:         return "\(baseURL)/v1/user"
-        case .updateToken:    return "\(baseURL)/v1/user/update_fcm_token"
-        case .updateUserInfo: return "\(baseURL)/v1/user/mypage"
+        case .signup:         return "\(baseURL)/v1/user"
+        case .FCMtoken:       return "\(baseURL)/v1/user/update_fcm_token"
+        case .updateUser:           return "\(baseURL)/v1/user/mypage"
         case .withdraw:       return "\(baseURL)/v1/user/withdraw"
+        case .queue:          return "\(baseURL)/v1/queue/search"
         }
     }
     
@@ -37,6 +41,9 @@ extension MemoleaseRouter {
     var queryItems: [URLQueryItem]? {
         switch self {
             
+        case .signIn:
+            return nil
+            
         case .signup(let phoneNumber, let FCMtoken, let nick, let birth, let email, let gender):
             return [URLQueryItem(name: "phoneNumber", value: phoneNumber),
                     URLQueryItem(name: "FCMtoken",    value: FCMtoken),
@@ -45,13 +52,10 @@ extension MemoleaseRouter {
                     URLQueryItem(name: "email",       value: email),
                     URLQueryItem(name: "gender",      value: "\(gender)")]
             
-        case .signIn:
-            return nil
-            
-        case .updateToken(let FCMtoken):
+        case .FCMtoken(let FCMtoken):
             return [URLQueryItem(name: "FCMtoken",   value: FCMtoken)]
             
-        case .updateUserInfo(let searchable, let ageMin, let ageMax, let gender, let study):
+        case .updateUser(let searchable, let ageMin, let ageMax, let gender, let study):
             return [URLQueryItem(name: "searchable", value: "\(searchable)"),
                     URLQueryItem(name: "ageMin",     value: "\(ageMin)"),
                     URLQueryItem(name: "ageMax",     value: "\(ageMax)"),
@@ -60,17 +64,24 @@ extension MemoleaseRouter {
             
         case .withdraw:
             return nil
+            
+        case .queue(let lat, let long):
+            return [URLQueryItem(name: "lat", value: "\(lat)"),
+                    URLQueryItem(name: "long", value: "\(long)")]
         }
     }
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .signup        : return .post
         case .signIn        : return .get
-        case .updateToken   : return .put
-        case .updateUserInfo: return .put
+        case .signup        : return .post
+        case .FCMtoken   : return .put
+        case .updateUser: return .put
         case .withdraw      : return .post
+        case .queue   : return .post
         }
     }
+    
+    
 
 }

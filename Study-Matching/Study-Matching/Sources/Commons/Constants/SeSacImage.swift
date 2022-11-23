@@ -64,4 +64,7 @@ enum SeSacImage {
     static let mapLocation = UIImage(named: "mapLocation")
     static let mapMessage = UIImage(named: "mapMessage")
     static let mapSearch = UIImage(named: "mapSearch")
+    
+    static let mapMarker = UIImage(named: "map_marker")
+    static let place = UIImage(named: "place")
 }

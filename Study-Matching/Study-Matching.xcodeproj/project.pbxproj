@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F4034CC529191B1400423FAF /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CAD29191B1400423FAF /* HomeViewModel.swift */; };
+		F4034CC529191B1400423FAF /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CAD29191B1400423FAF /* MainViewModel.swift */; };
 		F4034CC629191B1400423FAF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CAF29191B1400423FAF /* HomeViewController.swift */; };
 		F4034CC729191B1400423FAF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CB029191B1400423FAF /* HomeView.swift */; };
 		F4034CC829191B1400423FAF /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CB129191B1400423FAF /* MainCell.swift */; };
@@ -24,6 +24,8 @@
 		F41E0E362925A83000B28291 /* OnBoardingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E0E352925A83000B28291 /* OnBoardingDataSource.swift */; };
 		F41E0E382925AB0000B28291 /* GenderDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E0E372925AB0000B28291 /* GenderDataSource.swift */; };
 		F41E0E422925D7DC00B28291 /* MyInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E0E412925D7DC00B28291 /* MyInfoViewModel.swift */; };
+		F42EE4FD292B4E50007336DB /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42EE4FC292B4E50007336DB /* UIView.swift */; };
+		F42EE500292B61B7007336DB /* MemoleaseQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42EE4FF292B61B7007336DB /* MemoleaseQueue.swift */; };
 		F4334030291E12FA00F46725 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F433402F291E12FA00F46725 /* RxCocoa */; };
 		F4334032291E12FA00F46725 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F4334031291E12FA00F46725 /* RxSwift */; };
 		F4334034291E177400F46725 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4334033291E177400F46725 /* OnboardingViewModel.swift */; };
@@ -79,6 +81,7 @@
 		F48B3082292279C900DD5E12 /* ProfileSubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B3081292279C900DD5E12 /* ProfileSubCell.swift */; };
 		F499C449291F546000C4B117 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F499C448291F546000C4B117 /* FirebaseService.swift */; };
 		F499C44C291F55C200C4B117 /* UserdefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F499C44B291F55C200C4B117 /* UserdefaultsManager.swift */; };
+		F4A79EB0292D05310010E44F /* MemoleaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A79EAF292D05310010E44F /* MemoleaseTargetType.swift */; };
 		F4A8A77C292487CB00B94EC7 /* Gender2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A8A77B292487CB00B94EC7 /* Gender2View.swift */; };
 		F4A8A77E292487DE00B94EC7 /* StudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A8A77D292487DE00B94EC7 /* StudyView.swift */; };
 		F4A8A780292487E800B94EC7 /* SwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A8A77F292487E800B94EC7 /* SwitchView.swift */; };
@@ -93,8 +96,14 @@
 		F4D3B38F2929B29E00FA6B04 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3B38E2929B29E00FA6B04 /* CGFloat.swift */; };
 		F4D3B3922929D21400FA6B04 /* SeSacAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3B3912929D21400FA6B04 /* SeSacAlertController.swift */; };
 		F4D3B396292A36F700FA6B04 /* DataSourceRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3B395292A36F700FA6B04 /* DataSourceRegistration.swift */; };
-		F4E019B32927CCB700760190 /* UserMainDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E019B22927CCB700760190 /* UserMainDTO.swift */; };
-		F4E019B52927CEA800760190 /* UserSubDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E019B42927CEA800760190 /* UserSubDTO.swift */; };
+		F4D8A6EB292A6CAA00C25A57 /* ResultType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D8A6EA292A6CAA00C25A57 /* ResultType.swift */; };
+		F4D8A6ED292A78F100C25A57 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D8A6EC292A78F100C25A57 /* SearchViewController.swift */; };
+		F4D8A6EF292A78F700C25A57 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D8A6EE292A78F700C25A57 /* SearchView.swift */; };
+		F4D8A6F1292A790900C25A57 /* SearchDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D8A6F0292A790900C25A57 /* SearchDataSource.swift */; };
+		F4D8A6F3292A791600C25A57 /* SearchTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D8A6F2292A791600C25A57 /* SearchTopCell.swift */; };
+		F4D8A6F6292A7C0100C25A57 /* SearchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D8A6F5292A7C0100C25A57 /* SearchHeaderView.swift */; };
+		F4D8A6F8292A7CC500C25A57 /* SearchBottomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D8A6F7292A7CC500C25A57 /* SearchBottomCell.swift */; };
+		F4D8A6FA292A806B00C25A57 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D8A6F9292A806B00C25A57 /* SearchViewModel.swift */; };
 		F4F103CA291CBD0E00C2020C /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103C9291CBD0E00C2020C /* OnBoardingViewController.swift */; };
 		F4F103CC291CBD1700C2020C /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103CB291CBD1700C2020C /* OnBoardingView.swift */; };
 		F4F103CE291CBF8A00C2020C /* SeSacImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103CD291CBF8A00C2020C /* SeSacImage.swift */; };
@@ -103,7 +112,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F4034CAD29191B1400423FAF /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		F4034CAD29191B1400423FAF /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		F4034CAF29191B1400423FAF /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F4034CB029191B1400423FAF /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F4034CB129191B1400423FAF /* MainCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
@@ -120,6 +129,8 @@
 		F41E0E352925A83000B28291 /* OnBoardingDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingDataSource.swift; sourceTree = "<group>"; };
 		F41E0E372925AB0000B28291 /* GenderDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderDataSource.swift; sourceTree = "<group>"; };
 		F41E0E412925D7DC00B28291 /* MyInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewModel.swift; sourceTree = "<group>"; };
+		F42EE4FC292B4E50007336DB /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		F42EE4FF292B61B7007336DB /* MemoleaseQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoleaseQueue.swift; sourceTree = "<group>"; };
 		F4334033291E177400F46725 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		F45119962919230B0058571C /* SeSacColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacColor.swift; sourceTree = "<group>"; };
 		F4511999291926A00058571C /* SeSacButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacButton.swift; sourceTree = "<group>"; };
@@ -172,6 +183,7 @@
 		F48B3081292279C900DD5E12 /* ProfileSubCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSubCell.swift; sourceTree = "<group>"; };
 		F499C448291F546000C4B117 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		F499C44B291F55C200C4B117 /* UserdefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserdefaultsManager.swift; sourceTree = "<group>"; };
+		F4A79EAF292D05310010E44F /* MemoleaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoleaseTargetType.swift; sourceTree = "<group>"; };
 		F4A8A77B292487CB00B94EC7 /* Gender2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender2View.swift; sourceTree = "<group>"; };
 		F4A8A77D292487DE00B94EC7 /* StudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyView.swift; sourceTree = "<group>"; };
 		F4A8A77F292487E800B94EC7 /* SwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchView.swift; sourceTree = "<group>"; };
@@ -186,8 +198,14 @@
 		F4D3B38E2929B29E00FA6B04 /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
 		F4D3B3912929D21400FA6B04 /* SeSacAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacAlertController.swift; sourceTree = "<group>"; };
 		F4D3B395292A36F700FA6B04 /* DataSourceRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceRegistration.swift; sourceTree = "<group>"; };
-		F4E019B22927CCB700760190 /* UserMainDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMainDTO.swift; sourceTree = "<group>"; };
-		F4E019B42927CEA800760190 /* UserSubDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSubDTO.swift; sourceTree = "<group>"; };
+		F4D8A6EA292A6CAA00C25A57 /* ResultType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultType.swift; sourceTree = "<group>"; };
+		F4D8A6EC292A78F100C25A57 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		F4D8A6EE292A78F700C25A57 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		F4D8A6F0292A790900C25A57 /* SearchDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataSource.swift; sourceTree = "<group>"; };
+		F4D8A6F2292A791600C25A57 /* SearchTopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTopCell.swift; sourceTree = "<group>"; };
+		F4D8A6F5292A7C0100C25A57 /* SearchHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHeaderView.swift; sourceTree = "<group>"; };
+		F4D8A6F7292A7CC500C25A57 /* SearchBottomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBottomCell.swift; sourceTree = "<group>"; };
+		F4D8A6F9292A806B00C25A57 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		F4F103C9291CBD0E00C2020C /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		F4F103CB291CBD1700C2020C /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		F4F103CD291CBF8A00C2020C /* SeSacImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacImage.swift; sourceTree = "<group>"; };
@@ -234,41 +252,23 @@
 		F4034CAA29191B1400423FAF /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				F48B306E2922708000DD5E12 /* MyInfo */,
-				F47AF0B62922018200AA0789 /* Faker */,
+				F42EE503292B6430007336DB /* Main */,
 				F45119B829193F280058571C /* Onboarding */,
+				F47AF0B62922018200AA0789 /* Faker */,
 				F45119B9291940B60058571C /* Authorization */,
-				F45119B329193C8C0058571C /* Signup */,
-				F4034CAB29191B1400423FAF /* Main */,
+				F48B306E2922708000DD5E12 /* MyInfo */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
 		};
-		F4034CAB29191B1400423FAF /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				F4034CAE29191B1400423FAF /* View */,
-				F4034CAC29191B1400423FAF /* ViewModel */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
-		F4034CAC29191B1400423FAF /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				F4034CAD29191B1400423FAF /* HomeViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		F4034CAE29191B1400423FAF /* View */ = {
+		F4034CAB29191B1400423FAF /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				F4034CAF29191B1400423FAF /* HomeViewController.swift */,
 				F4034CB029191B1400423FAF /* HomeView.swift */,
 				F4034CB129191B1400423FAF /* MainCell.swift */,
 			);
-			path = View;
+			path = Home;
 			sourceTree = "<group>";
 		};
 		F4034CB229191B1400423FAF /* Commons */ = {
@@ -306,6 +306,7 @@
 		F4034CB829191B1400423FAF /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				F42EE4FC292B4E50007336DB /* UIView.swift */,
 				F4034CB929191B1400423FAF /* UIViewController.swift */,
 				F463F17B2929340600CE644C /* SeSacButton+.swift */,
 			);
@@ -408,6 +409,39 @@
 				F4A8A7832924885100B94EC7 /* WithDrawView.swift */,
 			);
 			path = ProfileSubCell;
+			sourceTree = "<group>";
+		};
+		F42EE501292B628C007336DB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F456375C2921538700CDF1BA /* MemoleaseUser.swift */,
+				F42EE4FF292B61B7007336DB /* MemoleaseQueue.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F42EE502292B6410007336DB /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				F4D8A6EC292A78F100C25A57 /* SearchViewController.swift */,
+				F4D8A6EE292A78F700C25A57 /* SearchView.swift */,
+				F4D8A6F0292A790900C25A57 /* SearchDataSource.swift */,
+				F4D8A6F9292A806B00C25A57 /* SearchViewModel.swift */,
+				F4D8A6F2292A791600C25A57 /* SearchTopCell.swift */,
+				F4D8A6F7292A7CC500C25A57 /* SearchBottomCell.swift */,
+				F4D8A6F5292A7C0100C25A57 /* SearchHeaderView.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		F42EE503292B6430007336DB /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				F4034CAD29191B1400423FAF /* MainViewModel.swift */,
+				F42EE502292B6410007336DB /* Search */,
+				F4034CAB29191B1400423FAF /* Home */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		F4511995291922AE0058571C /* Constants */ = {
@@ -540,6 +574,7 @@
 			children = (
 				F45119A029193A020058571C /* Auth */,
 				F45119B029193C170058571C /* SMS */,
+				F45119B329193C8C0058571C /* Signup */,
 			);
 			path = Authorization;
 			sourceTree = "<group>";
@@ -661,10 +696,11 @@
 		F47D76422920959900F747DA /* Memolease */ = {
 			isa = PBXGroup;
 			children = (
-				F4E019B02927CC2700760190 /* User */,
+				F42EE501292B628C007336DB /* Model */,
 				F488D78D29212665002E4B57 /* HTTPMethod.swift */,
 				F488D78F2921308A002E4B57 /* MemoleaseError.swift */,
 				F488D78B29212324002E4B57 /* MemoleaseRouter.swift */,
+				F4A79EAF292D05310010E44F /* MemoleaseTargetType.swift */,
 				F488D78829212290002E4B57 /* MemoleaseService.swift */,
 			);
 			path = Memolease;
@@ -718,18 +754,9 @@
 			isa = PBXGroup;
 			children = (
 				F4D3B395292A36F700FA6B04 /* DataSourceRegistration.swift */,
+				F4D8A6EA292A6CAA00C25A57 /* ResultType.swift */,
 			);
 			path = Protocol;
-			sourceTree = "<group>";
-		};
-		F4E019B02927CC2700760190 /* User */ = {
-			isa = PBXGroup;
-			children = (
-				F456375C2921538700CDF1BA /* MemoleaseUser.swift */,
-				F4E019B22927CCB700760190 /* UserMainDTO.swift */,
-				F4E019B42927CEA800760190 /* UserSubDTO.swift */,
-			);
-			path = User;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -822,8 +849,10 @@
 				F45119AA29193BBA0058571C /* AuthViewModel.swift in Sources */,
 				F4034CCE29191B1400423FAF /* AppDelegate.swift in Sources */,
 				F451199A291926A00058571C /* SeSacButton.swift in Sources */,
+				F4D8A6EB292A6CAA00C25A57 /* ResultType.swift in Sources */,
 				F454E4A7291A24610064BCC4 /* SeSacLabel.swift in Sources */,
 				F48B3072292270B100DD5E12 /* ProfileView.swift in Sources */,
+				F4D8A6FA292A806B00C25A57 /* SearchViewModel.swift in Sources */,
 				F4034CCD29191B1400423FAF /* NSObject.swift in Sources */,
 				F4A94AA82924FD87007B96AE /* SesacTabBarController.swift in Sources */,
 				F45119A829193B9F0058571C /* SMSView.swift in Sources */,
@@ -838,6 +867,7 @@
 				F45119C3291941A00058571C /* NicknameViewController.swift in Sources */,
 				F41E0E382925AB0000B28291 /* GenderDataSource.swift in Sources */,
 				F47AF0BA292201A800AA0789 /* FakerView.swift in Sources */,
+				F4D8A6F8292A7CC500C25A57 /* SearchBottomCell.swift in Sources */,
 				F4F103CE291CBF8A00C2020C /* SeSacImage.swift in Sources */,
 				F41E0E342925A64D00B28291 /* MyInfoDataSource.swift in Sources */,
 				F4586468291FA90600993A6D /* Date.swift in Sources */,
@@ -848,7 +878,7 @@
 				F45119C9291941B80058571C /* GenderViewController.swift in Sources */,
 				F4D29808292508F500A3AAB7 /* MyInfoHeaderView.swift in Sources */,
 				F4A8A77C292487CB00B94EC7 /* Gender2View.swift in Sources */,
-				F4E019B52927CEA800760190 /* UserSubDTO.swift in Sources */,
+				F42EE500292B61B7007336DB /* MemoleaseQueue.swift in Sources */,
 				F45119BB291941550058571C /* NicknameView.swift in Sources */,
 				F41E0E322925A12E00B28291 /* ProfileDataSource.swift in Sources */,
 				F463F17C2929340600CE644C /* SeSacButton+.swift in Sources */,
@@ -858,22 +888,25 @@
 				F4034CC829191B1400423FAF /* MainCell.swift in Sources */,
 				F45119972919230B0058571C /* SeSacColor.swift in Sources */,
 				F4586475291FB33600993A6D /* GenderCell.swift in Sources */,
+				F4D8A6EF292A78F700C25A57 /* SearchView.swift in Sources */,
 				F47AF0B82922019700AA0789 /* FakerViewController.swift in Sources */,
 				F4D3B38F2929B29E00FA6B04 /* CGFloat.swift in Sources */,
 				F45119A629193B930058571C /* AuthView.swift in Sources */,
 				F45119CB291942720058571C /* SeSacTextField.swift in Sources */,
-				F4034CC529191B1400423FAF /* HomeViewModel.swift in Sources */,
+				F4034CC529191B1400423FAF /* MainViewModel.swift in Sources */,
 				F488D78E29212665002E4B57 /* HTTPMethod.swift in Sources */,
 				F4F103CA291CBD0E00C2020C /* OnBoardingViewController.swift in Sources */,
 				F4034CCC29191B1400423FAF /* UIViewController.swift in Sources */,
 				F4034CC929191B1400423FAF /* BaseViewCollectionViewCell.swift in Sources */,
+				F42EE4FD292B4E50007336DB /* UIView.swift in Sources */,
 				F48B30802922795A00DD5E12 /* ProfileHeaderView.swift in Sources */,
+				F4D8A6F6292A7C0100C25A57 /* SearchHeaderView.swift in Sources */,
 				F488D78929212290002E4B57 /* MemoleaseService.swift in Sources */,
-				F4E019B32927CCB700760190 /* UserMainDTO.swift in Sources */,
 				F4A8A7842924885100B94EC7 /* WithDrawView.swift in Sources */,
 				F45119C7291941B10058571C /* EmailViewController.swift in Sources */,
 				F4F103CC291CBD1700C2020C /* OnBoardingView.swift in Sources */,
 				F48B3070292270A800DD5E12 /* ProfileViewController.swift in Sources */,
+				F4A79EB0292D05310010E44F /* MemoleaseTargetType.swift in Sources */,
 				F4586466291F900E00993A6D /* EmailViewModel.swift in Sources */,
 				F488D7902921308A002E4B57 /* MemoleaseError.swift in Sources */,
 				F4586462291F77AB00993A6D /* NickNameViewModel.swift in Sources */,
@@ -884,6 +917,7 @@
 				F41E0E422925D7DC00B28291 /* MyInfoViewModel.swift in Sources */,
 				F45119C5291941AB0058571C /* BirthViewController.swift in Sources */,
 				F4034CCA29191B1400423FAF /* BaseViewContoroller.swift in Sources */,
+				F4D8A6F3292A791600C25A57 /* SearchTopCell.swift in Sources */,
 				F499C44C291F55C200C4B117 /* UserdefaultsManager.swift in Sources */,
 				F4334034291E177400F46725 /* OnboardingViewModel.swift in Sources */,
 				F456375D2921538700CDF1BA /* MemoleaseUser.swift in Sources */,
@@ -896,6 +930,8 @@
 				F4A8A78B2924B0F900B94EC7 /* CardStackView.swift in Sources */,
 				F4034CC729191B1400423FAF /* HomeView.swift in Sources */,
 				F4F103D0291CC1C300C2020C /* OnboardCell.swift in Sources */,
+				F4D8A6ED292A78F100C25A57 /* SearchViewController.swift in Sources */,
+				F4D8A6F1292A790900C25A57 /* SearchDataSource.swift in Sources */,
 				F4034CC629191B1400423FAF /* HomeViewController.swift in Sources */,
 				F45119A429193AEB0058571C /* SMSViewController.swift in Sources */,
 				F4594E752920C29F0071CFC2 /* String.swift in Sources */,

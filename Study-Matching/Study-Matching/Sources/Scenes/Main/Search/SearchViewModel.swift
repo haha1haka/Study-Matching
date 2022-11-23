@@ -1,5 +1,5 @@
 import Foundation
 
-class HomeViewModel {
+class SearchViewModel {
     
 }

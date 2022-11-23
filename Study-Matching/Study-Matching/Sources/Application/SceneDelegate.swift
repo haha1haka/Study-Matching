@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         //window?.rootViewController = UINavigationController(
-                //rootViewController: MyInfoViewController())
+        //        rootViewController: BirthViewController())
         
         window?.rootViewController = TabBarController()
         window?.makeKeyAndVisible()
