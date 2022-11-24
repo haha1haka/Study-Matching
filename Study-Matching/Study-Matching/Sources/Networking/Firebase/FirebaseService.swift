@@ -25,9 +25,9 @@ class FirebaseService: ResultType {
                 let errorStatus = AuthErrorCode.Code(rawValue: error._code)
                 switch errorStatus {
                 case .tooManyRequests:
-                      completion(.failure(.tooManyRequest)) // 🚀
+                    completion(.failure(.tooManyRequest)) // 🚀
                 default:
-                      completion(.failure(.unknown))
+                    completion(.failure(.unknown))
                 }
             }
             
@@ -51,17 +51,17 @@ class FirebaseService: ResultType {
         let credential = PhoneAuthProvider.provider().credential(withVerificationID: vertificationId, verificationCode: smsCode)
         
         Auth.auth().signIn(with: credential) { result, error in
-
+            
             
             if let error = error {
                 let errorStatus = AuthErrorCode.Code(rawValue: error._code)
                 switch errorStatus {
                 case .tooManyRequests:
-                      completion(.failure(.tooManyRequest)) // 🚀
+                    completion(.failure(.tooManyRequest)) // 🚀
                 case .invalidVerificationCode:
-                      completion(.failure(.invalidVerificationCode)) // 🚀
+                    completion(.failure(.invalidVerificationCode)) // 🚀
                 default:
-                      completion(.failure(.unknown))
+                    completion(.failure(.unknown))
                 }
             }
             else { // 1. SMS 코드 일치 하면 token 깔기
@@ -73,7 +73,7 @@ class FirebaseService: ResultType {
     
     
     
-    func fetchIdToken(completion: @escaping FirebaseResult)
+    func fetchIdToken(completion: @escaping (Result<Succeess, FirebaseError>) -> Void)
     {
         let currentUser = Auth.auth().currentUser
         currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
@@ -81,13 +81,15 @@ class FirebaseService: ResultType {
                 print(" ❌ idToken \(error)")
                 completion(.failure(.idTokenFetchError))
                 return
+            } else {
+                guard let idToken = idToken else { print("idToken == nil"); return }
+                
+                UserDefaultsManager.standard.idToken = idToken
+                completion(.success(.perfact))
+                print("♻️idToken갱신!♻️\(UserDefaultsManager.standard.idToken)♻️♻️♻️")
+                
             }
             
-            guard let idToken = idToken else { print("idToken == nil"); return }
-            
-            UserDefaultsManager.standard.idToken = idToken
-            completion(.success(.perfact))
-            print("♻️idToken갱신!♻️\(UserDefaultsManager.standard.idToken)♻️♻️♻️")
         }
         
         

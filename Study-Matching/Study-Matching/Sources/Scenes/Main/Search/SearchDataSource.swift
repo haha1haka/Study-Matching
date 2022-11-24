@@ -16,11 +16,11 @@ class SearchDataSource: UICollectionViewDiffableDataSource<Int, SearchStudy>, Da
                     for: indexPath,
                     item: nearby)
                 return cell
-            case .wish(let wish):
+            case .wanted(let wanted):
                 let cell = collectionView.dequeueConfiguredReusableCell(
                     using: bottomCellRegistration,
                     for: indexPath,
-                    item: wish)
+                    item: wanted)
                 return cell
             }
         }
@@ -38,7 +38,7 @@ class SearchDataSource: UICollectionViewDiffableDataSource<Int, SearchStudy>, Da
 
 enum SearchStudy: Hashable {
     case nearby(Nearby)
-    case wish(Wish?)
+    case wanted(Wanted?)
 }
 
 struct Nearby: Hashable {
@@ -53,7 +53,7 @@ struct Nearby: Hashable {
     }
 }
 
-struct Wish: Hashable {
+struct Wanted: Hashable {
+    var id = UUID()
     let label: String
-    
 }

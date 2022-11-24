@@ -77,4 +77,6 @@ enum SeSacImage {
     
     static let sesacImageArray = [sesacFace1, sesacFace3, sesacFace3, sesacFace4, sesacFace5]
     
+    static let closeSmall = UIImage(named: "close_small")
+    
 }

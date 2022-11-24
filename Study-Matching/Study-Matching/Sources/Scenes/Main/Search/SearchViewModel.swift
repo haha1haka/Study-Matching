@@ -9,7 +9,9 @@ class SearchViewModel: ResultType {
     
     var sesacFriendDataStore = BehaviorRelay<MemoleaseQueue>(value: MemoleaseQueue(fromQueueDB: [], fromQueueDBRequested: [], fromRecommend: []))
     
-    let nearbyFriendsSearch = PublishSubject<[Nearby]>()
+    let nearbyStudyList = PublishSubject<[Nearby]>()
+    var wantedStudyList = BehaviorRelay<[Wanted]>(value: [])
+    
     let sesacFriendsDBRequested = BehaviorRelay<[FromQueueDB]>(value: [])
     
 
@@ -62,7 +64,7 @@ class SearchViewModel: ResultType {
                 arr.append(Nearby(label: $0))
             }
         }
-        nearbyFriendsSearch.onNext(arr)
+        nearbyStudyList.onNext(arr)
         
     }
     

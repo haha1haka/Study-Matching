@@ -11,6 +11,7 @@ class SearchViewController: BaseViewController, DataSourceRegistration {
     var header    : SearchHeaderRegistration?
     var topCell   : SearchTopCellRegistration?
     var bottomCell: SearchBottomCellRegistration?
+    var wantedStudyList: [Wanted] = []
     
     lazy var dataSource = SearchDataSource(
         collectionView: selfView.collectionView,
@@ -36,6 +37,7 @@ extension SearchViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
+        selfView.collectionView.delegate = self
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -67,26 +69,53 @@ extension SearchViewController {
         
         bottomCell = SearchBottomCellRegistration
         { cell, indexPath, itemIdentifier in
+            cell.configure(with: itemIdentifier)
             
         }
         
-        viewModel.nearbyFriendsSearch
-            .bind(onNext: { nearbyFriendsSearch in
+        viewModel.nearbyStudyList
+            .bind(onNext: {
                 var snapshot = self.dataSource.snapshot()
                 snapshot.deleteAllItems()
-                snapshot.appendSections([0,1])
-                snapshot.appendItems(nearbyFriendsSearch.map(SearchStudy.nearby), toSection: 0)
+                snapshot.appendSections([0])
+                snapshot.appendItems($0.map(SearchStudy.nearby), toSection: 0)
                 self.dataSource.apply(snapshot)
             })
             .disposed(by: disposeBag)
         
+        
+        
+        viewModel.wantedStudyList
+            .bind(onNext: {
+                var snapshot = self.dataSource.snapshot()
+                snapshot.deleteSections([1])
+                snapshot.appendSections([1])
+                snapshot.appendItems($0.map(SearchStudy.wanted), toSection: 1)
+                self.dataSource.apply(snapshot)
+            })
+            .disposed(by: disposeBag)
         
     }
 }
 
 
 
-
+extension SearchViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let sectionItem = dataSource.itemIdentifier(for: indexPath)
+        switch sectionItem {
+        case .nearby(let nearby):
+            let wantedStudy = Wanted(label: nearby.label)
+            self.wantedStudyList.append(wantedStudy)
+            self.viewModel.wantedStudyList.accept(self.wantedStudyList)
+        case .wanted(let wanted):
+            return
+        default:
+            return
+        }
+    }
+}
 
 extension SearchViewController {
     func requestQueueSearch() {
@@ -98,6 +127,7 @@ extension SearchViewController {
                 switch error {
                 case .idTokenError:
                     self.requestQueueSearch()
+                    return
                 case .unRegistedUser:
                     print("⚠️미가입된 회원입니다")
                 default:
