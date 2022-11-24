@@ -72,24 +72,7 @@ extension SMSViewController {
                         switch $0 {
                         case .success:
                             UserDefaultsManager.standard.smsFlag = true //⭐️ 전화번호 인증완료된후에는 시작 화면 Nick 으로 나오게 할려고
-                            
-                            self.viewModel.requestUserInfo {
-                                switch $0 {
-                                case .success:
-                                        let vc = TabBarController()
-                                        self.transitionRootViewController(vc)
-                                case .failure(let error):
-                                    switch error {
-                                    case .unRegistedUser:
-                                        let vc = NicknameViewController()
-                                        self.transition(vc)
-                                    case .idTokenError:
-                                        self.viewModel.requestUserInfo { _ in }
-                                    default:
-                                        return
-                                    }
-                                }
-                            }
+                            self.checkUser()
                         case .failure(let error):
                             switch error {
                             case .invalidVerificationCode:
@@ -113,3 +96,26 @@ extension SMSViewController {
 
 
 
+extension SMSViewController {
+    func checkUser() {
+        self.viewModel.requestUserInfo {
+            switch $0 {
+            case .success:
+                    let vc = TabBarController()
+                    self.transitionRootViewController(vc)
+            case .failure(let error):
+                switch error {
+                case .unRegistedUser:
+                    print("ㅇㄹㄴㄹㄴㅇ")
+                    let vc = NicknameViewController()
+                    self.transition(vc)
+                case .idTokenError:
+                    print("이거이거이거이거이거이거이거")
+                    self.checkUser()
+                default:
+                    return
+                }
+            }
+        }
+    }
+}

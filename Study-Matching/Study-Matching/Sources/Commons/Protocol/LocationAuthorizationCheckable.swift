@@ -2,11 +2,13 @@ import Foundation
 import CoreLocation
 
 protocol LocationAuthorizationCheckable {
+    var locationManager: CLLocationManager { get }
     func checkUserDevicelocationServiceAuthorization(locationManager: CLLocationManager) //위치서비스활성화 여부
     func checkUserCurrentLocationAuthorization(locationManager: CLLocationManager, _ authorizationStatus: CLAuthorizationStatus) //권한상태분기처리
 }
 
 extension LocationAuthorizationCheckable {
+    
     func checkUserDevicelocationServiceAuthorization(locationManager: CLLocationManager) {
         print("위처서비스 켜져 있나?1️⃣")
         DispatchQueue.main.async

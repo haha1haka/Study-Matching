@@ -18,7 +18,7 @@ enum SeSacImage {
     static let splashLogo = UIImage(named: "splashLogo")
     static let splashTxt = UIImage(named: "splashTxt")
     static let sesacBg01 = UIImage(named: "sesac_bg_01")
-    static let sesacFace2 = UIImage(named: "sesac_face_2")
+    
     // MARK: - 로그인, 회원가입
     static let man = UIImage(named: "man")
     static let woman = UIImage(named: "woman")
@@ -67,4 +67,14 @@ enum SeSacImage {
     
     static let mapMarker = UIImage(named: "map_marker")
     static let place = UIImage(named: "place")
+    
+    
+    static let sesacFace1 = UIImage(named: "sesac_face_1")
+    static let sesacFace2 = UIImage(named: "sesac_face_2")
+    static let sesacFace3 = UIImage(named: "sesac_face_3")
+    static let sesacFace4 = UIImage(named: "sesac_face_4")
+    static let sesacFace5 = UIImage(named: "sesac_face_5")
+    
+    static let sesacImageArray = [sesacFace1, sesacFace3, sesacFace3, sesacFace4, sesacFace5]
+    
 }

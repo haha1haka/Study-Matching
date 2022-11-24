@@ -11,9 +11,7 @@ class HomeViewController: BaseViewController {
     let viewModel       = HomeViewModel()
     let disposeBag      = DisposeBag()
     let locationManager = CLLocationManager()
-    let center          = CLLocationCoordinate2D(
-                            latitude: 37.564713,
-                            longitude: 126.975122)
+    let center          = CLLocationCoordinate2D(latitude: 37.564713,longitude: 126.975122)
     
     override func loadView() { view = selfView }
 }
@@ -34,6 +32,8 @@ extension HomeViewController {
     func bind() {
         selfView.floattingButton.rx.tap
             .bind(onNext: {
+                let vc = SearchViewController()
+                self.transition(vc)
                 self.viewModel.requestQueueSearch {
                     switch $0 {
                     case .success:
@@ -51,6 +51,20 @@ extension HomeViewController {
                 }
             })
             .disposed(by: disposeBag)
+        
+        
+        viewModel.sesacFriendsArray
+            .bind(onNext: {
+                $0.forEach {
+                    let coordinate = CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.long)
+                    let friendsPin = SeSacAnnotation(coordinate: coordinate, sesac: $0.sesac)
+                    self.selfView.mapView.addAnnotation(friendsPin)
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        
+        
     }
     
     
@@ -87,19 +101,41 @@ extension HomeViewController: CLLocationManagerDelegate {
     }
     
     
+    
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         print("🐶")
         checkUserDevicelocationServiceAuthorization(locationManager: locationManager)
     }
+    
+    
 }
 
 
 
 // MARK: - MKMapviewDelegate
 extension HomeViewController: MKMapViewDelegate {
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        return MKAnnotationView()
+        guard let annotation = annotation as? SeSacAnnotation else { return nil }
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: SeSacAnnotationView.className)
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: SeSacAnnotationView.className)
+            annotationView?.contentMode = .scaleAspectFit
+        } else {
+            annotationView?.annotation = annotation
+        }
+        
+        let sesacImage = SeSacImage.sesacImageArray[annotation.sesac]
+
+        let sesacSize = CGSize(width: 90, height: 90)
+        UIGraphicsBeginImageContext(sesacSize)
+        sesacImage!.draw(in: CGRect(x: 0, y: 0, width: sesacSize.width, height: sesacSize.height))
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+        annotationView?.image = resizedImage
+        return annotationView
     }
+    
 }
 
 
