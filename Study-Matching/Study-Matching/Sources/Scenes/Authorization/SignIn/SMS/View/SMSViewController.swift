@@ -72,7 +72,7 @@ extension SMSViewController {
                         switch $0 {
                         case .success:
                             UserDefaultsManager.standard.smsFlag = true //⭐️ 전화번호 인증완료된후에는 시작 화면 Nick 으로 나오게 할려고
-                            //fadsfdsfdsfaffsd 여기서부터 다시
+                            
                             self.viewModel.requestUserInfo {
                                 switch $0 {
                                 case .success:

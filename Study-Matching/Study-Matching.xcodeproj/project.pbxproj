@@ -19,6 +19,7 @@
 		F4034CCE29191B1400423FAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CBF29191B1400423FAF /* AppDelegate.swift */; };
 		F4034CCF29191B1400423FAF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CC029191B1400423FAF /* SceneDelegate.swift */; };
 		F4034CD029191B1400423FAF /* BaseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CC429191B1400423FAF /* BaseCode.swift */; };
+		F41BA511292F0045002EEFEA /* LocationCheckable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA510292F0045002EEFEA /* LocationCheckable.swift */; };
 		F41E0E322925A12E00B28291 /* ProfileDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E0E312925A12E00B28291 /* ProfileDataSource.swift */; };
 		F41E0E342925A64D00B28291 /* MyInfoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E0E332925A64D00B28291 /* MyInfoDataSource.swift */; };
 		F41E0E362925A83000B28291 /* OnBoardingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E0E352925A83000B28291 /* OnBoardingDataSource.swift */; };
@@ -29,6 +30,7 @@
 		F4334030291E12FA00F46725 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F433402F291E12FA00F46725 /* RxCocoa */; };
 		F4334032291E12FA00F46725 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F4334031291E12FA00F46725 /* RxSwift */; };
 		F4334034291E177400F46725 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4334033291E177400F46725 /* OnboardingViewModel.swift */; };
+		F437D9FE292DF259005BC5C9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F437D9FD292DF259005BC5C9 /* HomeViewModel.swift */; };
 		F45119972919230B0058571C /* SeSacColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45119962919230B0058571C /* SeSacColor.swift */; };
 		F451199A291926A00058571C /* SeSacButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4511999291926A00058571C /* SeSacButton.swift */; };
 		F451199D291928C10058571C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F451199C291928C10058571C /* SnapKit */; };
@@ -124,6 +126,7 @@
 		F4034CBF29191B1400423FAF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4034CC029191B1400423FAF /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F4034CC429191B1400423FAF /* BaseCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCode.swift; sourceTree = "<group>"; };
+		F41BA510292F0045002EEFEA /* LocationCheckable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCheckable.swift; sourceTree = "<group>"; };
 		F41E0E312925A12E00B28291 /* ProfileDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataSource.swift; sourceTree = "<group>"; };
 		F41E0E332925A64D00B28291 /* MyInfoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoDataSource.swift; sourceTree = "<group>"; };
 		F41E0E352925A83000B28291 /* OnBoardingDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingDataSource.swift; sourceTree = "<group>"; };
@@ -132,6 +135,7 @@
 		F42EE4FC292B4E50007336DB /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		F42EE4FF292B61B7007336DB /* MemoleaseQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoleaseQueue.swift; sourceTree = "<group>"; };
 		F4334033291E177400F46725 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		F437D9FD292DF259005BC5C9 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F45119962919230B0058571C /* SeSacColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacColor.swift; sourceTree = "<group>"; };
 		F4511999291926A00058571C /* SeSacButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacButton.swift; sourceTree = "<group>"; };
 		F451199E29192DC80058571C /* SeSacFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacFont.swift; sourceTree = "<group>"; };
@@ -264,9 +268,9 @@
 		F4034CAB29191B1400423FAF /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				F4034CAF29191B1400423FAF /* HomeViewController.swift */,
-				F4034CB029191B1400423FAF /* HomeView.swift */,
-				F4034CB129191B1400423FAF /* MainCell.swift */,
+				F4034CAD29191B1400423FAF /* MainViewModel.swift */,
+				F437D9FB292DF248005BC5C9 /* View */,
+				F437D9FC292DF24A005BC5C9 /* ViewModel */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -437,11 +441,56 @@
 		F42EE503292B6430007336DB /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				F4034CAD29191B1400423FAF /* MainViewModel.swift */,
-				F42EE502292B6410007336DB /* Search */,
 				F4034CAB29191B1400423FAF /* Home */,
+				F42EE502292B6410007336DB /* Search */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		F437D9F8292DF05C005BC5C9 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				F45119A029193A020058571C /* Auth */,
+				F45119B029193C170058571C /* SMS */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		F437D9F9292DF19A005BC5C9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F45119C8291941B80058571C /* GenderViewController.swift */,
+				F45119C0291941680058571C /* GenderView.swift */,
+				F4586474291FB33600993A6D /* GenderCell.swift */,
+				F41E0E372925AB0000B28291 /* GenderDataSource.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F437D9FA292DF1A2005BC5C9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F4586472291FB32800993A6D /* GenderViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F437D9FB292DF248005BC5C9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F4034CAF29191B1400423FAF /* HomeViewController.swift */,
+				F4034CB029191B1400423FAF /* HomeView.swift */,
+				F4034CB129191B1400423FAF /* MainCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F437D9FC292DF24A005BC5C9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F437D9FD292DF259005BC5C9 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		F4511995291922AE0058571C /* Constants */ = {
@@ -547,11 +596,8 @@
 		F45119B729193E730058571C /* Gender */ = {
 			isa = PBXGroup;
 			children = (
-				F45119C8291941B80058571C /* GenderViewController.swift */,
-				F45119C0291941680058571C /* GenderView.swift */,
-				F4586472291FB32800993A6D /* GenderViewModel.swift */,
-				F4586474291FB33600993A6D /* GenderCell.swift */,
-				F41E0E372925AB0000B28291 /* GenderDataSource.swift */,
+				F437D9F9292DF19A005BC5C9 /* View */,
+				F437D9FA292DF1A2005BC5C9 /* ViewModel */,
 			);
 			path = Gender;
 			sourceTree = "<group>";
@@ -572,8 +618,7 @@
 		F45119B9291940B60058571C /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
-				F45119A029193A020058571C /* Auth */,
-				F45119B029193C170058571C /* SMS */,
+				F437D9F8292DF05C005BC5C9 /* SignIn */,
 				F45119B329193C8C0058571C /* Signup */,
 			);
 			path = Authorization;
@@ -755,6 +800,7 @@
 			children = (
 				F4D3B395292A36F700FA6B04 /* DataSourceRegistration.swift */,
 				F4D8A6EA292A6CAA00C25A57 /* ResultType.swift */,
+				F41BA510292F0045002EEFEA /* LocationCheckable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -893,10 +939,12 @@
 				F4D3B38F2929B29E00FA6B04 /* CGFloat.swift in Sources */,
 				F45119A629193B930058571C /* AuthView.swift in Sources */,
 				F45119CB291942720058571C /* SeSacTextField.swift in Sources */,
+				F41BA511292F0045002EEFEA /* LocationCheckable.swift in Sources */,
 				F4034CC529191B1400423FAF /* MainViewModel.swift in Sources */,
 				F488D78E29212665002E4B57 /* HTTPMethod.swift in Sources */,
 				F4F103CA291CBD0E00C2020C /* OnBoardingViewController.swift in Sources */,
 				F4034CCC29191B1400423FAF /* UIViewController.swift in Sources */,
+				F437D9FE292DF259005BC5C9 /* HomeViewModel.swift in Sources */,
 				F4034CC929191B1400423FAF /* BaseViewCollectionViewCell.swift in Sources */,
 				F42EE4FD292B4E50007336DB /* UIView.swift in Sources */,
 				F48B30802922795A00DD5E12 /* ProfileHeaderView.swift in Sources */,

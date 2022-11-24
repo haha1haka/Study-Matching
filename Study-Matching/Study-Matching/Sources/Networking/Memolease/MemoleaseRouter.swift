@@ -7,7 +7,7 @@ enum MemoleaseRouter {
     case FCMtoken(FCMtoken: String)
     case updateUser(searchable: Int, ageMin: Int, ageMax: Int, gender: Int, study: String)
     case withdraw
-    case queue(lat: Double, long: Double)
+    case queueSearch(lat: Double, long: Double)
     
 }
 
@@ -18,12 +18,12 @@ extension MemoleaseRouter: TargetType {
     var path: String {
         let baseURL: String = "http://api.sesac.co.kr:1210"
         switch self {
-        case .signIn:         return "\(baseURL)/v1/user"
-        case .signup:         return "\(baseURL)/v1/user"
-        case .FCMtoken:       return "\(baseURL)/v1/user/update_fcm_token"
-        case .updateUser:           return "\(baseURL)/v1/user/mypage"
-        case .withdraw:       return "\(baseURL)/v1/user/withdraw"
-        case .queue:          return "\(baseURL)/v1/queue/search"
+        case .signIn:      return "\(baseURL)/v1/user"
+        case .signup:      return "\(baseURL)/v1/user"
+        case .FCMtoken:    return "\(baseURL)/v1/user/update_fcm_token"
+        case .updateUser:  return "\(baseURL)/v1/user/mypage"
+        case .withdraw:    return "\(baseURL)/v1/user/withdraw"
+        case .queueSearch: return "\(baseURL)/v1/queue/search"
         }
     }
     
@@ -65,7 +65,7 @@ extension MemoleaseRouter: TargetType {
         case .withdraw:
             return nil
             
-        case .queue(let lat, let long):
+        case .queueSearch(let lat, let long):
             return [URLQueryItem(name: "lat", value: "\(lat)"),
                     URLQueryItem(name: "long", value: "\(long)")]
         }
@@ -78,7 +78,7 @@ extension MemoleaseRouter: TargetType {
         case .FCMtoken   : return .put
         case .updateUser: return .put
         case .withdraw      : return .post
-        case .queue   : return .post
+        case .queueSearch   : return .post
         }
     }
     

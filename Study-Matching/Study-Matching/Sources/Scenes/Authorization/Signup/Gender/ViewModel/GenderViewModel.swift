@@ -18,6 +18,8 @@ extension GenderViewModel {
                 birth: UserDefaultsManager.standard.birth,
                 email: UserDefaultsManager.standard.email,
                 gender: UserDefaultsManager.standard.gender)) {
+                    
+                    
                     let a = MemoleaseRouter.signup(
                         phoneNumber: UserDefaultsManager.standard.phoneNumber,
                         FCMtoken: UserDefaultsManager.standard.FCMToken,

@@ -22,11 +22,11 @@ class MemoleaseService: ResultType {
     }
     
     private init() {}
-   
-    func requestGetUser(target: TargetType, completion: @escaping MemoleaseUserGetResult ) {
-        
-
-        
+    
+    func requestGetUser(
+        target: TargetType,
+        completion: @escaping (Result<MemoleaseUser, MemoleaseError>) -> Void )
+    {
         
         session.dataTask(with: target.request) { data, response, error in
             DispatchQueue.main.async {
@@ -158,7 +158,7 @@ class MemoleaseService: ResultType {
                                         completion: { print("🍀 FCMToken update 완료: \($0)") })
                 }
                 
-                    
+                
                 
                 completion(.failure(.idTokenError)) //🚀 해당 viewModel 에서 재귀로그인
             case 406:
@@ -180,15 +180,15 @@ class MemoleaseService: ResultType {
     
     func updateUser(target: TargetType, completion: @escaping MemoleaseResult) {
         
-//        var urlComponents = URLComponents(string: path)
-//        urlComponents?.queryItems = queryItems
-//
-//        print("\(path)🟩\(String(describing: urlComponents?.url))")
-//
-//        var urlRequest = URLRequest(url: (urlComponents?.url)!)
-//        urlRequest.httpBody = urlComponents?.query?.data(using: .utf8)
-//        urlRequest.httpMethod = httpMethod.rawValue.uppercased()
-//        urlRequest.allHTTPHeaderFields = headers
+        //        var urlComponents = URLComponents(string: path)
+        //        urlComponents?.queryItems = queryItems
+        //
+        //        print("\(path)🟩\(String(describing: urlComponents?.url))")
+        //
+        //        var urlRequest = URLRequest(url: (urlComponents?.url)!)
+        //        urlRequest.httpBody = urlComponents?.query?.data(using: .utf8)
+        //        urlRequest.httpMethod = httpMethod.rawValue.uppercased()
+        //        urlRequest.allHTTPHeaderFields = headers
         
         URLSession.shared.dataTask(with: target.request) { data, response, error in
             
@@ -269,65 +269,54 @@ class MemoleaseService: ResultType {
         
     }
     
-    func requestQueue(path: String, queryItems: [URLQueryItem]?, httpMethod: HTTPMethod, headers: [String: String], completion: @escaping MemoleaseQueueSearchPostResult ) {
+    func requestQueueSearch(
+        target: TargetType,
+        completion: @escaping (Result<MemoleaseQueue, MemoleaseError>) -> Void )
+    {
         
-        var urlComponents = URLComponents(string: path)
-        urlComponents?.queryItems = queryItems
-        print("\(path)🟩\(String(describing: urlComponents?.url))")
-        
-        
-        
-        var urlRequest = URLRequest(url: (urlComponents?.url)!)
-        urlRequest.httpBody = urlComponents?.query?.data(using: .utf8)
-        urlRequest.httpMethod = httpMethod.rawValue.uppercased()
-        urlRequest.allHTTPHeaderFields = headers //헤더
-        
-        
-        
-        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
-            
-            guard let httpResponse = response as? HTTPURLResponse else { return }
-            print("📭 Request \(urlRequest.url!)")
-            print("🚩 Response \(httpResponse.statusCode)")
-            
-            guard let data = data else { print("데이터 없음"); return }
-            
-            switch httpResponse.statusCode {
-            case 200:
+        session.dataTask(with: target.request) { data, response, error in
+            DispatchQueue.main.async {
+                guard let httpResponse = response as? HTTPURLResponse else { return }
+                print("📭 Request \(target.request.url!)")
+                print("🚩 Response \(httpResponse.statusCode)")
                 
-                do {
-                    let queueSearch = try JSONDecoder().decode( //🚀 해당 vc 에서 처리
-                        MemoleaseQueue.self,
-                        from: data)
+                guard let data = data else { print("데이터 없음"); return }
+                
+                switch httpResponse.statusCode {
+                case 200:
                     
-                    DispatchQueue.main.async {
+                    do {
+                        let queueSearch = try JSONDecoder().decode( //🚀 해당 vc 에서 처리
+                            MemoleaseQueue.self,
+                            from: data)
+                        
+                        
                         print("🐙🐙🐙\(queueSearch)")
                         completion(.success(queueSearch))
+                        
                     }
-                }
-                catch let decodingError {
-                    print("⁉️ Failure", decodingError)
-                    DispatchQueue.main.async {
+                    catch let decodingError {
+                        print("⁉️ Failure", decodingError)
+                        
                         completion(.failure(.decodingError))
+                        
                     }
+                    
+                case 401:
+                    FirebaseService.shared.fetchIdToken { _ in } //🚀 해당 viewModel 에서 재귀로그인
+                    completion(.failure(.idTokenError))
+                case 406:
+                    completion(.failure(.unRegistedUser)) //🚀 해당 vc 에서 처리: 화면이동
+                case 500:
+                    completion(.failure(.serverError))
+                    print("❌500")
+                case 501:
+                    completion(.failure(.clientError))
+                    print("❌501")
+                default:
+                    completion(.failure(.unknown))
                 }
-                
-            case 401:
-                FirebaseService.shared.fetchIdToken { _ in }
-                print("♻️idtoken update 완료")
-                completion(.failure(.idTokenError)) //🚀 해당 viewModel 에서 재귀로그인
-            case 406:
-                completion(.failure(.unRegistedUser)) //🚀 해당 vc 에서 처리: 화면이동
-            case 500:
-                completion(.failure(.serverError))
-                print("❌500")
-            case 501:
-                completion(.failure(.clientError))
-                print("❌501")
-            default:
-                completion(.failure(.unknown))
             }
-            
             
         }.resume()
         
