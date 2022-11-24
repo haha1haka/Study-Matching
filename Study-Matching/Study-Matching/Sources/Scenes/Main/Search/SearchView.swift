@@ -47,7 +47,7 @@ class SearchView: BaseView {
             heightDimension: .estimated(128))
         
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.edgeSpacing = .init(leading: .fixed(8), top: .fixed(8), trailing: .fixed(8), bottom: .fixed(8))
+        item.edgeSpacing = .init(leading: .fixed(4), top: .fixed(4), trailing: .fixed(4), bottom: .fixed(4))
         
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
@@ -56,7 +56,7 @@ class SearchView: BaseView {
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         let section = NSCollectionLayoutSection(group: group)
         
-        section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 24, trailing: 16)
         section.interGroupSpacing = 8
         
         let headerSize = NSCollectionLayoutSize(

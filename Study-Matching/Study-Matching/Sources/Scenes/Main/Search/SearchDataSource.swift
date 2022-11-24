@@ -1,6 +1,6 @@
 import UIKit
 
-class SearchDataSource: UICollectionViewDiffableDataSource<Int, SearchItem>, DataSourceRegistration {
+class SearchDataSource: UICollectionViewDiffableDataSource<Int, SearchStudy>, DataSourceRegistration {
 
     convenience init(collectionView        : UICollectionView,
                      headerRegistration    : SearchHeaderRegistration,
@@ -10,17 +10,17 @@ class SearchDataSource: UICollectionViewDiffableDataSource<Int, SearchItem>, Dat
         self.init(collectionView: collectionView) {
             collectionView, indexPath, itemIdentifier in
             switch itemIdentifier {
-            case .top(let top):
+            case .nearby(let nearby):
                 let cell = collectionView.dequeueConfiguredReusableCell(
                     using: topCellRegistration,
                     for: indexPath,
-                    item: top)
+                    item: nearby)
                 return cell
-            case .bottom(let bottom):
+            case .wish(let wish):
                 let cell = collectionView.dequeueConfiguredReusableCell(
                     using: bottomCellRegistration,
                     for: indexPath,
-                    item: bottom)
+                    item: wish)
                 return cell
             }
         }
@@ -32,33 +32,28 @@ class SearchDataSource: UICollectionViewDiffableDataSource<Int, SearchItem>, Dat
             return suppleymentaryView }
     }
 
-    func applySnapshot() {
-        var snapshot = snapshot()
-        snapshot.appendSections([0, 1])
-        snapshot.appendItems(SearchItem.topData.map(SearchItem.top), toSection: 0)
-        snapshot.appendItems([SearchItem.bottom(Bottom(label: "안녕"))], toSection: 1)
-        apply(snapshot)
+
+}
+
+
+enum SearchStudy: Hashable {
+    case nearby(Nearby)
+    case wish(Wish?)
+}
+
+struct Nearby: Hashable {
+    let label: String
+    let titleColor: UIColor
+    let borderColor: UIColor
+    
+    init(label: String, titleColor: UIColor = SeSacColor.black , borderColor: UIColor = SeSacColor.gray4) {
+        self.label = label
+        self.titleColor = titleColor
+        self.borderColor = borderColor
     }
 }
 
-
-enum SearchItem: Hashable {
-    case top(Top)
-    case bottom(Bottom?)
-    static let topData = [
-            Top(label: "아무거나"),
-            Top(label: "SeSAC"),
-            Top(label: "코딩"),
-            Top(label: "Swift"),
-            Top(label: "SwiftUI"),
-            Top(label: "CoreData")]
-}
-
-struct Top: Hashable {
-    let label: String
-}
-
-struct Bottom: Hashable {
+struct Wish: Hashable {
     let label: String
     
 }

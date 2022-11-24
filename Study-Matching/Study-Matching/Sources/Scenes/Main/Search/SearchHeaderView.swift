@@ -5,6 +5,7 @@ class SearchHeaderView: UICollectionReusableView {
     
     let sectionLabel: UILabel = {
         let view = UILabel()
+        view.font = SeSacFont.Title6_R12.set
         return view
     }()
     
@@ -24,7 +25,8 @@ class SearchHeaderView: UICollectionReusableView {
     
     func configureLayout() {
         sectionLabel.snp.makeConstraints {
-            $0.edges.equalTo(self)
+            $0.leading.equalTo(self).offset(4)
+            $0.trailing.top.bottom.equalTo(self)
         }
     }
 

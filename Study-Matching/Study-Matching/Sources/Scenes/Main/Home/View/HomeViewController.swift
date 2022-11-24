@@ -34,21 +34,21 @@ extension HomeViewController {
             .bind(onNext: {
                 let vc = SearchViewController()
                 self.transition(vc)
-                self.viewModel.requestQueueSearch {
-                    switch $0 {
-                    case .success:
-                        return
-                    case .failure(let error):
-                        switch error {
-                        case .idTokenError:
-                            self.viewModel.requestQueueSearch { _ in }
-                        case .unRegistedUser:
-                            print("⚠️미가입된 회원입니다")
-                        default:
-                            return
-                        }
-                    }
-                }
+//                self.viewModel.requestQueueSearch {
+//                    switch $0 {
+//                    case .success:
+//                        return
+//                    case .failure(let error):
+//                        switch error {
+//                        case .idTokenError:
+//                            self.viewModel.requestQueueSearch { _ in }
+//                        case .unRegistedUser:
+//                            print("⚠️미가입된 회원입니다")
+//                        default:
+//                            return
+//                        }
+//                    }
+//                }
             })
             .disposed(by: disposeBag)
         
