@@ -42,6 +42,7 @@ enum SearchStudy: Hashable {
 }
 
 struct Nearby: Hashable {
+    var uuid = UUID()
     let label: String
     let titleColor: UIColor
     let borderColor: UIColor

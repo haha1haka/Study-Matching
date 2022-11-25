@@ -4,8 +4,8 @@ import RxCocoa
 
 class SearchViewModel: ResultType {
     
-    let lat = BehaviorRelay<Double>(value: 37.4827333667903865)
-    let long = BehaviorRelay<Double>(value: 126.92983890550006)
+    let lat = BehaviorRelay<Double>(value: 37.51818789942772)
+    let long = BehaviorRelay<Double>(value: 126.88541765534976)
     
     var sesacFriendDataStore = BehaviorRelay<MemoleaseQueue>(value: MemoleaseQueue(fromQueueDB: [], fromQueueDBRequested: [], fromRecommend: []))
     
@@ -15,10 +15,6 @@ class SearchViewModel: ResultType {
     let sesacFriendsDBRequested = BehaviorRelay<[FromQueueDB]>(value: [])
     
 
-    
-    
-    
-    
     func requestQueueSearch(completion: @escaping MemoleaseQueueSearchPostResult) {
                 
         MemoleaseService.shared.requestQueueSearch(
@@ -36,8 +32,10 @@ class SearchViewModel: ResultType {
                 switch error {
                 case .idTokenError:
                     completion(.failure(.idTokenError))
+                    return
                 case .unRegistedUser:
                     completion(.failure(.unRegistedUser))
+                    return
                 default:
                     return
                 }

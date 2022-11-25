@@ -22,7 +22,7 @@ class SearchBottomCell: BaseCollectionViewCell {
     }()
     let button: UIButton = {
         let view = UIButton(type: .custom)
-        view.setImage(SeSacImage.closeSmall, for: .normal)
+        view.setImage(SeSacImage.closeSmall?.withRenderingMode(.alwaysTemplate), for: .normal)
         view.tintColor = SeSacColor.green
         return view
     }()

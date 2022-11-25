@@ -6,8 +6,8 @@ import RxCocoa
 
 class HomeViewModel: ResultType {
     
-    let lat = BehaviorRelay<Double>(value: 37.4827333667903865)
-    let long = BehaviorRelay<Double>(value: 126.92983890550006)
+    let lat = BehaviorRelay<Double>(value: 37.51818789942772)
+    let long = BehaviorRelay<Double>(value: 126.88541765534976)
     var queueSearch = BehaviorRelay<MemoleaseQueue>(value: MemoleaseQueue(fromQueueDB: [], fromQueueDBRequested: [], fromRecommend: []))
     let sesacFriendsArray = BehaviorRelay<[FromQueueDB]>(value: [])
 

@@ -110,8 +110,9 @@ class MemoleaseService: ResultType {
                 case 202:
                     completion(.failure(.nickError)) //🚀 해당 vc 에서 처리
                 case 401:
-                    FirebaseService.shared.fetchIdToken{ _ in }
-                    completion(.failure(.idTokenError)) //🚀 해당 viewModel 에서 재귀로그인
+                    FirebaseService.shared.fetchIdToken { _ in
+                        completion(.failure(.idTokenError))
+                    } //🚀 해당 viewModel 에서 재귀로그인
                 case 500:
                     completion(.failure(.serverError))
                     print("❌500 왜?")
@@ -200,9 +201,9 @@ class MemoleaseService: ResultType {
             case 200:
                 completion(.success(.perfact)) //🚀 해당 vc 에서 처리
             case 401:
-                FirebaseService.shared.fetchIdToken { _ in }
-                completion(.failure(.idTokenError)) //🚀 해당 viewModel 에서 재귀로그인
-                
+                FirebaseService.shared.fetchIdToken { _ in
+                    completion(.failure(.idTokenError))
+                } //🚀 해당 viewModel 에서 재귀로그인
             case 406:
                 completion(.failure(.unRegistedUser)) //🚀 해당 vc 에서 처리
             case 500:
@@ -246,8 +247,9 @@ class MemoleaseService: ResultType {
                 case 200:
                     completion(.success(.perfact)) //🚀 해당 vc 에서 처리: 온보딩 화면으로
                 case 401:
-                    FirebaseService.shared.fetchIdToken { _ in }
-                    completion(.failure(.idTokenError))
+                    FirebaseService.shared.fetchIdToken { _ in
+                        completion(.failure(.idTokenError))
+                    } //🚀 해당 viewModel 에서 재귀로그인
                 case 406: //🚀 해당 vc 에서 처리: 온보딩 화면으로
                     completion(.failure(.aleadyWithdraw))
                 case 500:
@@ -278,7 +280,7 @@ class MemoleaseService: ResultType {
             DispatchQueue.main.async {
                 guard let httpResponse = response as? HTTPURLResponse else { return }
                 print("📭 Request \(target.request.url!)")
-                print("🚩 Response \(httpResponse.statusCode)")
+                print("🚩 Response 너지범인 \(httpResponse.statusCode)")
                 
                 guard let data = data else { print("데이터 없음"); return }
                 
@@ -293,28 +295,35 @@ class MemoleaseService: ResultType {
                         
                         print("🐙🐙🐙\(queueSearch)")
                         completion(.success(queueSearch))
-                        
+                        return
                     }
                     catch let decodingError {
                         print("⁉️ Failure", decodingError)
                         
                         completion(.failure(.decodingError))
-                        
+                        return
                     }
                     
                 case 401:
-                    FirebaseService.shared.fetchIdToken { _ in } //🚀 해당 viewModel 에서 재귀로그인
-                    completion(.failure(.idTokenError))
+                    FirebaseService.shared.fetchIdToken { _ in
+                        completion(.failure(.idTokenError))
+                    } //🚀 해당 viewModel 에서 재귀로그인
+                    
+                    return
                 case 406:
                     completion(.failure(.unRegistedUser)) //🚀 해당 vc 에서 처리: 화면이동
+                    return
                 case 500:
                     completion(.failure(.serverError))
                     print("❌500")
+                    return
                 case 501:
                     completion(.failure(.clientError))
                     print("❌501")
+                    return
                 default:
                     completion(.failure(.unknown))
+                    return
                 }
             }
             

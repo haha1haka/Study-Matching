@@ -12,7 +12,7 @@ class SearchViewController: BaseViewController, DataSourceRegistration {
     var topCell   : SearchTopCellRegistration?
     var bottomCell: SearchBottomCellRegistration?
     var wantedStudyList: [Wanted] = []
-    
+    let searchBar = UISearchBar()
     lazy var dataSource = SearchDataSource(
         collectionView: selfView.collectionView,
         headerRegistration: self.header!,
@@ -25,24 +25,46 @@ class SearchViewController: BaseViewController, DataSourceRegistration {
         super.setNavigationBar(title: title)
         //let back = UIBarButtonItem(image: SeSacImage.arrow, style: .plain, target: self, action: nil)
         //self.navigationItem.leftBarButtonItem = back
-        let searchBar = UISearchBar()
+        searchBar.delegate = self
         searchBar.placeholder = "띄어쓰기로 복수 입력이 가능해요"
         self.navigationItem.titleView = searchBar
+        self.tabBarController?.tabBar.isHidden = true
     }
-    
-    
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        searchBar.endEditing(true)
+//        self.searchBar.becomeFirstResponder() // 올라감
+//        self.selfView.searchButtonConstraint?.constant = .zero
+//    }
+        
 }
 
 extension SearchViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
+        
         bind()
         selfView.collectionView.delegate = self
         
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: UIResponder.keyboardDidHideNotification, object: nil)
     }
+    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         requestQueueSearch()
+    }
+    
+    override func viewSafeAreaInsetsDidChange() {
+        super.viewSafeAreaInsetsDidChange()
+        print(#function)
+        selfView.searchButtonConstraint = selfView.searchButton.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor, constant: 600)
+
+        selfView.searchButtonConstraint?.isActive = true
     }
 }
 
@@ -95,8 +117,35 @@ extension SearchViewController {
             })
             .disposed(by: disposeBag)
         
+        searchBar.rx.searchButtonClicked
+            .bind(onNext: {_ in
+
+                self.searchBar.resignFirstResponder()
+                self.selfView.searchButtonConstraint?.constant = 48 + self.selfView.safeAreaInsets.bottom
+
+            })
+            .disposed(by: disposeBag)
+        
+ 
+        
+    }
+    
+    @objc func keyboardWillShow() {
+        
+        print("fdsfdsfadsfasfsadfasdfasdfsdfsdfsdf")
+        selfView.searchButtonConstraint?.constant = 500
+    }
+    @objc func keyboardDidHide() {
+        
+        print("ㅇㄹㄴㅇㄹㄴ함니")
+        selfView.searchButtonConstraint?.constant = -48 + -view.safeAreaInsets.bottom
+        selfView.searchButtonConstraint = selfView.searchButton.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor, constant: 50)
+
+        selfView.searchButtonConstraint?.isActive = true
     }
 }
+
+
 
 
 
@@ -104,18 +153,40 @@ extension SearchViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let sectionItem = dataSource.itemIdentifier(for: indexPath)
+        
         switch sectionItem {
         case .nearby(let nearby):
             let wantedStudy = Wanted(label: nearby.label)
             self.wantedStudyList.append(wantedStudy)
             self.viewModel.wantedStudyList.accept(self.wantedStudyList)
+            
         case .wanted(let wanted):
+            var cnt = 0
+            wantedStudyList.forEach {
+                cnt += 1
+                if $0.id == wanted?.id {
+                    wantedStudyList.remove(at: cnt - 1)
+                    print("fdfds")
+                    
+                    
+                }
+                                            
+            }
+            
+
+            
             return
         default:
             return
         }
     }
 }
+
+
+extension SearchViewController: UISearchBarDelegate {
+    
+}
+
 
 extension SearchViewController {
     func requestQueueSearch() {
@@ -137,3 +208,4 @@ extension SearchViewController {
         }
     }
 }
+
