@@ -19,7 +19,7 @@ class MyInfoViewController: BaseViewController, DataSourceRegistration {
     let viewModel = MyInfoViewModel.shared
     let disposeBag = DisposeBag()
     
-    override func setNavigationBar(title: String) {
+    override func setNavigationBar(title: String, rightTitle: String) {
         super.setNavigationBar(title: "내정보")
     }
     

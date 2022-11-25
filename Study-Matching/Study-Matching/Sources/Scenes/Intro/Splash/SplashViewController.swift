@@ -6,12 +6,12 @@ enum SceneType: String {
     case onboarding
     case auth
     case nick
-    case home
+    case map
 }
 
 
-class FakerViewController: BaseViewController {
-    let selfView = FakerView()
+class SplashViewController: BaseViewController {
+    let selfView = SplashView()
     override func loadView() {
         view = selfView
     }
@@ -20,7 +20,7 @@ class FakerViewController: BaseViewController {
     }
 }
 
-extension FakerViewController {
+extension SplashViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -39,7 +39,7 @@ extension FakerViewController {
                 
     }
 }
-extension FakerViewController {
+extension SplashViewController {
 //    func saveSceneType() {
 //        print("❌\(UserDefaultsManager.standard.onboardFlag)")
 //
@@ -112,8 +112,8 @@ extension FakerViewController {
             let vc = NicknameViewController()
             self.transitionRootViewController(vc, transitionStyle: .presentNavigation)
 
-        case .home:
-            let vc = HomeViewController()
+        case .map:
+            let vc = MapViewController()
             self.transitionRootViewController(vc, transitionStyle: .presentNavigation)
 
         default:
@@ -124,7 +124,7 @@ extension FakerViewController {
 
 }
 
-extension FakerViewController {
+extension SplashViewController {
     func requestRefreshIdToken() {
         FirebaseService.shared.fetchIdToken { result in
             switch result {

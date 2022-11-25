@@ -24,7 +24,7 @@ class ProfileViewController: BaseViewController, DataSourceRegistration {
     
     override func loadView() { view = selfView }
     
-    override func setNavigationBar(title: String) {
+    override func setNavigationBar(title: String, rightTitle: String) {
         super.setNavigationBar(title: "내정보")
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "저장", style: .plain, target: self, action: nil)

@@ -20,7 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        window?.rootViewController = UINavigationController(
 //                rootViewController: AuthViewController())
         
-        window?.rootViewController = TabBarController()
+        window?.rootViewController = UINavigationController(rootViewController: SettingViewController())
+//        window?.makeKeyAndVisible()
+        //window?.rootViewController = TabBarController()
         window?.makeKeyAndVisible()
     }
 }

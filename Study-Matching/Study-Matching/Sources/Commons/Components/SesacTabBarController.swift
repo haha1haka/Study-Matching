@@ -3,8 +3,8 @@ import UIKit
 class TabBarController: UITabBarController {
 
 
-    let homeViewController  = UINavigationController(
-        rootViewController: HomeViewController())
+    let mapViewController  = UINavigationController(
+        rootViewController: MapViewController())
     
     let shopViewController = UINavigationController(
         rootViewController: MyInfoViewController())
@@ -24,7 +24,7 @@ class TabBarController: UITabBarController {
         tabBar.standardAppearance = appearance
         tabBar.tintColor = SeSacColor.green
         
-        homeViewController.tabBarItem = UITabBarItem(
+        mapViewController.tabBarItem = UITabBarItem(
             title: "홈",
             image: SeSacImage.homeIndAct,
             selectedImage: SeSacImage.homeAct)
@@ -43,7 +43,7 @@ class TabBarController: UITabBarController {
         
 
         setViewControllers(
-            [homeViewController,
+            [mapViewController,
              shopViewController,
              friendViewController,
              myInfoViewController],

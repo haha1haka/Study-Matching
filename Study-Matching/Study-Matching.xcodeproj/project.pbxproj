@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F4034CC529191B1400423FAF /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CAD29191B1400423FAF /* MainViewModel.swift */; };
-		F4034CC629191B1400423FAF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CAF29191B1400423FAF /* HomeViewController.swift */; };
-		F4034CC729191B1400423FAF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CB029191B1400423FAF /* HomeView.swift */; };
-		F4034CC829191B1400423FAF /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CB129191B1400423FAF /* MainCell.swift */; };
+		F4034CC629191B1400423FAF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CAF29191B1400423FAF /* MapViewController.swift */; };
+		F4034CC729191B1400423FAF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CB029191B1400423FAF /* MapView.swift */; };
 		F4034CC929191B1400423FAF /* BaseViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CB429191B1400423FAF /* BaseViewCollectionViewCell.swift */; };
 		F4034CCA29191B1400423FAF /* BaseViewContoroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CB529191B1400423FAF /* BaseViewContoroller.swift */; };
 		F4034CCB29191B1400423FAF /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CB629191B1400423FAF /* BaseView.swift */; };
@@ -30,7 +28,7 @@
 		F4334030291E12FA00F46725 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F433402F291E12FA00F46725 /* RxCocoa */; };
 		F4334032291E12FA00F46725 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F4334031291E12FA00F46725 /* RxSwift */; };
 		F4334034291E177400F46725 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4334033291E177400F46725 /* OnboardingViewModel.swift */; };
-		F437D9FE292DF259005BC5C9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F437D9FD292DF259005BC5C9 /* HomeViewModel.swift */; };
+		F437D9FE292DF259005BC5C9 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F437D9FD292DF259005BC5C9 /* MapViewModel.swift */; };
 		F45119972919230B0058571C /* SeSacColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45119962919230B0058571C /* SeSacColor.swift */; };
 		F451199A291926A00058571C /* SeSacButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4511999291926A00058571C /* SeSacButton.swift */; };
 		F451199D291928C10058571C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F451199C291928C10058571C /* SnapKit */; };
@@ -68,8 +66,8 @@
 		F463403F2918FE54008A50D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F463403D2918FE54008A50D6 /* LaunchScreen.storyboard */; };
 		F463F17C2929340600CE644C /* SeSacButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F463F17B2929340600CE644C /* SeSacButton+.swift */; };
 		F464068229287898008E6F8F /* MultiSlider in Frameworks */ = {isa = PBXBuildFile; productRef = F464068129287898008E6F8F /* MultiSlider */; };
-		F47AF0B82922019700AA0789 /* FakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AF0B72922019700AA0789 /* FakerViewController.swift */; };
-		F47AF0BA292201A800AA0789 /* FakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AF0B9292201A800AA0789 /* FakerView.swift */; };
+		F47AF0B82922019700AA0789 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AF0B72922019700AA0789 /* SplashViewController.swift */; };
+		F47AF0BA292201A800AA0789 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AF0B9292201A800AA0789 /* SplashView.swift */; };
 		F47AF0BE2922097800AA0789 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F47AF0BD2922097800AA0789 /* GoogleService-Info.plist */; };
 		F488D78729211AE6002E4B57 /* FirebaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F488D78629211AE6002E4B57 /* FirebaseError.swift */; };
 		F488D78929212290002E4B57 /* MemoleaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F488D78829212290002E4B57 /* MemoleaseService.swift */; };
@@ -98,6 +96,10 @@
 		F4D3B38F2929B29E00FA6B04 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3B38E2929B29E00FA6B04 /* CGFloat.swift */; };
 		F4D3B3922929D21400FA6B04 /* SeSacAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3B3912929D21400FA6B04 /* SeSacAlertController.swift */; };
 		F4D3B396292A36F700FA6B04 /* DataSourceRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3B395292A36F700FA6B04 /* DataSourceRegistration.swift */; };
+		F4D83D0F2930BFED00F78530 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D83D0E2930BFED00F78530 /* SettingViewController.swift */; };
+		F4D83D112930BFF700F78530 /* SettingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D83D102930BFF700F78530 /* SettingDataSource.swift */; };
+		F4D83D132930C00A00F78530 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D83D122930C00A00F78530 /* SettingView.swift */; };
+		F4D83D152930C01000F78530 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D83D142930C01000F78530 /* SettingViewModel.swift */; };
 		F4D8A6EB292A6CAA00C25A57 /* ResultType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D8A6EA292A6CAA00C25A57 /* ResultType.swift */; };
 		F4D8A6ED292A78F100C25A57 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D8A6EC292A78F100C25A57 /* SearchViewController.swift */; };
 		F4D8A6EF292A78F700C25A57 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D8A6EE292A78F700C25A57 /* SearchView.swift */; };
@@ -115,10 +117,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F4034CAD29191B1400423FAF /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
-		F4034CAF29191B1400423FAF /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		F4034CB029191B1400423FAF /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		F4034CB129191B1400423FAF /* MainCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
+		F4034CAF29191B1400423FAF /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		F4034CB029191B1400423FAF /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		F4034CB429191B1400423FAF /* BaseViewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		F4034CB529191B1400423FAF /* BaseViewContoroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewContoroller.swift; sourceTree = "<group>"; };
 		F4034CB629191B1400423FAF /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 		F42EE4FC292B4E50007336DB /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		F42EE4FF292B61B7007336DB /* MemoleaseQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoleaseQueue.swift; sourceTree = "<group>"; };
 		F4334033291E177400F46725 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
-		F437D9FD292DF259005BC5C9 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		F437D9FD292DF259005BC5C9 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		F45119962919230B0058571C /* SeSacColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacColor.swift; sourceTree = "<group>"; };
 		F4511999291926A00058571C /* SeSacButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacButton.swift; sourceTree = "<group>"; };
 		F451199E29192DC80058571C /* SeSacFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacFont.swift; sourceTree = "<group>"; };
@@ -173,8 +173,8 @@
 		F463403E2918FE54008A50D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F46340402918FE54008A50D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F463F17B2929340600CE644C /* SeSacButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SeSacButton+.swift"; sourceTree = "<group>"; };
-		F47AF0B72922019700AA0789 /* FakerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakerViewController.swift; sourceTree = "<group>"; };
-		F47AF0B9292201A800AA0789 /* FakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakerView.swift; sourceTree = "<group>"; };
+		F47AF0B72922019700AA0789 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		F47AF0B9292201A800AA0789 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		F47AF0BD2922097800AA0789 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F488D78629211AE6002E4B57 /* FirebaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseError.swift; sourceTree = "<group>"; };
 		F488D78829212290002E4B57 /* MemoleaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoleaseService.swift; sourceTree = "<group>"; };
@@ -203,6 +203,10 @@
 		F4D3B38E2929B29E00FA6B04 /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
 		F4D3B3912929D21400FA6B04 /* SeSacAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacAlertController.swift; sourceTree = "<group>"; };
 		F4D3B395292A36F700FA6B04 /* DataSourceRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceRegistration.swift; sourceTree = "<group>"; };
+		F4D83D0E2930BFED00F78530 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		F4D83D102930BFF700F78530 /* SettingDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingDataSource.swift; sourceTree = "<group>"; };
+		F4D83D122930C00A00F78530 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		F4D83D142930C01000F78530 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		F4D8A6EA292A6CAA00C25A57 /* ResultType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultType.swift; sourceTree = "<group>"; };
 		F4D8A6EC292A78F100C25A57 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		F4D8A6EE292A78F700C25A57 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
@@ -258,23 +262,21 @@
 		F4034CAA29191B1400423FAF /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				F42EE503292B6430007336DB /* Main */,
-				F45119B829193F280058571C /* Onboarding */,
-				F47AF0B62922018200AA0789 /* Faker */,
+				F4D83D1A2930C2C900F78530 /* Intro */,
 				F45119B9291940B60058571C /* Authorization */,
+				F42EE503292B6430007336DB /* Home */,
 				F48B306E2922708000DD5E12 /* MyInfo */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
 		};
-		F4034CAB29191B1400423FAF /* Home */ = {
+		F4034CAB29191B1400423FAF /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				F4034CAD29191B1400423FAF /* MainViewModel.swift */,
 				F437D9FB292DF248005BC5C9 /* View */,
 				F437D9FC292DF24A005BC5C9 /* ViewModel */,
 			);
-			path = Home;
+			path = Map;
 			sourceTree = "<group>";
 		};
 		F4034CB229191B1400423FAF /* Commons */ = {
@@ -430,24 +432,20 @@
 		F42EE502292B6410007336DB /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				F4D8A6EC292A78F100C25A57 /* SearchViewController.swift */,
-				F4D8A6EE292A78F700C25A57 /* SearchView.swift */,
-				F4D8A6F0292A790900C25A57 /* SearchDataSource.swift */,
-				F4D8A6F9292A806B00C25A57 /* SearchViewModel.swift */,
-				F4D8A6F2292A791600C25A57 /* SearchTopCell.swift */,
-				F4D8A6F7292A7CC500C25A57 /* SearchBottomCell.swift */,
-				F4D8A6F5292A7C0100C25A57 /* SearchHeaderView.swift */,
+				F4D83D172930C0FF00F78530 /* View */,
+				F4D83D162930C0F900F78530 /* ViewModel */,
 			);
 			path = Search;
 			sourceTree = "<group>";
 		};
-		F42EE503292B6430007336DB /* Main */ = {
+		F42EE503292B6430007336DB /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				F4034CAB29191B1400423FAF /* Home */,
+				F4034CAB29191B1400423FAF /* Map */,
 				F42EE502292B6410007336DB /* Search */,
+				F4D83D0D2930BD3700F78530 /* Setting */,
 			);
-			path = Main;
+			path = Home;
 			sourceTree = "<group>";
 		};
 		F437D9F8292DF05C005BC5C9 /* SignIn */ = {
@@ -481,9 +479,8 @@
 		F437D9FB292DF248005BC5C9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F4034CAF29191B1400423FAF /* HomeViewController.swift */,
-				F4034CB029191B1400423FAF /* HomeView.swift */,
-				F4034CB129191B1400423FAF /* MainCell.swift */,
+				F4034CAF29191B1400423FAF /* MapViewController.swift */,
+				F4034CB029191B1400423FAF /* MapView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -491,7 +488,7 @@
 		F437D9FC292DF24A005BC5C9 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				F437D9FD292DF259005BC5C9 /* HomeViewModel.swift */,
+				F437D9FD292DF259005BC5C9 /* MapViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -718,18 +715,18 @@
 		F46B4A2E291E9055003910E2 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				F499C44A291F55B000C4B117 /* UserdefaultsManager */,
+				F499C44B291F55C200C4B117 /* UserdefaultsManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
 		};
-		F47AF0B62922018200AA0789 /* Faker */ = {
+		F47AF0B62922018200AA0789 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
-				F47AF0B72922019700AA0789 /* FakerViewController.swift */,
-				F47AF0B9292201A800AA0789 /* FakerView.swift */,
+				F47AF0B72922019700AA0789 /* SplashViewController.swift */,
+				F47AF0B9292201A800AA0789 /* SplashView.swift */,
 			);
-			path = Faker;
+			path = Splash;
 			sourceTree = "<group>";
 		};
 		F47D76402920958800F747DA /* Firebase */ = {
@@ -762,14 +759,6 @@
 				F4D297FC2925072E00A3AAB7 /* Profile */,
 			);
 			path = MyInfo;
-			sourceTree = "<group>";
-		};
-		F499C44A291F55B000C4B117 /* UserdefaultsManager */ = {
-			isa = PBXGroup;
-			children = (
-				F499C44B291F55C200C4B117 /* UserdefaultsManager.swift */,
-			);
-			path = UserdefaultsManager;
 			sourceTree = "<group>";
 		};
 		F4D297FC2925072E00A3AAB7 /* Profile */ = {
@@ -806,6 +795,63 @@
 				F41BA510292F0045002EEFEA /* LocationAuthorizationCheckable.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		F4D83D0D2930BD3700F78530 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				F4D83D182930C12E00F78530 /* View */,
+				F4D83D192930C13200F78530 /* ViewModel */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		F4D83D162930C0F900F78530 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F4D8A6F9292A806B00C25A57 /* SearchViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F4D83D172930C0FF00F78530 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F4D8A6EC292A78F100C25A57 /* SearchViewController.swift */,
+				F4D8A6EE292A78F700C25A57 /* SearchView.swift */,
+				F4D8A6F0292A790900C25A57 /* SearchDataSource.swift */,
+				F4D8A6F2292A791600C25A57 /* SearchTopCell.swift */,
+				F4D8A6F7292A7CC500C25A57 /* SearchBottomCell.swift */,
+				F4D8A6F5292A7C0100C25A57 /* SearchHeaderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F4D83D182930C12E00F78530 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F4D83D0E2930BFED00F78530 /* SettingViewController.swift */,
+				F4D83D122930C00A00F78530 /* SettingView.swift */,
+				F4D83D102930BFF700F78530 /* SettingDataSource.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F4D83D192930C13200F78530 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F4D83D142930C01000F78530 /* SettingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F4D83D1A2930C2C900F78530 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				F47AF0B62922018200AA0789 /* Splash */,
+				F45119B829193F280058571C /* Onboarding */,
+			);
+			path = Intro;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -910,18 +956,20 @@
 				F4F103D2291CC66600C2020C /* OnBoardingFooterView.swift in Sources */,
 				F4586464291F8A0900993A6D /* BirthViewModel.swift in Sources */,
 				F4034CD029191B1400423FAF /* BaseCode.swift in Sources */,
+				F4D83D132930C00A00F78530 /* SettingView.swift in Sources */,
 				F499C449291F546000C4B117 /* FirebaseService.swift in Sources */,
 				F454E4A9291A66070064BCC4 /* SesacDateLabel.swift in Sources */,
 				F45119AC29193BCD0058571C /* SMSViewModel.swift in Sources */,
 				F45119C3291941A00058571C /* NicknameViewController.swift in Sources */,
 				F41E0E382925AB0000B28291 /* GenderDataSource.swift in Sources */,
-				F47AF0BA292201A800AA0789 /* FakerView.swift in Sources */,
+				F47AF0BA292201A800AA0789 /* SplashView.swift in Sources */,
 				F4D8A6F8292A7CC500C25A57 /* SearchBottomCell.swift in Sources */,
 				F4F103CE291CBF8A00C2020C /* SeSacImage.swift in Sources */,
 				F41E0E342925A64D00B28291 /* MyInfoDataSource.swift in Sources */,
 				F4586468291FA90600993A6D /* Date.swift in Sources */,
 				F4D29804292508D700A3AAB7 /* MyInfoView.swift in Sources */,
 				F45119A229193AB20058571C /* AuthViewController.swift in Sources */,
+				F4D83D112930BFF700F78530 /* SettingDataSource.swift in Sources */,
 				F48B3082292279C900DD5E12 /* ProfileSubCell.swift in Sources */,
 				F4A8A77E292487DE00B94EC7 /* StudyView.swift in Sources */,
 				F45119C9291941B80058571C /* GenderViewController.swift in Sources */,
@@ -930,25 +978,25 @@
 				F42EE500292B61B7007336DB /* MemoleaseQueue.swift in Sources */,
 				F45119BB291941550058571C /* NicknameView.swift in Sources */,
 				F41E0E322925A12E00B28291 /* ProfileDataSource.swift in Sources */,
+				F4D83D0F2930BFED00F78530 /* SettingViewController.swift in Sources */,
 				F463F17C2929340600CE644C /* SeSacButton+.swift in Sources */,
 				F451199F29192DC80058571C /* SeSacFont.swift in Sources */,
 				F488D78C29212324002E4B57 /* MemoleaseRouter.swift in Sources */,
 				F45119BD2919415D0058571C /* BirthView.swift in Sources */,
-				F4034CC829191B1400423FAF /* MainCell.swift in Sources */,
+				F4D83D152930C01000F78530 /* SettingViewModel.swift in Sources */,
 				F45119972919230B0058571C /* SeSacColor.swift in Sources */,
 				F4586475291FB33600993A6D /* GenderCell.swift in Sources */,
 				F4D8A6EF292A78F700C25A57 /* SearchView.swift in Sources */,
-				F47AF0B82922019700AA0789 /* FakerViewController.swift in Sources */,
+				F47AF0B82922019700AA0789 /* SplashViewController.swift in Sources */,
 				F4D3B38F2929B29E00FA6B04 /* CGFloat.swift in Sources */,
 				F45119A629193B930058571C /* AuthView.swift in Sources */,
 				F45119CB291942720058571C /* SeSacTextField.swift in Sources */,
 				F41BA511292F0045002EEFEA /* LocationAuthorizationCheckable.swift in Sources */,
-				F4034CC529191B1400423FAF /* MainViewModel.swift in Sources */,
 				F488D78E29212665002E4B57 /* HTTPMethod.swift in Sources */,
 				F4F103CA291CBD0E00C2020C /* OnBoardingViewController.swift in Sources */,
 				F4E4B59F292F297A00F3EBA4 /* SeSacAnnotationView.swift in Sources */,
 				F4034CCC29191B1400423FAF /* UIViewController.swift in Sources */,
-				F437D9FE292DF259005BC5C9 /* HomeViewModel.swift in Sources */,
+				F437D9FE292DF259005BC5C9 /* MapViewModel.swift in Sources */,
 				F4034CC929191B1400423FAF /* BaseViewCollectionViewCell.swift in Sources */,
 				F42EE4FD292B4E50007336DB /* UIView.swift in Sources */,
 				F48B30802922795A00DD5E12 /* ProfileHeaderView.swift in Sources */,
@@ -980,11 +1028,11 @@
 				F4D3B3922929D21400FA6B04 /* SeSacAlertController.swift in Sources */,
 				F45119C1291941680058571C /* GenderView.swift in Sources */,
 				F4A8A78B2924B0F900B94EC7 /* CardStackView.swift in Sources */,
-				F4034CC729191B1400423FAF /* HomeView.swift in Sources */,
+				F4034CC729191B1400423FAF /* MapView.swift in Sources */,
 				F4F103D0291CC1C300C2020C /* OnboardCell.swift in Sources */,
 				F4D8A6ED292A78F100C25A57 /* SearchViewController.swift in Sources */,
 				F4D8A6F1292A790900C25A57 /* SearchDataSource.swift in Sources */,
-				F4034CC629191B1400423FAF /* HomeViewController.swift in Sources */,
+				F4034CC629191B1400423FAF /* MapViewController.swift in Sources */,
 				F45119A429193AEB0058571C /* SMSViewController.swift in Sources */,
 				F4594E752920C29F0071CFC2 /* String.swift in Sources */,
 				F41E0E362925A83000B28291 /* OnBoardingDataSource.swift in Sources */,

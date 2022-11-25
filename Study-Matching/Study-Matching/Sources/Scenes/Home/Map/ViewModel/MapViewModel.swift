@@ -4,7 +4,7 @@ import RxCocoa
 
 
 
-class HomeViewModel: ResultType {
+class MapViewModel: ResultType {
     
     let lat = BehaviorRelay<Double>(value: 37.51818789942772)
     let long = BehaviorRelay<Double>(value: 126.88541765534976)

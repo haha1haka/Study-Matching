@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 
-class FakerView: BaseView {
+class SplashView: BaseView {
 
     
     let logoMainImage: UIImageView = {

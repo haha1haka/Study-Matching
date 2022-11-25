@@ -5,10 +5,10 @@ import CoreLocation
 import MapKit
 import SnapKit
 
-class HomeViewController: BaseViewController {
+class MapViewController: BaseViewController {
     
-    let selfView        = HomeView()
-    let viewModel       = HomeViewModel()
+    let selfView        = MapView()
+    let viewModel       = MapViewModel()
     let disposeBag      = DisposeBag()
     let locationManager = CLLocationManager()
     let center          = CLLocationCoordinate2D(latitude: 37.564713,longitude: 126.975122)
@@ -16,7 +16,7 @@ class HomeViewController: BaseViewController {
     override func loadView() { view = selfView }
 }
 
-extension HomeViewController {
+extension MapViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBarController?.tabBar.isHidden = false
@@ -29,7 +29,7 @@ extension HomeViewController {
 }
 
 
-extension HomeViewController {
+extension MapViewController {
     func bind() {
         selfView.floattingButton.rx.tap
             .bind(onNext: {
@@ -76,13 +76,13 @@ extension HomeViewController {
 
 // MARK: - LocationCheckable
 ///1)위치서비스활성화 여부확인 2) 승인상태 분기처리
-extension HomeViewController: LocationAuthorizationCheckable {}
+extension MapViewController: LocationAuthorizationCheckable {}
 
 
 
 // MARK: - CLLocationManagerDelegate
 ///1) 위치 받아오는함수  2) 디바이스 위치서비스  Auth 확인 --> 항상 초장에호출됨 --> 안에 "위치서비스" 여부 확인하는 코드 심어주기
-extension HomeViewController: CLLocationManagerDelegate {
+extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         print("🐷","내 위치 호출!",#function, locations)
@@ -111,7 +111,7 @@ extension HomeViewController: CLLocationManagerDelegate {
 
 
 // MARK: - MKMapviewDelegate
-extension HomeViewController: MKMapViewDelegate {
+extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard let annotation = annotation as? SeSacAnnotation else { return nil }
@@ -137,7 +137,7 @@ extension HomeViewController: MKMapViewDelegate {
 }
 
 
-extension HomeViewController {
+extension MapViewController {
     func setRegionAndAnnotation(center: CLLocationCoordinate2D) {
         let region = MKCoordinateRegion(center: center, latitudinalMeters: 1000, longitudinalMeters: 1000)
         selfView.mapView.setRegion(region, animated: true)

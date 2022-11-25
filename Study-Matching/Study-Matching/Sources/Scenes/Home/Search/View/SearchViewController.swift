@@ -21,7 +21,7 @@ class SearchViewController: BaseViewController, DataSourceRegistration {
     
     override func loadView() { view = selfView }
     
-    override func setNavigationBar(title: String = "") {
+    override func setNavigationBar(title: String = "", rightTitle: String) {
         super.setNavigationBar(title: title)
         //let back = UIBarButtonItem(image: SeSacImage.arrow, style: .plain, target: self, action: nil)
         //self.navigationItem.leftBarButtonItem = back
@@ -122,9 +122,13 @@ extension SearchViewController {
 
                 self.searchBar.resignFirstResponder()
                 self.selfView.searchButtonConstraint?.constant = 48 + self.selfView.safeAreaInsets.bottom
+                
+                let vc = SettingViewController()
+                self.transition(vc)
 
             })
             .disposed(by: disposeBag)
+        
         
  
         

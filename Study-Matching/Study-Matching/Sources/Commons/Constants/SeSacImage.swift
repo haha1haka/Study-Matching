@@ -79,4 +79,7 @@ enum SeSacImage {
     
     static let closeSmall = UIImage(named: "close_small")
     
+    // MARK: - Home_Setting
+    
+    
 }
