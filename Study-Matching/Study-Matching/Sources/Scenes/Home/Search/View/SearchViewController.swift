@@ -20,7 +20,7 @@ class SearchViewController: BaseViewController, DataSourceRegistration {
         topCellRegistration: self.topCell!,
         bottomCellRegistration: self.bottomCell!)
     
-    var wantedStudyList: [Wanted] = []
+    
     
     override func loadView() { view = selfView }
     
@@ -111,13 +111,20 @@ extension SearchViewController {
         
         selfView.searchBar.rx.searchButtonClicked
             .bind(onNext: {_ in
-
                 self.selfView.searchBar.resignFirstResponder()
                 self.selfView.searchButtonConstraint?.constant = 48 + self.selfView.safeAreaInsets.bottom
                 
-                let vc = SettingViewController()
-                self.transition(vc)
-
+                guard let searchBarText = self.selfView.searchBar.text else { return }
+                
+                if !self.viewModel.wantedStudyDataStore.contains(searchBarText) {
+                    self.viewModel.wantedStudyDataStore.append(searchBarText)
+                }
+                
+                //self.studyList.append(Wanted(label: searchBarText))
+                
+                
+                
+                
             })
             .disposed(by: disposeBag)
         
@@ -158,22 +165,29 @@ extension SearchViewController: UICollectionViewDelegate {
         
         switch sectionItem {
         case .nearby(let nearby):
-            let wantedStudy = Wanted(label: nearby.label)
-            self.wantedStudyList.append(wantedStudy)
-            self.viewModel.wantedStudyList.accept(self.wantedStudyList)
+            if !viewModel.wantedStudyDataStore.contains(nearby.label) {
+                self.viewModel.wantedStudyDataStore.append(nearby.label)
+            }
+                
             
+
+            
+            //let wantedStudy = Wanted(label: nearby.label)
+            //self.viewModel.studyList.append(wantedStudy)
+            
+            //self.viewModel.wantedStudyList.accept(self.viewModel.studyList)
         case .wanted(let wanted):
             var cnt = 0
-            wantedStudyList.forEach {
-                cnt += 1
-                if $0.id == wanted?.id {
-                    wantedStudyList.remove(at: cnt - 1)
-                    print("fdfds")
-                    
-                    
-                }
-                                            
-            }
+//            wantedStudyList.forEach {
+//                cnt += 1
+//                if $0.id == wanted?.id {
+//                    wantedStudyList.remove(at: cnt - 1)
+//                    print("fdfds")
+//
+//
+//                }
+//
+//            }
             
 
             
