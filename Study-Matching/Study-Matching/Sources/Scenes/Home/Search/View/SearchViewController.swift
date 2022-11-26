@@ -2,6 +2,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+
+
 class SearchViewController: BaseViewController, DataSourceRegistration {
     
     let selfView  = SearchView()
@@ -11,46 +13,36 @@ class SearchViewController: BaseViewController, DataSourceRegistration {
     var header    : SearchHeaderRegistration?
     var topCell   : SearchTopCellRegistration?
     var bottomCell: SearchBottomCellRegistration?
-    var wantedStudyList: [Wanted] = []
-    let searchBar = UISearchBar()
+
     lazy var dataSource = SearchDataSource(
         collectionView: selfView.collectionView,
         headerRegistration: self.header!,
         topCellRegistration: self.topCell!,
         bottomCellRegistration: self.bottomCell!)
     
+    var wantedStudyList: [Wanted] = []
+    
     override func loadView() { view = selfView }
     
-    override func setNavigationBar(title: String = "", rightTitle: String) {
-        super.setNavigationBar(title: title)
-        //let back = UIBarButtonItem(image: SeSacImage.arrow, style: .plain, target: self, action: nil)
-        //self.navigationItem.leftBarButtonItem = back
-        searchBar.delegate = self
-        searchBar.placeholder = "띄어쓰기로 복수 입력이 가능해요"
-        self.navigationItem.titleView = searchBar
+    override func setNavigationBar(title: String, rightTitle: String) {
+        super.setNavigationBar()
+        selfView.searchBar.delegate = self
+        self.navigationItem.titleView = selfView.searchBar
         self.tabBarController?.tabBar.isHidden = true
     }
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        searchBar.endEditing(true)
-//        self.searchBar.becomeFirstResponder() // 올라감
-//        self.selfView.searchButtonConstraint?.constant = .zero
-//    }
-        
 }
 
 extension SearchViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
 
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: UIResponder.keyboardDidHideNotification, object: nil)
         
         bind()
         selfView.collectionView.delegate = self
         
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: UIResponder.keyboardDidHideNotification, object: nil)
     }
     
 
@@ -117,10 +109,10 @@ extension SearchViewController {
             })
             .disposed(by: disposeBag)
         
-        searchBar.rx.searchButtonClicked
+        selfView.searchBar.rx.searchButtonClicked
             .bind(onNext: {_ in
 
-                self.searchBar.resignFirstResponder()
+                self.selfView.searchBar.resignFirstResponder()
                 self.selfView.searchButtonConstraint?.constant = 48 + self.selfView.safeAreaInsets.bottom
                 
                 let vc = SettingViewController()
@@ -129,6 +121,12 @@ extension SearchViewController {
             })
             .disposed(by: disposeBag)
         
+        
+        selfView.searchButton.rx.tap
+            .bind(onNext: { _ in
+                self.requestQueue()
+            })
+            .disposed(by: disposeBag)
         
  
         
@@ -207,6 +205,34 @@ extension SearchViewController {
                     print("⚠️미가입된 회원입니다")
                 default:
                     return
+                }
+            }
+        }
+    }
+    func requestQueue() {
+        self.viewModel.requestQueue {
+            switch $0 {
+            case .success:
+                let vc = SettingViewController()
+                self.transition(vc)
+                return
+            case .failure(let error):
+                switch error {
+                case .unavailable:
+                    return
+                case .penalty1:
+                    return
+                case .penalty2:
+                    return
+                case .penalty3:
+                    return
+                case .idTokenError:
+                    self.requestQueue()
+                case .unRegistedUser:
+                    return //다시 로그인 부터 ⚠️
+                default:
+                    return
+                    
                 }
             }
         }

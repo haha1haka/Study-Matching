@@ -1,32 +1,16 @@
 import UIKit
-class SettingViewController: BaseViewController, UIPageViewControllerDelegate {
-    
-    let selfView = SettingView()
-    
-    lazy var pageViewController: UIPageViewController = {
-        let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
-        
-        //pageViewController.dataSource = self
-        
-        pageViewController.setViewControllers([], direction: .forward, animated: true)
-        return pageViewController
-    }()
 
+class SeSacPageViewController: UIPageViewController {
     
-    override func loadView() { view = selfView }
-    
-    override func setNavigationBar(title: String, rightTitle: String ) {
-        super.setNavigationBar(title: "내정보", rightTitle: "찾기중단")
-    }
-}
-
-extension SettingViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-}
-//extension SettingViewController: UIPageViewControllerDataSource {
+//    let nearbyViewController = NearbyViewController()
+//    //let requestedViewController =
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        setview
+//    }
+//    
+//}
+//extension SeSacPageViewController: UIPageViewControllerDataSource {
 //    func pageViewController(_ pageViewController: UIPageViewController,
 //                            viewControllerBefore viewController: UIViewController) -> UIViewController? {
 //        //pageViewController.viewControllers?.firstIndex(of: viewController)
@@ -48,9 +32,5 @@ extension SettingViewController {
 //        return nil
 //    }
 //
-//
-//}
-
-extension SettingViewController {
 
 }

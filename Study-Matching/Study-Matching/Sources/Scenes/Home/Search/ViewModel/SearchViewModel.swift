@@ -43,6 +43,33 @@ class SearchViewModel: ResultType {
         }
     }
     
+    func requestQueue(completion: @escaping (Result<Succeess, MemoleaseError>) -> Void) {
+        MemoleaseService.shared.requestQueue(target: MemoleaseRouter.queue(lat: "37.51818789942772", long: "126.88541765534976", studylist: ["ㅎㅣㅎㅣ"])) {
+            switch $0 {
+            case .success:
+                return
+            case .failure(let error):
+                switch error {
+                case .unavailable:
+                    completion(.failure(.unavailable))
+                case .penalty1:
+                    completion(.failure(.penalty1))
+                case .penalty2:
+                    completion(.failure(.penalty2))
+                case .penalty3:
+                    completion(.failure(.penalty3))
+                case .idTokenError:
+                    completion(.failure(.idTokenError))
+                case .unRegistedUser:
+                    completion(.failure(.unRegistedUser))
+                default:
+                    return
+                }
+                
+            }
+        }
+    }
+    
     func makeDataStore() {
         
         var arr: [Nearby] = []

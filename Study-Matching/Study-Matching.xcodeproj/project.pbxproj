@@ -82,6 +82,12 @@
 		F499C449291F546000C4B117 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F499C448291F546000C4B117 /* FirebaseService.swift */; };
 		F499C44C291F55C200C4B117 /* UserdefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F499C44B291F55C200C4B117 /* UserdefaultsManager.swift */; };
 		F4A79EB0292D05310010E44F /* MemoleaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A79EAF292D05310010E44F /* MemoleaseTargetType.swift */; };
+		F4A868602930EA4B00E75958 /* NearbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A8685F2930EA4B00E75958 /* NearbyViewController.swift */; };
+		F4A868622930EA5500E75958 /* RequestedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A868612930EA5500E75958 /* RequestedViewController.swift */; };
+		F4A868672930EC6100E75958 /* RequestedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A868662930EC6100E75958 /* RequestedView.swift */; };
+		F4A868692930EFA800E75958 /* NearbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A868682930EFA800E75958 /* NearbyView.swift */; };
+		F4A8686B2930EFD900E75958 /* RequestedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A8686A2930EFD900E75958 /* RequestedDataSource.swift */; };
+		F4A8686D2930F53800E75958 /* SeSacPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A8686C2930F53800E75958 /* SeSacPageViewController.swift */; };
 		F4A8A77C292487CB00B94EC7 /* Gender2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A8A77B292487CB00B94EC7 /* Gender2View.swift */; };
 		F4A8A77E292487DE00B94EC7 /* StudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A8A77D292487DE00B94EC7 /* StudyView.swift */; };
 		F4A8A780292487E800B94EC7 /* SwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A8A77F292487E800B94EC7 /* SwitchView.swift */; };
@@ -189,6 +195,12 @@
 		F499C448291F546000C4B117 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		F499C44B291F55C200C4B117 /* UserdefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserdefaultsManager.swift; sourceTree = "<group>"; };
 		F4A79EAF292D05310010E44F /* MemoleaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoleaseTargetType.swift; sourceTree = "<group>"; };
+		F4A8685F2930EA4B00E75958 /* NearbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyViewController.swift; sourceTree = "<group>"; };
+		F4A868612930EA5500E75958 /* RequestedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedViewController.swift; sourceTree = "<group>"; };
+		F4A868662930EC6100E75958 /* RequestedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedView.swift; sourceTree = "<group>"; };
+		F4A868682930EFA800E75958 /* NearbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyView.swift; sourceTree = "<group>"; };
+		F4A8686A2930EFD900E75958 /* RequestedDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedDataSource.swift; sourceTree = "<group>"; };
+		F4A8686C2930F53800E75958 /* SeSacPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacPageViewController.swift; sourceTree = "<group>"; };
 		F4A8A77B292487CB00B94EC7 /* Gender2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender2View.swift; sourceTree = "<group>"; };
 		F4A8A77D292487DE00B94EC7 /* StudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyView.swift; sourceTree = "<group>"; };
 		F4A8A77F292487E800B94EC7 /* SwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchView.swift; sourceTree = "<group>"; };
@@ -339,9 +351,10 @@
 				F4511999291926A00058571C /* SeSacButton.swift */,
 				F45119CA291942720058571C /* SeSacTextField.swift */,
 				F454E4A8291A66070064BCC4 /* SesacDateLabel.swift */,
-				F4A94AA72924FD87007B96AE /* SesacTabBarController.swift */,
 				F4D3B3912929D21400FA6B04 /* SeSacAlertController.swift */,
 				F4E4B59E292F297A00F3EBA4 /* SeSacAnnotationView.swift */,
+				F4A94AA72924FD87007B96AE /* SesacTabBarController.swift */,
+				F4A8686C2930F53800E75958 /* SeSacPageViewController.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -761,6 +774,18 @@
 			path = MyInfo;
 			sourceTree = "<group>";
 		};
+		F4A868632930EAE300E75958 /* SetViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F4A8685F2930EA4B00E75958 /* NearbyViewController.swift */,
+				F4A868682930EFA800E75958 /* NearbyView.swift */,
+				F4A868612930EA5500E75958 /* RequestedViewController.swift */,
+				F4A868662930EC6100E75958 /* RequestedView.swift */,
+				F4A8686A2930EFD900E75958 /* RequestedDataSource.swift */,
+			);
+			path = SetViewControllers;
+			sourceTree = "<group>";
+		};
 		F4D297FC2925072E00A3AAB7 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -833,6 +858,7 @@
 				F4D83D0E2930BFED00F78530 /* SettingViewController.swift */,
 				F4D83D122930C00A00F78530 /* SettingView.swift */,
 				F4D83D102930BFF700F78530 /* SettingDataSource.swift */,
+				F4A868632930EAE300E75958 /* SetViewControllers */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -968,15 +994,21 @@
 				F41E0E342925A64D00B28291 /* MyInfoDataSource.swift in Sources */,
 				F4586468291FA90600993A6D /* Date.swift in Sources */,
 				F4D29804292508D700A3AAB7 /* MyInfoView.swift in Sources */,
+				F4A868622930EA5500E75958 /* RequestedViewController.swift in Sources */,
+				F4A8686B2930EFD900E75958 /* RequestedDataSource.swift in Sources */,
+				F4A868602930EA4B00E75958 /* NearbyViewController.swift in Sources */,
 				F45119A229193AB20058571C /* AuthViewController.swift in Sources */,
 				F4D83D112930BFF700F78530 /* SettingDataSource.swift in Sources */,
+				F4A868692930EFA800E75958 /* NearbyView.swift in Sources */,
 				F48B3082292279C900DD5E12 /* ProfileSubCell.swift in Sources */,
 				F4A8A77E292487DE00B94EC7 /* StudyView.swift in Sources */,
 				F45119C9291941B80058571C /* GenderViewController.swift in Sources */,
 				F4D29808292508F500A3AAB7 /* MyInfoHeaderView.swift in Sources */,
+				F4A868672930EC6100E75958 /* RequestedView.swift in Sources */,
 				F4A8A77C292487CB00B94EC7 /* Gender2View.swift in Sources */,
 				F42EE500292B61B7007336DB /* MemoleaseQueue.swift in Sources */,
 				F45119BB291941550058571C /* NicknameView.swift in Sources */,
+				F4A8686D2930F53800E75958 /* SeSacPageViewController.swift in Sources */,
 				F41E0E322925A12E00B28291 /* ProfileDataSource.swift in Sources */,
 				F4D83D0F2930BFED00F78530 /* SettingViewController.swift in Sources */,
 				F463F17C2929340600CE644C /* SeSacButton+.swift in Sources */,

@@ -31,8 +31,6 @@ class SearchDataSource: UICollectionViewDiffableDataSource<Int, SearchStudy>, Da
                 for: indexPath)
             return suppleymentaryView }
     }
-
-
 }
 
 

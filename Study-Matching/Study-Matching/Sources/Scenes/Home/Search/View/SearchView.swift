@@ -11,6 +11,12 @@ class SearchView: BaseView {
         return view
     }()
     
+    let searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.placeholder = "띄어쓰기로 복수 입력이 가능해요"
+        return searchBar
+    }()
+    
     let searchButton: SeSacButton = {
         let view = SeSacButton(title: "새싹찾기", color: SeSacColor.green)
         return view

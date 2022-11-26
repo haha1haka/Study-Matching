@@ -8,13 +8,14 @@ enum MemoleaseRouter {
     case updateUser(searchable: Int, ageMin: Int, ageMax: Int, gender: Int, study: String)
     case withdraw
     case queueSearch(lat: Double, long: Double)
+    case queue(lat: String, long: String, studylist: [String])
     
 }
 
 
 extension MemoleaseRouter: TargetType {
-
-
+    
+    
     var path: String {
         let baseURL: String = "http://api.sesac.co.kr:1210"
         switch self {
@@ -24,6 +25,7 @@ extension MemoleaseRouter: TargetType {
         case .updateUser:  return "\(baseURL)/v1/user/mypage"
         case .withdraw:    return "\(baseURL)/v1/user/withdraw"
         case .queueSearch: return "\(baseURL)/v1/queue/search"
+        case .queue:       return "\(baseURL)/v1/queue"
         }
     }
     
@@ -36,7 +38,7 @@ extension MemoleaseRouter: TargetType {
                     "idtoken"      : UserDefaultsManager.standard.idToken]
         }
     }
-
+    
     // MARK: - 바디
     var queryItems: [URLQueryItem]? {
         switch self {
@@ -66,22 +68,30 @@ extension MemoleaseRouter: TargetType {
             return nil
             
         case .queueSearch(let lat, let long):
-            return [URLQueryItem(name: "lat", value: "\(lat)"),
-                    URLQueryItem(name: "long", value: "\(long)")]
+            return [URLQueryItem(name: "lat",        value: "\(lat)"),
+                    URLQueryItem(name: "long",       value: "\(long)")]
+            
+        case .queue(let lat, let long, let studylist):
+            return [URLQueryItem(name: "lat",        value: "\(lat)"),
+                    URLQueryItem(name: "long",       value: "\(long)"),
+                    URLQueryItem(name: "studylist",  value: "\(studylist)")]
+            
         }
+        
     }
     
     var httpMethod: HTTPMethod {
         switch self {
         case .signIn        : return .get
         case .signup        : return .post
-        case .FCMtoken   : return .put
-        case .updateUser: return .put
+        case .FCMtoken      : return .put
+        case .updateUser    : return .put
         case .withdraw      : return .post
         case .queueSearch   : return .post
+        case .queue         : return .post
         }
     }
     
     
-
+    
 }

@@ -20,13 +20,10 @@ class BaseViewController: UIViewController {
         navigationController?.navigationBar.backIndicatorTransitionMaskImage = SeSacImage.arrow
         let attributedStringKey = [NSAttributedString.Key.font: SeSacFont.Title3_M14.set]
         navigationController?.navigationBar.titleTextAttributes = attributedStringKey
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "\(rightTitle)", style: .plain, target: self, action: nil)
-        navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.font: SeSacFont.Title3_M14.set], for: .normal)
-        
-        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: SeSacFont.Title3_M14.set], for: .normal)
+        navigationItem.rightBarButtonItem?.setTitleTextAttributes(attributedStringKey, for: .normal)
     }
 
 }
-//UIBarButtonItem.appearance().setTitleTextAttributes(attributedStringKey, for: .normal)
-//[NSAttributedString.Key.font: SeSacFont.Title3_M14.set]
+//UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: SeSacFont.Title3_M14.set], for: .normal)

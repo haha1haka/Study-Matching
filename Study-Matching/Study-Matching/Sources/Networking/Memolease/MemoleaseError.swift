@@ -16,5 +16,11 @@ enum MemoleaseError: Int, Error {
     case unRegistedUser
     
     //회원탈퇴
-    case aleadyWithdraw 
+    case aleadyWithdraw
+    
+    //새싹 요청
+    case unavailable
+    case penalty1
+    case penalty2
+    case penalty3
 }

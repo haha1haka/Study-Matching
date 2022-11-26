@@ -11,6 +11,8 @@ class MapViewModel: ResultType {
     var queueSearch = BehaviorRelay<MemoleaseQueue>(value: MemoleaseQueue(fromQueueDB: [], fromQueueDBRequested: [], fromRecommend: []))
     let sesacFriendsArray = BehaviorRelay<[FromQueueDB]>(value: [])
 
+    
+    
     func requestQueueSearch(completion: @escaping MemoleaseQueueSearchPostResult) {
                 
         MemoleaseService.shared.requestQueueSearch(

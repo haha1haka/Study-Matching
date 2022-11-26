@@ -11,7 +11,6 @@ class MapViewController: BaseViewController {
     let viewModel       = MapViewModel()
     let disposeBag      = DisposeBag()
     let locationManager = CLLocationManager()
-    let center          = CLLocationCoordinate2D(latitude: 37.564713,longitude: 126.975122)
     
     override func loadView() { view = selfView }
 }
@@ -134,6 +133,12 @@ extension MapViewController: MKMapViewDelegate {
         return annotationView
     }
     
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        viewModel.lat.accept(mapView.centerCoordinate.latitude)
+        viewModel.long.accept(mapView.centerCoordinate.longitude)
+        requestQueueSearch()
+    }
+    
 }
 
 
@@ -144,6 +149,27 @@ extension MapViewController {
     }
 }
 
+
+extension MapViewController {
+    func requestQueueSearch() {
+        self.viewModel.requestQueueSearch {
+            switch $0 {
+            case .success:
+                return
+            case .failure(let error):
+                switch error {
+                case .idTokenError:
+                    self.requestQueueSearch()
+                    return
+                case .unRegistedUser:
+                    print("⚠️미가입된 회원입니다")
+                default:
+                    return
+                }
+            }
+        }
+    }
+}
 
 
 
@@ -157,3 +183,4 @@ extension MapViewController {
 //                print(failure)
 //            }
 //        }
+
