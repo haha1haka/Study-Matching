@@ -13,7 +13,7 @@ class MapViewModel: ResultType {
 
     
     
-    func requestQueueSearch(completion: @escaping MemoleaseQueueSearchPostResult) {
+    func requestQueueSearch(completion: @escaping (Result<String, MemoleaseError>) -> Void) {
                 
         MemoleaseService.shared.requestQueueSearch(
             target: MemoleaseRouter.queueSearch(
@@ -24,6 +24,7 @@ class MapViewModel: ResultType {
             case .success(let queueSearch):
                 self.queueSearch.accept(queueSearch)
                 self.sesacFriendsArray.accept(queueSearch.fromQueueDB)
+                completion(.success(""))
             case .failure(let error):
                 switch error {
                 case .idTokenError:

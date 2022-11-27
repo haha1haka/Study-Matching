@@ -8,14 +8,29 @@ class RequestedCell: BaseCollectionViewCell {
             
     var closedConstraint: NSLayoutConstraint?
     var openConstraint: NSLayoutConstraint?
+    var estimatedItemConstraint: NSLayoutConstraint?
     
     lazy var collectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionViewLayout())
         view.alwaysBounceVertical = false
+        
         return view
     }()
     
     var dataSource: UICollectionViewDiffableDataSource<Int, String>!
+ 
+    
+    override func layoutSubviews() {
+        
+        //print(collectionView.collectionViewLayout.collectionViewContentSize.height) // 0
+//        estimatedItemConstraint?.constant = collectionView.collectionViewLayout.collectionViewContentSize.height
+////        collectionView.snp.makeConstraints {
+////            estimatedItemConstraint = $0.height.equalTo(estimatedItemConstraint?.constant)
+        
+//        estimatedItemConstraint = collectionView.heightAnchor.constraint(equalToConstant: 50)
+//        estimatedItemConstraint?.isActive = true
+//        }
+    }
     
     func configureCollectionViewDataSource() {
         let miniCellRegistration = UICollectionView.CellRegistration<MiniCell, String> { cell,indexPath,itemIdentifier in
@@ -23,6 +38,7 @@ class RequestedCell: BaseCollectionViewCell {
         }
         dataSource = .init(collectionView: self.collectionView) { collectionView, indexPath, itemIdentifier in
             let cell = self.collectionView.dequeueConfiguredReusableCell(using: miniCellRegistration, for: indexPath, item: itemIdentifier)
+
             return cell
         }
     }
@@ -30,7 +46,7 @@ class RequestedCell: BaseCollectionViewCell {
     func applyInitSnapShot() {
         var snapshot = self.dataSource.snapshot()
         snapshot.appendSections([0])
-        snapshot.appendItems(["iOS","Swift","알고리즘","치킨"], toSection: 0)
+        snapshot.appendItems(["iOS","Swift","알고리즘","치킨", "가나다라", "마바사", "아자차카", "타파하"], toSection: 0)
         self.dataSource.apply(snapshot)
     }
     
@@ -144,8 +160,6 @@ class RequestedCell: BaseCollectionViewCell {
         contentView.addSubview(totalStackView)
         configureCollectionViewDataSource()
         applyInitSnapShot()
-        //contentView.addSubview(collectionView)
-        
     }
     
     override func configureLayout() {
@@ -166,15 +180,17 @@ class RequestedCell: BaseCollectionViewCell {
             $0.leading.trailing.equalToSuperview()
         })
         
-        collectionViewStackView.snp.makeConstraints{
+        collectionViewStackView.snp.makeConstraints {
             $0.top.equalTo(middleStackView.snp.bottom).offset(16)
             $0.leading.trailing.equalTo(contentView)
 
         }
         collectionView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.top.leading.trailing.equalToSuperview()
             $0.width.equalToSuperview()
-            $0.height.equalTo(100)
+            $0.height.equalTo(50)
+                
+            
         }
         
         bottomStackView.snp.makeConstraints {

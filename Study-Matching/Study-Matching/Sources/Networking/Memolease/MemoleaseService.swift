@@ -24,7 +24,7 @@ class MemoleaseService: ResultType {
     
     private init() {}
     
-    func request(target: TargetType, completion: @escaping MemoleaseResult) {
+    func request(target: TargetType,completion: @escaping MemoleaseResult) {
         session.dataTask(with: target.request) { data, response, error in
             
             DispatchQueue.main.async {

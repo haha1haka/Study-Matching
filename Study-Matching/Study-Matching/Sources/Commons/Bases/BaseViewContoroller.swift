@@ -11,6 +11,8 @@ class BaseViewController: UIViewController {
     }
     func configureInit() {}
     
+    
+    
     func setNavigationBar(title: String = "", rightTitle: String = "") {
         navigationItem.title = title
         view.backgroundColor = .white
@@ -22,6 +24,7 @@ class BaseViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = attributedStringKey
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "\(rightTitle)", style: .plain, target: self, action: nil)
+        //navigationController?.isNavigationBarHidden = false
         navigationItem.rightBarButtonItem?.setTitleTextAttributes(attributedStringKey, for: .normal)
     }
 

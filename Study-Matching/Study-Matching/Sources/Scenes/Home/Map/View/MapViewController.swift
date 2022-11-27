@@ -18,12 +18,21 @@ class MapViewController: BaseViewController {
 extension MapViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBarController?.tabBar.isHidden = false
+        
         selfView.mapView.delegate = self
         locationManager.delegate = self
         checkUserDevicelocationServiceAuthorization(locationManager: locationManager)
         selfView.totalButton.toAct //⚠️ 개선
         bind()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+        tabBarController?.tabBar.isHidden = false
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 }
 
@@ -62,7 +71,102 @@ extension MapViewController {
                 }
             })
             .disposed(by: disposeBag)
+        
+        
+        selfView.totalButton.rx.tap
+            .bind(onNext: {
+                print("fasfasdfsdfsdafasdfsadfadf")
+                self.requestQueueSearch {
+                    self.selfView.mapView.removeAnnotations(self.selfView.mapView.annotations)
+                    self.viewModel.sesacFriendsArray.value.forEach {
+                        let coordinate = CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.long)
+                        let friendsPin = SeSacAnnotation(coordinate: coordinate, sesac: $0.sesac)
+                        self.selfView.mapView.addAnnotation(friendsPin)
+                    }
+                }
+                self.selfView.totalButton.titleLabel?.font = SeSacFont.Title3_M14.set
+                self.selfView.totalButton.backgroundColor = SeSacColor.green
+                self.selfView.totalButton.setTitleColor(SeSacColor.white, for: .normal)
+                
+                self.selfView.manButton.titleLabel?.font = SeSacFont.Title4_R14.set
+                self.selfView.manButton.backgroundColor = SeSacColor.white
+                self.selfView.manButton.setTitleColor(SeSacColor.black, for: .normal)
+                
+                
+                self.selfView.womanButton.titleLabel?.font = SeSacFont.Title4_R14.set
+                self.selfView.womanButton.backgroundColor = SeSacColor.white
+                self.selfView.womanButton.setTitleColor(SeSacColor.black, for: .normal)
+                
+
+            })
+            .disposed(by: disposeBag)
+        
+        
+        selfView.manButton.rx.tap
+            .bind(onNext: {
+                
+                self.requestQueueSearch {
+                    self.selfView.mapView.removeAnnotations(self.selfView.mapView.annotations)
+                    self.viewModel.sesacFriendsArray.value.filter { $0.gender == 1 }.forEach {
+                        print("🥰🥰🥰🥰🥰🥰🥰\($0)")
+                        let coordinate = CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.long)
+                        let friendsPin = SeSacAnnotation(coordinate: coordinate, sesac: $0.sesac)
+                        self.selfView.mapView.addAnnotation(friendsPin)
+                    }
+                }
+
+                
+                self.selfView.totalButton.titleLabel?.font = SeSacFont.Title4_R14.set
+                self.selfView.totalButton.backgroundColor = SeSacColor.white
+                self.selfView.totalButton.setTitleColor(SeSacColor.black, for: .normal)
+                
+                
+                self.selfView.manButton.titleLabel?.font = SeSacFont.Title3_M14.set
+                self.selfView.manButton.backgroundColor = SeSacColor.green
+                self.selfView.manButton.setTitleColor(SeSacColor.white, for: .normal)
+                
+                
+                self.selfView.womanButton.titleLabel?.font = SeSacFont.Title4_R14.set
+                self.selfView.womanButton.backgroundColor = SeSacColor.white
+                self.selfView.womanButton.setTitleColor(SeSacColor.black, for: .normal)
+                
+
+            })
+            .disposed(by: disposeBag)
+
+        
+        selfView.womanButton.rx.tap
+            .bind(onNext: {
+                self.requestQueueSearch {
+                    self.selfView.mapView.removeAnnotations(self.selfView.mapView.annotations)
+                    self.viewModel.sesacFriendsArray.value.filter { $0.gender == 0 }.forEach {
+                        print("🐸🐸🐸🐸🐸🐸🐸\($0)")
+                        let coordinate = CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.long)
+                        let friendsPin = SeSacAnnotation(coordinate: coordinate, sesac: $0.sesac)
+                        self.selfView.mapView.addAnnotation(friendsPin)
+                    }
+                }
+                self.selfView.totalButton.titleLabel?.font = SeSacFont.Title4_R14.set
+                self.selfView.totalButton.backgroundColor = SeSacColor.white
+                self.selfView.totalButton.setTitleColor(SeSacColor.black, for: .normal)
+                
+                
+
+                self.selfView.manButton.titleLabel?.font = SeSacFont.Title4_R14.set
+                self.selfView.manButton.backgroundColor = SeSacColor.white
+                self.selfView.manButton.setTitleColor(SeSacColor.black, for: .normal)
+                
+                self.selfView.womanButton.titleLabel?.font = SeSacFont.Title3_M14.set
+                self.selfView.womanButton.backgroundColor = SeSacColor.green
+                self.selfView.womanButton.setTitleColor(SeSacColor.white, for: .normal)
+                
+                
+            })
+            .disposed(by: disposeBag)
+        
     }
+    
+    
     
     
 }
@@ -83,18 +187,13 @@ extension MapViewController: LocationAuthorizationCheckable {}
 ///1) 위치 받아오는함수  2) 디바이스 위치서비스  Auth 확인 --> 항상 초장에호출됨 --> 안에 "위치서비스" 여부 확인하는 코드 심어주기
 extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
         print("🐷","내 위치 호출!",#function, locations)
         
         if let coordinate = locations.last?.coordinate {
             setRegionAndAnnotation(center: coordinate)
         }
         
-        //selfView.mapView.centerCoordinate
-        
-        
         locationManager.stopUpdatingLocation()
-        
     }
     
     
@@ -134,9 +233,10 @@ extension MapViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        print("🔥\(mapView.centerCoordinate.latitude), \(mapView.centerCoordinate.longitude)")
         viewModel.lat.accept(mapView.centerCoordinate.latitude)
         viewModel.long.accept(mapView.centerCoordinate.longitude)
-        requestQueueSearch()
+        requestQueueSearch{}
     }
     
 }
@@ -144,22 +244,23 @@ extension MapViewController: MKMapViewDelegate {
 
 extension MapViewController {
     func setRegionAndAnnotation(center: CLLocationCoordinate2D) {
-        let region = MKCoordinateRegion(center: center, latitudinalMeters: 1000, longitudinalMeters: 1000)
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: 700, longitudinalMeters: 700)
         selfView.mapView.setRegion(region, animated: true)
     }
 }
 
 
 extension MapViewController {
-    func requestQueueSearch() {
+    func requestQueueSearch(completion: @escaping () -> Void) {
         self.viewModel.requestQueueSearch {
             switch $0 {
             case .success:
-                return
+                print("🙀🙀🙀🙀🙀🙀🙀")
+                completion()
             case .failure(let error):
                 switch error {
                 case .idTokenError:
-                    self.requestQueueSearch()
+                    self.requestQueueSearch { }
                     return
                 case .unRegistedUser:
                     print("⚠️미가입된 회원입니다")

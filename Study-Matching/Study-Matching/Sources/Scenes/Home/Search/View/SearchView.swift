@@ -1,6 +1,9 @@
 import UIKit
 import SnapKit
 
+//state --> 1) 2) 3) 
+
+
 class SearchView: BaseView {
 
     lazy var collectionView: UICollectionView = {

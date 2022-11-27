@@ -9,6 +9,7 @@ enum SeSacButtonType {
     case settingRequest
 }
 
+
 class SeSacButton: UIButton {
     
     convenience init(frame: CGRect = .zero,

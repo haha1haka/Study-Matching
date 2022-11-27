@@ -21,7 +21,9 @@ extension RequestedViewController {
         bind()
         selfView.collectionView.delegate = self
         dataSource.applySnapshot()
+        
     }
+
 }
 
 extension RequestedViewController {
@@ -35,11 +37,15 @@ extension RequestedViewController {
         mainCell = RequestedCellRegistration
         { [weak self] cell, indexPath, itemIdentifier in
             guard let self = self else { return }
-    
+            //cell.estimatedItemConstraint?.constant = self.selfView.collectionView.collectionViewLayout.collectionViewContentSize.height
+            
+            cell.estimatedItemConstraint = self.selfView.collectionView.heightAnchor.constraint(equalToConstant: 50)
+            cell.estimatedItemConstraint?.isActive = true
         }
     }
 }
 extension RequestedViewController: UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
 
         if collectionView.indexPathsForSelectedItems?.contains(indexPath) ?? false {
@@ -52,4 +58,6 @@ extension RequestedViewController: UICollectionViewDelegate {
         
         return false
     }
+    
+    
 }

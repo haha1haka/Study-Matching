@@ -782,18 +782,34 @@
 			path = MyInfo;
 			sourceTree = "<group>";
 		};
-		F4A868632930EAE300E75958 /* SetViewControllers */ = {
+		F491C7CE293391BA0077DBC6 /* Nearby */ = {
 			isa = PBXGroup;
 			children = (
 				F4A8685F2930EA4B00E75958 /* NearbyViewController.swift */,
 				F4A868682930EFA800E75958 /* NearbyView.swift */,
+			);
+			path = Nearby;
+			sourceTree = "<group>";
+		};
+		F491C7CF293391C10077DBC6 /* Requested */ = {
+			isa = PBXGroup;
+			children = (
 				F4A868612930EA5500E75958 /* RequestedViewController.swift */,
 				F4A868662930EC6100E75958 /* RequestedView.swift */,
-				F44FFB37293323320053D2A7 /* RequestedHeaderView.swift */,
 				F44FFB39293324E80053D2A7 /* RequestedCell.swift */,
+				F44FFB37293323320053D2A7 /* RequestedHeaderView.swift */,
 				F44FFB3D29334F4A0053D2A7 /* RequestedCell2.swift */,
 				F44FFB3B29332D660053D2A7 /* MiniCell.swift */,
 				F4A8686A2930EFD900E75958 /* RequestedDataSource.swift */,
+			);
+			path = Requested;
+			sourceTree = "<group>";
+		};
+		F4A868632930EAE300E75958 /* SetViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F491C7CE293391BA0077DBC6 /* Nearby */,
+				F491C7CF293391C10077DBC6 /* Requested */,
 			);
 			path = SetViewControllers;
 			sourceTree = "<group>";
