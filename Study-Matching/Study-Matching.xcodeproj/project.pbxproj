@@ -32,6 +32,7 @@
 		F44FFB38293323320053D2A7 /* RequestedHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44FFB37293323320053D2A7 /* RequestedHeaderView.swift */; };
 		F44FFB3A293324E80053D2A7 /* RequestedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44FFB39293324E80053D2A7 /* RequestedCell.swift */; };
 		F44FFB3C29332D660053D2A7 /* MiniCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44FFB3B29332D660053D2A7 /* MiniCell.swift */; };
+		F44FFB3E29334F4A0053D2A7 /* RequestedCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44FFB3D29334F4A0053D2A7 /* RequestedCell2.swift */; };
 		F45119972919230B0058571C /* SeSacColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45119962919230B0058571C /* SeSacColor.swift */; };
 		F451199A291926A00058571C /* SeSacButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4511999291926A00058571C /* SeSacButton.swift */; };
 		F451199D291928C10058571C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F451199C291928C10058571C /* SnapKit */; };
@@ -149,6 +150,7 @@
 		F44FFB37293323320053D2A7 /* RequestedHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedHeaderView.swift; sourceTree = "<group>"; };
 		F44FFB39293324E80053D2A7 /* RequestedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedCell.swift; sourceTree = "<group>"; };
 		F44FFB3B29332D660053D2A7 /* MiniCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniCell.swift; sourceTree = "<group>"; };
+		F44FFB3D29334F4A0053D2A7 /* RequestedCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedCell2.swift; sourceTree = "<group>"; };
 		F45119962919230B0058571C /* SeSacColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacColor.swift; sourceTree = "<group>"; };
 		F4511999291926A00058571C /* SeSacButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacButton.swift; sourceTree = "<group>"; };
 		F451199E29192DC80058571C /* SeSacFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacFont.swift; sourceTree = "<group>"; };
@@ -789,6 +791,7 @@
 				F4A868662930EC6100E75958 /* RequestedView.swift */,
 				F44FFB37293323320053D2A7 /* RequestedHeaderView.swift */,
 				F44FFB39293324E80053D2A7 /* RequestedCell.swift */,
+				F44FFB3D29334F4A0053D2A7 /* RequestedCell2.swift */,
 				F44FFB3B29332D660053D2A7 /* MiniCell.swift */,
 				F4A8686A2930EFD900E75958 /* RequestedDataSource.swift */,
 			);
@@ -1023,6 +1026,7 @@
 				F463F17C2929340600CE644C /* SeSacButton+.swift in Sources */,
 				F451199F29192DC80058571C /* SeSacFont.swift in Sources */,
 				F488D78C29212324002E4B57 /* MemoleaseRouter.swift in Sources */,
+				F44FFB3E29334F4A0053D2A7 /* RequestedCell2.swift in Sources */,
 				F45119BD2919415D0058571C /* BirthView.swift in Sources */,
 				F4D83D152930C01000F78530 /* SettingViewModel.swift in Sources */,
 				F45119972919230B0058571C /* SeSacColor.swift in Sources */,
