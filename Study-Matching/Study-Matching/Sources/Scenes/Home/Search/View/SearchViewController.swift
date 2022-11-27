@@ -194,6 +194,8 @@ extension SearchViewController {
             }
         }
     }
+    
+    
     func requestQueue() {
         self.viewModel.requestQueue {
             switch $0 {
@@ -201,6 +203,8 @@ extension SearchViewController {
                 print("fdsfsd")
                 
                 let vc = SettingViewController()
+                vc.pageViewController.nearbyViewController.viewModel.lat.accept(self.viewModel.lat.value)
+                vc.pageViewController.nearbyViewController.viewModel.long.accept(self.viewModel.long.value)
                 self.transition(vc)
                 
                 

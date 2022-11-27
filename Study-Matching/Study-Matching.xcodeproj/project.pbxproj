@@ -83,6 +83,8 @@
 		F48B3074292270B800DD5E12 /* ProfileMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B3073292270B800DD5E12 /* ProfileMainCell.swift */; };
 		F48B30802922795A00DD5E12 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B307F2922795A00DD5E12 /* ProfileHeaderView.swift */; };
 		F48B3082292279C900DD5E12 /* ProfileSubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B3081292279C900DD5E12 /* ProfileSubCell.swift */; };
+		F491C7D52933B0990077DBC6 /* RequestedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491C7D42933B0990077DBC6 /* RequestedViewModel.swift */; };
+		F491C7D72933B0A60077DBC6 /* NearbyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491C7D62933B0A60077DBC6 /* NearbyViewModel.swift */; };
 		F499C449291F546000C4B117 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F499C448291F546000C4B117 /* FirebaseService.swift */; };
 		F499C44C291F55C200C4B117 /* UserdefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F499C44B291F55C200C4B117 /* UserdefaultsManager.swift */; };
 		F4A79EB0292D05310010E44F /* MemoleaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A79EAF292D05310010E44F /* MemoleaseTargetType.swift */; };
@@ -200,6 +202,8 @@
 		F48B3073292270B800DD5E12 /* ProfileMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainCell.swift; sourceTree = "<group>"; };
 		F48B307F2922795A00DD5E12 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		F48B3081292279C900DD5E12 /* ProfileSubCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSubCell.swift; sourceTree = "<group>"; };
+		F491C7D42933B0990077DBC6 /* RequestedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedViewModel.swift; sourceTree = "<group>"; };
+		F491C7D62933B0A60077DBC6 /* NearbyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyViewModel.swift; sourceTree = "<group>"; };
 		F499C448291F546000C4B117 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		F499C44B291F55C200C4B117 /* UserdefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserdefaultsManager.swift; sourceTree = "<group>"; };
 		F4A79EAF292D05310010E44F /* MemoleaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoleaseTargetType.swift; sourceTree = "<group>"; };
@@ -785,8 +789,8 @@
 		F491C7CE293391BA0077DBC6 /* Nearby */ = {
 			isa = PBXGroup;
 			children = (
-				F4A8685F2930EA4B00E75958 /* NearbyViewController.swift */,
-				F4A868682930EFA800E75958 /* NearbyView.swift */,
+				F491C7D02933B05F0077DBC6 /* View */,
+				F491C7D12933B0640077DBC6 /* ViewModel */,
 			);
 			path = Nearby;
 			sourceTree = "<group>";
@@ -794,15 +798,49 @@
 		F491C7CF293391C10077DBC6 /* Requested */ = {
 			isa = PBXGroup;
 			children = (
+				F491C7D32933B06F0077DBC6 /* ViewModel */,
+				F491C7D22933B06C0077DBC6 /* View */,
+			);
+			path = Requested;
+			sourceTree = "<group>";
+		};
+		F491C7D02933B05F0077DBC6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F4A8685F2930EA4B00E75958 /* NearbyViewController.swift */,
+				F4A868682930EFA800E75958 /* NearbyView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F491C7D12933B0640077DBC6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F491C7D62933B0A60077DBC6 /* NearbyViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F491C7D22933B06C0077DBC6 /* View */ = {
+			isa = PBXGroup;
+			children = (
 				F4A868612930EA5500E75958 /* RequestedViewController.swift */,
-				F4A868662930EC6100E75958 /* RequestedView.swift */,
 				F44FFB39293324E80053D2A7 /* RequestedCell.swift */,
+				F4A868662930EC6100E75958 /* RequestedView.swift */,
 				F44FFB37293323320053D2A7 /* RequestedHeaderView.swift */,
 				F44FFB3D29334F4A0053D2A7 /* RequestedCell2.swift */,
 				F44FFB3B29332D660053D2A7 /* MiniCell.swift */,
 				F4A8686A2930EFD900E75958 /* RequestedDataSource.swift */,
 			);
-			path = Requested;
+			path = View;
+			sourceTree = "<group>";
+		};
+		F491C7D32933B06F0077DBC6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F491C7D42933B0990077DBC6 /* RequestedViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		F4A868632930EAE300E75958 /* SetViewControllers */ = {
@@ -1030,6 +1068,7 @@
 				F4A868692930EFA800E75958 /* NearbyView.swift in Sources */,
 				F48B3082292279C900DD5E12 /* ProfileSubCell.swift in Sources */,
 				F4A8A77E292487DE00B94EC7 /* StudyView.swift in Sources */,
+				F491C7D52933B0990077DBC6 /* RequestedViewModel.swift in Sources */,
 				F45119C9291941B80058571C /* GenderViewController.swift in Sources */,
 				F4D29808292508F500A3AAB7 /* MyInfoHeaderView.swift in Sources */,
 				F4A868672930EC6100E75958 /* RequestedView.swift in Sources */,
@@ -1047,6 +1086,7 @@
 				F4D83D152930C01000F78530 /* SettingViewModel.swift in Sources */,
 				F45119972919230B0058571C /* SeSacColor.swift in Sources */,
 				F4586475291FB33600993A6D /* GenderCell.swift in Sources */,
+				F491C7D72933B0A60077DBC6 /* NearbyViewModel.swift in Sources */,
 				F4D8A6EF292A78F700C25A57 /* SearchView.swift in Sources */,
 				F47AF0B82922019700AA0789 /* SplashViewController.swift in Sources */,
 				F4D3B38F2929B29E00FA6B04 /* CGFloat.swift in Sources */,

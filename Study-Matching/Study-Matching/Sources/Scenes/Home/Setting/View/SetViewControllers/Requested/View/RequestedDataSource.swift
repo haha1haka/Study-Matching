@@ -1,6 +1,6 @@
 import UIKit
 
-class RequestedDataSource: UICollectionViewDiffableDataSource<Int, Main>, DataSourceRegistration {
+class RequestedDataSource: UICollectionViewDiffableDataSource<Section, Main>, DataSourceRegistration {
 
     convenience init(collectionView:       UICollectionView,
                      headerRegistration:   RequestedHeadRegistration,
@@ -27,10 +27,12 @@ class RequestedDataSource: UICollectionViewDiffableDataSource<Int, Main>, DataSo
     
 
     func applySnapshot() {
+        let section1 = Section(label: "1")
+        let section2 = Section(label: "2")
         var snapshot = snapshot()
-        snapshot.appendSections([0, 1])
-        snapshot.appendItems([Main()], toSection: 0)
-        snapshot.appendItems([Main()], toSection: 1)
+        snapshot.appendSections([section1, section2])
+        snapshot.appendItems([Main()], toSection: section1)
+        snapshot.appendItems([Main()], toSection: section2)
         apply(snapshot)
     }
 
