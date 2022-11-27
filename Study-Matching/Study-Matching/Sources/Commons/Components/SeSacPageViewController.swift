@@ -71,3 +71,9 @@ extension SeSacPageViewController: UIPageViewControllerDataSource, UIPageViewCon
     }
 
 }
+
+extension SeSacPageViewController {
+    func setControllers(_ viewControllers: [UIViewController],_ direction: UIPageViewController.NavigationDirection = .forward) {
+        setViewControllers(viewControllers, direction: direction, animated: false)
+    }
+}

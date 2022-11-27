@@ -41,17 +41,19 @@ extension SettingViewController {
     func bind() {
         selfView.nearbyButton.rx.tap
             .bind(onNext: {
-                self.pageViewController.setViewControllers([self.pageViewController.pageContentViewControllers[self.selfView.nearbyButton.tag]], direction: .forward, animated: false)
+                let nearbyViewController = self.pageViewController.pageContentViewControllers[self.selfView.nearbyButton.tag]
+                self.pageViewController.setControllers([nearbyViewController])
                 
-                self.selfView.makeAct()
+                self.selfView.makeNearbyAct()
             })
             .disposed(by: disposeBag)
         
         selfView.requestedButton.rx.tap
             .bind(onNext: {
-                self.pageViewController.setViewControllers([self.pageViewController.pageContentViewControllers[self.selfView.requestedButton.tag]], direction: .forward, animated: false)
-                
-                self.selfView.makeInAct()
+                let requestedViewController = self.pageViewController.pageContentViewControllers[self.selfView.requestedButton.tag]
+                self.pageViewController.setControllers([requestedViewController])
+
+                self.selfView.makeRequestedAct()
             })
             .disposed(by: disposeBag)
         
@@ -59,9 +61,9 @@ extension SettingViewController {
             .bind(onNext: {
                 switch $0 {
                 case .zero:
-                    self.selfView.makeAct()
+                    self.selfView.makeNearbyAct()
                 default:
-                    self.selfView.makeInAct()
+                    self.selfView.makeRequestedAct()
                 }
             })
             .disposed(by: disposeBag)
