@@ -5,6 +5,7 @@ enum SeSacButtonType {
     case myInfo
     case map
     case search
+    case settingTap
 }
 
 class SeSacButton: UIButton {
@@ -45,8 +46,14 @@ class SeSacButton: UIButton {
             backgroundColor = color
             titleLabel?.font = font_
             setTitle(title, for: .normal)
+        case .settingTap:
+            setTitle(title, for: .normal)
+            setTitleColor(SeSacColor.gray6, for: .normal)
+            titleLabel?.font = SeSacFont.Title3_M14.set
+            backgroundColor = SeSacColor.white
+            tag = tag_
         }
-                
+
 
     }
     

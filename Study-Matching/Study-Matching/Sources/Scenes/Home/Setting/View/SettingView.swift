@@ -30,14 +30,10 @@ class SettingView: BaseView {
         return view
     }()
     
-    let nearbyButton: UIButton = {
-        let view = UIButton()
-        view.setTitle("주변새싹", for: .normal)
-        view.setTitleColor(SeSacColor.gray6, for: .normal)
-        view.titleLabel?.font = SeSacFont.Title3_M14.set
-        view.tag = 0
-        return view
-    }()
+
+    let nearbyButton = SeSacButton(title: "주변새싹",type: .settingTap , tag_: .zero)
+    let requestedButton = SeSacButton(title: "받은요청",type: .settingTap ,tag_: 1)
+    
     let dividerView1: UIView = {
         let view = UIView()
         view.backgroundColor = SeSacColor.gray2
@@ -45,14 +41,7 @@ class SettingView: BaseView {
     }()
 
     
-    let requestedButton: UIButton = {
-        let view = UIButton()
-        view.setTitle("받은요청", for: .normal)
-        view.setTitleColor(SeSacColor.gray6, for: .normal)
-        view.titleLabel?.font = SeSacFont.Title3_M14.set
-        view.tag = 1
-        return view
-    }()
+\
     
     let dividerView2: UIView = {
         let view = UIView()

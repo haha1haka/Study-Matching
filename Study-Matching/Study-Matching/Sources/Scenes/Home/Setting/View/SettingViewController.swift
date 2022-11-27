@@ -1,4 +1,6 @@
 import UIKit
+import RxSwift
+import RxCocoa
 import SnapKit
 
 class SettingViewController: BaseViewController {
@@ -6,6 +8,7 @@ class SettingViewController: BaseViewController {
     let selfView = SettingView()
     
     let pageViewController = SeSacPageViewController(.scroll)
+    let disposeBag = DisposeBag()
 
     override func loadView() { view = selfView }
     
@@ -18,6 +21,7 @@ extension SettingViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configurePageViewControllers()
+        bind()
     }
     func configurePageViewControllers() {
         addChild(pageViewController)
@@ -30,4 +34,23 @@ extension SettingViewController {
         pageViewController.didMove(toParent: self)
     }
     
+}
+extension SettingViewController {
+    func bind() {
+        selfView.nearbyButton.rx.tap
+            .bind(onNext: {
+                self.pageViewController.setViewControllers([self.pageViewController.pageContentViewControllers[self.selfView.nearbyButton.tag]], direction: .forward, animated: false)
+                
+                //self.selfView.nearbyButton.toactti
+            })
+            .disposed(by: disposeBag)
+        
+        selfView.requestedButton.rx.tap
+            .bind(onNext: {
+                self.pageViewController.setViewControllers([self.pageViewController.pageContentViewControllers[self.selfView.requestedButton.tag]], direction: .forward, animated: false)
+            })
+            .disposed(by: disposeBag)
+        
+        
+    }
 }
