@@ -39,6 +39,7 @@ extension MapViewController {
 
 extension MapViewController {
     func bind() {
+        // MARK: - 플로팅 버튼
         selfView.floattingButton.rx.tap
             .bind(onNext: {
                 let vc = SearchViewController()
@@ -65,9 +66,7 @@ extension MapViewController {
         viewModel.sesacFriendsArray
             .bind(onNext: {
                 $0.forEach {
-                    let coordinate = CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.long)
-                    let friendsPin = SeSacAnnotation(coordinate: coordinate, sesac: $0.sesac)
-                    self.selfView.mapView.addAnnotation(friendsPin)
+                    self.makeAnnotation($0)
                 }
             })
             .disposed(by: disposeBag)
@@ -79,9 +78,7 @@ extension MapViewController {
                 self.requestQueueSearch {
                     self.selfView.mapView.removeAnnotations(self.selfView.mapView.annotations)
                     self.viewModel.sesacFriendsArray.value.forEach {
-                        let coordinate = CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.long)
-                        let friendsPin = SeSacAnnotation(coordinate: coordinate, sesac: $0.sesac)
-                        self.selfView.mapView.addAnnotation(friendsPin)
+                        self.makeAnnotation($0)
                     }
                     
                 }
@@ -99,9 +96,7 @@ extension MapViewController {
                     self.selfView.mapView.removeAnnotations(self.selfView.mapView.annotations)
                     self.viewModel.sesacFriendsArray.value.filter { $0.gender == 1 }.forEach {
                         print("🥰🥰🥰🥰🥰🥰🥰\($0)")
-                        let coordinate = CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.long)
-                        let friendsPin = SeSacAnnotation(coordinate: coordinate, sesac: $0.sesac)
-                        self.selfView.mapView.addAnnotation(friendsPin)
+                        self.makeAnnotation($0)
                     }
                 }
                 self.selfView.makeActByGender(gender: .man)
@@ -236,6 +231,12 @@ extension MapViewController {
             }
         }
     }
+    func makeAnnotation(_ friends: FromQueueDB) {
+        let coordinate = CLLocationCoordinate2D(latitude: friends.lat, longitude: friends.long)
+        let friendsPin = SeSacAnnotation(coordinate: coordinate, sesac: friends.sesac)
+        self.selfView.mapView.addAnnotation(friendsPin)
+    }
+
 }
 
 
