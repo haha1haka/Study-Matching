@@ -83,20 +83,10 @@ extension MapViewController {
                         let friendsPin = SeSacAnnotation(coordinate: coordinate, sesac: $0.sesac)
                         self.selfView.mapView.addAnnotation(friendsPin)
                     }
+                    
                 }
-                self.selfView.totalButton.titleLabel?.font = SeSacFont.Title3_M14.set
-                self.selfView.totalButton.backgroundColor = SeSacColor.green
-                self.selfView.totalButton.setTitleColor(SeSacColor.white, for: .normal)
-                
-                self.selfView.manButton.titleLabel?.font = SeSacFont.Title4_R14.set
-                self.selfView.manButton.backgroundColor = SeSacColor.white
-                self.selfView.manButton.setTitleColor(SeSacColor.black, for: .normal)
-                
-                
-                self.selfView.womanButton.titleLabel?.font = SeSacFont.Title4_R14.set
-                self.selfView.womanButton.backgroundColor = SeSacColor.white
-                self.selfView.womanButton.setTitleColor(SeSacColor.black, for: .normal)
-                
+                self.selfView.makeActByGender(gender: .total)
+
 
             })
             .disposed(by: disposeBag)
@@ -114,21 +104,9 @@ extension MapViewController {
                         self.selfView.mapView.addAnnotation(friendsPin)
                     }
                 }
+                self.selfView.makeActByGender(gender: .man)
+                
 
-                
-                self.selfView.totalButton.titleLabel?.font = SeSacFont.Title4_R14.set
-                self.selfView.totalButton.backgroundColor = SeSacColor.white
-                self.selfView.totalButton.setTitleColor(SeSacColor.black, for: .normal)
-                
-                
-                self.selfView.manButton.titleLabel?.font = SeSacFont.Title3_M14.set
-                self.selfView.manButton.backgroundColor = SeSacColor.green
-                self.selfView.manButton.setTitleColor(SeSacColor.white, for: .normal)
-                
-                
-                self.selfView.womanButton.titleLabel?.font = SeSacFont.Title4_R14.set
-                self.selfView.womanButton.backgroundColor = SeSacColor.white
-                self.selfView.womanButton.setTitleColor(SeSacColor.black, for: .normal)
                 
 
             })
@@ -146,20 +124,8 @@ extension MapViewController {
                         self.selfView.mapView.addAnnotation(friendsPin)
                     }
                 }
-                self.selfView.totalButton.titleLabel?.font = SeSacFont.Title4_R14.set
-                self.selfView.totalButton.backgroundColor = SeSacColor.white
-                self.selfView.totalButton.setTitleColor(SeSacColor.black, for: .normal)
-                
-                
 
-                self.selfView.manButton.titleLabel?.font = SeSacFont.Title4_R14.set
-                self.selfView.manButton.backgroundColor = SeSacColor.white
-                self.selfView.manButton.setTitleColor(SeSacColor.black, for: .normal)
-                
-                self.selfView.womanButton.titleLabel?.font = SeSacFont.Title3_M14.set
-                self.selfView.womanButton.backgroundColor = SeSacColor.green
-                self.selfView.womanButton.setTitleColor(SeSacColor.white, for: .normal)
-                
+                self.selfView.makeActByGender(gender: .woman)
                 
             })
             .disposed(by: disposeBag)

@@ -2,6 +2,12 @@ import UIKit
 import SnapKit
 import MapKit
 
+enum Gender {
+    case total
+    case man
+    case woman
+}
+
 class MapView: BaseView {
     
     let mapView: MKMapView = {
@@ -109,7 +115,52 @@ class MapView: BaseView {
         currentLocationButton.toRadius
     }
     
-    
+    func makeActByGender(gender: Gender) {
+        switch gender {
+        case .total:
+            totalButton.titleLabel?.font = SeSacFont.Title3_M14.set
+            totalButton.backgroundColor = SeSacColor.green
+            totalButton.setTitleColor(SeSacColor.white, for: .normal)
+            
+            manButton.titleLabel?.font = SeSacFont.Title4_R14.set
+            manButton.backgroundColor = SeSacColor.white
+            manButton.setTitleColor(SeSacColor.black, for: .normal)
+            
+            
+            womanButton.titleLabel?.font = SeSacFont.Title4_R14.set
+            womanButton.backgroundColor = SeSacColor.white
+            womanButton.setTitleColor(SeSacColor.black, for: .normal)
+            
+        case .man:
+            totalButton.titleLabel?.font = SeSacFont.Title4_R14.set
+            totalButton.backgroundColor = SeSacColor.white
+            totalButton.setTitleColor(SeSacColor.black, for: .normal)
+            
+            
+            manButton.titleLabel?.font = SeSacFont.Title3_M14.set
+            manButton.backgroundColor = SeSacColor.green
+            manButton.setTitleColor(SeSacColor.white, for: .normal)
+            
+            
+            womanButton.titleLabel?.font = SeSacFont.Title4_R14.set
+            womanButton.backgroundColor = SeSacColor.white
+            womanButton.setTitleColor(SeSacColor.black, for: .normal)
+        case .woman:
+            totalButton.titleLabel?.font = SeSacFont.Title4_R14.set
+            totalButton.backgroundColor = SeSacColor.white
+            totalButton.setTitleColor(SeSacColor.black, for: .normal)
+            
+            
+
+            manButton.titleLabel?.font = SeSacFont.Title4_R14.set
+            manButton.backgroundColor = SeSacColor.white
+            manButton.setTitleColor(SeSacColor.black, for: .normal)
+            
+            womanButton.titleLabel?.font = SeSacFont.Title3_M14.set
+            womanButton.backgroundColor = SeSacColor.green
+            womanButton.setTitleColor(SeSacColor.white, for: .normal)
+        }
+    }
     
 }
 
