@@ -1,8 +1,10 @@
 import UIKit
+
 enum SeSacButtonType {
     case login
     case myInfo
     case map
+    case search
 }
 
 class SeSacButton: UIButton {
@@ -39,6 +41,10 @@ class SeSacButton: UIButton {
             backgroundColor = SeSacColor.white
             setTitle(title, for: .normal)
             setTitleColor(SeSacColor.black, for: .normal)
+        case .search:
+            backgroundColor = color
+            titleLabel?.font = font_
+            setTitle(title, for: .normal)
         }
                 
 

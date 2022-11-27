@@ -13,6 +13,7 @@ import Foundation
 //}
 
 
+
 class MemoleaseService: ResultType {
     
     static let shared = MemoleaseService()
@@ -22,6 +23,44 @@ class MemoleaseService: ResultType {
     }
     
     private init() {}
+    
+    func request(target: TargetType, completion: @escaping MemoleaseResult) {
+        session.dataTask(with: target.request) { data, response, error in
+            
+            DispatchQueue.main.async {
+                guard let httpResponse = response as? HTTPURLResponse else { return }
+                
+                print("📭 Request \(target.request.url!)")
+                print("🚩 Response \(httpResponse.statusCode)")
+                
+                
+                switch httpResponse.statusCode {
+                case 200:
+                    completion(.success(.perfact)) //🚀 해당 vc 에서 처리
+                case 201:
+                    completion(.failure(.alreadyUser)) //🚀 해당 vc 에서 처리
+                case 202:
+                    completion(.failure(.nickError)) //🚀 해당 vc 에서 처리
+                case 401:
+                    FirebaseService.shared.fetchIdToken { _ in
+                        completion(.failure(.idTokenError))
+                    } //🚀 해당 viewModel 에서 재귀로그인
+                case 500:
+                    completion(.failure(.serverError))
+                    print("❌500 왜?")
+                case 501:
+                    completion(.failure(.clientError))
+                    print("❌501")
+                default:
+                    completion(.failure(.unknown))
+                    print("❌unknown")
+                }
+                
+            }
+            
+            
+        }.resume()
+    }
     
     func requestGetUser(
         target: TargetType,
@@ -333,43 +372,46 @@ class MemoleaseService: ResultType {
     
     func requestQueue(target: TargetType, completion: @escaping MemoleaseResult) {
         
-
-        URLSession.shared.dataTask(with: target.request) { data, response, error in
-            
-            guard let httpResponse = response as? HTTPURLResponse else { return }
-            print("📭 Request \(target.request.url!)")
-            print("🚩 Response \(httpResponse.statusCode)")
-            
-            switch httpResponse.statusCode {
-            case 200:
-                completion(.success(.perfact)) //🚀 해당 vc 에서 처리
-            case 201:
-                completion(.failure(.unavailable))
-            case 203:
-                completion(.failure(.penalty1))
-            case 204:
-                completion(.failure(.penalty2))
-            case 205:
-                completion(.failure(.penalty3))
-            case 401:
-                FirebaseService.shared.fetchIdToken { _ in
-                    completion(.failure(.idTokenError))
-                } //🚀 해당 viewModel 에서 재귀로그인
-            case 406:
-                completion(.failure(.unRegistedUser)) //🚀 해당 vc 에서 처리
-            case 500:
-                completion(.failure(.serverError))
-                print("❌500")
-            case 501:
-                completion(.failure(.clientError))
-                print("❌501")
-            default:
-                completion(.failure(.unknown))
-                print("❌unknown")
+        
+        
+        
+        session.dataTask(with: target.request) { data, response, error in
+            DispatchQueue.main.async {
+                guard let httpResponse = response as? HTTPURLResponse else { return }
+                print("📭 Request \(target.request.url!)")
+                print("🚩 Response \(httpResponse.statusCode)")
+                
+                switch httpResponse.statusCode {
+                case 200:
+                    completion(.success(.perfact)) //🚀 해당 vc 에서 처리
+                case 201:
+                    completion(.failure(.unavailable))
+                case 203:
+                    completion(.failure(.penalty1))
+                case 204:
+                    completion(.failure(.penalty2))
+                case 205:
+                    completion(.failure(.penalty3))
+                case 401:
+                    FirebaseService.shared.fetchIdToken { _ in
+                        completion(.failure(.idTokenError))
+                    } //🚀 해당 viewModel 에서 재귀로그인
+                case 406:
+                    completion(.failure(.unRegistedUser)) //🚀 해당 vc 에서 처리
+                case 500:
+                    completion(.failure(.serverError))
+                    print("❌500")
+                case 501:
+                    completion(.failure(.clientError))
+                    print("❌501")
+                default:
+                    completion(.failure(.unknown))
+                    print("❌unknown")
+                }
+                
             }
-            
-            
         }.resume()
+        
     }
     
     

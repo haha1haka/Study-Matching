@@ -14,12 +14,14 @@ class SearchViewModel: ResultType {
     }
     
     var friendsStudyList: [String] {
-        print("💀",sesacFriendDataStore.value.fromQueueDB.map{$0.studylist}.flatMap{$0})
-        return sesacFriendDataStore.value.fromQueueDB.map{$0.studylist}.flatMap{$0}
+        return sesacFriendDataStore.value.fromQueueDB
+            .map{$0.studylist}
+            .flatMap{$0}
     }
     var requestedStudyList: [String] {
-        print("💀",sesacFriendDataStore.value.fromQueueDBRequested.map{$0.studylist}.flatMap{$0})
-        return sesacFriendDataStore.value.fromQueueDBRequested.map{$0.studylist}.flatMap{$0}
+        return sesacFriendDataStore.value.fromQueueDBRequested
+            .map{$0.studylist}
+            .flatMap{$0}
     }
     
     let nearbyStudyList = PublishSubject<[Nearby]>()
@@ -37,15 +39,12 @@ class SearchViewModel: ResultType {
         wantedStudyDataStore.forEach { arr.append(Wanted(label: $0)) }
         return arr
     }
-
     
     
-    let sesacFriendsDBRequested = BehaviorRelay<[FromQueueDB]>(value: [])
-    
+}
 
-    
-
-
+// MARK: - Methods
+extension SearchViewModel {
     func requestQueueSearch(completion: @escaping MemoleaseQueueSearchPostResult) {
                 
         MemoleaseService.shared.requestQueueSearch(
@@ -80,7 +79,7 @@ class SearchViewModel: ResultType {
         MemoleaseService.shared.requestQueue(target: MemoleaseRouter.queue(lat: "37.51818789942772", long: "126.88541765534976", studylist: ["ㅎㅣㅎㅣ"])) {
             switch $0 {
             case .success:
-                return
+                completion(.success(.perfact))
             case .failure(let error):
                 switch error {
                 case .unavailable:
@@ -145,11 +144,6 @@ class SearchViewModel: ResultType {
         
         
     }
-    
-    
-    
-    
-    
-    
-    
 }
+    
+    

@@ -3,9 +3,9 @@ import UIKit
 class RequestedView: BaseView {
 
 
-//    override func configureHierarchy() {
-//        <#code#>
-//    }
+    override func configureHierarchy() {
+        self.backgroundColor = .green
+    }
 //    override func configureLayout() {
 //        <#code#>
 //    }

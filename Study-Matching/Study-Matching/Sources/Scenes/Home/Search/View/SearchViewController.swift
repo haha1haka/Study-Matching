@@ -13,14 +13,12 @@ class SearchViewController: BaseViewController, DataSourceRegistration {
     var header    : SearchHeaderRegistration?
     var topCell   : SearchTopCellRegistration?
     var bottomCell: SearchBottomCellRegistration?
-
+    
     lazy var dataSource = SearchDataSource(
         collectionView: selfView.collectionView,
         headerRegistration: self.header!,
         topCellRegistration: self.topCell!,
         bottomCellRegistration: self.bottomCell!)
-    
-    
     
     override func loadView() { view = selfView }
     
@@ -30,34 +28,27 @@ class SearchViewController: BaseViewController, DataSourceRegistration {
         self.navigationItem.titleView = selfView.searchBar
         self.tabBarController?.tabBar.isHidden = true
     }
+    
+    //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    //        view.endEditing(true)
+    //    }
 }
 
 extension SearchViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: UIResponder.keyboardDidHideNotification, object: nil)
-        
         bind()
         selfView.collectionView.delegate = self
         
     }
     
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         requestQueueSearch()
     }
     
-    override func viewSafeAreaInsetsDidChange() {
-        super.viewSafeAreaInsetsDidChange()
-        print(#function)
-        selfView.searchButtonConstraint = selfView.searchButton.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor, constant: 600)
-
-        selfView.searchButtonConstraint?.isActive = true
-    }
 }
 
 extension SearchViewController {
@@ -112,13 +103,15 @@ extension SearchViewController {
         selfView.searchBar.rx.searchButtonClicked
             .bind(onNext: {_ in
                 self.selfView.searchBar.resignFirstResponder()
-                self.selfView.searchButtonConstraint?.constant = 48 + self.selfView.safeAreaInsets.bottom
+                
                 
                 guard let searchBarText = self.selfView.searchBar.text else { return }
                 
                 if !self.viewModel.wantedStudyDataStore.contains(searchBarText) {
                     self.viewModel.wantedStudyDataStore.append(searchBarText)
                 }
+                
+                
                 
                 //self.studyList.append(Wanted(label: searchBarText))
                 
@@ -135,23 +128,11 @@ extension SearchViewController {
             })
             .disposed(by: disposeBag)
         
- 
+        
         
     }
     
-    @objc func keyboardWillShow() {
-        
-        print("fdsfdsfadsfasfsadfasdfasdfsdfsdfsdf")
-        selfView.searchButtonConstraint?.constant = 500
-    }
-    @objc func keyboardDidHide() {
-        
-        print("ㅇㄹㄴㅇㄹㄴ함니")
-        selfView.searchButtonConstraint?.constant = -48 + -view.safeAreaInsets.bottom
-        selfView.searchButtonConstraint = selfView.searchButton.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor, constant: 50)
-
-        selfView.searchButtonConstraint?.isActive = true
-    }
+    
 }
 
 
@@ -161,6 +142,8 @@ extension SearchViewController {
 extension SearchViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        self.selfView.searchBar.resignFirstResponder()
+        
         let sectionItem = dataSource.itemIdentifier(for: indexPath)
         
         switch sectionItem {
@@ -168,9 +151,9 @@ extension SearchViewController: UICollectionViewDelegate {
             if !viewModel.wantedStudyDataStore.contains(nearby.label) {
                 self.viewModel.wantedStudyDataStore.append(nearby.label)
             }
-                
             
-
+            
+            
             
             //let wantedStudy = Wanted(label: nearby.label)
             //self.viewModel.studyList.append(wantedStudy)
@@ -178,18 +161,18 @@ extension SearchViewController: UICollectionViewDelegate {
             //self.viewModel.wantedStudyList.accept(self.viewModel.studyList)
         case .wanted(let wanted):
             var cnt = 0
-//            wantedStudyList.forEach {
-//                cnt += 1
-//                if $0.id == wanted?.id {
-//                    wantedStudyList.remove(at: cnt - 1)
-//                    print("fdfds")
-//
-//
-//                }
-//
-//            }
+            //            wantedStudyList.forEach {
+            //                cnt += 1
+            //                if $0.id == wanted?.id {
+            //                    wantedStudyList.remove(at: cnt - 1)
+            //                    print("fdfds")
+            //
+            //
+            //                }
+            //
+            //            }
             
-
+            
             
             return
         default:
@@ -227,9 +210,12 @@ extension SearchViewController {
         self.viewModel.requestQueue {
             switch $0 {
             case .success:
+                print("fdsfsd")
+                
                 let vc = SettingViewController()
                 self.transition(vc)
-                return
+                
+                
             case .failure(let error):
                 switch error {
                 case .unavailable:

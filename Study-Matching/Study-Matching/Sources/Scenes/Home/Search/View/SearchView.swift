@@ -3,10 +3,9 @@ import SnapKit
 
 class SearchView: BaseView {
 
-    var searchButtonConstraint: NSLayoutConstraint?
-    
     lazy var collectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionViewLayout())
+        
         view.alwaysBounceVertical = false
         return view
     }()
@@ -18,7 +17,7 @@ class SearchView: BaseView {
     }()
     
     let searchButton: SeSacButton = {
-        let view = SeSacButton(title: "새싹찾기", color: SeSacColor.green)
+        let view = SeSacButton(title: "새싹찾기", color: SeSacColor.green,type: .search)
         return view
     }()
 
@@ -31,14 +30,14 @@ class SearchView: BaseView {
     override func configureLayout() {
 
         collectionView.snp.makeConstraints {
-            $0.edges.equalTo(self.safeAreaLayoutGuide)
+            $0.edges.equalTo(self)
         }
 
-
-        searchButton.snp.updateConstraints {
+        searchButton.snp.makeConstraints {
             $0.leading.trailing.equalTo(self.safeAreaLayoutGuide)
+            $0.bottom.equalTo(keyboardLayoutGuide.snp.top)
             $0.height.equalTo(48)
-            //$0.bottom.equalTo(self.keyboardLayoutGuide).offset(16)
+            
             
             
         }
