@@ -29,9 +29,6 @@ class SearchViewController: BaseViewController, DataSourceRegistration {
         self.tabBarController?.tabBar.isHidden = true
     }
     
-    //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    //        view.endEditing(true)
-    //    }
 }
 
 extension SearchViewController {
@@ -91,7 +88,9 @@ extension SearchViewController {
         
         
         viewModel.wantedStudyList
+            
             .bind(onNext: {
+                print("🔆🔆🔆🔆\(print(self.viewModel.wantedStudyList.value))")
                 var snapshot = self.dataSource.snapshot()
                 snapshot.deleteSections([1])
                 snapshot.appendSections([1])
@@ -109,6 +108,8 @@ extension SearchViewController {
                 
                 if !self.viewModel.wantedStudyDataStore.contains(searchBarText) {
                     self.viewModel.wantedStudyDataStore.append(searchBarText)
+                } else {
+                    //self.showToast(message: "이미 존재")
                 }
                 
                 
@@ -148,32 +149,19 @@ extension SearchViewController: UICollectionViewDelegate {
         
         switch sectionItem {
         case .nearby(let nearby):
+            
             if !viewModel.wantedStudyDataStore.contains(nearby.label) {
                 self.viewModel.wantedStudyDataStore.append(nearby.label)
+            } else {
+                //self.showToast(message: "이미 존재")
             }
-            
-            
-            
-            
-            //let wantedStudy = Wanted(label: nearby.label)
-            //self.viewModel.studyList.append(wantedStudy)
-            
-            //self.viewModel.wantedStudyList.accept(self.viewModel.studyList)
+
         case .wanted(let wanted):
-            var cnt = 0
-            //            wantedStudyList.forEach {
-            //                cnt += 1
-            //                if $0.id == wanted?.id {
-            //                    wantedStudyList.remove(at: cnt - 1)
-            //                    print("fdfds")
-            //
-            //
-            //                }
-            //
-            //            }
             
-            
-            
+            if self.viewModel.wantedStudyDataStore.contains(wanted!.label) {
+                guard let index = self.viewModel.wantedStudyDataStore.firstIndex(of: wanted!.label) else { return }
+                self.viewModel.wantedStudyDataStore.remove(at: index)
+            }
             return
         default:
             return

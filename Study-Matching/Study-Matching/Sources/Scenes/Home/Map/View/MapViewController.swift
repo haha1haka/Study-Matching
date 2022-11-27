@@ -39,6 +39,72 @@ extension MapViewController {
 
 extension MapViewController {
     func bind() {
+        
+        // MARK: - 위치바뀔때마다 호출
+        viewModel.sesacFriendsArray
+            .bind(onNext: {
+                $0.forEach {
+                    self.makeAnnotation($0)
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        
+
+        // MARK: - 전체버튼
+        selfView.totalButton.rx.tap
+            .bind(onNext: {
+                print("fasfasdfsdfsdafasdfsadfadf")
+                self.requestQueueSearch {
+                    self.selfView.mapView.removeAnnotations(self.selfView.mapView.annotations)
+                    self.viewModel.sesacFriendsArray.value.forEach {
+                        self.makeAnnotation($0)
+                    }
+                    
+                }
+                self.selfView.makeActByGender(gender: .total)
+
+
+            })
+            .disposed(by: disposeBag)
+        
+        // MARK: - 남자버튼
+        selfView.manButton.rx.tap
+            .bind(onNext: {
+                
+                self.requestQueueSearch {
+                    self.selfView.mapView.removeAnnotations(self.selfView.mapView.annotations)
+                    self.viewModel.sesacFriendsArray.value.filter { $0.gender == 1 }.forEach {
+                        print("🥰🥰🥰🥰🥰🥰🥰\($0)")
+                        self.makeAnnotation($0)
+                    }
+                }
+                self.selfView.makeActByGender(gender: .man)
+                
+
+                
+
+            })
+            .disposed(by: disposeBag)
+
+        // MARK: - 여지버튼
+        selfView.womanButton.rx.tap
+            .bind(onNext: {
+                self.requestQueueSearch {
+                    self.selfView.mapView.removeAnnotations(self.selfView.mapView.annotations)
+                    self.viewModel.sesacFriendsArray.value.filter { $0.gender == 0 }.forEach {
+                        print("🐸🐸🐸🐸🐸🐸🐸\($0)")
+                        let coordinate = CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.long)
+                        let friendsPin = SeSacAnnotation(coordinate: coordinate, sesac: $0.sesac)
+                        self.selfView.mapView.addAnnotation(friendsPin)
+                    }
+                }
+
+                self.selfView.makeActByGender(gender: .woman)
+                
+            })
+            .disposed(by: disposeBag)
+        
         // MARK: - 플로팅 버튼
         selfView.floattingButton.rx.tap
             .bind(onNext: {
@@ -63,67 +129,6 @@ extension MapViewController {
             .disposed(by: disposeBag)
         
         
-        viewModel.sesacFriendsArray
-            .bind(onNext: {
-                $0.forEach {
-                    self.makeAnnotation($0)
-                }
-            })
-            .disposed(by: disposeBag)
-        
-        
-        selfView.totalButton.rx.tap
-            .bind(onNext: {
-                print("fasfasdfsdfsdafasdfsadfadf")
-                self.requestQueueSearch {
-                    self.selfView.mapView.removeAnnotations(self.selfView.mapView.annotations)
-                    self.viewModel.sesacFriendsArray.value.forEach {
-                        self.makeAnnotation($0)
-                    }
-                    
-                }
-                self.selfView.makeActByGender(gender: .total)
-
-
-            })
-            .disposed(by: disposeBag)
-        
-        
-        selfView.manButton.rx.tap
-            .bind(onNext: {
-                
-                self.requestQueueSearch {
-                    self.selfView.mapView.removeAnnotations(self.selfView.mapView.annotations)
-                    self.viewModel.sesacFriendsArray.value.filter { $0.gender == 1 }.forEach {
-                        print("🥰🥰🥰🥰🥰🥰🥰\($0)")
-                        self.makeAnnotation($0)
-                    }
-                }
-                self.selfView.makeActByGender(gender: .man)
-                
-
-                
-
-            })
-            .disposed(by: disposeBag)
-
-        
-        selfView.womanButton.rx.tap
-            .bind(onNext: {
-                self.requestQueueSearch {
-                    self.selfView.mapView.removeAnnotations(self.selfView.mapView.annotations)
-                    self.viewModel.sesacFriendsArray.value.filter { $0.gender == 0 }.forEach {
-                        print("🐸🐸🐸🐸🐸🐸🐸\($0)")
-                        let coordinate = CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.long)
-                        let friendsPin = SeSacAnnotation(coordinate: coordinate, sesac: $0.sesac)
-                        self.selfView.mapView.addAnnotation(friendsPin)
-                    }
-                }
-
-                self.selfView.makeActByGender(gender: .woman)
-                
-            })
-            .disposed(by: disposeBag)
         
     }
     
