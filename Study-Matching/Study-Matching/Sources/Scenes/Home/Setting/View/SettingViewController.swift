@@ -43,10 +43,7 @@ extension SettingViewController {
             .bind(onNext: {
                 self.pageViewController.setViewControllers([self.pageViewController.pageContentViewControllers[self.selfView.nearbyButton.tag]], direction: .forward, animated: false)
                 
-                self.selfView.nearbyButton.setTitleColor(SeSacColor.green, for: .normal)
-                self.selfView.requestedButton.setTitleColor(SeSacColor.gray6, for: .normal)
-                self.selfView.dividerView1.backgroundColor = SeSacColor.green
-                self.selfView.dividerView2.backgroundColor = SeSacColor.gray2
+                self.selfView.makeAct()
             })
             .disposed(by: disposeBag)
         
@@ -54,10 +51,7 @@ extension SettingViewController {
             .bind(onNext: {
                 self.pageViewController.setViewControllers([self.pageViewController.pageContentViewControllers[self.selfView.requestedButton.tag]], direction: .forward, animated: false)
                 
-                self.selfView.nearbyButton.setTitleColor(SeSacColor.gray6, for: .normal)
-                self.selfView.requestedButton.setTitleColor(SeSacColor.green, for: .normal)
-                self.selfView.dividerView1.backgroundColor = SeSacColor.gray2
-                self.selfView.dividerView2.backgroundColor = SeSacColor.green
+                self.selfView.makeInAct()
             })
             .disposed(by: disposeBag)
         
@@ -65,15 +59,9 @@ extension SettingViewController {
             .bind(onNext: {
                 switch $0 {
                 case .zero:
-                    self.selfView.nearbyButton.setTitleColor(SeSacColor.green, for: .normal)
-                    self.selfView.requestedButton.setTitleColor(SeSacColor.gray6, for: .normal)
-                    self.selfView.dividerView1.backgroundColor = SeSacColor.green
-                    self.selfView.dividerView2.backgroundColor = SeSacColor.gray2
+                    self.selfView.makeAct()
                 default:
-                    self.selfView.nearbyButton.setTitleColor(SeSacColor.gray6, for: .normal)
-                    self.selfView.requestedButton.setTitleColor(SeSacColor.green, for: .normal)
-                    self.selfView.dividerView1.backgroundColor = SeSacColor.gray2
-                    self.selfView.dividerView2.backgroundColor = SeSacColor.green
+                    self.selfView.makeInAct()
                 }
             })
             .disposed(by: disposeBag)

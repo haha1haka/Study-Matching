@@ -72,6 +72,18 @@ class SettingView: BaseView {
         
 
     }
+    func makeAct() {
+        nearbyButton.setTitleColor(SeSacColor.green, for: .normal)
+        dividerView1.backgroundColor = SeSacColor.green
+        requestedButton.setTitleColor(SeSacColor.gray6, for: .normal)
+        dividerView2.backgroundColor = SeSacColor.gray2
+    }
+    func makeInAct() {
+        nearbyButton.setTitleColor(SeSacColor.gray6, for: .normal)
+        dividerView1.backgroundColor = SeSacColor.gray2
+        requestedButton.setTitleColor(SeSacColor.green, for: .normal)
+        dividerView2.backgroundColor = SeSacColor.green
+    }
 
 
 }
