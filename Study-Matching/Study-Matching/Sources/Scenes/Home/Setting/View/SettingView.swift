@@ -2,7 +2,7 @@ import UIKit
 import SnapKit
 
 class SettingView: BaseView {
-
+    
     lazy var topStackView: UIStackView = {
         let view = UIStackView(arrangedSubviews: [
             leftStackView, rightStackView
@@ -30,29 +30,27 @@ class SettingView: BaseView {
         return view
     }()
     
-
-    let nearbyButton = SeSacButton(title: "주변새싹",type: .settingTap , tag_: .zero)
-    let requestedButton = SeSacButton(title: "받은요청",type: .settingTap ,tag_: 1)
+    
+    let nearbyButton: SeSacButton = {
+        let view = SeSacButton(title: "주변새싹",type: .settingTap , tag_: .zero)
+        view.setTitleColor(SeSacColor.green, for: .normal)
+        return view
+    }()
+    
     
     let dividerView1: UIView = {
         let view = UIView()
-        view.backgroundColor = SeSacColor.gray2
+        view.backgroundColor = SeSacColor.green
         return view
     }()
 
-    
-\
+    let requestedButton = SeSacButton(title: "받은요청",type: .settingTap ,tag_: 1)
     
     let dividerView2: UIView = {
         let view = UIView()
         view.backgroundColor = SeSacColor.gray2
         return view
     }()
-    
-
-    
-    
-    
     
 
     override func configureHierarchy() {

@@ -9,6 +9,7 @@ import Foundation
 
 extension SeSacButton {
     
+    
     var toAct: Void  {
         backgroundColor = SeSacColor.green
         setTitleColor(SeSacColor.white, for: .normal)
@@ -20,4 +21,5 @@ extension SeSacButton {
         layer.borderColor = SeSacColor.gray4.cgColor
         layer.borderWidth = 1
     }
+    
 }
