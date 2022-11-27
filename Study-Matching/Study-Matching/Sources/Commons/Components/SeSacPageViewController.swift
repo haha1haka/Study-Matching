@@ -10,7 +10,9 @@ class SeSacPageViewController: UIPageViewController {
     let nearbyViewController = NearbyViewController()
     let requestedViewController = RequestedViewController()
     var pageContentViewControllers: [UIViewController] = []
+    
     var eventDelegate: PageReadable?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
@@ -64,9 +66,6 @@ extension SeSacPageViewController: UIPageViewControllerDataSource, UIPageViewCon
         if let currentViewController = pageViewController.viewControllers?.first!,
            let currentIndex = pageContentViewControllers.firstIndex(of: currentViewController) {
             self.eventDelegate?.page(self, pageIndex: currentIndex)
-            //0, 1 으로 넘어 올거임
-//            let indexPath = IndexPath(item: currentIndex, section: .zero)
-//            topicViewController.topicView.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [.centeredHorizontally])
         }
     }
 

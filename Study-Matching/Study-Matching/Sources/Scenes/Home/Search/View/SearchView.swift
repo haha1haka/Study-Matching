@@ -67,15 +67,15 @@ class SearchView: BaseView {
     
     func cellLayout() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
-            widthDimension: .estimated(128),
-            heightDimension: .estimated(128))
+            widthDimension: .estimated(32),
+            heightDimension: .estimated(32))
         
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.edgeSpacing = .init(leading: .fixed(4), top: .fixed(4), trailing: .fixed(4), bottom: .fixed(4))
         
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
-            heightDimension: .estimated(128))
+            heightDimension: .estimated(32))
         
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         let section = NSCollectionLayoutSection(group: group)

@@ -24,4 +24,8 @@ protocol DataSourceRegistration {
     typealias SearchTopCellRegistration  = UICollectionView.CellRegistration<SearchTopCell, Nearby>
     typealias SearchBottomCellRegistration   = UICollectionView.CellRegistration<SearchBottomCell, Wanted>
     
+    // MARK: - RequestedVC
+    typealias RequestedHeadRegistration    = UICollectionView.SupplementaryRegistration<RequestedHeaderView>
+    typealias RequestedCellRegistration  = UICollectionView.CellRegistration<RequestedCell, Main>
+    
 }

@@ -3,13 +3,16 @@ import RxSwift
 import RxCocoa
 import SnapKit
 
-class SettingViewController: BaseViewController {
+class SettingViewController: BaseViewController, DataSourceRegistration {
     
     let selfView = SettingView()
     let pageViewController = SeSacPageViewController(.scroll)
     
     let viewModel = SettingViewModel()
     let disposeBag = DisposeBag()
+    
+
+        
 
     override func loadView() { view = selfView }
     

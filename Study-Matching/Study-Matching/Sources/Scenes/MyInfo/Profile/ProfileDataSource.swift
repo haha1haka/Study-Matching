@@ -31,6 +31,7 @@ class ProfileDataSource: UICollectionViewDiffableDataSource<Int, Item>, DataSour
                 for: indexPath)
             return suppleymentaryView }
     }
+    
 
     func applySnapshot() {
         var snapshot = snapshot()

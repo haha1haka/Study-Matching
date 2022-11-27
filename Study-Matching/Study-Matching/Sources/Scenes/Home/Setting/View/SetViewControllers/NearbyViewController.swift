@@ -5,6 +5,8 @@ class NearbyViewController: BaseViewController {
     let selfView = NearbyView()
     
     override func loadView() { view = selfView }
+    
+    
 }
 
 extension NearbyViewController {

@@ -6,6 +6,7 @@ enum SeSacButtonType {
     case map
     case search
     case settingTap
+    case settingRequest
 }
 
 class SeSacButton: UIButton {
@@ -52,6 +53,12 @@ class SeSacButton: UIButton {
             titleLabel?.font = SeSacFont.Title3_M14.set
             backgroundColor = SeSacColor.white
             tag = tag_
+        case .settingRequest:
+            backgroundColor = SeSacColor.error
+            setTitleColor(SeSacColor.white, for: .normal)
+            setTitle(title, for: .normal)
+            layer.cornerRadius = 8
+            layer.masksToBounds = true
         }
 
 

@@ -29,6 +29,9 @@
 		F4334032291E12FA00F46725 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F4334031291E12FA00F46725 /* RxSwift */; };
 		F4334034291E177400F46725 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4334033291E177400F46725 /* OnboardingViewModel.swift */; };
 		F437D9FE292DF259005BC5C9 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F437D9FD292DF259005BC5C9 /* MapViewModel.swift */; };
+		F44FFB38293323320053D2A7 /* RequestedHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44FFB37293323320053D2A7 /* RequestedHeaderView.swift */; };
+		F44FFB3A293324E80053D2A7 /* RequestedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44FFB39293324E80053D2A7 /* RequestedCell.swift */; };
+		F44FFB3C29332D660053D2A7 /* MiniCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44FFB3B29332D660053D2A7 /* MiniCell.swift */; };
 		F45119972919230B0058571C /* SeSacColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45119962919230B0058571C /* SeSacColor.swift */; };
 		F451199A291926A00058571C /* SeSacButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4511999291926A00058571C /* SeSacButton.swift */; };
 		F451199D291928C10058571C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F451199C291928C10058571C /* SnapKit */; };
@@ -143,6 +146,9 @@
 		F42EE4FF292B61B7007336DB /* MemoleaseQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoleaseQueue.swift; sourceTree = "<group>"; };
 		F4334033291E177400F46725 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		F437D9FD292DF259005BC5C9 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		F44FFB37293323320053D2A7 /* RequestedHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedHeaderView.swift; sourceTree = "<group>"; };
+		F44FFB39293324E80053D2A7 /* RequestedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedCell.swift; sourceTree = "<group>"; };
+		F44FFB3B29332D660053D2A7 /* MiniCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniCell.swift; sourceTree = "<group>"; };
 		F45119962919230B0058571C /* SeSacColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacColor.swift; sourceTree = "<group>"; };
 		F4511999291926A00058571C /* SeSacButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacButton.swift; sourceTree = "<group>"; };
 		F451199E29192DC80058571C /* SeSacFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacFont.swift; sourceTree = "<group>"; };
@@ -781,6 +787,9 @@
 				F4A868682930EFA800E75958 /* NearbyView.swift */,
 				F4A868612930EA5500E75958 /* RequestedViewController.swift */,
 				F4A868662930EC6100E75958 /* RequestedView.swift */,
+				F44FFB37293323320053D2A7 /* RequestedHeaderView.swift */,
+				F44FFB39293324E80053D2A7 /* RequestedCell.swift */,
+				F44FFB3B29332D660053D2A7 /* MiniCell.swift */,
 				F4A8686A2930EFD900E75958 /* RequestedDataSource.swift */,
 			);
 			path = SetViewControllers;
@@ -1052,6 +1061,8 @@
 				F4D8A6F3292A791600C25A57 /* SearchTopCell.swift in Sources */,
 				F499C44C291F55C200C4B117 /* UserdefaultsManager.swift in Sources */,
 				F4334034291E177400F46725 /* OnboardingViewModel.swift in Sources */,
+				F44FFB38293323320053D2A7 /* RequestedHeaderView.swift in Sources */,
+				F44FFB3C29332D660053D2A7 /* MiniCell.swift in Sources */,
 				F456375D2921538700CDF1BA /* MemoleaseUser.swift in Sources */,
 				F4D29806292508E000A3AAB7 /* MyInfoCell.swift in Sources */,
 				F4586473291FB32800993A6D /* GenderViewModel.swift in Sources */,
@@ -1064,6 +1075,7 @@
 				F4F103D0291CC1C300C2020C /* OnboardCell.swift in Sources */,
 				F4D8A6ED292A78F100C25A57 /* SearchViewController.swift in Sources */,
 				F4D8A6F1292A790900C25A57 /* SearchDataSource.swift in Sources */,
+				F44FFB3A293324E80053D2A7 /* RequestedCell.swift in Sources */,
 				F4034CC629191B1400423FAF /* MapViewController.swift in Sources */,
 				F45119A429193AEB0058571C /* SMSViewController.swift in Sources */,
 				F4594E752920C29F0071CFC2 /* String.swift in Sources */,
