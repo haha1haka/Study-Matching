@@ -52,7 +52,7 @@ enum Item: Hashable {
     case sub(Sub)
 }
 struct Main: Hashable {
-    
+    var uuid = UUID()
 }
 
 struct Sub: Hashable {

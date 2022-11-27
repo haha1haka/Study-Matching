@@ -28,8 +28,9 @@ class RequestedDataSource: UICollectionViewDiffableDataSource<Int, Main>, DataSo
 
     func applySnapshot() {
         var snapshot = snapshot()
-        snapshot.appendSections([0])
-        snapshot.appendItems([Main()])
+        snapshot.appendSections([0, 1])
+        snapshot.appendItems([Main()], toSection: 0)
+        snapshot.appendItems([Main()], toSection: 1)
         apply(snapshot)
     }
 

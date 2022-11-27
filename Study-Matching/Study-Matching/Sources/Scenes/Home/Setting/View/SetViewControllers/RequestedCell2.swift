@@ -4,7 +4,7 @@ import SnapKit
 //    let label: String
 //}
 
-class RequestedCell: BaseCollectionViewCell {
+class RequestedCell2: BaseCollectionViewCell {
             
     var closedConstraint: NSLayoutConstraint?
     var openConstraint: NSLayoutConstraint?
@@ -270,7 +270,7 @@ class RequestedCell: BaseCollectionViewCell {
 }
 
 
-extension RequestedCell {
+extension RequestedCell2 {
     func updateAppearance() {
         print("fasdfasdfas")
         closedConstraint?.isActive = !isSelected
