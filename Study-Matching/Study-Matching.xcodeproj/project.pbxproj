@@ -24,7 +24,7 @@
 		F41E0E382925AB0000B28291 /* GenderDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E0E372925AB0000B28291 /* GenderDataSource.swift */; };
 		F41E0E422925D7DC00B28291 /* MyInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E0E412925D7DC00B28291 /* MyInfoViewModel.swift */; };
 		F42EE4FD292B4E50007336DB /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42EE4FC292B4E50007336DB /* UIView.swift */; };
-		F42EE500292B61B7007336DB /* MemoleaseQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42EE4FF292B61B7007336DB /* MemoleaseQueue.swift */; };
+		F42EE500292B61B7007336DB /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42EE4FF292B61B7007336DB /* Queue.swift */; };
 		F4334030291E12FA00F46725 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F433402F291E12FA00F46725 /* RxCocoa */; };
 		F4334032291E12FA00F46725 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F4334031291E12FA00F46725 /* RxSwift */; };
 		F4334034291E177400F46725 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4334033291E177400F46725 /* OnboardingViewModel.swift */; };
@@ -56,7 +56,7 @@
 		F454E4A3291A1CDB0064BCC4 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F454E4A1291A1CDB0064BCC4 /* NotoSansCJKkr-Regular.otf */; };
 		F454E4A7291A24610064BCC4 /* SeSacLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F454E4A6291A24610064BCC4 /* SeSacLabel.swift */; };
 		F454E4A9291A66070064BCC4 /* SesacDateLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F454E4A8291A66070064BCC4 /* SesacDateLabel.swift */; };
-		F456375D2921538700CDF1BA /* MemoleaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F456375C2921538700CDF1BA /* MemoleaseUser.swift */; };
+		F456375D2921538700CDF1BA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F456375C2921538700CDF1BA /* User.swift */; };
 		F4586462291F77AB00993A6D /* NickNameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4586461291F77AB00993A6D /* NickNameViewModel.swift */; };
 		F4586464291F8A0900993A6D /* BirthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4586463291F8A0900993A6D /* BirthViewModel.swift */; };
 		F4586466291F900E00993A6D /* EmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4586465291F900E00993A6D /* EmailViewModel.swift */; };
@@ -70,12 +70,14 @@
 		F463403F2918FE54008A50D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F463403D2918FE54008A50D6 /* LaunchScreen.storyboard */; };
 		F463F17C2929340600CE644C /* SeSacButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F463F17B2929340600CE644C /* SeSacButton+.swift */; };
 		F464068229287898008E6F8F /* MultiSlider in Frameworks */ = {isa = PBXBuildFile; productRef = F464068129287898008E6F8F /* MultiSlider */; };
+		F4641DAE29344A5E00B680B0 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4641DAD29344A5E00B680B0 /* Chat.swift */; };
+		F4641DB229344DA600B680B0 /* NetworkServiceLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4641DB129344DA600B680B0 /* NetworkServiceLogic.swift */; };
+		F4641DB429344F8000B680B0 /* MemoleaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4641DB329344F8000B680B0 /* MemoleaseRouter.swift */; };
 		F47AF0B82922019700AA0789 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AF0B72922019700AA0789 /* SplashViewController.swift */; };
 		F47AF0BA292201A800AA0789 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AF0B9292201A800AA0789 /* SplashView.swift */; };
 		F47AF0BE2922097800AA0789 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F47AF0BD2922097800AA0789 /* GoogleService-Info.plist */; };
 		F488D78729211AE6002E4B57 /* FirebaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F488D78629211AE6002E4B57 /* FirebaseError.swift */; };
 		F488D78929212290002E4B57 /* MemoleaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F488D78829212290002E4B57 /* MemoleaseService.swift */; };
-		F488D78C29212324002E4B57 /* MemoleaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F488D78B29212324002E4B57 /* MemoleaseRouter.swift */; };
 		F488D78E29212665002E4B57 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = F488D78D29212665002E4B57 /* HTTPMethod.swift */; };
 		F488D7902921308A002E4B57 /* MemoleaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F488D78F2921308A002E4B57 /* MemoleaseError.swift */; };
 		F48B3070292270A800DD5E12 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B306F292270A800DD5E12 /* ProfileViewController.swift */; };
@@ -146,7 +148,7 @@
 		F41E0E372925AB0000B28291 /* GenderDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderDataSource.swift; sourceTree = "<group>"; };
 		F41E0E412925D7DC00B28291 /* MyInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewModel.swift; sourceTree = "<group>"; };
 		F42EE4FC292B4E50007336DB /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		F42EE4FF292B61B7007336DB /* MemoleaseQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoleaseQueue.swift; sourceTree = "<group>"; };
+		F42EE4FF292B61B7007336DB /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		F4334033291E177400F46725 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		F437D9FD292DF259005BC5C9 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		F44FFB37293323320053D2A7 /* RequestedHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedHeaderView.swift; sourceTree = "<group>"; };
@@ -175,7 +177,7 @@
 		F454E4A1291A1CDB0064BCC4 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		F454E4A6291A24610064BCC4 /* SeSacLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacLabel.swift; sourceTree = "<group>"; };
 		F454E4A8291A66070064BCC4 /* SesacDateLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacDateLabel.swift; sourceTree = "<group>"; };
-		F456375C2921538700CDF1BA /* MemoleaseUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoleaseUser.swift; sourceTree = "<group>"; };
+		F456375C2921538700CDF1BA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F4586461291F77AB00993A6D /* NickNameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewModel.swift; sourceTree = "<group>"; };
 		F4586463291F8A0900993A6D /* BirthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthViewModel.swift; sourceTree = "<group>"; };
 		F4586465291F900E00993A6D /* EmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewModel.swift; sourceTree = "<group>"; };
@@ -189,12 +191,14 @@
 		F463403E2918FE54008A50D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F46340402918FE54008A50D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F463F17B2929340600CE644C /* SeSacButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SeSacButton+.swift"; sourceTree = "<group>"; };
+		F4641DAD29344A5E00B680B0 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		F4641DB129344DA600B680B0 /* NetworkServiceLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceLogic.swift; sourceTree = "<group>"; };
+		F4641DB329344F8000B680B0 /* MemoleaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoleaseRouter.swift; sourceTree = "<group>"; };
 		F47AF0B72922019700AA0789 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		F47AF0B9292201A800AA0789 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		F47AF0BD2922097800AA0789 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F488D78629211AE6002E4B57 /* FirebaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseError.swift; sourceTree = "<group>"; };
 		F488D78829212290002E4B57 /* MemoleaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoleaseService.swift; sourceTree = "<group>"; };
-		F488D78B29212324002E4B57 /* MemoleaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoleaseRouter.swift; sourceTree = "<group>"; };
 		F488D78D29212665002E4B57 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		F488D78F2921308A002E4B57 /* MemoleaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoleaseError.swift; sourceTree = "<group>"; };
 		F48B306F292270A800DD5E12 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -268,7 +272,6 @@
 			isa = PBXGroup;
 			children = (
 				F4034CBE29191B1400423FAF /* Application */,
-				F4034CA929191B1400423FAF /* DataBase */,
 				F4034CBD29191B1400423FAF /* Networking */,
 				F4034CAA29191B1400423FAF /* Scenes */,
 				F4034CB229191B1400423FAF /* Commons */,
@@ -276,18 +279,11 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		F4034CA929191B1400423FAF /* DataBase */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DataBase;
-			sourceTree = "<group>";
-		};
 		F4034CAA29191B1400423FAF /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				F4D83D1A2930C2C900F78530 /* Intro */,
-				F45119B9291940B60058571C /* Authorization */,
+				F45119B9291940B60058571C /* Auth */,
 				F42EE503292B6430007336DB /* Home */,
 				F48B306E2922708000DD5E12 /* MyInfo */,
 			);
@@ -392,6 +388,7 @@
 		F4034CC129191B1400423FAF /* Supportings */ = {
 			isa = PBXGroup;
 			children = (
+				F47AF0BD2922097800AA0789 /* GoogleService-Info.plist */,
 				F46340402918FE54008A50D6 /* Info.plist */,
 			);
 			path = Supportings;
@@ -401,8 +398,8 @@
 			isa = PBXGroup;
 			children = (
 				F454E49F291A1C6C0064BCC4 /* Font */,
-				F463403D2918FE54008A50D6 /* LaunchScreen.storyboard */,
-				F463403B2918FE54008A50D6 /* Assets.xcassets */,
+				F4641DA72934456200B680B0 /* Storyboards */,
+				F4641DA62934455D00B680B0 /* Assets */,
 				F4034CC329191B1400423FAF /* BaseCode */,
 			);
 			path = Resources;
@@ -443,15 +440,6 @@
 				F4A8A7832924885100B94EC7 /* WithDrawView.swift */,
 			);
 			path = ProfileSubCell;
-			sourceTree = "<group>";
-		};
-		F42EE501292B628C007336DB /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				F456375C2921538700CDF1BA /* MemoleaseUser.swift */,
-				F42EE4FF292B61B7007336DB /* MemoleaseQueue.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		F42EE502292B6410007336DB /* Search */ = {
@@ -640,13 +628,13 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
-		F45119B9291940B60058571C /* Authorization */ = {
+		F45119B9291940B60058571C /* Auth */ = {
 			isa = PBXGroup;
 			children = (
 				F437D9F8292DF05C005BC5C9 /* SignIn */,
 				F45119B329193C8C0058571C /* Signup */,
 			);
-			path = Authorization;
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		F454E49F291A1C6C0064BCC4 /* Font */ = {
@@ -728,13 +716,52 @@
 		F46340312918FE53008A50D6 /* Study-Matching */ = {
 			isa = PBXGroup;
 			children = (
-				F47AF0BD2922097800AA0789 /* GoogleService-Info.plist */,
 				F4594E732920A9810071CFC2 /* Study-Matching.entitlements */,
 				F4034CA829191B1400423FAF /* Sources */,
 				F4034CC229191B1400423FAF /* Resources */,
 				F4034CC129191B1400423FAF /* Supportings */,
 			);
 			path = "Study-Matching";
+			sourceTree = "<group>";
+		};
+		F4641DA62934455D00B680B0 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				F463403B2918FE54008A50D6 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		F4641DA72934456200B680B0 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				F463403D2918FE54008A50D6 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		F4641DA82934499C00B680B0 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				F456375C2921538700CDF1BA /* User.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		F4641DA92934499F00B680B0 /* Queue */ = {
+			isa = PBXGroup;
+			children = (
+				F42EE4FF292B61B7007336DB /* Queue.swift */,
+			);
+			path = Queue;
+			sourceTree = "<group>";
+		};
+		F4641DAA293449A700B680B0 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				F4641DAD29344A5E00B680B0 /* Chat.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		F46B4A2E291E9055003910E2 /* Manager */ = {
@@ -757,8 +784,8 @@
 		F47D76402920958800F747DA /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
-				F499C448291F546000C4B117 /* FirebaseService.swift */,
 				F488D78629211AE6002E4B57 /* FirebaseError.swift */,
+				F499C448291F546000C4B117 /* FirebaseService.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -766,12 +793,15 @@
 		F47D76422920959900F747DA /* Memolease */ = {
 			isa = PBXGroup;
 			children = (
-				F42EE501292B628C007336DB /* Model */,
+				F4641DA82934499C00B680B0 /* User */,
+				F4641DA92934499F00B680B0 /* Queue */,
+				F4641DAA293449A700B680B0 /* Chat */,
 				F488D78D29212665002E4B57 /* HTTPMethod.swift */,
 				F488D78F2921308A002E4B57 /* MemoleaseError.swift */,
-				F488D78B29212324002E4B57 /* MemoleaseRouter.swift */,
-				F4A79EAF292D05310010E44F /* MemoleaseTargetType.swift */,
 				F488D78829212290002E4B57 /* MemoleaseService.swift */,
+				F4641DB329344F8000B680B0 /* MemoleaseRouter.swift */,
+				F4A79EAF292D05310010E44F /* MemoleaseTargetType.swift */,
+				F4641DB129344DA600B680B0 /* NetworkServiceLogic.swift */,
 			);
 			path = Memolease;
 			sourceTree = "<group>";
@@ -1046,6 +1076,7 @@
 				F488D78729211AE6002E4B57 /* FirebaseError.swift in Sources */,
 				F45119BF291941620058571C /* EmailView.swift in Sources */,
 				F4F103D2291CC66600C2020C /* OnBoardingFooterView.swift in Sources */,
+				F4641DB229344DA600B680B0 /* NetworkServiceLogic.swift in Sources */,
 				F4586464291F8A0900993A6D /* BirthViewModel.swift in Sources */,
 				F4034CD029191B1400423FAF /* BaseCode.swift in Sources */,
 				F4D83D132930C00A00F78530 /* SettingView.swift in Sources */,
@@ -1055,6 +1086,7 @@
 				F45119C3291941A00058571C /* NicknameViewController.swift in Sources */,
 				F41E0E382925AB0000B28291 /* GenderDataSource.swift in Sources */,
 				F47AF0BA292201A800AA0789 /* SplashView.swift in Sources */,
+				F4641DB429344F8000B680B0 /* MemoleaseRouter.swift in Sources */,
 				F4D8A6F8292A7CC500C25A57 /* SearchBottomCell.swift in Sources */,
 				F4F103CE291CBF8A00C2020C /* SeSacImage.swift in Sources */,
 				F41E0E342925A64D00B28291 /* MyInfoDataSource.swift in Sources */,
@@ -1073,14 +1105,13 @@
 				F4D29808292508F500A3AAB7 /* MyInfoHeaderView.swift in Sources */,
 				F4A868672930EC6100E75958 /* RequestedView.swift in Sources */,
 				F4A8A77C292487CB00B94EC7 /* Gender2View.swift in Sources */,
-				F42EE500292B61B7007336DB /* MemoleaseQueue.swift in Sources */,
+				F42EE500292B61B7007336DB /* Queue.swift in Sources */,
 				F45119BB291941550058571C /* NicknameView.swift in Sources */,
 				F4A8686D2930F53800E75958 /* SeSacPageViewController.swift in Sources */,
 				F41E0E322925A12E00B28291 /* ProfileDataSource.swift in Sources */,
 				F4D83D0F2930BFED00F78530 /* SettingViewController.swift in Sources */,
 				F463F17C2929340600CE644C /* SeSacButton+.swift in Sources */,
 				F451199F29192DC80058571C /* SeSacFont.swift in Sources */,
-				F488D78C29212324002E4B57 /* MemoleaseRouter.swift in Sources */,
 				F44FFB3E29334F4A0053D2A7 /* RequestedCell2.swift in Sources */,
 				F45119BD2919415D0058571C /* BirthView.swift in Sources */,
 				F4D83D152930C01000F78530 /* SettingViewModel.swift in Sources */,
@@ -1115,6 +1146,7 @@
 				F4D29802292508D100A3AAB7 /* MyInfoViewController.swift in Sources */,
 				F4A8A780292487E800B94EC7 /* SwitchView.swift in Sources */,
 				F4A8A782292487F200B94EC7 /* AgeView.swift in Sources */,
+				F4641DAE29344A5E00B680B0 /* Chat.swift in Sources */,
 				F41E0E422925D7DC00B28291 /* MyInfoViewModel.swift in Sources */,
 				F45119C5291941AB0058571C /* BirthViewController.swift in Sources */,
 				F4034CCA29191B1400423FAF /* BaseViewContoroller.swift in Sources */,
@@ -1123,7 +1155,7 @@
 				F4334034291E177400F46725 /* OnboardingViewModel.swift in Sources */,
 				F44FFB38293323320053D2A7 /* RequestedHeaderView.swift in Sources */,
 				F44FFB3C29332D660053D2A7 /* MiniCell.swift in Sources */,
-				F456375D2921538700CDF1BA /* MemoleaseUser.swift in Sources */,
+				F456375D2921538700CDF1BA /* User.swift in Sources */,
 				F4D29806292508E000A3AAB7 /* MyInfoCell.swift in Sources */,
 				F4586473291FB32800993A6D /* GenderViewModel.swift in Sources */,
 				F4034CCB29191B1400423FAF /* BaseView.swift in Sources */,

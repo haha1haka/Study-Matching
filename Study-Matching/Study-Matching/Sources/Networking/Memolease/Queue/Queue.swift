@@ -1,7 +1,7 @@
 import Foundation
 
 
-struct MemoleaseQueue: Codable {
+struct Queue: Codable {
     let fromQueueDB          : [FromQueueDB]
     let fromQueueDBRequested : [FromQueueDB]
     let fromRecommend        : [String]

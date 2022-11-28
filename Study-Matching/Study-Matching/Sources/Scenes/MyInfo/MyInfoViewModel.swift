@@ -124,11 +124,7 @@ extension MyInfoViewModel {
         
         let target = MemoleaseRouter.withdraw
         
-        MemoleaseService.shared.requestWithdraw(
-            path: target.path,
-            queryItems: target.queryItems,
-            httpMethod: target.httpMethod,
-            headers: target.headers) { result in
+        MemoleaseService.shared.requestWithdraw(target: MemoleaseRouter.withdraw) { result in
                 
                 switch result {
                 case .success:

@@ -1,16 +1,7 @@
 import Foundation
 
 
-//extension HTTPURLResponse: ResultType {
-//    var divide: MemoleaseResult {
-//        switch self.statusCode {
-//            
-//        default:
-//            <#code#>
-//        }
-//    }
-//    
-//}
+
 
 
 
@@ -220,16 +211,7 @@ class MemoleaseService: ResultType {
     
     func updateUser(target: TargetType, completion: @escaping MemoleaseResult) {
         
-        //        var urlComponents = URLComponents(string: path)
-        //        urlComponents?.queryItems = queryItems
-        //
-        //        print("\(path)🟩\(String(describing: urlComponents?.url))")
-        //
-        //        var urlRequest = URLRequest(url: (urlComponents?.url)!)
-        //        urlRequest.httpBody = urlComponents?.query?.data(using: .utf8)
-        //        urlRequest.httpMethod = httpMethod.rawValue.uppercased()
-        //        urlRequest.allHTTPHeaderFields = headers
-        
+
         URLSession.shared.dataTask(with: target.request) { data, response, error in
             
             guard let httpResponse = response as? HTTPURLResponse else { return }
@@ -260,25 +242,17 @@ class MemoleaseService: ResultType {
         }.resume()
     }
     
-    func requestWithdraw(path: String, queryItems: [URLQueryItem]?, httpMethod: HTTPMethod, headers: [String: String], completion: @escaping MemoleaseResult) {
+    func requestWithdraw(target: TargetType, completion: @escaping MemoleaseResult) {
         
-        var urlComponents = URLComponents(string: path)
-        urlComponents?.queryItems = queryItems
-        print("\(path)🟩\(String(describing: urlComponents?.url))")
+
         
-        
-        var urlRequest = URLRequest(url: (urlComponents?.url)!)
-        urlRequest.httpBody = urlComponents?.query?.data(using: .utf8)
-        urlRequest.httpMethod = httpMethod.rawValue.uppercased()
-        urlRequest.allHTTPHeaderFields = headers
-        
-        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+        session.dataTask(with: target.request) { data, response, error in
             
             
             DispatchQueue.main.async {
                 guard let httpResponse = response as? HTTPURLResponse else { return }
                 
-                print("📭 Request \(urlRequest.url!)")
+                print("📭 Request \(target.request.url!)")
                 print("🚩 Response \(httpResponse.statusCode)")
                 
                 
@@ -312,7 +286,7 @@ class MemoleaseService: ResultType {
     
     func requestQueueSearch(
         target: TargetType,
-        completion: @escaping (Result<MemoleaseQueue, MemoleaseError>) -> Void )
+        completion: @escaping (Result<Queue, MemoleaseError>) -> Void )
     {
         
         session.dataTask(with: target.request) { data, response, error in
@@ -328,7 +302,7 @@ class MemoleaseService: ResultType {
                     
                     do {
                         let queueSearch = try JSONDecoder().decode( //🚀 해당 vc 에서 처리
-                            MemoleaseQueue.self,
+                            Queue.self,
                             from: data)
                         
                         

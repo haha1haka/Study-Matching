@@ -8,7 +8,7 @@ class MapViewModel: ResultType {
     
     let lat = BehaviorRelay<Double>(value: 37.51818789942772)
     let long = BehaviorRelay<Double>(value: 126.88541765534976)
-    var queueSearch = BehaviorRelay<MemoleaseQueue>(value: MemoleaseQueue(fromQueueDB: [], fromQueueDBRequested: [], fromRecommend: []))
+    var queueSearch = BehaviorRelay<Queue>(value: Queue(fromQueueDB: [], fromQueueDBRequested: [], fromRecommend: []))
     let sesacFriendsArray = BehaviorRelay<[FromQueueDB]>(value: [])
 
     
