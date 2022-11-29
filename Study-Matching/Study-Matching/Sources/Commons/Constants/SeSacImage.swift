@@ -82,5 +82,11 @@ enum SeSacImage {
     // MARK: - Home_Setting
     static let emptyImg = UIImage(named: "emptyImg")
     
+    // MARK: - Chat
+    static let bell = UIImage(named: "bell")
+    static let sendAct = UIImage(named: "sendAct")
+    static let more = UIImage(named: "more")
+    
+    
     
 }

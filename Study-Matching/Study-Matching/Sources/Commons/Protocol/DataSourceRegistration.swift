@@ -20,12 +20,17 @@ protocol DataSourceRegistration {
     
     
     // MARK: - SearchVC
-    typealias SearchHeaderRegistration    = UICollectionView.SupplementaryRegistration<SearchHeaderView>
-    typealias SearchTopCellRegistration  = UICollectionView.CellRegistration<SearchTopCell, Nearby>
-    typealias SearchBottomCellRegistration   = UICollectionView.CellRegistration<SearchBottomCell, Wanted>
+    typealias SearchHeaderRegistration    = UICollectionView.SupplementaryRegistration<WishListHeaderView>
+    typealias SearchTopCellRegistration  = UICollectionView.CellRegistration<WishListTopCell, Nearby>
+    typealias SearchBottomCellRegistration   = UICollectionView.CellRegistration<WishListBottomCell, Wanted>
     
     // MARK: - RequestedVC
-    typealias RequestedHeadRegistration    = UICollectionView.SupplementaryRegistration<RequestedHeaderView>
-    typealias RequestedCellRegistration  = UICollectionView.CellRegistration<RequestedCell, Main>
+    typealias CardHeaderRegistration    = UICollectionView.SupplementaryRegistration<CardCollectionHeaderView>
+    typealias CardCellRegistration  = UICollectionView.CellRegistration<CardCollectionCell, Card>
+    
+    // MARK: - Chat
+    typealias ChatHeaderRegistration    = UICollectionView.SupplementaryRegistration<ChatHeaderView>
+    typealias ChatLeftCellRegistration  = UICollectionView.CellRegistration<ChatLeftCell, Left>
+    typealias ChatRightCellRegistration   = UICollectionView.CellRegistration<ChatRightCell, Right>
     
 }

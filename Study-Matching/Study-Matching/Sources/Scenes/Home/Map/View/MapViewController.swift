@@ -108,7 +108,7 @@ extension MapViewController {
         // MARK: - 플로팅 버튼
         selfView.floattingButton.rx.tap
             .bind(onNext: {
-                let vc = SearchViewController()
+                let vc = WishListViewController()
                 self.transition(vc)
                 self.viewModel.requestQueueSearch {
                     switch $0 {

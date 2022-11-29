@@ -20,9 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        window?.rootViewController = UINavigationController(
 //                rootViewController: SearchViewController())
         
-        //window?.rootViewController = UINavigationController(rootViewController: SettingViewController())
-//        window?.makeKeyAndVisible()
-        window?.rootViewController = TabBarController()
+        window?.rootViewController = UINavigationController(rootViewController: ChatViewController())
+        //window?.makeKeyAndVisible()
+        //window?.rootViewController = TabBarController()
         window?.makeKeyAndVisible()
     }
 }
