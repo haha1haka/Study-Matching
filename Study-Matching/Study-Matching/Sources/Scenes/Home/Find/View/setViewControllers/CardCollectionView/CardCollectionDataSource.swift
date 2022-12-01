@@ -32,6 +32,7 @@ class CardCollectionDataSource: UICollectionViewDiffableDataSource<Section, Card
 struct Section: Hashable {
     let uuid = UUID()
     var label: String
+
 }
 
 
@@ -46,4 +47,6 @@ struct Card: Hashable {
     var sesac: Int
     var background: Int
     var uid: String
+
+    
 }

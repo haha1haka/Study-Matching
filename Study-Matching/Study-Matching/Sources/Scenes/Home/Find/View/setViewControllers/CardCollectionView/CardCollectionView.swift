@@ -18,7 +18,7 @@ class CardCollectionView: BaseView {
     override func configureLayout() {
         collectionView.snp.makeConstraints {
             $0.top.equalTo(self.safeAreaLayoutGuide)
-            $0.leading.trailing.bottom.equalTo(self)
+            $0.leading.trailing.bottom.equalTo(self.safeAreaLayoutGuide)
         }
     }
     
@@ -43,7 +43,7 @@ class CardCollectionView: BaseView {
         
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
-            heightDimension: .estimated(400))
+            heightDimension: .estimated(128))
         
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
       

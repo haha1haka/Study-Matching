@@ -11,13 +11,14 @@ enum SeSacButtonType {
 
 
 class SeSacButton: UIButton {
-    
+    var tagString: String?
     convenience init(frame: CGRect = .zero,
                      title: String,
                      color: UIColor = SeSacColor.gray6,
                      font_: UIFont = SeSacFont.Body3_R14.set,
                      type: SeSacButtonType = .login,
-                     tag_: Int = .zero)
+                     tag_: Int = .zero
+                     )
                      
     {
         self.init(frame: frame)

@@ -60,7 +60,7 @@ extension FindViewModel {
             target: QueueRouter.queueSearch(
                 lat: lat.value,
                 long: long.value)) {
-                    
+                    print("🥶\(self.lat.value), \(self.long.value)")
                     switch $0 {
                     case .success(let seacFriendDB):
                         
@@ -72,6 +72,7 @@ extension FindViewModel {
                         for item in seacFriendDB.fromQueueDB {
                             arr.append(Card(nick: item.nick, reputation: item.reputation, studyList: item.studylist, reviews: item.reviews, gender: item.gender, type: item.type, sesac: item.sesac, background: item.background, uid: item.uid))
                         }
+                        
 
                         print("📣📣fromQueueDB📣📣📣\(arr)")
                         self.cardItemList.accept(arr)

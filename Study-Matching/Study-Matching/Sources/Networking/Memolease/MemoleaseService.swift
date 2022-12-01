@@ -51,8 +51,10 @@ class MemoleaseService: ResultType {
                     }
                     
                 case 401:
-                    FirebaseService.shared.fetchIdToken { _ in }
-                    completion(.failure(.idTokenError)) //🚀 해당 viewModel 에서 재귀로그인
+                    FirebaseService.shared.fetchIdToken { _ in
+                        completion(.failure(.idTokenError))
+                    }
+                     //🚀 해당 viewModel 에서 재귀로그인
                     
                 case 406:
                     completion(.failure(.unRegistedUser)) //🚀 해당 vc 에서 처리
@@ -148,11 +150,12 @@ class MemoleaseService: ResultType {
                     let fcmToken = UserDefaultsManager.standard.FCMToken
                     self.updateFCMToken(target: UserRouter.FCMtoken(FCMtoken: fcmToken),
                                         completion: { print("🍀 FCMToken update 완료: \($0)") })
+                    completion(.failure(.idTokenError)) //🚀 해당 viewModel 에서 재귀로그인
                 }
                 
                 
                 
-                completion(.failure(.idTokenError)) //🚀 해당 viewModel 에서 재귀로그인
+                
             case 406:
                 completion(.failure(.unRegistedUser)) //🚀 해당 vc 에서 처리
             case 500:

@@ -63,6 +63,12 @@ extension RequestedViewController {
             cell.estimatedItemConstraint = self.cardView.collectionView.heightAnchor.constraint(equalToConstant: 50)
             cell.estimatedItemConstraint?.isActive = true
         }
+        
+        self.viewModel.lat
+            .bind(onNext: {
+            print("🐙\($0)")
+        })
+            .disposed(by: disposeBag)
     }
 }
 extension RequestedViewController: UICollectionViewDelegate {

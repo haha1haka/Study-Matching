@@ -205,6 +205,9 @@ extension WishListViewController {
                 let vc = FindViewController()
                 vc.pageViewController.nearbyViewController.viewModel.lat.accept(self.viewModel.lat.value)
                 vc.pageViewController.nearbyViewController.viewModel.long.accept(self.viewModel.long.value)
+                
+                vc.pageViewController.requestedViewController.viewModel.lat.accept(self.viewModel.lat.value)
+                vc.pageViewController.requestedViewController.viewModel.long.accept(self.viewModel.long.value)
                 self.transition(vc)
                 
                 

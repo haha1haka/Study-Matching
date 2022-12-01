@@ -54,41 +54,23 @@ extension NearbyViewController {
         { [weak self] supplementaryView, elementKind, indexPath in
             guard let self = self else { return }
             
+            supplementaryView.requestButton.tag = indexPath.section
+            guard let item = self.dataSource.itemIdentifier(for: indexPath) else { return }
+            
+            
             self.viewModel.cardItemList
                 .bind(onNext: { _ in
-                    guard let item = self.dataSource.itemIdentifier(for: indexPath) else { return }
-                    
                     supplementaryView.mainImageView.image = SeSacImage.sesacBackgroundImageArray[item.background]
                     supplementaryView.subImageView.image = SeSacImage.sesacImageArray[item.sesac]
+                    supplementaryView.requestButton.tag = indexPath.section
                     
                 })
                 .disposed(by: self.disposeBag)
             
-            supplementaryView.requestButton.rx.tap
-                .bind(onNext: {
-                    
-                    let vc = SeSacAlertController()
-                    
-                    vc.completeButton.rx.tap
-                        .bind(onNext: {
-                            // MARK: - todo: 요청 하기 api 실행1
-                            
-                            
-                        })
-                        .disposed(by: self.disposeBag)
-                    
-                    
-                    vc.cancelButton.rx.tap
-                        .bind(onNext: {
-                            vc.dismiss(animated: false)
-                        })
-                        .disposed(by: self.disposeBag)
-                    
-                    vc.transition(vc, transitionStyle: .SeSacAlertController)
-                })
-                .disposed(by: self.disposeBag)
-                
+            supplementaryView.requestButton.addTarget(self, action: #selector(self.tappedRequestButton), for: .touchUpInside)
+                                    
         }
+
         
         mainCell = CardCellRegistration
         { [weak self] cell, indexPath, itemIdentifier in
@@ -101,7 +83,7 @@ extension NearbyViewController {
         self.viewModel.cardItemList //[Card]
             .bind(onNext: { cards in
                 for i in cards {
-                    let currentSection = Section(label: "\(i.nick)")
+                    let currentSection = Section(label: "\(i.uid)")
                     var snapShot = self.dataSource.snapshot()
                     snapShot.appendSections([currentSection])
                     snapShot.appendItems([i], toSection: currentSection)
@@ -113,6 +95,27 @@ extension NearbyViewController {
             .disposed(by: self.disposeBag)
 
     }
+    
+    @objc
+    func tappedRequestButton(_ button: UIButton) {
+        
+        let vc = SeSacAlertController(alertType: .findNearby)
+        vc.completeButton.rx.tap
+            .bind(onNext: {
+                let item = self.viewModel.cardItemList.value[button.tag]
+                self.requestStudy(uid: item.uid)
+                print("🐶🐶🐶🐶\\(item.nick)")
+            })
+            .disposed(by: disposeBag)
+        
+        vc.cancelButton.rx.tap
+            .bind(onNext: {
+                vc.dismiss(animated: false)
+            })
+            .disposed(by: disposeBag)
+        
+        self.transition(vc, transitionStyle: .SeSacAlertController)
+    }
 }
 
 
@@ -123,7 +126,7 @@ extension NearbyViewController {
             case .success(let success):
                 switch success {
                 case .perfact:
-                    print("스터디 요청을 보냈습니다")
+                    print("성공적으로 스터디 요청을 보냈습니다")
                 case .alreadyRequested:
                     // MARK: - studyAccept api 호출2 ✅
                     self.requestStudyAccept(uid: uid)
@@ -153,6 +156,9 @@ extension NearbyViewController {
                 case .perfact:
                     print("매칭 성공")
                     // MARK: - 채팅 화면으로 이동4
+                    let vc = ChatViewController()
+                    self.transition(vc)
+                    
                 case .alreadyMatching:
                     print("상대방이 이미 다른 새싹과 스터디를 함께 하는 중입니다")
                 case .searchStoping:

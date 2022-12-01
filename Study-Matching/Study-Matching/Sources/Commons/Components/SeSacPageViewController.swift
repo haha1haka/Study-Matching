@@ -9,6 +9,7 @@ class SeSacPageViewController: UIPageViewController {
     
     let nearbyViewController = NearbyViewController()
     let requestedViewController = RequestedViewController()
+    let viewModel = FindViewModel()
     var pageContentViewControllers: [UIViewController] = []
     
     var eventDelegate: PageReadable?

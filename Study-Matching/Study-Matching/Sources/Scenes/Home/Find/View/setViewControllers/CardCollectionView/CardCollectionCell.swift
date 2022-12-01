@@ -75,7 +75,8 @@ class CardCollectionCell: BaseCollectionViewCell {
     
     lazy var topStackView: UIStackView = {
         let view = UIStackView(arrangedSubviews: [nameLabel, disclosureView])
-        view.distribution = .fillProportionally
+        //view.distribution = .fillProportionally
+        view.distribution = .fill
         view.axis = .horizontal
         return view
     }()
@@ -175,6 +176,7 @@ class CardCollectionCell: BaseCollectionViewCell {
         topStackView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
         }
+
         
         middleStackView.snp.makeConstraints( {
             $0.top.equalTo(topStackView.snp.bottom)
@@ -184,8 +186,8 @@ class CardCollectionCell: BaseCollectionViewCell {
         collectionViewStackView.snp.makeConstraints {
             $0.top.equalTo(middleStackView.snp.bottom).offset(16)
             $0.leading.trailing.equalTo(contentView)
-
         }
+        
         collectionView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
             $0.width.equalToSuperview()
@@ -201,11 +203,14 @@ class CardCollectionCell: BaseCollectionViewCell {
         
         nameLabel.snp.makeConstraints {
             $0.height.equalTo(58)
+            $0.trailing.equalTo(disclosureView.snp.leading)
         }
         
         disclosureView.snp.makeConstraints {
-            $0.trailing.equalToSuperview().inset(26)
+            $0.trailing.equalToSuperview()
             $0.width.equalTo(12)
+            
+            
             
         }
 
@@ -282,6 +287,8 @@ class CardCollectionCell: BaseCollectionViewCell {
     
     func configureCell(with item: Card) {
         nameLabel.text = item.nick
+        
+        item.reviews
     }
 
     
