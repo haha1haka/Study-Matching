@@ -61,9 +61,9 @@ enum SeSacImage {
     // MARK: - Map
     static let btGps = UIImage(named: "bt_gps")
     static let btRefresh = UIImage(named: "bt_refresh")
-    static let mapLocation = UIImage(named: "mapLocation")
-    static let mapMessage = UIImage(named: "mapMessage")
-    static let mapSearch = UIImage(named: "mapSearch")
+    static let matching = UIImage(named: "mapLocation")
+    static let mathed = UIImage(named: "mapMessage")
+    static let `default` = UIImage(named: "mapSearch")
     
     static let mapMarker = UIImage(named: "map_marker")
     static let place = UIImage(named: "place")
@@ -87,6 +87,17 @@ enum SeSacImage {
     static let sendAct = UIImage(named: "sendAct")
     static let more = UIImage(named: "more")
     
+    static let sesac_background_1 = UIImage(named: "sesac_background_1")
+    static let sesac_background_2 = UIImage(named: "sesac_background_2")
+    static let sesac_background_3 = UIImage(named: "sesac_background_3")
+    static let sesac_background_4 = UIImage(named: "sesac_background_4")
+    static let sesac_background_5 = UIImage(named: "sesac_background_5")
+    static let sesac_background_6 = UIImage(named: "sesac_background_6")
+    static let sesac_background_7 = UIImage(named: "sesac_background_7")
+    static let sesac_background_8 = UIImage(named: "sesac_background_8")
+    static let sesac_background_9 = UIImage(named: "sesac_background_9")
+    
+    static let sesacBackgroundImageArray = [sesac_background_1, sesac_background_2, sesac_background_3, sesac_background_4, sesac_background_5, sesac_background_6, sesac_background_7, sesac_background_8, sesac_background_9]
     
     
 }

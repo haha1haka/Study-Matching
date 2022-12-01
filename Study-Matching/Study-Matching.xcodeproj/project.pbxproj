@@ -69,9 +69,6 @@
 		F463403F2918FE54008A50D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F463403D2918FE54008A50D6 /* LaunchScreen.storyboard */; };
 		F463F17C2929340600CE644C /* SeSacButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F463F17B2929340600CE644C /* SeSacButton+.swift */; };
 		F464068229287898008E6F8F /* MultiSlider in Frameworks */ = {isa = PBXBuildFile; productRef = F464068129287898008E6F8F /* MultiSlider */; };
-		F4641DAE29344A5E00B680B0 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4641DAD29344A5E00B680B0 /* Chat.swift */; };
-		F4641DB229344DA600B680B0 /* NetworkServiceLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4641DB129344DA600B680B0 /* NetworkServiceLogic.swift */; };
-		F4641DB429344F8000B680B0 /* MemoleaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4641DB329344F8000B680B0 /* MemoleaseRouter.swift */; };
 		F47AF0B82922019700AA0789 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AF0B72922019700AA0789 /* SplashViewController.swift */; };
 		F47AF0BA292201A800AA0789 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AF0B9292201A800AA0789 /* SplashView.swift */; };
 		F47AF0BE2922097800AA0789 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F47AF0BD2922097800AA0789 /* GoogleService-Info.plist */; };
@@ -108,6 +105,10 @@
 		F4B83C6D2934CE48000027E3 /* ChatRightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B83C6C2934CE48000027E3 /* ChatRightCell.swift */; };
 		F4B83C6F2934CE52000027E3 /* ChatHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B83C6E2934CE52000027E3 /* ChatHeaderView.swift */; };
 		F4B83C712934CE9E000027E3 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B83C702934CE9E000027E3 /* ChatView.swift */; };
+		F4C1389E29378ACE000357D9 /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C1389D29378ACE000357D9 /* UserRouter.swift */; };
+		F4C138A029378AD5000357D9 /* QueueRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C1389F29378AD5000357D9 /* QueueRouter.swift */; };
+		F4C138A229378B0C000357D9 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C138A129378B0C000357D9 /* Chat.swift */; };
+		F4C138A429378B15000357D9 /* ChatRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C138A329378B15000357D9 /* ChatRouter.swift */; };
 		F4D29802292508D100A3AAB7 /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D29801292508D100A3AAB7 /* MyInfoViewController.swift */; };
 		F4D29804292508D700A3AAB7 /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D29803292508D700A3AAB7 /* MyInfoView.swift */; };
 		F4D29806292508E000A3AAB7 /* MyInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D29805292508E000A3AAB7 /* MyInfoCell.swift */; };
@@ -131,6 +132,7 @@
 		F4F103CE291CBF8A00C2020C /* SeSacImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103CD291CBF8A00C2020C /* SeSacImage.swift */; };
 		F4F103D0291CC1C300C2020C /* OnboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103CF291CC1C300C2020C /* OnboardCell.swift */; };
 		F4F103D2291CC66600C2020C /* OnBoardingFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103D1291CC66600C2020C /* OnBoardingFooterView.swift */; };
+		F4F73B802937189F009110EE /* QueueState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F73B7F2937189F009110EE /* QueueState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -193,9 +195,6 @@
 		F463403E2918FE54008A50D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F46340402918FE54008A50D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F463F17B2929340600CE644C /* SeSacButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SeSacButton+.swift"; sourceTree = "<group>"; };
-		F4641DAD29344A5E00B680B0 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
-		F4641DB129344DA600B680B0 /* NetworkServiceLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceLogic.swift; sourceTree = "<group>"; };
-		F4641DB329344F8000B680B0 /* MemoleaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoleaseRouter.swift; sourceTree = "<group>"; };
 		F47AF0B72922019700AA0789 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		F47AF0B9292201A800AA0789 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		F47AF0BD2922097800AA0789 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -232,6 +231,10 @@
 		F4B83C6C2934CE48000027E3 /* ChatRightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRightCell.swift; sourceTree = "<group>"; };
 		F4B83C6E2934CE52000027E3 /* ChatHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHeaderView.swift; sourceTree = "<group>"; };
 		F4B83C702934CE9E000027E3 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		F4C1389D29378ACE000357D9 /* UserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
+		F4C1389F29378AD5000357D9 /* QueueRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueRouter.swift; sourceTree = "<group>"; };
+		F4C138A129378B0C000357D9 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		F4C138A329378B15000357D9 /* ChatRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRouter.swift; sourceTree = "<group>"; };
 		F4D29801292508D100A3AAB7 /* MyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewController.swift; sourceTree = "<group>"; };
 		F4D29803292508D700A3AAB7 /* MyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoView.swift; sourceTree = "<group>"; };
 		F4D29805292508E000A3AAB7 /* MyInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoCell.swift; sourceTree = "<group>"; };
@@ -255,6 +258,7 @@
 		F4F103CD291CBF8A00C2020C /* SeSacImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacImage.swift; sourceTree = "<group>"; };
 		F4F103CF291CC1C300C2020C /* OnboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardCell.swift; sourceTree = "<group>"; };
 		F4F103D1291CC66600C2020C /* OnBoardingFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingFooterView.swift; sourceTree = "<group>"; };
+		F4F73B7F2937189F009110EE /* QueueState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -460,10 +464,10 @@
 		F42EE503292B6430007336DB /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				F4B83C652934CDA6000027E3 /* Chat */,
 				F4034CAB29191B1400423FAF /* Map */,
 				F42EE502292B6410007336DB /* WishList */,
 				F4D83D0D2930BD3700F78530 /* Find */,
+				F4B83C652934CDA6000027E3 /* Chat */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -751,6 +755,7 @@
 			isa = PBXGroup;
 			children = (
 				F456375C2921538700CDF1BA /* User.swift */,
+				F4C1389D29378ACE000357D9 /* UserRouter.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -759,6 +764,8 @@
 			isa = PBXGroup;
 			children = (
 				F42EE4FF292B61B7007336DB /* Queue.swift */,
+				F4F73B7F2937189F009110EE /* QueueState.swift */,
+				F4C1389F29378AD5000357D9 /* QueueRouter.swift */,
 			);
 			path = Queue;
 			sourceTree = "<group>";
@@ -766,7 +773,8 @@
 		F4641DAA293449A700B680B0 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				F4641DAD29344A5E00B680B0 /* Chat.swift */,
+				F4C138A129378B0C000357D9 /* Chat.swift */,
+				F4C138A329378B15000357D9 /* ChatRouter.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -806,9 +814,7 @@
 				F488D78D29212665002E4B57 /* HTTPMethod.swift */,
 				F488D78F2921308A002E4B57 /* MemoleaseError.swift */,
 				F488D78829212290002E4B57 /* MemoleaseService.swift */,
-				F4641DB329344F8000B680B0 /* MemoleaseRouter.swift */,
 				F4A79EAF292D05310010E44F /* MemoleaseTargetType.swift */,
-				F4641DB129344DA600B680B0 /* NetworkServiceLogic.swift */,
 			);
 			path = Memolease;
 			sourceTree = "<group>";
@@ -826,7 +832,7 @@
 		F491C7CE293391BA0077DBC6 /* Nearby */ = {
 			isa = PBXGroup;
 			children = (
-				F491C7D02933B05F0077DBC6 /* View */,
+				F4A8685F2930EA4B00E75958 /* NearbyViewController.swift */,
 			);
 			path = Nearby;
 			sourceTree = "<group>";
@@ -834,25 +840,9 @@
 		F491C7CF293391C10077DBC6 /* Requested */ = {
 			isa = PBXGroup;
 			children = (
-				F491C7D22933B06C0077DBC6 /* View */,
-			);
-			path = Requested;
-			sourceTree = "<group>";
-		};
-		F491C7D02933B05F0077DBC6 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				F4A8685F2930EA4B00E75958 /* NearbyViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		F491C7D22933B06C0077DBC6 /* View */ = {
-			isa = PBXGroup;
-			children = (
 				F4A868612930EA5500E75958 /* RequestedViewController.swift */,
 			);
-			path = View;
+			path = Requested;
 			sourceTree = "<group>";
 		};
 		F4A868632930EAE300E75958 /* setViewControllers */ = {
@@ -931,8 +921,8 @@
 		F4D83D0D2930BD3700F78530 /* Find */ = {
 			isa = PBXGroup;
 			children = (
-				F4D83D182930C12E00F78530 /* View */,
 				F4D83D192930C13200F78530 /* ViewModel */,
+				F4D83D182930C12E00F78530 /* View */,
 			);
 			path = Find;
 			sourceTree = "<group>";
@@ -1087,7 +1077,6 @@
 				F45119BF291941620058571C /* EmailView.swift in Sources */,
 				F4B83C6B2934CDC1000027E3 /* ChatLeftCell.swift in Sources */,
 				F4F103D2291CC66600C2020C /* OnBoardingFooterView.swift in Sources */,
-				F4641DB229344DA600B680B0 /* NetworkServiceLogic.swift in Sources */,
 				F4586464291F8A0900993A6D /* BirthViewModel.swift in Sources */,
 				F4034CD029191B1400423FAF /* BaseCode.swift in Sources */,
 				F4D83D132930C00A00F78530 /* FindView.swift in Sources */,
@@ -1098,7 +1087,6 @@
 				F45119C3291941A00058571C /* NicknameViewController.swift in Sources */,
 				F41E0E382925AB0000B28291 /* GenderDataSource.swift in Sources */,
 				F47AF0BA292201A800AA0789 /* SplashView.swift in Sources */,
-				F4641DB429344F8000B680B0 /* MemoleaseRouter.swift in Sources */,
 				F4D8A6F8292A7CC500C25A57 /* WishListBottomCell.swift in Sources */,
 				F4F103CE291CBF8A00C2020C /* SeSacImage.swift in Sources */,
 				F41E0E342925A64D00B28291 /* MyInfoDataSource.swift in Sources */,
@@ -1154,8 +1142,8 @@
 				F4034CCF29191B1400423FAF /* SceneDelegate.swift in Sources */,
 				F4D29802292508D100A3AAB7 /* MyInfoViewController.swift in Sources */,
 				F4A8A780292487E800B94EC7 /* SwitchView.swift in Sources */,
+				F4F73B802937189F009110EE /* QueueState.swift in Sources */,
 				F4A8A782292487F200B94EC7 /* AgeView.swift in Sources */,
-				F4641DAE29344A5E00B680B0 /* Chat.swift in Sources */,
 				F41E0E422925D7DC00B28291 /* MyInfoViewModel.swift in Sources */,
 				F45119C5291941AB0058571C /* BirthViewController.swift in Sources */,
 				F4034CCA29191B1400423FAF /* BaseViewContoroller.swift in Sources */,
@@ -1171,10 +1159,13 @@
 				F4034CCB29191B1400423FAF /* BaseView.swift in Sources */,
 				F48B3074292270B800DD5E12 /* ProfileMainCell.swift in Sources */,
 				F4D3B3922929D21400FA6B04 /* SeSacAlertController.swift in Sources */,
+				F4C138A429378B15000357D9 /* ChatRouter.swift in Sources */,
 				F45119C1291941680058571C /* GenderView.swift in Sources */,
 				F4A8A78B2924B0F900B94EC7 /* CardStackView.swift in Sources */,
+				F4C138A229378B0C000357D9 /* Chat.swift in Sources */,
 				F4034CC729191B1400423FAF /* MapView.swift in Sources */,
 				F4F103D0291CC1C300C2020C /* OnboardCell.swift in Sources */,
+				F4C1389E29378ACE000357D9 /* UserRouter.swift in Sources */,
 				F4D8A6ED292A78F100C25A57 /* WishListViewController.swift in Sources */,
 				F4D8A6F1292A790900C25A57 /* WishListDataSource.swift in Sources */,
 				F44FFB3A293324E80053D2A7 /* CardCollectionCell.swift in Sources */,
@@ -1184,6 +1175,7 @@
 				F4594E752920C29F0071CFC2 /* String.swift in Sources */,
 				F41E0E362925A83000B28291 /* OnBoardingDataSource.swift in Sources */,
 				F4B83C672934CDB0000027E3 /* ChatViewController.swift in Sources */,
+				F4C138A029378AD5000357D9 /* QueueRouter.swift in Sources */,
 				F4D3B396292A36F700FA6B04 /* DataSourceRegistration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

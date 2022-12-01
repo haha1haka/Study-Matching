@@ -4,40 +4,67 @@ import RxCocoa
 
 
 
+
 class MapViewModel: ResultType {
     
     let lat = BehaviorRelay<Double>(value: 37.51818789942772)
     let long = BehaviorRelay<Double>(value: 126.88541765534976)
-    var queueSearch = BehaviorRelay<Queue>(value: Queue(fromQueueDB: [], fromQueueDBRequested: [], fromRecommend: []))
-    let sesacFriendsArray = BehaviorRelay<[FromQueueDB]>(value: [])
-
+    
+    var sesacFriendsDataStore = BehaviorRelay<Queue>(
+        value: Queue(
+            fromQueueDB: [],
+            fromQueueDBRequested: [],
+            fromRecommend: []))
+    
+    let sesacFriendsList = BehaviorRelay<[FromQueueDB]>(value: [])
     
     
-    func requestQueueSearch(completion: @escaping (Result<String, MemoleaseError>) -> Void) {
-                
+    func requestQueueSearch(completion: @escaping (Result<Succeess, MemoleaseError>) -> Void) {
+        
         MemoleaseService.shared.requestQueueSearch(
-            target: MemoleaseRouter.queueSearch(
+            target: QueueRouter.queueSearch(
                 lat: lat.value,
                 long: long.value)) {
                     
+                    switch $0 {
+                    case .success(let queueSearch):
+                        self.sesacFriendsDataStore.accept(queueSearch)
+                        
+                        let list: [FromQueueDB] = queueSearch.fromQueueDB + queueSearch.fromQueueDBRequested
+                        self.sesacFriendsList.accept(list)
+                        
+                        completion(.success(.perfact))
+                        
+                    case .failure(let error):
+                        switch error {
+                        case .idTokenError:
+                            completion(.failure(.idTokenError))
+                        default:
+                            return
+                        }
+                    }
+                }
+    }
+    func checkQueueState(completion: @escaping (Result<QueueState?, MemoleaseError>) -> Void) {
+        MemoleaseService.shared.requestQueueState(target: QueueRouter.queueState) {
             switch $0 {
-            case .success(let queueSearch):
-                self.queueSearch.accept(queueSearch)
-                self.sesacFriendsArray.accept(queueSearch.fromQueueDB)
-                completion(.success(""))
+            case .success:
+
+                completion(.success(nil))
+                return
+                
             case .failure(let error):
                 switch error {
+                case .defaultState:
+                    completion(.failure(.defaultState))
+                    return
                 case .idTokenError:
                     completion(.failure(.idTokenError))
-                case .unRegistedUser:
-                    completion(.failure(.unRegistedUser))
                 default:
                     return
                 }
             }
         }
-        
-        
-        
     }
+    
 }

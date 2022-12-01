@@ -15,48 +15,9 @@ class MemoleaseService: ResultType {
     
     private init() {}
     
-    func request(target: TargetType,completion: @escaping MemoleaseResult) {
-        session.dataTask(with: target.request) { data, response, error in
-            
-            DispatchQueue.main.async {
-                guard let httpResponse = response as? HTTPURLResponse else { return }
-                
-                print("📭 Request \(target.request.url!)")
-                print("🚩 Response \(httpResponse.statusCode)")
-                
-                
-                switch httpResponse.statusCode {
-                case 200:
-                    completion(.success(.perfact)) //🚀 해당 vc 에서 처리
-                case 201:
-                    completion(.failure(.alreadyUser)) //🚀 해당 vc 에서 처리
-                case 202:
-                    completion(.failure(.nickError)) //🚀 해당 vc 에서 처리
-                case 401:
-                    FirebaseService.shared.fetchIdToken { _ in
-                        completion(.failure(.idTokenError))
-                    } //🚀 해당 viewModel 에서 재귀로그인
-                case 500:
-                    completion(.failure(.serverError))
-                    print("❌500 왜?")
-                case 501:
-                    completion(.failure(.clientError))
-                    print("❌501")
-                default:
-                    completion(.failure(.unknown))
-                    print("❌unknown")
-                }
-                
-            }
-            
-            
-        }.resume()
-    }
     
-    func requestGetUser(
-        target: TargetType,
-        completion: @escaping (Result<MemoleaseUser, MemoleaseError>) -> Void )
-    {
+    
+    func requestGetUser(target: TargetType, completion: @escaping (Result<MemoleaseUser, MemoleaseError>) -> Void ){
         
         session.dataTask(with: target.request) { data, response, error in
             DispatchQueue.main.async {
@@ -76,7 +37,7 @@ class MemoleaseService: ResultType {
                         let fcmToken = UserDefaultsManager.standard.FCMToken
                         
                         if user.fcMtoken != fcmToken {
-                            self.updateFCMToken(target: MemoleaseRouter.FCMtoken(FCMtoken: fcmToken),
+                            self.updateFCMToken(target: UserRouter.FCMtoken(FCMtoken: fcmToken),
                                                 completion: { print("🍀 FCMToken update 완료: \($0)") })
                         }
                         completion(.success(user))
@@ -185,7 +146,7 @@ class MemoleaseService: ResultType {
                 
                 FirebaseService.shared.fetchIdToken { _ in
                     let fcmToken = UserDefaultsManager.standard.FCMToken
-                    self.updateFCMToken(target: MemoleaseRouter.FCMtoken(FCMtoken: fcmToken),
+                    self.updateFCMToken(target: UserRouter.FCMtoken(FCMtoken: fcmToken),
                                         completion: { print("🍀 FCMToken update 완료: \($0)") })
                 }
                 
@@ -306,7 +267,7 @@ class MemoleaseService: ResultType {
                             from: data)
                         
                         
-                        print("🐙🐙🐙\(queueSearch)")
+                        dump("🐙🐙🐙\(queueSearch)")
                         completion(.success(queueSearch))
                         return
                     }
@@ -344,12 +305,10 @@ class MemoleaseService: ResultType {
         
     }
     
-    func requestQueue(target: TargetType, completion: @escaping MemoleaseResult) {
-        
-        
-        
+    func requestGetQueue(target: TargetType, completion: @escaping MemoleaseResult) {
         
         session.dataTask(with: target.request) { data, response, error in
+            
             DispatchQueue.main.async {
                 guard let httpResponse = response as? HTTPURLResponse else { return }
                 print("📭 Request \(target.request.url!)")
@@ -369,9 +328,9 @@ class MemoleaseService: ResultType {
                 case 401:
                     FirebaseService.shared.fetchIdToken { _ in
                         completion(.failure(.idTokenError))
-                    } //🚀 해당 viewModel 에서 재귀로그인
+                    }
                 case 406:
-                    completion(.failure(.unRegistedUser)) //🚀 해당 vc 에서 처리
+                    completion(.failure(.unRegistedUser))
                 case 500:
                     completion(.failure(.serverError))
                     print("❌500")
@@ -390,6 +349,136 @@ class MemoleaseService: ResultType {
     
     
     
+    func requestQueueStop(target: TargetType, completion: @escaping MemoleaseResult) {
+        
+
+        
+        session.dataTask(with: target.request) { data, response, error in
+            
+            
+            DispatchQueue.main.async {
+                guard let httpResponse = response as? HTTPURLResponse else { return }
+                
+                print("📭 Request \(target.request.url!)")
+                print("🚩 Response \(httpResponse.statusCode)")
+                
+                
+                switch httpResponse.statusCode {
+                case 200:
+                    completion(.success(.perfact)) //🚀 해당 vc 에서 처리: 온보딩 화면으로
+                case 401:
+                    FirebaseService.shared.fetchIdToken { _ in
+                        completion(.failure(.idTokenError))
+                    } //🚀 해당 viewModel 에서 재귀로그인
+                case 406: //🚀 해당 vc 에서 처리: 온보딩 화면으로
+                    completion(.failure(.aleadyWithdraw))
+                case 500:
+                    completion(.failure(.serverError))
+                    print("❌500")
+                case 501:
+                    completion(.failure(.clientError))
+                    print("❌501")
+                default:
+                    completion(.failure(.unknown))
+                    print("❌unknown")
+                }
+                
+            }
+            
+            
+        }.resume()
+        
+        
+    }
     
-    
+    func requestQueueState( target: TargetType, completion: @escaping (Result<QueueState?, MemoleaseError>) -> Void )
+    {
+        
+        session.dataTask(with: target.request) { data, response, error in
+            DispatchQueue.main.async {
+                guard let httpResponse = response as? HTTPURLResponse else { return }
+                print("📭 Request \(target.request.url!)")
+                print("🚩 Response \(httpResponse.statusCode)")
+                
+                guard let data = data else { print("데이터 없음"); return }
+                
+                switch httpResponse.statusCode {
+                case 200:
+                    do {
+                        let state = try JSONDecoder().decode(//🚀 해당 vc 에서 처리
+                            QueueState.self,
+                            from: data)
+                        
+                        UserDefaultsManager.standard.matchedState = state.matched
+                                                
+                        completion(.success(state))
+                    }
+                    
+                    catch let decodingError {
+                        print("⁉️ Failure", decodingError)
+                        
+                        completion(.failure(.decodingError))
+                        
+                    }
+                case 201:
+                    UserDefaultsManager.standard.matchedState = 2
+                    completion(.failure(.defaultState))
+                case 401:
+                    FirebaseService.shared.fetchIdToken { _ in
+                        completion(.failure(.idTokenError))
+                    }
+                case 406: completion(.failure(.unRegistedUser)) //🚀 해당 vc 에서 처리
+                case 500: completion(.failure(.serverError))
+                    print("❌500")
+                case 501: completion(.failure(.clientError))
+                    print("❌501")
+                default: completion(.failure(.unknown))
+                }
+                
+            }
+        }.resume()
+        
+    }
+
+    func requestStudy(target: TargetType, completion: @escaping MemoleaseResult) {
+                
+        session.dataTask(with: target.request) { data, response, error in
+            
+            
+            DispatchQueue.main.async {
+                
+                guard let httpResponse = response as? HTTPURLResponse else { return }
+                
+                print("📭 Request \(target.request.url!)")
+                print("🚩 Response \(httpResponse.statusCode)")
+                
+                
+                switch httpResponse.statusCode {
+                case 200:
+                    completion(.success(.perfact))
+                case 201:
+                    completion(.success(.alreadyRequested))
+                case 202:
+                    completion(.failure(.searchStop)) //🚀 해당 vc 에서 처리
+                case 401:
+                    FirebaseService.shared.fetchIdToken { _ in
+                        completion(.failure(.idTokenError))
+                    }
+                case 500:
+                    completion(.failure(.serverError))
+                    print("❌500")
+                case 501:
+                    completion(.failure(.clientError))
+                    print("❌501")
+                default:
+                    completion(.failure(.unknown))
+                    print("❌unknown")
+                }
+                
+            }
+            
+            
+        }.resume()
+        
+    }
 }

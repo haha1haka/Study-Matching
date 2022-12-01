@@ -72,7 +72,7 @@ class MapView: BaseView {
         view.layer.cornerRadius = 30
         view.layer.masksToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.setImage(SeSacImage.mapSearch, for: .normal)
+        view.setImage(SeSacImage.default, for: .normal)
         return view
     }()
     

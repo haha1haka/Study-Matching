@@ -11,7 +11,7 @@ class GenderViewModel: ResultType {
 extension GenderViewModel {
     func requestSignup(completion: @escaping MemoleaseResult) {
         MemoleaseService.shared.requestSignup(
-            target: MemoleaseRouter.signup(
+            target: UserRouter.signup(
                 phoneNumber: UserDefaultsManager.standard.phoneNumber,
                 FCMtoken: UserDefaultsManager.standard.FCMToken,
                 nick: UserDefaultsManager.standard.nick,
@@ -20,14 +20,14 @@ extension GenderViewModel {
                 gender: UserDefaultsManager.standard.gender)) {
                     
                     
-                    let a = MemoleaseRouter.signup(
+                    let a = UserRouter.signup(
                         phoneNumber: UserDefaultsManager.standard.phoneNumber,
                         FCMtoken: UserDefaultsManager.standard.FCMToken,
                         nick: UserDefaultsManager.standard.nick,
                         birth: UserDefaultsManager.standard.birth,
                         email: UserDefaultsManager.standard.email,
                         gender: UserDefaultsManager.standard.gender)
-                    print(a.path, a.queryItems, a.httpMethod, a.headers)
+                    //print(a.path, a.queryItems, a.httpMethod, a.headers)
                     
                     
                     

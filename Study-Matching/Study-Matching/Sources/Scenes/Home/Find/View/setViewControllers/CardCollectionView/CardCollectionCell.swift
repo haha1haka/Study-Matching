@@ -279,6 +279,10 @@ class CardCollectionCell: BaseCollectionViewCell {
         //section.boundarySupplementaryItems = [header]
         return section
     }
+    
+    func configureCell(with item: Card) {
+        nameLabel.text = item.nick
+    }
 
     
     

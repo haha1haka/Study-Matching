@@ -23,4 +23,12 @@ enum MemoleaseError: Int, Error {
     case penalty1
     case penalty2
     case penalty3
+    
+    //queuestate
+    case defaultState
+    
+    
+    //studyrequest
+    case searchStop
+    
 }

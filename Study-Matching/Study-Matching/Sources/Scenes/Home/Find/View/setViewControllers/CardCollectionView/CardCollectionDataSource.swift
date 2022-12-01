@@ -25,25 +25,15 @@ class CardCollectionDataSource: UICollectionViewDiffableDataSource<Section, Card
             return suppleymentaryView }
     }
     
-
-//    func applySnapshot() {
-//        let section1 = Section(label: "1")
-//        let section2 = Section(label: "2")
-//        var snapshot = snapshot()
-//        snapshot.appendSections([section1, section2])
-//        snapshot.appendItems([Card()], toSection: section1)
-//        snapshot.appendItems([Card()], toSection: section2)
-//        apply(snapshot)
-//    }
-
     func refresh() {
         apply(snapshot(), animatingDifferences: true)
     }
 }
 struct Section: Hashable {
     let uuid = UUID()
-    let label: String
+    var label: String
 }
+
 
 struct Card: Hashable {
     let uuid = UUID()
@@ -55,4 +45,5 @@ struct Card: Hashable {
     var type: Int
     var sesac: Int
     var background: Int
+    var uid: Int
 }

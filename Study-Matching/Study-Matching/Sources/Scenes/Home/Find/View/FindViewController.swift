@@ -32,6 +32,17 @@ extension FindViewController {
 
 extension FindViewController {
     func bind() {
+        
+        self.navigationItem.rightBarButtonItem?.rx.tap
+            .bind(onNext: { [weak self]_ in
+                guard let self = self else { return }
+                self.requestQueueStop {
+                    
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        
         selfView.nearbyButton.rx.tap
             .bind(onNext: {
                 let nearbyViewController = self.pageViewController.pageContentViewControllers[self.selfView.nearbyButton.tag]
@@ -60,6 +71,36 @@ extension FindViewController {
                 }
             })
             .disposed(by: disposeBag)
+    }
+}
+
+extension FindViewController {
+    func requestQueueStop(completion: @escaping () -> Void) {
+        self.viewModel.requestQueueStop {
+            switch $0 {
+            case .success:
+                print("찾기 중단 완료")
+                self.toMapViewController()
+                return
+            case .failure(let error):
+                switch error {
+                case .idTokenError:
+                    self.requestQueueStop{}
+                default:
+                    return
+                }
+            }
+        }
+
+    }
+}
+
+extension FindViewController {
+    func toMapViewController() {
+        if let vc = self.navigationController?.viewControllers.last(where: { $0.isKind(of: MapViewController.self) }) {
+            self.navigationController?.popToViewController(vc, animated: true)
+        }
+
     }
 }
 

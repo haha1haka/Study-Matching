@@ -2,6 +2,7 @@ import Foundation
 
 enum Succeess {
     case perfact
+    case alreadyRequested
 }
 
 enum FirebaseError: String, Error {

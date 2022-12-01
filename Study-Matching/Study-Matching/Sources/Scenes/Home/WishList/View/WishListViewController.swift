@@ -37,13 +37,13 @@ extension WishListViewController {
         
         bind()
         selfView.collectionView.delegate = self
-        
+        requestQueueSearch()
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        requestQueueSearch()
+        viewModel.wantedStudyDataStore = []
     }
     
 }

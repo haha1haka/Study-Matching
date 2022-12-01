@@ -78,7 +78,7 @@ extension SMSViewModel {
 extension SMSViewModel {
     func requestUserInfo(completion: @escaping (Result<String, MemoleaseError>) -> Void ) {
         print(#function)
-        MemoleaseService.shared.requestGetUser(target: MemoleaseRouter.signIn) {
+        MemoleaseService.shared.requestGetUser(target: UserRouter.signIn) {
             switch $0 {
             case .success:
                 completion(.success("")) //🚀 vc에서 화면전환

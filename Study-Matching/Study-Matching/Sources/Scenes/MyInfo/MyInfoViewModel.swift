@@ -30,7 +30,7 @@ extension MyInfoViewModel {
     
     func fetchUserInfo(completion: @escaping (Result<Succeess, MemoleaseError>) -> Void) {
         
-        MemoleaseService.shared.requestGetUser(target: MemoleaseRouter.signIn) {
+        MemoleaseService.shared.requestGetUser(target: UserRouter.signIn) {
             
             switch $0 {
             case .success(let user):
@@ -90,7 +90,7 @@ extension MyInfoViewModel {
     func updateUserInfo(completion: @escaping (Result<Succeess, MemoleaseError>) -> Void) {
         
         MemoleaseService.shared.updateUser(
-            target:MemoleaseRouter.updateUser(
+            target:UserRouter.updateUser(
                 searchable: searchable.value,
                 ageMin: age.value[0],
                 ageMax: age.value[1],
@@ -122,9 +122,9 @@ extension MyInfoViewModel {
 extension MyInfoViewModel {
     func requestWithdraw(completion: @escaping (Result<Succeess, MemoleaseError>) -> Void) {
         
-        let target = MemoleaseRouter.withdraw
+        let target = UserRouter.withdraw
         
-        MemoleaseService.shared.requestWithdraw(target: MemoleaseRouter.withdraw) { result in
+        MemoleaseService.shared.requestWithdraw(target: UserRouter.withdraw) { result in
                 
                 switch result {
                 case .success:

@@ -5,6 +5,26 @@ import CoreLocation
 import MapKit
 import SnapKit
 
+enum MatchState: Int {
+    case matching
+    case matched
+    case `default`
+}
+extension MatchState {
+    var setImage: UIImage {
+        switch self {
+        case .default:
+            return SeSacImage.default!
+        case .matching:
+            return SeSacImage.matching!
+        case .matched:
+            return SeSacImage.mathed!
+        }
+    }
+}
+
+
+
 class MapViewController: BaseViewController {
     
     let selfView        = MapView()
@@ -24,12 +44,15 @@ extension MapViewController {
         checkUserDevicelocationServiceAuthorization(locationManager: locationManager)
         selfView.totalButton.toAct //⚠️ 개선
         bind()
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
         tabBarController?.tabBar.isHidden = false
+        self.checkQueueState { }
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
@@ -41,7 +64,7 @@ extension MapViewController {
     func bind() {
         
         // MARK: - 위치바뀔때마다 호출
-        viewModel.sesacFriendsArray
+        viewModel.sesacFriendsList
             .bind(onNext: {
                 $0.forEach {
                     self.makeAnnotation($0)
@@ -57,7 +80,7 @@ extension MapViewController {
                 print("fasfasdfsdfsdafasdfsadfadf")
                 self.requestQueueSearch {
                     self.selfView.mapView.removeAnnotations(self.selfView.mapView.annotations)
-                    self.viewModel.sesacFriendsArray.value.forEach {
+                    self.viewModel.sesacFriendsList.value.forEach {
                         self.makeAnnotation($0)
                     }
                     
@@ -74,68 +97,133 @@ extension MapViewController {
                 
                 self.requestQueueSearch {
                     self.selfView.mapView.removeAnnotations(self.selfView.mapView.annotations)
-                    self.viewModel.sesacFriendsArray.value.filter { $0.gender == 1 }.forEach {
-                        print("🥰🥰🥰🥰🥰🥰🥰\($0)")
+                    self.viewModel.sesacFriendsList.value.filter { $0.gender == 1 }.forEach {
                         self.makeAnnotation($0)
                     }
                 }
                 self.selfView.makeActByGender(gender: .man)
-                
-
-                
-
             })
             .disposed(by: disposeBag)
 
-        // MARK: - 여지버튼
+        
+        // MARK: - 여자버튼
         selfView.womanButton.rx.tap
             .bind(onNext: {
                 self.requestQueueSearch {
                     self.selfView.mapView.removeAnnotations(self.selfView.mapView.annotations)
-                    self.viewModel.sesacFriendsArray.value.filter { $0.gender == 0 }.forEach {
-                        print("🐸🐸🐸🐸🐸🐸🐸\($0)")
-                        let coordinate = CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.long)
-                        let friendsPin = SeSacAnnotation(coordinate: coordinate, sesac: $0.sesac)
-                        self.selfView.mapView.addAnnotation(friendsPin)
+                    self.viewModel.sesacFriendsList.value.filter { $0.gender == 0 }.forEach {
+                        self.makeAnnotation($0)
                     }
                 }
-
                 self.selfView.makeActByGender(gender: .woman)
                 
             })
             .disposed(by: disposeBag)
         
+        
         // MARK: - 플로팅 버튼
         selfView.floattingButton.rx.tap
             .bind(onNext: {
-                let vc = WishListViewController()
-                self.transition(vc)
-                self.viewModel.requestQueueSearch {
-                    switch $0 {
-                    case .success:
-                        return
-                    case .failure(let error):
-                        switch error {
-                        case .idTokenError:
-                            self.viewModel.requestQueueSearch { _ in }
-                        case .unRegistedUser:
-                            print("⚠️미가입된 회원입니다")
-                        default:
-                            return
-                        }
-                    }
+                let state = UserDefaultsManager.standard.matchedState
+                
+                
+                
+                switch state {
+                case 0:
+                    let vc = FindViewController()
+                    self.transition(vc)
+                case 1:
+                    print("채팅 화면으로 가기")
+                default:
+                    let vc = WishListViewController()
+                    vc.viewModel.lat.accept(self.viewModel.lat.value)
+                    vc.viewModel.long.accept(self.viewModel.long.value)
+                    self.transition(vc)
                 }
+                
+                
+                
+                
+                                
+                
+//                self.viewModel.requestQueueSearch {
+//                    switch $0 {
+//                    case .success:
+//                        return
+//                    case .failure(let error):
+//                        switch error {
+//                        case .idTokenError:
+//                            self.viewModel.requestQueueSearch { _ in }
+//                        default:
+//                            return
+//                        }
+//                    }
+//                }
             })
             .disposed(by: disposeBag)
-        
-        
-        
     }
     
     
-    
+    func checkState() {
+        
+    }
     
 }
+
+
+
+extension MapViewController {
+    func requestQueueSearch(completion: @escaping () -> Void) {
+        self.viewModel.requestQueueSearch {
+            switch $0 {
+            case .success:
+                completion()
+            case .failure(let error):
+                switch error {
+                case .idTokenError:
+                    self.requestQueueSearch { }
+                    return
+                default:
+                    return
+                }
+            }
+        }
+    }
+    func checkQueueState(completion: @escaping () -> Void) {
+        self.viewModel.checkQueueState {
+            switch $0 {
+            case .success:
+                
+                let state = UserDefaultsManager.standard.matchedState
+                
+                switch state {
+                case 0:
+                    self.selfView.floattingButton.setImage(SeSacImage.matching, for: .normal)
+                default:
+                    self.selfView.floattingButton.setImage(SeSacImage.mathed, for: .normal)
+                }
+                return
+            case .failure(let error):
+                switch error {
+                case .defaultState:
+                    self.selfView.floattingButton.setImage(SeSacImage.default, for: .normal)
+                    return
+                case .idTokenError:
+                    self.checkQueueState { }
+                default:
+                    return
+                }
+            
+            }
+        }
+    }
+
+}
+
+
+
+
+
 
 
 
@@ -148,6 +236,18 @@ extension MapViewController {
 extension MapViewController: LocationAuthorizationCheckable {}
 
 
+extension MapViewController {
+    func setRegionAndAnnotation(center: CLLocationCoordinate2D) {
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: 700, longitudinalMeters: 700)
+        selfView.mapView.setRegion(region, animated: true)
+    }
+    func makeAnnotation(_ friends: FromQueueDB) {
+        let coordinate = CLLocationCoordinate2D(latitude: friends.lat, longitude: friends.long)
+        let friendsPin = SeSacAnnotation(coordinate: coordinate, sesac: friends.sesac)
+        self.selfView.mapView.addAnnotation(friendsPin)
+    }
+    
+}
 
 // MARK: - CLLocationManagerDelegate
 ///1) 위치 받아오는함수  2) 디바이스 위치서비스  Auth 확인 --> 항상 초장에호출됨 --> 안에 "위치서비스" 여부 확인하는 코드 심어주기
@@ -206,54 +306,3 @@ extension MapViewController: MKMapViewDelegate {
     }
     
 }
-
-
-extension MapViewController {
-    func setRegionAndAnnotation(center: CLLocationCoordinate2D) {
-        let region = MKCoordinateRegion(center: center, latitudinalMeters: 700, longitudinalMeters: 700)
-        selfView.mapView.setRegion(region, animated: true)
-    }
-}
-
-
-extension MapViewController {
-    func requestQueueSearch(completion: @escaping () -> Void) {
-        self.viewModel.requestQueueSearch {
-            switch $0 {
-            case .success:
-                print("🙀🙀🙀🙀🙀🙀🙀")
-                completion()
-            case .failure(let error):
-                switch error {
-                case .idTokenError:
-                    self.requestQueueSearch { }
-                    return
-                case .unRegistedUser:
-                    print("⚠️미가입된 회원입니다")
-                default:
-                    return
-                }
-            }
-        }
-    }
-    func makeAnnotation(_ friends: FromQueueDB) {
-        let coordinate = CLLocationCoordinate2D(latitude: friends.lat, longitude: friends.long)
-        let friendsPin = SeSacAnnotation(coordinate: coordinate, sesac: friends.sesac)
-        self.selfView.mapView.addAnnotation(friendsPin)
-    }
-
-}
-
-
-
-//⚠️ 임시로 해놓은것 지워야됨.
-//        FirebaseService.shared.fetchIdToken { result in
-//            print(result)
-//            switch result {
-//            case .success(let success):
-//                print(success)
-//            case .failure(let failure):
-//                print(failure)
-//            }
-//        }
-

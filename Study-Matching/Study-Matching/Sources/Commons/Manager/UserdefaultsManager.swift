@@ -19,6 +19,7 @@ class UserDefaultsManager  {
         case vertificationID, FCMToken, idToken
         case phoneNumber, nick, birth, email, gender
         case onboardFlag, sceneType, nickFlag, smsFlag, mainFlag
+        case matchedState
     }
     
     var vertificationID: String {
@@ -139,6 +140,15 @@ class UserDefaultsManager  {
         }
         set {
             userDefaults.set(newValue, forKey: UserDefaultsKey.mainFlag.rawValue)
+        }
+    }
+    
+    var matchedState: Int {
+        get {
+            return userDefaults.integer(forKey: UserDefaultsKey.matchedState.rawValue)
+        }
+        set {
+            userDefaults.set(newValue, forKey: UserDefaultsKey.matchedState.rawValue)
         }
     }
 

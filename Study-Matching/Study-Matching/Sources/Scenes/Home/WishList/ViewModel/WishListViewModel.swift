@@ -30,6 +30,7 @@ class WishListViewModel: ResultType {
     
     var wantedStudyDataStore: [String] = [] {
         didSet {
+            print("🙀\(wantedStudyDataStore)")
             wantedStudyList.accept(cleanedStudyList)
         }
     }
@@ -48,7 +49,7 @@ extension WishListViewModel {
     func requestQueueSearch(completion: @escaping MemoleaseQueueSearchPostResult) {
                 
         MemoleaseService.shared.requestQueueSearch(
-            target: MemoleaseRouter.queueSearch(
+            target: QueueRouter.queueSearch(
                 lat: lat.value,
                 long: long.value)) {
                     
@@ -76,7 +77,16 @@ extension WishListViewModel {
     }
     
     func requestQueue(completion: @escaping (Result<Succeess, MemoleaseError>) -> Void) {
-        MemoleaseService.shared.requestQueue(target: MemoleaseRouter.queue(lat: "37.51818789942772", long: "126.88541765534976", studylist: ["ㅎㅣㅎㅣ"])) {
+        print("🟩🟩🟩🟩🟩🟩🟩\(lat.value), \(long.value), \(wantedStudyDataStore)")
+        MemoleaseService.shared.requestGetQueue(target: QueueRouter.queue(lat: lat.value, long: long.value, studylist: {
+            if wantedStudyDataStore.isEmpty {
+                return ["anything"]
+            } else {
+                return wantedStudyDataStore
+            }
+        }())) {
+            
+            
             switch $0 {
             case .success:
                 completion(.success(.perfact))
@@ -101,7 +111,7 @@ extension WishListViewModel {
             }
         }
     }
-    
+
     
     //개선 하기 ⚠️
     func makeDataStore2() {

@@ -12,7 +12,7 @@ import Foundation
 protocol TargetType {
     var path: String { get }
     var httpMethod: HTTPMethod { get }
-    var queryItems: [URLQueryItem]? { get }
+    var parameters: String? { get }
     var headers: [String: String] { get }
 }
 
@@ -21,17 +21,18 @@ extension TargetType {
     var components: URLComponents {
       var components = URLComponents()
       components.path = path
-      components.queryItems = queryItems
       return components
     }
     
     var request: URLRequest {
         let url = URL(string: components.path)
         var request = URLRequest(url: url!)
-        request.httpBody = components.query?.data(using: .utf8)
+        request.httpBody = parameters?.data(using: .utf8)
+        print("🍀🍀🍀🍀🍀\(String(describing: parameters?.data(using: .utf8)))")
         request.httpMethod = httpMethod.rawValue.uppercased()
         request.allHTTPHeaderFields = headers
         return request
     }
 }
+
 
