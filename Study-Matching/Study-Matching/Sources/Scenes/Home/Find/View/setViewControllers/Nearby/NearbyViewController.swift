@@ -71,7 +71,7 @@ extension NearbyViewController {
                     
                     vc.completeButton.rx.tap
                         .bind(onNext: {
-                            // MARK: - todo: 요청 하기 api 실행
+                            // MARK: - todo: 요청 하기 api 실행1
                             
                             
                         })
@@ -125,8 +125,11 @@ extension NearbyViewController {
                 case .perfact:
                     print("스터디 요청을 보냈습니다")
                 case .alreadyRequested:
-                    // MARK: - studyAccept api 호출
-                    return 
+                    // MARK: - studyAccept api 호출2 ✅
+                    self.requestStudyAccept(uid: uid)
+                    return
+                default:
+                    return
                 }
             case .failure(let error):
                 switch error {
@@ -138,6 +141,41 @@ extension NearbyViewController {
                 default:
                     return
                 }
+            }
+        }
+    }
+    
+    func requestStudyAccept(uid: String) {
+        self.viewModel.requestStudyAccept(uid: uid) {
+            switch $0 {
+            case .success(let success):
+                switch success {
+                case .perfact:
+                    print("매칭 성공")
+                    // MARK: - 채팅 화면으로 이동4
+                case .alreadyMatching:
+                    print("상대방이 이미 다른 새싹과 스터디를 함께 하는 중입니다")
+                case .searchStoping:
+                    print("상대방이 스터디 찾기를 그만 두었습니다.")
+                case .someoneWhoLikesMe:
+                    print("앗! 누군가가 나의 스터디를 수락 하였어요!")
+                    // MARK: - state api 호출 하기 3
+                    
+                default:
+                    return
+                }
+            case .failure(let error):
+                switch error {
+                case .idTokenError:
+                    self.requestStudyAccept(uid: uid)
+                    return
+                case .unRegistedUser:
+                    print("미가입 유저")
+                    return
+                default:
+                    return
+                }
+                
             }
         }
     }

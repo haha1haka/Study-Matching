@@ -1,5 +1,20 @@
 import Foundation
 
+enum Succeess {
+    case perfact
+    
+    
+    //studyrequest
+    case alreadyRequested
+    
+    //studyAccepts
+    case alreadyMatching
+    case searchStoping
+    case someoneWhoLikesMe
+    
+    
+}
+
 enum MemoleaseError: Int, Error {
     
     //회원가입
@@ -30,5 +45,8 @@ enum MemoleaseError: Int, Error {
     
     //studyrequest
     case searchStop
+    
+
+    
     
 }

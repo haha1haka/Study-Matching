@@ -7,6 +7,7 @@ enum QueueRouter {
     case queueStop
     case queueState
     case queueRequest(otheruid: String)
+    case queueAccept(otheruid: String)
     
 }
 
@@ -22,6 +23,7 @@ extension QueueRouter: TargetType {
         case .queueStop:    return "\(baseURL)/v1/queue"
         case .queueState:   return "\(baseURL)/v1/queue/myQueueState"
         case .queueRequest: return "\(baseURL)/v1/queue/studyrequest"
+        case .queueAccept:  return "\(baseURL)/v1/queue/studyaccept"
         }
     }
     
@@ -63,6 +65,9 @@ extension QueueRouter: TargetType {
         case .queueRequest(let otheruid):
             return ["otheruid": otheruid].compactMap{ "\($0)=\($1)" }.joined(separator: "&")
             
+        case .queueAccept(let otheruid):
+            return ["otheruid": otheruid].compactMap{ "\($0)=\($1)" }.joined(separator: "&")
+            
         }
     }
     
@@ -74,6 +79,7 @@ extension QueueRouter: TargetType {
         case .queueStop     : return .delete
         case .queueState    : return .get
         case .queueRequest  : return .post
+        case .queueAccept  : return .post
         }
     }
     

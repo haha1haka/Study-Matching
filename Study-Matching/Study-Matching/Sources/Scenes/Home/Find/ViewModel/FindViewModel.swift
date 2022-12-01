@@ -125,6 +125,8 @@ extension FindViewModel {
                     completion(.success(.perfact))
                 case .alreadyRequested:
                     completion(.success(.alreadyRequested))
+                default:
+                    return
                 }
             case .failure(let error):
                 switch error {
@@ -132,6 +134,38 @@ extension FindViewModel {
                     completion(.failure(.searchStop))
                 case .idTokenError:
                     completion(.failure(.idTokenError))
+                default:
+                    return
+                }
+                
+            }
+        }
+    }
+    
+    func requestStudyAccept(uid: String, completion: @escaping (Result<Succeess, MemoleaseError>) -> Void) {
+        MemoleaseService.shared.requestAccept(target: QueueRouter.queueAccept(otheruid: uid)) {
+            switch $0 {
+            case .success(let success):
+                switch success {
+                case .perfact:
+                    completion(.success(.perfact))
+                case .alreadyMatching:
+                    completion(.success(.alreadyMatching))
+                case .searchStoping:
+                    completion(.success(.searchStoping))
+                case .someoneWhoLikesMe:
+                    completion(.success(.someoneWhoLikesMe))
+                default:
+                    return
+                }
+            case .failure(let error):
+                switch error {
+                case .idTokenError:
+                    completion(.failure(.idTokenError))
+                    return
+                case .unRegistedUser:
+                    completion(.failure(.unRegistedUser))
+                    return
                 default:
                     return
                 }

@@ -45,5 +45,5 @@ struct Card: Hashable {
     var type: Int
     var sesac: Int
     var background: Int
-    var uid: Int
+    var uid: String
 }

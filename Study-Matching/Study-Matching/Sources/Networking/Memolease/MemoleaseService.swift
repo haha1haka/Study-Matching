@@ -481,4 +481,51 @@ class MemoleaseService: ResultType {
         }.resume()
         
     }
+    
+    func requestAccept(target: TargetType, completion: @escaping MemoleaseResult) {
+                
+        session.dataTask(with: target.request) { data, response, error in
+            
+            
+            DispatchQueue.main.async {
+                
+                guard let httpResponse = response as? HTTPURLResponse else { return }
+                
+                print("📭 Request \(target.request.url!)")
+                print("🚩 Response \(httpResponse.statusCode)")
+                
+                
+                switch httpResponse.statusCode {
+                case 200:
+                    completion(.success(.perfact))
+                case 201:
+                    completion(.success(.alreadyMatching))
+                case 202:
+                    completion(.success(.searchStoping))
+                case 203:
+                    completion(.success(.someoneWhoLikesMe))
+                case 401:
+                    FirebaseService.shared.fetchIdToken { _ in
+                        completion(.failure(.idTokenError))
+                    }
+                case 406:
+                    completion(.failure(.unRegistedUser))
+                case 500:
+                    completion(.failure(.serverError))
+                    print("❌500")
+                case 501:
+                    completion(.failure(.clientError))
+                    print("❌501")
+                default:
+                    completion(.failure(.unknown))
+                    print("❌unknown")
+                }
+                
+            }
+            
+            
+        }.resume()
+        
+    }
+    
 }
