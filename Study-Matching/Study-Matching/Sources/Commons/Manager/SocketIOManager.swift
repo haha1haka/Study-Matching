@@ -5,8 +5,12 @@ final class SocketIOManager: NSObject {
     
     static let shared = SocketIOManager()
     
+    let chatRepository = RMChatRepository()
+    
     var manager: SocketManager!
     var socket: SocketIOClient!
+    
+    
     let idToken = UserDefaultsManager.standard.idToken
     
     override init() {
@@ -15,7 +19,7 @@ final class SocketIOManager: NSObject {
         guard let socketURL = URL(string: baseURL) else { return }
         manager = SocketManager(socketURL: socketURL, config: [
             .log(true),
-            .extraHeaders(["auth": idToken])
+            .extraHeaders(["auth": idToken]) //일단 해쉬한값 넣어주는 건가?
         ])
         
         socket = manager.defaultSocket
@@ -41,10 +45,12 @@ final class SocketIOManager: NSObject {
             
             print("CHECK >>>", chat, createdAt)
             
+            let rmChat = RMChat(from: from, to: to, chat: chat, createdAt: createdAt)
             
-            // 프로토콜로 하기
-            // MARK: -1
-            NotificationCenter.default.post(name: NSNotification.Name("getMessage"), object: self, userInfo: ["chat": chat, "createdAt": createdAt, "from": from, "to": to])
+            self.chatRepository.addChat(item: rmChat)
+            
+            
+
         }
         
     }

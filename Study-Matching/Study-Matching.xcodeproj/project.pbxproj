@@ -19,6 +19,7 @@
 		F4034CD029191B1400423FAF /* BaseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CC429191B1400423FAF /* BaseCode.swift */; };
 		F41B45D02939DA5900931354 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F41B45CF2939DA5900931354 /* Realm */; };
 		F41B45D22939DA5900931354 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F41B45D12939DA5900931354 /* RealmSwift */; };
+		F41B45D42939DD5800931354 /* RMChatRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41B45D32939DD5800931354 /* RMChatRepository.swift */; };
 		F41BA511292F0045002EEFEA /* LocationAuthorizationCheckable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA510292F0045002EEFEA /* LocationAuthorizationCheckable.swift */; };
 		F41E0E322925A12E00B28291 /* ProfileDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E0E312925A12E00B28291 /* ProfileDataSource.swift */; };
 		F41E0E342925A64D00B28291 /* MyInfoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E0E332925A64D00B28291 /* MyInfoDataSource.swift */; };
@@ -87,7 +88,7 @@
 		F48F51672939B0E800B1B9F4 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F51662939B0E800B1B9F4 /* ChatViewModel.swift */; };
 		F48F51692939CA1F00B1B9F4 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F51682939CA1F00B1B9F4 /* SocketIOManager.swift */; };
 		F48F516C2939CAC800B1B9F4 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = F48F516B2939CAC800B1B9F4 /* SocketIO */; };
-		F48F51742939D79C00B1B9F4 /* ChatRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F51732939D79C00B1B9F4 /* ChatRecord.swift */; };
+		F48F51742939D79C00B1B9F4 /* RMChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F51732939D79C00B1B9F4 /* RMChat.swift */; };
 		F491C7D72933B0A60077DBC6 /* FindViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491C7D62933B0A60077DBC6 /* FindViewModel.swift */; };
 		F499C449291F546000C4B117 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F499C448291F546000C4B117 /* FirebaseService.swift */; };
 		F499C44C291F55C200C4B117 /* UserdefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F499C44B291F55C200C4B117 /* UserdefaultsManager.swift */; };
@@ -154,6 +155,7 @@
 		F4034CBF29191B1400423FAF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4034CC029191B1400423FAF /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F4034CC429191B1400423FAF /* BaseCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCode.swift; sourceTree = "<group>"; };
+		F41B45D32939DD5800931354 /* RMChatRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMChatRepository.swift; sourceTree = "<group>"; };
 		F41BA510292F0045002EEFEA /* LocationAuthorizationCheckable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAuthorizationCheckable.swift; sourceTree = "<group>"; };
 		F41E0E312925A12E00B28291 /* ProfileDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataSource.swift; sourceTree = "<group>"; };
 		F41E0E332925A64D00B28291 /* MyInfoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoDataSource.swift; sourceTree = "<group>"; };
@@ -218,7 +220,7 @@
 		F48F51622939AA7B00B1B9F4 /* ChatLast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLast.swift; sourceTree = "<group>"; };
 		F48F51662939B0E800B1B9F4 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		F48F51682939CA1F00B1B9F4 /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
-		F48F51732939D79C00B1B9F4 /* ChatRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRecord.swift; sourceTree = "<group>"; };
+		F48F51732939D79C00B1B9F4 /* RMChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMChat.swift; sourceTree = "<group>"; };
 		F491C7D62933B0A60077DBC6 /* FindViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindViewModel.swift; sourceTree = "<group>"; };
 		F499C448291F546000C4B117 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		F499C44B291F55C200C4B117 /* UserdefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserdefaultsManager.swift; sourceTree = "<group>"; };
@@ -872,7 +874,8 @@
 		F48F51722939D6DD00B1B9F4 /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
-				F48F51732939D79C00B1B9F4 /* ChatRecord.swift */,
+				F48F51732939D79C00B1B9F4 /* RMChat.swift */,
+				F41B45D32939DD5800931354 /* RMChatRepository.swift */,
 			);
 			path = DataBase;
 			sourceTree = "<group>";
@@ -1131,6 +1134,7 @@
 				F4586464291F8A0900993A6D /* BirthViewModel.swift in Sources */,
 				F4034CD029191B1400423FAF /* BaseCode.swift in Sources */,
 				F4D83D132930C00A00F78530 /* FindView.swift in Sources */,
+				F41B45D42939DD5800931354 /* RMChatRepository.swift in Sources */,
 				F4B83C6F2934CE52000027E3 /* ChatHeaderView.swift in Sources */,
 				F499C449291F546000C4B117 /* FirebaseService.swift in Sources */,
 				F454E4A9291A66070064BCC4 /* SesacDateLabel.swift in Sources */,
@@ -1226,7 +1230,7 @@
 				F45119A429193AEB0058571C /* SMSViewController.swift in Sources */,
 				F4B83C712934CE9E000027E3 /* ChatView.swift in Sources */,
 				F4594E752920C29F0071CFC2 /* String.swift in Sources */,
-				F48F51742939D79C00B1B9F4 /* ChatRecord.swift in Sources */,
+				F48F51742939D79C00B1B9F4 /* RMChat.swift in Sources */,
 				F41E0E362925A83000B28291 /* OnBoardingDataSource.swift in Sources */,
 				F4B83C672934CDB0000027E3 /* ChatViewController.swift in Sources */,
 				F48F51672939B0E800B1B9F4 /* ChatViewModel.swift in Sources */,
