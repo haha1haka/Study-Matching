@@ -64,8 +64,8 @@ extension ChatViewController {
     func applySnapshot() {
         var snapshot = dataSource.snapshot()
         snapshot.appendSections([0])
-        snapshot.appendItems([Chat.left(Left(text: "안녕 바보야안녕안녕 바보야안녕안녕"))])
-        snapshot.appendItems([Chat.right(Right(text: "응 너가 더 바보"))])
+        snapshot.appendItems([ChatItem.left(Left(text: "안녕 바보야안녕안녕 바보야안녕안녕"))])
+        snapshot.appendItems([ChatItem.right(Right(text: "응 너가 더 바보"))])
         dataSource.apply(snapshot)
     }
 }

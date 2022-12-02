@@ -1,6 +1,6 @@
 import UIKit
 
-class ChatDataSource: UICollectionViewDiffableDataSource<Int, Chat>, DataSourceRegistration {
+class ChatDataSource: UICollectionViewDiffableDataSource<Int, ChatItem>, DataSourceRegistration {
 
     convenience init(collectionView:       UICollectionView,
                      headerRegistration:   ChatHeaderRegistration,
@@ -37,7 +37,7 @@ class ChatDataSource: UICollectionViewDiffableDataSource<Int, Chat>, DataSourceR
 }
 
 
-enum Chat: Hashable {
+enum ChatItem: Hashable {
     case left(Left)
     case right(Right)
 }

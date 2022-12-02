@@ -75,7 +75,7 @@ extension ProfileViewController {
                     }
                 })
                 .disposed(by: self.disposeBag)
-            
+            // MARK: - 개선해야됨 5
             self.viewModel.sesac
                 .bind(onNext: { int in
                     if int == 0 {

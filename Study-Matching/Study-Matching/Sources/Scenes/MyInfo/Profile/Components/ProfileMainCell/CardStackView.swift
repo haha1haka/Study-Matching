@@ -10,7 +10,7 @@ class CardStackView: UIStackView {
     let button1 = SeSacButton(title: "친절한 성격", type: .myInfo, tag_: 3)
     let button3 = SeSacButton(title: "능숙한 실력", type: .myInfo, tag_: 4)
     let button5 = SeSacButton(title: "유익한 시간", type: .myInfo, tag_: 5)
-    
+    lazy var buttons = [button0, button1,button2,button3,button4,button5]
     let leftVerticalStackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical

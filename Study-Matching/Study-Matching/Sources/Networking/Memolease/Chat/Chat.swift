@@ -1,8 +1,14 @@
-//
-//  Chat.swift
-//  Study-Matching
-//
-//  Created by HWAKSEONG KIM on 2022/11/30.
-//
-
 import Foundation
+
+struct Chat: Codable {
+    let id: String
+    let to: String
+    let from: String
+    let chat: String
+    let createdAt: String
+
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case to, from, chat, createdAt
+    }
+}

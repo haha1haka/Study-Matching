@@ -73,8 +73,9 @@ extension NearbyViewController {
 
         
         mainCell = CardCellRegistration
-        { [weak self] cell, indexPath, itemIdentifier in
-            guard let self = self else { return }
+        {  cell, indexPath, itemIdentifier in
+            //guard let self = self else { return }
+            // MARK: - 개선 하기 6
             cell.configureCell(with: itemIdentifier)
         }
         
@@ -104,7 +105,7 @@ extension NearbyViewController {
             .bind(onNext: {
                 let item = self.viewModel.cardItemList.value[button.tag]
                 self.requestStudy(uid: item.uid)
-                print("🐶🐶🐶🐶\\(item.nick)")
+                print("🐶🐶🐶🐶\(item.nick)")
             })
             .disposed(by: disposeBag)
         

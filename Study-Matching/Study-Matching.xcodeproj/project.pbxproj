@@ -81,9 +81,11 @@
 		F48B3074292270B800DD5E12 /* ProfileMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B3073292270B800DD5E12 /* ProfileMainCell.swift */; };
 		F48B30802922795A00DD5E12 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B307F2922795A00DD5E12 /* ProfileHeaderView.swift */; };
 		F48B3082292279C900DD5E12 /* ProfileSubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B3081292279C900DD5E12 /* ProfileSubCell.swift */; };
+		F48F51632939AA7B00B1B9F4 /* ChatLast.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F51622939AA7B00B1B9F4 /* ChatLast.swift */; };
 		F491C7D72933B0A60077DBC6 /* FindViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491C7D62933B0A60077DBC6 /* FindViewModel.swift */; };
 		F499C449291F546000C4B117 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F499C448291F546000C4B117 /* FirebaseService.swift */; };
 		F499C44C291F55C200C4B117 /* UserdefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F499C44B291F55C200C4B117 /* UserdefaultsManager.swift */; };
+		F4A6F0712938E872006D75CC /* ReviewViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A6F0702938E872006D75CC /* ReviewViewContoller.swift */; };
 		F4A79EB0292D05310010E44F /* MemoleaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A79EAF292D05310010E44F /* MemoleaseTargetType.swift */; };
 		F4A868602930EA4B00E75958 /* NearbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A8685F2930EA4B00E75958 /* NearbyViewController.swift */; };
 		F4A868622930EA5500E75958 /* RequestedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A868612930EA5500E75958 /* RequestedViewController.swift */; };
@@ -207,9 +209,11 @@
 		F48B3073292270B800DD5E12 /* ProfileMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainCell.swift; sourceTree = "<group>"; };
 		F48B307F2922795A00DD5E12 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		F48B3081292279C900DD5E12 /* ProfileSubCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSubCell.swift; sourceTree = "<group>"; };
+		F48F51622939AA7B00B1B9F4 /* ChatLast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLast.swift; sourceTree = "<group>"; };
 		F491C7D62933B0A60077DBC6 /* FindViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindViewModel.swift; sourceTree = "<group>"; };
 		F499C448291F546000C4B117 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		F499C44B291F55C200C4B117 /* UserdefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserdefaultsManager.swift; sourceTree = "<group>"; };
+		F4A6F0702938E872006D75CC /* ReviewViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewContoller.swift; sourceTree = "<group>"; };
 		F4A79EAF292D05310010E44F /* MemoleaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoleaseTargetType.swift; sourceTree = "<group>"; };
 		F4A8685F2930EA4B00E75958 /* NearbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyViewController.swift; sourceTree = "<group>"; };
 		F4A868612930EA5500E75958 /* RequestedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedViewController.swift; sourceTree = "<group>"; };
@@ -774,6 +778,7 @@
 			isa = PBXGroup;
 			children = (
 				F4C138A129378B0C000357D9 /* Chat.swift */,
+				F48F51622939AA7B00B1B9F4 /* ChatLast.swift */,
 				F4C138A329378B15000357D9 /* ChatRouter.swift */,
 			);
 			path = Chat;
@@ -841,6 +846,7 @@
 			isa = PBXGroup;
 			children = (
 				F4A868612930EA5500E75958 /* RequestedViewController.swift */,
+				F4A6F0702938E872006D75CC /* ReviewViewContoller.swift */,
 			);
 			path = Requested;
 			sourceTree = "<group>";
@@ -1070,6 +1076,7 @@
 				F4B83C692934CDBA000027E3 /* ChatDataSource.swift in Sources */,
 				F48B3072292270B100DD5E12 /* ProfileView.swift in Sources */,
 				F4D8A6FA292A806B00C25A57 /* WishListViewModel.swift in Sources */,
+				F48F51632939AA7B00B1B9F4 /* ChatLast.swift in Sources */,
 				F4034CCD29191B1400423FAF /* NSObject.swift in Sources */,
 				F4A94AA82924FD87007B96AE /* SesacTabBarController.swift in Sources */,
 				F45119A829193B9F0058571C /* SMSView.swift in Sources */,
@@ -1157,6 +1164,7 @@
 				F4586473291FB32800993A6D /* GenderViewModel.swift in Sources */,
 				F4B83C6229347A2A000027E3 /* EmbedInPageViewController.swift in Sources */,
 				F4034CCB29191B1400423FAF /* BaseView.swift in Sources */,
+				F4A6F0712938E872006D75CC /* ReviewViewContoller.swift in Sources */,
 				F48B3074292270B800DD5E12 /* ProfileMainCell.swift in Sources */,
 				F4D3B3922929D21400FA6B04 /* SeSacAlertController.swift in Sources */,
 				F4C138A429378B15000357D9 /* ChatRouter.swift in Sources */,

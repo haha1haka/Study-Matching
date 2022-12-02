@@ -58,10 +58,13 @@ extension RequestedViewController {
         mainCell = CardCellRegistration
         { [weak self] cell, indexPath, itemIdentifier in
             guard let self = self else { return }
-            //cell.estimatedItemConstraint?.constant = self.selfView.collectionView.collectionViewLayout.collectionViewContentSize.height
-            
-            cell.estimatedItemConstraint = self.cardView.collectionView.heightAnchor.constraint(equalToConstant: 50)
-            cell.estimatedItemConstraint?.isActive = true
+            cell.reviewButton.rx.tap
+                .bind(onNext: {
+                    let vc = ReviewViewContoller()
+                    self.transition(vc)
+                })
+                .disposed(by: self.disposeBag)
+
         }
         
         self.viewModel.lat

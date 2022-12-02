@@ -1,8 +1,9 @@
 import UIKit
 import SnapKit
-//struct Study {
-//    let label: String
-//}
+struct Study: Hashable {
+    let uuid = UUID()
+    let label: String
+}
 
 class CardCollectionCell: BaseCollectionViewCell {
             
@@ -13,28 +14,18 @@ class CardCollectionCell: BaseCollectionViewCell {
     lazy var collectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionViewLayout())
         view.alwaysBounceVertical = false
-        
+        view.isScrollEnabled = false
         return view
     }()
     
-    var dataSource: UICollectionViewDiffableDataSource<Int, String>!
+    var dataSource: UICollectionViewDiffableDataSource<Int, Study>!
  
     
-    override func layoutSubviews() {
-        
-        //print(collectionView.collectionViewLayout.collectionViewContentSize.height) // 0
-//        estimatedItemConstraint?.constant = collectionView.collectionViewLayout.collectionViewContentSize.height
-////        collectionView.snp.makeConstraints {
-////            estimatedItemConstraint = $0.height.equalTo(estimatedItemConstraint?.constant)
-        
-//        estimatedItemConstraint = collectionView.heightAnchor.constraint(equalToConstant: 50)
-//        estimatedItemConstraint?.isActive = true
-//        }
-    }
+    
     
     func configureCollectionViewDataSource() {
-        let miniCellRegistration = UICollectionView.CellRegistration<MiniCell, String> { cell,indexPath,itemIdentifier in
-            cell.label.text = itemIdentifier
+        let miniCellRegistration = UICollectionView.CellRegistration<MiniCell, Study> { cell,indexPath,itemIdentifier in
+            cell.label.text = itemIdentifier.label
         }
         dataSource = .init(collectionView: self.collectionView) { collectionView, indexPath, itemIdentifier in
             let cell = self.collectionView.dequeueConfiguredReusableCell(using: miniCellRegistration, for: indexPath, item: itemIdentifier)
@@ -42,13 +33,7 @@ class CardCollectionCell: BaseCollectionViewCell {
             return cell
         }
     }
-    
-    func applyInitSnapShot() {
-        var snapshot = self.dataSource.snapshot()
-        snapshot.appendSections([0])
-        snapshot.appendItems(["iOS","Swift","알고리즘","치킨", "가나다라", "마바사", "아자차카", "타파하"], toSection: 0)
-        self.dataSource.apply(snapshot)
-    }
+
     
     lazy var collectionViewStackView: UIStackView = {
         let view = UIStackView(arrangedSubviews: [
@@ -93,8 +78,8 @@ class CardCollectionCell: BaseCollectionViewCell {
     
     lazy var bottomStackView: UIStackView = {
         let view = UIStackView(arrangedSubviews: [
-            sectionLabel2,
-            textField
+            label,
+            reviewLabel
         ])
         view.axis = .vertical
         view.spacing = 16
@@ -134,18 +119,29 @@ class CardCollectionCell: BaseCollectionViewCell {
     }()
     
 
-    var sectionLabel2: UILabel = {
+    lazy var label: UILabel = {
         let view = UILabel()
-        view.text = "새싹 리뷰"
+        view.text = "새싹리뷰"
+        view.textAlignment = .left
         view.font = SeSacFont.Title6_R12.set
-
+        view.backgroundColor = SeSacColor.white
+        view.textColor = SeSacColor.black
+        view.addSubview(reviewButton)
+        return view
+    }()
+    var reviewButton: UIButton = {
+        let view = UIButton()
+        
+        view.backgroundColor = .clear
         return view
     }()
     
-    let textField: UITextField = {
-        let view = UITextField()
-        view.placeholder = "첫 리뷰를 기다리는 중이에요!"
+    let reviewLabel: UILabel = {
+        let view = UILabel()
+        view.backgroundColor = .white
         view.font = SeSacFont.Body3_R14.set
+        view.textColor = SeSacColor.black
+        view.text = "첫 리뷰를 기다리는 중이에요!"
         return view
     }()
     
@@ -161,7 +157,6 @@ class CardCollectionCell: BaseCollectionViewCell {
     override func configureHierarchy() {
         contentView.addSubview(totalStackView)
         configureCollectionViewDataSource()
-        applyInitSnapShot()
     }
     
     override func configureLayout() {
@@ -219,7 +214,7 @@ class CardCollectionCell: BaseCollectionViewCell {
         closedConstraint?.priority = .defaultLow
         
         openConstraint =
-        textField.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
+        reviewLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
         openConstraint?.priority = .defaultLow
         
         updateAppearance()
@@ -230,10 +225,7 @@ class CardCollectionCell: BaseCollectionViewCell {
     
     
     override func configureAttributesInit() {
-        layer.borderWidth = 1
-        layer.borderColor = SeSacColor.gray2.cgColor
-        layer.masksToBounds = true
-        layer.cornerRadius = 8
+
     }
     
     func configureCollectionViewLayout() -> UICollectionViewLayout {
@@ -288,8 +280,28 @@ class CardCollectionCell: BaseCollectionViewCell {
     func configureCell(with item: Card) {
         nameLabel.text = item.nick
         
-        item.reviews
+        
+        
+        for i in cardStackView.buttons {
+            if item.reputation[i.tag] != 0 {
+                i.toAct
+            }
+        }
+        
+        var snapshot = self.dataSource.snapshot()
+        snapshot.deleteAllItems()
+        snapshot.appendSections([0])
+        snapshot.appendItems(item.studyList.map{Study(label: $0)})
+        self.dataSource.apply(snapshot)
+        
+        layer.borderWidth = 1
+        layer.borderColor = SeSacColor.gray2.cgColor
+        layer.masksToBounds = true
+        layer.cornerRadius = 8
+        
+        
     }
+
 
     
     
