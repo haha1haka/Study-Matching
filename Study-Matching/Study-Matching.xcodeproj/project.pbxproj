@@ -82,6 +82,9 @@
 		F48B30802922795A00DD5E12 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B307F2922795A00DD5E12 /* ProfileHeaderView.swift */; };
 		F48B3082292279C900DD5E12 /* ProfileSubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B3081292279C900DD5E12 /* ProfileSubCell.swift */; };
 		F48F51632939AA7B00B1B9F4 /* ChatLast.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F51622939AA7B00B1B9F4 /* ChatLast.swift */; };
+		F48F51672939B0E800B1B9F4 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F51662939B0E800B1B9F4 /* ChatViewModel.swift */; };
+		F48F51692939CA1F00B1B9F4 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F51682939CA1F00B1B9F4 /* SocketIOManager.swift */; };
+		F48F516C2939CAC800B1B9F4 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = F48F516B2939CAC800B1B9F4 /* SocketIO */; };
 		F491C7D72933B0A60077DBC6 /* FindViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491C7D62933B0A60077DBC6 /* FindViewModel.swift */; };
 		F499C449291F546000C4B117 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F499C448291F546000C4B117 /* FirebaseService.swift */; };
 		F499C44C291F55C200C4B117 /* UserdefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F499C44B291F55C200C4B117 /* UserdefaultsManager.swift */; };
@@ -210,6 +213,8 @@
 		F48B307F2922795A00DD5E12 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		F48B3081292279C900DD5E12 /* ProfileSubCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSubCell.swift; sourceTree = "<group>"; };
 		F48F51622939AA7B00B1B9F4 /* ChatLast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLast.swift; sourceTree = "<group>"; };
+		F48F51662939B0E800B1B9F4 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		F48F51682939CA1F00B1B9F4 /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		F491C7D62933B0A60077DBC6 /* FindViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindViewModel.swift; sourceTree = "<group>"; };
 		F499C448291F546000C4B117 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		F499C44B291F55C200C4B117 /* UserdefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserdefaultsManager.swift; sourceTree = "<group>"; };
@@ -272,6 +277,7 @@
 			files = (
 				F4334032291E12FA00F46725 /* RxSwift in Frameworks */,
 				F464068229287898008E6F8F /* MultiSlider in Frameworks */,
+				F48F516C2939CAC800B1B9F4 /* SocketIO in Frameworks */,
 				F4334030291E12FA00F46725 /* RxCocoa in Frameworks */,
 				F4594E722920A5330071CFC2 /* FirebaseMessaging in Frameworks */,
 				F451199D291928C10058571C /* SnapKit in Frameworks */,
@@ -788,6 +794,7 @@
 			isa = PBXGroup;
 			children = (
 				F499C44B291F55C200C4B117 /* UserdefaultsManager.swift */,
+				F48F51682939CA1F00B1B9F4 /* SocketIOManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -834,6 +841,27 @@
 			path = MyInfo;
 			sourceTree = "<group>";
 		};
+		F48F51642939B0D300B1B9F4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F4B83C662934CDB0000027E3 /* ChatViewController.swift */,
+				F4B83C702934CE9E000027E3 /* ChatView.swift */,
+				F4B83C682934CDBA000027E3 /* ChatDataSource.swift */,
+				F4B83C6A2934CDC1000027E3 /* ChatLeftCell.swift */,
+				F4B83C6C2934CE48000027E3 /* ChatRightCell.swift */,
+				F4B83C6E2934CE52000027E3 /* ChatHeaderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F48F51652939B0D700B1B9F4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F48F51662939B0E800B1B9F4 /* ChatViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		F491C7CE293391BA0077DBC6 /* Nearby */ = {
 			isa = PBXGroup;
 			children = (
@@ -877,12 +905,8 @@
 		F4B83C652934CDA6000027E3 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				F4B83C662934CDB0000027E3 /* ChatViewController.swift */,
-				F4B83C702934CE9E000027E3 /* ChatView.swift */,
-				F4B83C682934CDBA000027E3 /* ChatDataSource.swift */,
-				F4B83C6A2934CDC1000027E3 /* ChatLeftCell.swift */,
-				F4B83C6C2934CE48000027E3 /* ChatRightCell.swift */,
-				F4B83C6E2934CE52000027E3 /* ChatHeaderView.swift */,
+				F48F51642939B0D300B1B9F4 /* View */,
+				F48F51652939B0D700B1B9F4 /* ViewModel */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -1004,6 +1028,7 @@
 				F4594E6F2920A5330071CFC2 /* FirebaseAuth */,
 				F4594E712920A5330071CFC2 /* FirebaseMessaging */,
 				F464068129287898008E6F8F /* MultiSlider */,
+				F48F516B2939CAC800B1B9F4 /* SocketIO */,
 			);
 			productName = "Study-Matching";
 			productReference = F463402F2918FE53008A50D6 /* Study-Matching.app */;
@@ -1038,6 +1063,7 @@
 				F433402E291E12FA00F46725 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				F4594E6E2920A5330071CFC2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				F464068029287898008E6F8F /* XCRemoteSwiftPackageReference "MultiSlider" */,
+				F48F516A2939CAC800B1B9F4 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
 			);
 			productRefGroup = F46340302918FE53008A50D6 /* Products */;
 			projectDirPath = "";
@@ -1127,6 +1153,7 @@
 				F45119A629193B930058571C /* AuthView.swift in Sources */,
 				F45119CB291942720058571C /* SeSacTextField.swift in Sources */,
 				F41BA511292F0045002EEFEA /* LocationAuthorizationCheckable.swift in Sources */,
+				F48F51692939CA1F00B1B9F4 /* SocketIOManager.swift in Sources */,
 				F488D78E29212665002E4B57 /* HTTPMethod.swift in Sources */,
 				F4F103CA291CBD0E00C2020C /* OnBoardingViewController.swift in Sources */,
 				F4E4B59F292F297A00F3EBA4 /* SeSacAnnotationView.swift in Sources */,
@@ -1183,6 +1210,7 @@
 				F4594E752920C29F0071CFC2 /* String.swift in Sources */,
 				F41E0E362925A83000B28291 /* OnBoardingDataSource.swift in Sources */,
 				F4B83C672934CDB0000027E3 /* ChatViewController.swift in Sources */,
+				F48F51672939B0E800B1B9F4 /* ChatViewModel.swift in Sources */,
 				F4C138A029378AD5000357D9 /* QueueRouter.swift in Sources */,
 				F4D3B396292A36F700FA6B04 /* DataSourceRegistration.swift in Sources */,
 			);
@@ -1436,6 +1464,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		F48F516A2939CAC800B1B9F4 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 16.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1468,6 +1504,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F464068029287898008E6F8F /* XCRemoteSwiftPackageReference "MultiSlider" */;
 			productName = MultiSlider;
+		};
+		F48F516B2939CAC800B1B9F4 /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F48F516A2939CAC800B1B9F4 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */;
+			productName = SocketIO;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

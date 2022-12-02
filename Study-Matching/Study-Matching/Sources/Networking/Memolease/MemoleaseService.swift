@@ -531,4 +531,107 @@ class MemoleaseService: ResultType {
         
     }
     
+    func requestPostChat(target: TargetType, completion: @escaping (Result<Chat, MemoleaseError>) -> Void ) {
+        
+        session.dataTask(with: target.request) { data, response, error in
+            DispatchQueue.main.async {
+                guard let httpResponse = response as? HTTPURLResponse else { return }
+                print("📭 Request \(target.request.url!)")
+                print("🚩 Response \(httpResponse.statusCode)")
+                
+                guard let data = data else { print("데이터 없음"); return }
+                
+                switch httpResponse.statusCode {
+                case 200:
+                    do {
+                        let chat = try JSONDecoder().decode(//🚀 해당 vc 에서 처리
+                            Chat.self,
+                            from: data)
+                        
+                        completion(.success(chat))
+                    }
+                    
+                    catch let decodingError {
+                        print("⁉️ Failure", decodingError)
+                        
+                        completion(.failure(.decodingError))
+                        
+                    }
+                case 201:
+                    completion(.failure(.unavailable))
+                case 401:
+                    FirebaseService.shared.fetchIdToken { _ in
+                        completion(.failure(.idTokenError))
+                    }
+                case 406:
+                    completion(.failure(.unRegistedUser))
+                case 500:
+                    completion(.failure(.serverError))
+                    print("❌500")
+                case 501:
+                    completion(.failure(.clientError))
+                    print("❌501")
+                default:
+                    completion(.failure(.unknown))
+                }
+                
+            }
+        }.resume()
+        
+    }
+
+    
+    
+    func requestGetLastChat(target: TargetType, completion: @escaping (Result<ChatLast, MemoleaseError>) -> Void ){
+        
+        session.dataTask(with: target.request) { data, response, error in
+            DispatchQueue.main.async {
+                guard let httpResponse = response as? HTTPURLResponse else { return }
+                print("📭 Request \(target.request.url!)")
+                print("🚩 Response \(httpResponse.statusCode)")
+                
+                guard let data = data else { print("데이터 없음"); return }
+                
+                switch httpResponse.statusCode {
+                case 200:
+                    do {
+                        let lastChat = try JSONDecoder().decode(
+                            ChatLast.self,
+                            from: data)
+                        completion(.success(lastChat))
+                    }
+                    
+                    catch let decodingError {
+                        print("⁉️ Failure", decodingError)
+                        
+                        completion(.failure(.decodingError))
+                        
+                    }
+                    
+                case 401:
+                    FirebaseService.shared.fetchIdToken { _ in
+                        completion(.failure(.idTokenError))
+                    }
+                     
+                    
+                case 406:
+                    completion(.failure(.unRegistedUser)) 
+                case 500:
+                    completion(.failure(.serverError))
+                    print("❌500")
+                case 501:
+                    completion(.failure(.clientError))
+                    print("❌501")
+                default:
+                    completion(.failure(.unknown))
+                }
+                
+            }
+        }.resume()
+        
+    }
+
+    
+    
+    
 }

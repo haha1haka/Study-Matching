@@ -46,6 +46,8 @@ enum MemoleaseError: Int, Error {
     //studyrequest
     case searchStop
     
+    //chat
+    case unableChat
 
     
     

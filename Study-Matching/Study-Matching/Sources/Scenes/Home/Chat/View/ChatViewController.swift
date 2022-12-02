@@ -16,7 +16,7 @@ class ChatViewController: BaseViewController, DataSourceRegistration {
         chatLeftRegistration: self.leftCell!,
         chatRightRegitstrion : self.rightCell!)
         
-    //let viewModel = MyInfoViewModel.shared
+    let viewModel = ChatViewModel()
     let disposeBag = DisposeBag()
     
     override func loadView() { view = selfView }
