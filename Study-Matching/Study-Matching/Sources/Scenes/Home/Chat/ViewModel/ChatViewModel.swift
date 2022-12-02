@@ -15,7 +15,8 @@ class ChatViewModel {
             case .failure(let error):
                 switch error {
                 case .unavailable:
-                    
+                    // MARK: -해결하기 8
+                    return
                 case .idTokenError:
                     completion(.failure(.idTokenError))
                 default:
