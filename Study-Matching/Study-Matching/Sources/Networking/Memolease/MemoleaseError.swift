@@ -41,6 +41,7 @@ enum MemoleaseError: Int, Error {
     
     //queuestate
     case defaultState
+    case canceledMatch
     
     
     //studyrequest

@@ -13,7 +13,7 @@ class ChatView: BaseView {
     
     lazy var stackView: UIStackView = {
         let view = UIStackView(arrangedSubviews: [
-            textView, button
+            textView, sendButton
         ])
         view.backgroundColor = SeSacColor.gray1
         view.axis = .horizontal
@@ -29,7 +29,7 @@ class ChatView: BaseView {
         return view
     }()
     
-    let button: UIButton = {
+    let sendButton: UIButton = {
         let view = UIButton()
         view.setImage(SeSacImage.sendAct, for: .normal)
         return view

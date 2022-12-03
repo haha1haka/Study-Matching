@@ -1,12 +1,16 @@
 import Foundation
 import SocketIO
 
+protocol socketEventDelegate: AnyObject {
+    func chat(_ manager: SocketIOManager,_ item: Chat)
+}
+
 final class SocketIOManager: NSObject {
     
     static let shared = SocketIOManager()
     
     let chatRepository = RMChatRepository()
-    
+    var eventDelegate:socketEventDelegate?
     var manager: SocketManager!
     var socket: SocketIOClient!
     
@@ -45,9 +49,13 @@ final class SocketIOManager: NSObject {
             
             print("CHECK >>>", chat, createdAt)
             
-            let rmChat = RMChat(from: from, to: to, chat: chat, createdAt: createdAt)
+            let liveChat = Chat(id: "", from: from, to: to, chat: chat, createdAt: createdAt)
             
-            self.chatRepository.addChat(item: rmChat)
+            self.eventDelegate?.chat(self, liveChat)
+            
+            //let rmChat = RMChat(from: from, to: to, chat: chat, createdAt: createdAt)
+            
+            //self.chatRepository.addChat(item: rmChat)
             
             
 

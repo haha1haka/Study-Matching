@@ -20,6 +20,7 @@ class UserDefaultsManager  {
         case phoneNumber, nick, birth, email, gender
         case onboardFlag, sceneType, nickFlag, smsFlag, mainFlag
         case matchedState
+        case myUid, matchedUid, matchedNick
     }
     
     var vertificationID: String {
@@ -153,7 +154,32 @@ class UserDefaultsManager  {
     }
 
 
-
+    var myUid: String {
+        get {
+            return userDefaults.string(forKey: UserDefaultsKey.myUid.rawValue) ?? ""
+        }
+        set {
+            userDefaults.set(newValue, forKey: UserDefaultsKey.myUid.rawValue)
+        }
+    }
+    
+    var matchedUid: String {
+        get {
+            return userDefaults.string(forKey: UserDefaultsKey.matchedUid.rawValue) ?? "없음"
+        }
+        set {
+            userDefaults.set(newValue, forKey: UserDefaultsKey.matchedUid.rawValue)
+        }
+    }
+    var matchedNick: String {
+        get {
+            return userDefaults.string(forKey: UserDefaultsKey.matchedNick.rawValue) ?? "없음"
+        }
+        set {
+            userDefaults.set(newValue, forKey: UserDefaultsKey.matchedNick.rawValue)
+        }
+    }
+    
     
 }
 

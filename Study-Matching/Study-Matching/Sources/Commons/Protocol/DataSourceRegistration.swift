@@ -30,7 +30,7 @@ protocol DataSourceRegistration {
     
     // MARK: - Chat
     typealias ChatHeaderRegistration    = UICollectionView.SupplementaryRegistration<ChatHeaderView>
-    typealias ChatLeftCellRegistration  = UICollectionView.CellRegistration<ChatLeftCell, Left>
-    typealias ChatRightCellRegistration   = UICollectionView.CellRegistration<ChatRightCell, Right>
+    typealias ChatLeftCellRegistration  = UICollectionView.CellRegistration<ChatLeftCell, Chat>
+    typealias ChatRightCellRegistration   = UICollectionView.CellRegistration<ChatRightCell, Chat>
     
 }

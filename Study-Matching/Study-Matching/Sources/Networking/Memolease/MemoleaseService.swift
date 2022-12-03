@@ -548,6 +548,8 @@ class MemoleaseService: ResultType {
                             Chat.self,
                             from: data)
                         
+                        
+                        
                         completion(.success(chat))
                     }
                     

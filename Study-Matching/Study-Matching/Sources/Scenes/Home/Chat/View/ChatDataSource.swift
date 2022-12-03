@@ -1,6 +1,6 @@
 import UIKit
 
-class ChatDataSource: UICollectionViewDiffableDataSource<Int, ChatItem>, DataSourceRegistration {
+class ChatDataSource: UICollectionViewDiffableDataSource<Int, Chat>, DataSourceRegistration {
 
     convenience init(collectionView:       UICollectionView,
                      headerRegistration:   ChatHeaderRegistration,
@@ -9,18 +9,18 @@ class ChatDataSource: UICollectionViewDiffableDataSource<Int, ChatItem>, DataSou
     {
         self.init(collectionView: collectionView) {
             collectionView, indexPath, itemIdentifier in
-            switch itemIdentifier {
-            case .left(let left):
+
+            if itemIdentifier.from == UserDefaultsManager.standard.myUid {
                 let cell = collectionView.dequeueConfiguredReusableCell(
                     using: chatLeftRegistration,
                     for: indexPath,
-                    item: left)
+                    item: itemIdentifier)
                 return cell
-            case .right(let right):
+            } else {
                 let cell = collectionView.dequeueConfiguredReusableCell(
                     using: chatRightRegitstrion,
                     for: indexPath,
-                    item: right)
+                    item: itemIdentifier)
                 return cell
             }
         }
@@ -37,16 +37,18 @@ class ChatDataSource: UICollectionViewDiffableDataSource<Int, ChatItem>, DataSou
 }
 
 
-enum ChatItem: Hashable {
-    case left(Left)
-    case right(Right)
-}
-struct Left: Hashable {
-    var uuid = UUID()
-    var text: String
-}
-
-struct Right: Hashable {
-    var uuid = UUID()
-    var text: String
-}
+//enum ChatItem: Hashable {
+//    case left(Left)
+//    case right(Right)
+//}
+//struct Left: Hashable {
+//    var uuid = UUID()
+//    var text: String
+//    var createdAt: String
+//}
+//
+//struct Right: Hashable {
+//    var uuid = UUID()
+//    var text: String
+//    var createdAt: String
+//}

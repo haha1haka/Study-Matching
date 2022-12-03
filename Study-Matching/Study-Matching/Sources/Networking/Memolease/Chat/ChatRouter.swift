@@ -13,7 +13,7 @@ extension ChatRouter: TargetType {
     var path: String {
         let baseURL: String = "http://api.sesac.co.kr:1210"
         switch self {
-        case .chat(let id, _): return "\(baseURL)v1/chat/\(id)"
+        case .chat(let id, _): return "\(baseURL)/v1/chat/\(id)"
         case .chatLast(let id, let lastchatDate): return "\(baseURL)/v1/chat/\(id)?lastchatDate=\(lastchatDate)"
         }
     }
