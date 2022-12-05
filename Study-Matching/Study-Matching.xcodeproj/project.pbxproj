@@ -19,7 +19,7 @@
 		F4034CD029191B1400423FAF /* BaseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CC429191B1400423FAF /* BaseCode.swift */; };
 		F41B45D02939DA5900931354 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F41B45CF2939DA5900931354 /* Realm */; };
 		F41B45D22939DA5900931354 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F41B45D12939DA5900931354 /* RealmSwift */; };
-		F41B45D42939DD5800931354 /* RMChatRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41B45D32939DD5800931354 /* RMChatRepository.swift */; };
+		F41B45D42939DD5800931354 /* ChatRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41B45D32939DD5800931354 /* ChatRepository.swift */; };
 		F41BA511292F0045002EEFEA /* LocationAuthorizationCheckable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA510292F0045002EEFEA /* LocationAuthorizationCheckable.swift */; };
 		F41E0E322925A12E00B28291 /* ProfileDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E0E312925A12E00B28291 /* ProfileDataSource.swift */; };
 		F41E0E342925A64D00B28291 /* MyInfoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E0E332925A64D00B28291 /* MyInfoDataSource.swift */; };
@@ -75,6 +75,7 @@
 		F47AF0B82922019700AA0789 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AF0B72922019700AA0789 /* SplashViewController.swift */; };
 		F47AF0BA292201A800AA0789 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AF0B9292201A800AA0789 /* SplashView.swift */; };
 		F47AF0BE2922097800AA0789 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F47AF0BD2922097800AA0789 /* GoogleService-Info.plist */; };
+		F487D704293CD29800F4EB20 /* CObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F487D703293CD29800F4EB20 /* CObservable.swift */; };
 		F488D78729211AE6002E4B57 /* FirebaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F488D78629211AE6002E4B57 /* FirebaseError.swift */; };
 		F488D78929212290002E4B57 /* MemoleaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F488D78829212290002E4B57 /* MemoleaseService.swift */; };
 		F488D78E29212665002E4B57 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = F488D78D29212665002E4B57 /* HTTPMethod.swift */; };
@@ -87,7 +88,6 @@
 		F48F51632939AA7B00B1B9F4 /* ChatLast.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F51622939AA7B00B1B9F4 /* ChatLast.swift */; };
 		F48F51672939B0E800B1B9F4 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F51662939B0E800B1B9F4 /* ChatViewModel.swift */; };
 		F48F51692939CA1F00B1B9F4 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F51682939CA1F00B1B9F4 /* SocketIOManager.swift */; };
-		F48F516C2939CAC800B1B9F4 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = F48F516B2939CAC800B1B9F4 /* SocketIO */; };
 		F48F51742939D79C00B1B9F4 /* RMChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F51732939D79C00B1B9F4 /* RMChat.swift */; };
 		F491C7D72933B0A60077DBC6 /* FindViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491C7D62933B0A60077DBC6 /* FindViewModel.swift */; };
 		F499C449291F546000C4B117 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F499C448291F546000C4B117 /* FirebaseService.swift */; };
@@ -107,6 +107,7 @@
 		F4A8A7842924885100B94EC7 /* WithDrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A8A7832924885100B94EC7 /* WithDrawView.swift */; };
 		F4A8A78B2924B0F900B94EC7 /* CardStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A8A78A2924B0F900B94EC7 /* CardStackView.swift */; };
 		F4A94AA82924FD87007B96AE /* SesacTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A94AA72924FD87007B96AE /* SesacTabBarController.swift */; };
+		F4AC89E7293DAFD400FAE5B5 /* RxRealm in Frameworks */ = {isa = PBXBuildFile; productRef = F4AC89E6293DAFD400FAE5B5 /* RxRealm */; };
 		F4B83C6229347A2A000027E3 /* EmbedInPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B83C6129347A2A000027E3 /* EmbedInPageViewController.swift */; };
 		F4B83C672934CDB0000027E3 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B83C662934CDB0000027E3 /* ChatViewController.swift */; };
 		F4B83C692934CDBA000027E3 /* ChatDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B83C682934CDBA000027E3 /* ChatDataSource.swift */; };
@@ -136,6 +137,9 @@
 		F4D8A6F8292A7CC500C25A57 /* WishListBottomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D8A6F7292A7CC500C25A57 /* WishListBottomCell.swift */; };
 		F4D8A6FA292A806B00C25A57 /* WishListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D8A6F9292A806B00C25A57 /* WishListViewModel.swift */; };
 		F4E4B59F292F297A00F3EBA4 /* SeSacAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E4B59E292F297A00F3EBA4 /* SeSacAnnotationView.swift */; };
+		F4E9B1CA293B95F300B83616 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = F4E9B1C9293B95F300B83616 /* SocketIO */; };
+		F4E9B1CE293B9EBB00B83616 /* WebSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E9B1CD293B9EBB00B83616 /* WebSocketService.swift */; };
+		F4E9B1D0293B9FB100B83616 /* WebSocketError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E9B1CF293B9FB100B83616 /* WebSocketError.swift */; };
 		F4F103CA291CBD0E00C2020C /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103C9291CBD0E00C2020C /* OnBoardingViewController.swift */; };
 		F4F103CC291CBD1700C2020C /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103CB291CBD1700C2020C /* OnBoardingView.swift */; };
 		F4F103CE291CBF8A00C2020C /* SeSacImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F103CD291CBF8A00C2020C /* SeSacImage.swift */; };
@@ -155,7 +159,7 @@
 		F4034CBF29191B1400423FAF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4034CC029191B1400423FAF /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F4034CC429191B1400423FAF /* BaseCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCode.swift; sourceTree = "<group>"; };
-		F41B45D32939DD5800931354 /* RMChatRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMChatRepository.swift; sourceTree = "<group>"; };
+		F41B45D32939DD5800931354 /* ChatRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRepository.swift; sourceTree = "<group>"; };
 		F41BA510292F0045002EEFEA /* LocationAuthorizationCheckable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAuthorizationCheckable.swift; sourceTree = "<group>"; };
 		F41E0E312925A12E00B28291 /* ProfileDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataSource.swift; sourceTree = "<group>"; };
 		F41E0E332925A64D00B28291 /* MyInfoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoDataSource.swift; sourceTree = "<group>"; };
@@ -208,6 +212,7 @@
 		F47AF0B72922019700AA0789 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		F47AF0B9292201A800AA0789 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		F47AF0BD2922097800AA0789 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F487D703293CD29800F4EB20 /* CObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CObservable.swift; sourceTree = "<group>"; };
 		F488D78629211AE6002E4B57 /* FirebaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseError.swift; sourceTree = "<group>"; };
 		F488D78829212290002E4B57 /* MemoleaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoleaseService.swift; sourceTree = "<group>"; };
 		F488D78D29212665002E4B57 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
@@ -268,6 +273,8 @@
 		F4D8A6F7292A7CC500C25A57 /* WishListBottomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListBottomCell.swift; sourceTree = "<group>"; };
 		F4D8A6F9292A806B00C25A57 /* WishListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewModel.swift; sourceTree = "<group>"; };
 		F4E4B59E292F297A00F3EBA4 /* SeSacAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacAnnotationView.swift; sourceTree = "<group>"; };
+		F4E9B1CD293B9EBB00B83616 /* WebSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketService.swift; sourceTree = "<group>"; };
+		F4E9B1CF293B9FB100B83616 /* WebSocketError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketError.swift; sourceTree = "<group>"; };
 		F4F103C9291CBD0E00C2020C /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		F4F103CB291CBD1700C2020C /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		F4F103CD291CBF8A00C2020C /* SeSacImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacImage.swift; sourceTree = "<group>"; };
@@ -283,13 +290,14 @@
 			files = (
 				F4334032291E12FA00F46725 /* RxSwift in Frameworks */,
 				F464068229287898008E6F8F /* MultiSlider in Frameworks */,
-				F48F516C2939CAC800B1B9F4 /* SocketIO in Frameworks */,
 				F41B45D22939DA5900931354 /* RealmSwift in Frameworks */,
 				F4334030291E12FA00F46725 /* RxCocoa in Frameworks */,
+				F4AC89E7293DAFD400FAE5B5 /* RxRealm in Frameworks */,
 				F4594E722920A5330071CFC2 /* FirebaseMessaging in Frameworks */,
 				F451199D291928C10058571C /* SnapKit in Frameworks */,
 				F41B45D02939DA5900931354 /* Realm in Frameworks */,
 				F4594E702920A5330071CFC2 /* FirebaseAuth in Frameworks */,
+				F4E9B1CA293B95F300B83616 /* SocketIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,8 +372,8 @@
 			isa = PBXGroup;
 			children = (
 				F42EE4FC292B4E50007336DB /* UIView.swift */,
-				F4034CB929191B1400423FAF /* UIViewController.swift */,
 				F463F17B2929340600CE644C /* SeSacButton+.swift */,
+				F4034CB929191B1400423FAF /* UIViewController.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -373,10 +381,10 @@
 		F4034CBA29191B1400423FAF /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				F4034CBB29191B1400423FAF /* NSObject.swift */,
 				F4586467291FA90600993A6D /* Date.swift */,
 				F4594E742920C29F0071CFC2 /* String.swift */,
 				F4D3B38E2929B29E00FA6B04 /* CGFloat.swift */,
+				F4034CBB29191B1400423FAF /* NSObject.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -491,6 +499,26 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		F42FB910293D1AD10042F1DB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F4F103C9291CBD0E00C2020C /* OnBoardingViewController.swift */,
+				F4F103CB291CBD1700C2020C /* OnBoardingView.swift */,
+				F4F103CF291CC1C300C2020C /* OnboardCell.swift */,
+				F4F103D1291CC66600C2020C /* OnBoardingFooterView.swift */,
+				F41E0E352925A83000B28291 /* OnBoardingDataSource.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F42FB911293D1AD60042F1DB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F4334033291E177400F46725 /* OnboardingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		F437D9F8292DF05C005BC5C9 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
@@ -539,8 +567,8 @@
 		F4511995291922AE0058571C /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				F45119962919230B0058571C /* SeSacColor.swift */,
 				F451199E29192DC80058571C /* SeSacFont.swift */,
+				F45119962919230B0058571C /* SeSacColor.swift */,
 				F4F103CD291CBF8A00C2020C /* SeSacImage.swift */,
 			);
 			path = Constants;
@@ -648,12 +676,8 @@
 		F45119B829193F280058571C /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				F4F103C9291CBD0E00C2020C /* OnBoardingViewController.swift */,
-				F4F103CB291CBD1700C2020C /* OnBoardingView.swift */,
-				F4334033291E177400F46725 /* OnboardingViewModel.swift */,
-				F4F103CF291CC1C300C2020C /* OnboardCell.swift */,
-				F4F103D1291CC66600C2020C /* OnBoardingFooterView.swift */,
-				F41E0E352925A83000B28291 /* OnBoardingDataSource.swift */,
+				F42FB910293D1AD10042F1DB /* View */,
+				F42FB911293D1AD60042F1DB /* ViewModel */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -802,8 +826,9 @@
 		F46B4A2E291E9055003910E2 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				F499C44B291F55C200C4B117 /* UserdefaultsManager.swift */,
+				F487D703293CD29800F4EB20 /* CObservable.swift */,
 				F48F51682939CA1F00B1B9F4 /* SocketIOManager.swift */,
+				F499C44B291F55C200C4B117 /* UserdefaultsManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -829,13 +854,8 @@
 		F47D76422920959900F747DA /* Memolease */ = {
 			isa = PBXGroup;
 			children = (
-				F4641DA82934499C00B680B0 /* User */,
-				F4641DA92934499F00B680B0 /* Queue */,
-				F4641DAA293449A700B680B0 /* Chat */,
-				F488D78D29212665002E4B57 /* HTTPMethod.swift */,
-				F488D78F2921308A002E4B57 /* MemoleaseError.swift */,
-				F488D78829212290002E4B57 /* MemoleaseService.swift */,
-				F4A79EAF292D05310010E44F /* MemoleaseTargetType.swift */,
+				F4E9B1CB293B9E4A00B83616 /* HTTP */,
+				F4E9B1CC293B9E4F00B83616 /* WebSoket */,
 			);
 			path = Memolease;
 			sourceTree = "<group>";
@@ -900,7 +920,7 @@
 			isa = PBXGroup;
 			children = (
 				F48F51732939D79C00B1B9F4 /* RMChat.swift */,
-				F41B45D32939DD5800931354 /* RMChatRepository.swift */,
+				F41B45D32939DD5800931354 /* ChatRepository.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -1031,6 +1051,29 @@
 			path = Intro;
 			sourceTree = "<group>";
 		};
+		F4E9B1CB293B9E4A00B83616 /* HTTP */ = {
+			isa = PBXGroup;
+			children = (
+				F4641DA82934499C00B680B0 /* User */,
+				F4641DA92934499F00B680B0 /* Queue */,
+				F4641DAA293449A700B680B0 /* Chat */,
+				F488D78D29212665002E4B57 /* HTTPMethod.swift */,
+				F488D78F2921308A002E4B57 /* MemoleaseError.swift */,
+				F488D78829212290002E4B57 /* MemoleaseService.swift */,
+				F4A79EAF292D05310010E44F /* MemoleaseTargetType.swift */,
+			);
+			path = HTTP;
+			sourceTree = "<group>";
+		};
+		F4E9B1CC293B9E4F00B83616 /* WebSoket */ = {
+			isa = PBXGroup;
+			children = (
+				F4E9B1CD293B9EBB00B83616 /* WebSocketService.swift */,
+				F4E9B1CF293B9FB100B83616 /* WebSocketError.swift */,
+			);
+			path = WebSoket;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1054,9 +1097,10 @@
 				F4594E6F2920A5330071CFC2 /* FirebaseAuth */,
 				F4594E712920A5330071CFC2 /* FirebaseMessaging */,
 				F464068129287898008E6F8F /* MultiSlider */,
-				F48F516B2939CAC800B1B9F4 /* SocketIO */,
 				F41B45CF2939DA5900931354 /* Realm */,
 				F41B45D12939DA5900931354 /* RealmSwift */,
+				F4E9B1C9293B95F300B83616 /* SocketIO */,
+				F4AC89E6293DAFD400FAE5B5 /* RxRealm */,
 			);
 			productName = "Study-Matching";
 			productReference = F463402F2918FE53008A50D6 /* Study-Matching.app */;
@@ -1091,8 +1135,9 @@
 				F433402E291E12FA00F46725 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				F4594E6E2920A5330071CFC2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				F464068029287898008E6F8F /* XCRemoteSwiftPackageReference "MultiSlider" */,
-				F48F516A2939CAC800B1B9F4 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
 				F41B45CE2939DA5900931354 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				F4E9B1C8293B95F300B83616 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
+				F4AC89E5293DAFD400FAE5B5 /* XCRemoteSwiftPackageReference "RxRealm" */,
 			);
 			productRefGroup = F46340302918FE53008A50D6 /* Products */;
 			projectDirPath = "";
@@ -1142,7 +1187,7 @@
 				F4586464291F8A0900993A6D /* BirthViewModel.swift in Sources */,
 				F4034CD029191B1400423FAF /* BaseCode.swift in Sources */,
 				F4D83D132930C00A00F78530 /* FindView.swift in Sources */,
-				F41B45D42939DD5800931354 /* RMChatRepository.swift in Sources */,
+				F41B45D42939DD5800931354 /* ChatRepository.swift in Sources */,
 				F4B83C6F2934CE52000027E3 /* ChatHeaderView.swift in Sources */,
 				F499C449291F546000C4B117 /* FirebaseService.swift in Sources */,
 				F454E4A9291A66070064BCC4 /* SesacDateLabel.swift in Sources */,
@@ -1200,6 +1245,7 @@
 				F48B3070292270A800DD5E12 /* ProfileViewController.swift in Sources */,
 				F4B83C6D2934CE48000027E3 /* ChatRightCell.swift in Sources */,
 				F4A79EB0292D05310010E44F /* MemoleaseTargetType.swift in Sources */,
+				F4E9B1CE293B9EBB00B83616 /* WebSocketService.swift in Sources */,
 				F4586466291F900E00993A6D /* EmailViewModel.swift in Sources */,
 				F488D7902921308A002E4B57 /* MemoleaseError.swift in Sources */,
 				F4586462291F77AB00993A6D /* NickNameViewModel.swift in Sources */,
@@ -1222,6 +1268,7 @@
 				F4B83C6229347A2A000027E3 /* EmbedInPageViewController.swift in Sources */,
 				F4034CCB29191B1400423FAF /* BaseView.swift in Sources */,
 				F4A6F0712938E872006D75CC /* ReviewViewContoller.swift in Sources */,
+				F487D704293CD29800F4EB20 /* CObservable.swift in Sources */,
 				F48B3074292270B800DD5E12 /* ProfileMainCell.swift in Sources */,
 				F4D3B3922929D21400FA6B04 /* SeSacAlertController.swift in Sources */,
 				F4C138A429378B15000357D9 /* ChatRouter.swift in Sources */,
@@ -1238,6 +1285,7 @@
 				F45119A429193AEB0058571C /* SMSViewController.swift in Sources */,
 				F4B83C712934CE9E000027E3 /* ChatView.swift in Sources */,
 				F4594E752920C29F0071CFC2 /* String.swift in Sources */,
+				F4E9B1D0293B9FB100B83616 /* WebSocketError.swift in Sources */,
 				F48F51742939D79C00B1B9F4 /* RMChat.swift in Sources */,
 				F41E0E362925A83000B28291 /* OnBoardingDataSource.swift in Sources */,
 				F4B83C672934CDB0000027E3 /* ChatViewController.swift in Sources */,
@@ -1311,7 +1359,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1365,7 +1413,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1503,12 +1551,20 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		F48F516A2939CAC800B1B9F4 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */ = {
+		F4AC89E5293DAFD400FAE5B5 /* XCRemoteSwiftPackageReference "RxRealm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxRealm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.5;
+			};
+		};
+		F4E9B1C8293B95F300B83616 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/socketio/socket.io-client-swift.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 16.0.0;
+				minimumVersion = 16.0.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1554,9 +1610,14 @@
 			package = F464068029287898008E6F8F /* XCRemoteSwiftPackageReference "MultiSlider" */;
 			productName = MultiSlider;
 		};
-		F48F516B2939CAC800B1B9F4 /* SocketIO */ = {
+		F4AC89E6293DAFD400FAE5B5 /* RxRealm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F48F516A2939CAC800B1B9F4 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */;
+			package = F4AC89E5293DAFD400FAE5B5 /* XCRemoteSwiftPackageReference "RxRealm" */;
+			productName = RxRealm;
+		};
+		F4E9B1C9293B95F300B83616 /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4E9B1C8293B95F300B83616 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */;
 			productName = SocketIO;
 		};
 /* End XCSwiftPackageProductDependency section */

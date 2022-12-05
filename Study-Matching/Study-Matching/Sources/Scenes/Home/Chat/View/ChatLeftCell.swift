@@ -3,64 +3,63 @@ import SnapKit
 
 class ChatLeftCell: BaseCollectionViewCell {
     
-//    lazy var stackView: UIStackView = {
-//        let view = UIStackView(arrangedSubviews: [
-//            label, dateLabel
-//        ])
-//        view.spacing = 8
-//        view.axis = .horizontal
-//        view.distribution = .fillProportionally
-//        return view
-//    }()
-    
-    let label: UILabel = {
+    let dateLabel: UILabel = {
         let view = UILabel()
+        view.textColor = SeSacColor.gray6
+        view.text = "15:02"
+        view.font = SeSacFont.Title6_R12.set
+        return view
+    }()
+    
+    let containerView: UIView = {
+        let view = UIView()
         view.layer.cornerRadius = 8
         view.layer.masksToBounds = true
-        view.backgroundColor = .white
-        view.font = SeSacFont.Body3_R14.set
         view.layer.borderColor = SeSacColor.gray4.cgColor
-        //view.numberOfLines = 0
         view.layer.borderWidth = 1
         return view
     }()
     
-    let dateLabel: UILabel = {
+    let label: UILabel = {
         let view = UILabel()
-        view.textColor = SeSacColor.gray6
-        view.font = SeSacFont.Title6_R12.set
-        view.text = "15:02"
+        view.backgroundColor = .white
+        view.numberOfLines = 0
+        view.font = SeSacFont.Body3_R14.set
         return view
     }()
     
     
-//    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-//        let attributes = super.preferredLayoutAttributesFitting(layoutAttributes)
-//        guard let photoItem = photoItem else { return attributes }
-//        let ratio = CGFloat(photoItem.height) / CGFloat(photoItem.width)
-//        let newHeight = attributes.bounds.width * ratio
-//        attributes.bounds.size.height = newHeight
-//        return attributes
-//    }
+
     
     override func configureHierarchy() {
-        addSubview(label)
+        addSubview(containerView)
+        containerView.addSubview(label)
         addSubview(dateLabel)
     }
     
     override func configureLayout() {
+
         label.snp.makeConstraints {
-            $0.top.bottom.equalTo(contentView)
-            
-            $0.leading.equalTo(self.snp.leading)
-            
+            $0.top.equalTo(containerView.snp.top).offset(10)
+            $0.leading.equalTo(self.snp.leading).offset(32)
+            $0.bottom.equalTo(containerView.snp.bottom).offset(-10)
+            $0.width.lessThanOrEqualTo(232)
         }
+        
+        containerView.snp.makeConstraints {
+            $0.leading.equalTo(label.snp.leading).offset(-16)
+            $0.trailing.equalTo(label.snp.trailing).offset(16)
+            $0.top.equalTo(self.safeAreaLayoutGuide).offset(6)
+            $0.bottom.equalTo(self.safeAreaLayoutGuide).offset(-6)
+        }
+        
         dateLabel.snp.makeConstraints {
-            $0.leading.equalTo(label.snp.trailing).offset(8)
-            
-            $0.bottom.equalTo(label.snp.bottom)
+            $0.leading.equalTo(containerView.snp.trailing).offset(8)
+            $0.bottom.equalTo(containerView.snp.bottom)
         }
 
+
     }
+    
 
 }

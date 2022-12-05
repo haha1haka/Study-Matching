@@ -3,17 +3,17 @@ import RealmSwift
 
 
 protocol ChatDataBaseRepository {
-    func addChat(item: RMChat)
-    func fetchChat() -> Results<RMChat>
+    func addChat(item: Chat)
+    func fetchChat() -> Results<Chat>
 }
 
 
-final class RMChatRepository: ChatDataBaseRepository {
+final class ChatRepository: ChatDataBaseRepository {
     
     let database = try! Realm()
     
     
-    func addChat(item: RMChat) {
+    func addChat(item: Chat) {
         do {
             try database.write {
                 database.add(item)
@@ -24,8 +24,9 @@ final class RMChatRepository: ChatDataBaseRepository {
     }
 
 
-    func fetchChat() -> Results<RMChat> {
-        return database.objects(RMChat.self)
+    func fetchChat() -> Results<Chat> {
+        print("🟩\(String(describing: database.configuration.fileURL!))")
+        return database.objects(Chat.self)
     }
 
 }

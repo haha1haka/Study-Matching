@@ -15,15 +15,15 @@ enum Succeess {
     
 }
 
-enum MemoleaseError: Int, Error {
+enum MemoleaseError: Error {
     
     //회원가입
-    case alreadyUser = 201
-    case nickError = 202
-    case idTokenError = 401
+    case alreadyUser
+    case nickError
+    case idTokenError
     
-    case serverError = 500
-    case clientError = 501
+    case serverError
+    case clientError
     case unknown
     
     //로그인
@@ -50,6 +50,7 @@ enum MemoleaseError: Int, Error {
     //chat
     case unableChat
 
-    
+    //dodge
+    case wrongUid
     
 }

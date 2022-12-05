@@ -2,7 +2,9 @@ import Foundation
 
 
 
-
+protocol BaseNetwork {
+    
+}
 
 
 class MemoleaseService: ResultType {
@@ -30,9 +32,11 @@ class MemoleaseService: ResultType {
                 switch httpResponse.statusCode {
                 case 200:
                     do {
-                        let user = try JSONDecoder().decode(//🚀 해당 vc 에서 처리
+                        let user = try JSONDecoder().decode(
                             MemoleaseUser.self,
                             from: data)
+                        UserDefaultsManager.standard.myUid = user.uid
+                        print("myUid: \(UserDefaultsManager.standard.myUid)")
                         
                         let fcmToken = UserDefaultsManager.standard.FCMToken
                         
@@ -54,10 +58,10 @@ class MemoleaseService: ResultType {
                     FirebaseService.shared.fetchIdToken { _ in
                         completion(.failure(.idTokenError))
                     }
-                     //🚀 해당 viewModel 에서 재귀로그인
+                    
                     
                 case 406:
-                    completion(.failure(.unRegistedUser)) //🚀 해당 vc 에서 처리
+                    completion(.failure(.unRegistedUser))
                 case 500:
                     completion(.failure(.serverError))
                     print("❌500")
@@ -75,16 +79,6 @@ class MemoleaseService: ResultType {
     
     func requestSignup(target: TargetType, completion: @escaping MemoleaseResult) {
         
-        //        var urlComponents = URLComponents(string: path)
-        //        urlComponents?.queryItems = queryItems
-        //        print("\(path)🟩\(String(describing: urlComponents?.url))")
-        //
-        //
-        //        var urlRequest = URLRequest(url: (urlComponents?.url)!)
-        //        urlRequest.httpBody = urlComponents?.query?.data(using: .utf8)
-        //        urlRequest.httpMethod = httpMethod.rawValue.uppercased()
-        //        urlRequest.allHTTPHeaderFields = headers //헤더
-        
         session.dataTask(with: target.request) { data, response, error in
             
             
@@ -97,15 +91,15 @@ class MemoleaseService: ResultType {
                 
                 switch httpResponse.statusCode {
                 case 200:
-                    completion(.success(.perfact)) //🚀 해당 vc 에서 처리
+                    completion(.success(.perfact))
                 case 201:
-                    completion(.failure(.alreadyUser)) //🚀 해당 vc 에서 처리
+                    completion(.failure(.alreadyUser))
                 case 202:
-                    completion(.failure(.nickError)) //🚀 해당 vc 에서 처리
+                    completion(.failure(.nickError))
                 case 401:
                     FirebaseService.shared.fetchIdToken { _ in
                         completion(.failure(.idTokenError))
-                    } //🚀 해당 viewModel 에서 재귀로그인
+                    }
                 case 500:
                     completion(.failure(.serverError))
                     print("❌500 왜?")
@@ -127,13 +121,6 @@ class MemoleaseService: ResultType {
     
     func updateFCMToken(target: TargetType, completion: @escaping MemoleaseResult) {
         
-        //        var urlComponents = URLComponents(string: path)
-        //        urlComponents?.queryItems = queryItems
-        //        print("\(path)🟩\(String(describing: urlComponents?.url))")
-        //
-        //        var urlRequest = URLRequest(url: (urlComponents?.url)!)
-        //        urlRequest.httpMethod = httpMethod.rawValue.uppercased()
-        //        urlRequest.allHTTPHeaderFields = headers
         
         session.dataTask(with: target.request) { data, response, error in
             
@@ -143,21 +130,19 @@ class MemoleaseService: ResultType {
             
             switch httpResponse.statusCode {
             case 200:
-                completion(.success(.perfact))//🚀 해당 vc 에서 처리
+                completion(.success(.perfact))
             case 401:
                 
                 FirebaseService.shared.fetchIdToken { _ in
                     let fcmToken = UserDefaultsManager.standard.FCMToken
                     self.updateFCMToken(target: UserRouter.FCMtoken(FCMtoken: fcmToken),
                                         completion: { print("🍀 FCMToken update 완료: \($0)") })
-                    completion(.failure(.idTokenError)) //🚀 해당 viewModel 에서 재귀로그인
+                    completion(.failure(.idTokenError))
                 }
                 
-                
-                
-                
+
             case 406:
-                completion(.failure(.unRegistedUser)) //🚀 해당 vc 에서 처리
+                completion(.failure(.unRegistedUser))
             case 500:
                 completion(.failure(.serverError))
                 print("❌500")
@@ -184,13 +169,13 @@ class MemoleaseService: ResultType {
             
             switch httpResponse.statusCode {
             case 200:
-                completion(.success(.perfact)) //🚀 해당 vc 에서 처리
+                completion(.success(.perfact))
             case 401:
                 FirebaseService.shared.fetchIdToken { _ in
                     completion(.failure(.idTokenError))
-                } //🚀 해당 viewModel 에서 재귀로그인
+                }
             case 406:
-                completion(.failure(.unRegistedUser)) //🚀 해당 vc 에서 처리
+                completion(.failure(.unRegistedUser))
             case 500:
                 completion(.failure(.serverError))
                 print("❌500")
@@ -222,12 +207,12 @@ class MemoleaseService: ResultType {
                 
                 switch httpResponse.statusCode {
                 case 200:
-                    completion(.success(.perfact)) //🚀 해당 vc 에서 처리: 온보딩 화면으로
+                    completion(.success(.perfact))
                 case 401:
                     FirebaseService.shared.fetchIdToken { _ in
                         completion(.failure(.idTokenError))
-                    } //🚀 해당 viewModel 에서 재귀로그인
-                case 406: //🚀 해당 vc 에서 처리: 온보딩 화면으로
+                    }
+                case 406:
                     completion(.failure(.aleadyWithdraw))
                 case 500:
                     completion(.failure(.serverError))
@@ -265,7 +250,7 @@ class MemoleaseService: ResultType {
                 case 200:
                     
                     do {
-                        let queueSearch = try JSONDecoder().decode( //🚀 해당 vc 에서 처리
+                        let queueSearch = try JSONDecoder().decode(
                             Queue.self,
                             from: data)
                         
@@ -284,11 +269,11 @@ class MemoleaseService: ResultType {
                 case 401:
                     FirebaseService.shared.fetchIdToken { _ in
                         completion(.failure(.idTokenError))
-                    } //🚀 해당 viewModel 에서 재귀로그인
+                    }
                     
                     return
                 case 406:
-                    completion(.failure(.unRegistedUser)) //🚀 해당 vc 에서 처리: 화면이동
+                    completion(.failure(.unRegistedUser))
                     return
                 case 500:
                     completion(.failure(.serverError))
@@ -319,7 +304,7 @@ class MemoleaseService: ResultType {
                 
                 switch httpResponse.statusCode {
                 case 200:
-                    completion(.success(.perfact)) //🚀 해당 vc 에서 처리
+                    completion(.success(.perfact))
                 case 201:
                     completion(.failure(.unavailable))
                 case 203:
@@ -368,12 +353,12 @@ class MemoleaseService: ResultType {
                 
                 switch httpResponse.statusCode {
                 case 200:
-                    completion(.success(.perfact)) //🚀 해당 vc 에서 처리: 온보딩 화면으로
+                    completion(.success(.perfact))
                 case 401:
                     FirebaseService.shared.fetchIdToken { _ in
                         completion(.failure(.idTokenError))
-                    } //🚀 해당 viewModel 에서 재귀로그인
-                case 406: //🚀 해당 vc 에서 처리: 온보딩 화면으로
+                    }
+                case 406:
                     completion(.failure(.aleadyWithdraw))
                 case 500:
                     completion(.failure(.serverError))
@@ -408,7 +393,7 @@ class MemoleaseService: ResultType {
                 switch httpResponse.statusCode {
                 case 200:
                     do {
-                        let state = try JSONDecoder().decode(//🚀 해당 vc 에서 처리
+                        let state = try JSONDecoder().decode(
                             QueueState.self,
                             from: data)
                         
@@ -430,7 +415,7 @@ class MemoleaseService: ResultType {
                     FirebaseService.shared.fetchIdToken { _ in
                         completion(.failure(.idTokenError))
                     }
-                case 406: completion(.failure(.unRegistedUser)) //🚀 해당 vc 에서 처리
+                case 406: completion(.failure(.unRegistedUser))
                 case 500: completion(.failure(.serverError))
                     print("❌500")
                 case 501: completion(.failure(.clientError))
@@ -462,7 +447,7 @@ class MemoleaseService: ResultType {
                 case 201:
                     completion(.success(.alreadyRequested))
                 case 202:
-                    completion(.failure(.searchStop)) //🚀 해당 vc 에서 처리
+                    completion(.failure(.searchStop))
                 case 401:
                     FirebaseService.shared.fetchIdToken { _ in
                         completion(.failure(.idTokenError))
@@ -544,7 +529,7 @@ class MemoleaseService: ResultType {
                 switch httpResponse.statusCode {
                 case 200:
                     do {
-                        let chat = try JSONDecoder().decode(//🚀 해당 vc 에서 처리
+                        let chat = try JSONDecoder().decode(
                             Chat.self,
                             from: data)
                         
@@ -632,7 +617,50 @@ class MemoleaseService: ResultType {
         }.resume()
         
     }
+    
+    
+    func requestDodge(target: TargetType, completion: @escaping MemoleaseResult) {
+        
 
+        session.dataTask(with: target.request) { data, response, error in
+            
+            
+            DispatchQueue.main.async {
+                guard let httpResponse = response as? HTTPURLResponse else { return }
+                
+                print("📭 Request \(target.request.url!)")
+                print("🚩 Response \(httpResponse.statusCode)")
+                
+                
+                switch httpResponse.statusCode {
+                case 200:
+                    completion(.success(.perfact))
+                case 201:
+                    completion(.failure(.wrongUid))
+                case 401:
+                    FirebaseService.shared.fetchIdToken { _ in
+                        completion(.failure(.idTokenError))
+                    }
+                case 406:
+                    completion(.failure(.unRegistedUser))
+                case 500:
+                    completion(.failure(.serverError))
+                    print("❌500")
+                case 501:
+                    completion(.failure(.clientError))
+                    print("❌501")
+                default:
+                    completion(.failure(.unknown))
+                    print("❌unknown")
+                }
+                
+            }
+            
+            
+        }.resume()
+        
+        
+    }
     
     
     

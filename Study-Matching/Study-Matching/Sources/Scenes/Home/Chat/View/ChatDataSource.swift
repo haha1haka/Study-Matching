@@ -9,8 +9,8 @@ class ChatDataSource: UICollectionViewDiffableDataSource<Int, Chat>, DataSourceR
     {
         self.init(collectionView: collectionView) {
             collectionView, indexPath, itemIdentifier in
-
-            if itemIdentifier.from == UserDefaultsManager.standard.myUid {
+            print("🥶🥶🥶\(itemIdentifier.from).,.,.,\(UserDefaultsManager.standard.myUid)")
+            if itemIdentifier.from != UserDefaultsManager.standard.myUid {
                 let cell = collectionView.dequeueConfiguredReusableCell(
                     using: chatLeftRegistration,
                     for: indexPath,

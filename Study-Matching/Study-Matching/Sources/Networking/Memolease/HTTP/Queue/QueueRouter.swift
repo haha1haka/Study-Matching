@@ -8,6 +8,7 @@ enum QueueRouter {
     case queueState
     case queueRequest(otheruid: String)
     case queueAccept(otheruid: String)
+    case queuedodge(otheruid: String)
     
 }
 
@@ -24,6 +25,7 @@ extension QueueRouter: TargetType {
         case .queueState:   return "\(baseURL)/v1/queue/myQueueState"
         case .queueRequest: return "\(baseURL)/v1/queue/studyrequest"
         case .queueAccept:  return "\(baseURL)/v1/queue/studyaccept"
+        case .queuedodge:   return "\(baseURL)/v1/queue/dodge"
         }
     }
     
@@ -36,7 +38,7 @@ extension QueueRouter: TargetType {
                     "idtoken"      : UserDefaultsManager.standard.idToken]
         }
     }
-    //((parameters?.compactMap({key, value in return "\(key)=\(value)"}))! as Array).joined(separator: "&").data(using: .utf8)
+    
     // MARK: - 바디
     var parameters: String? {
         switch self {
@@ -68,6 +70,8 @@ extension QueueRouter: TargetType {
         case .queueAccept(let otheruid):
             return ["otheruid": otheruid].compactMap{ "\($0)=\($1)" }.joined(separator: "&")
             
+        case .queuedodge(let otheruid):
+            return ["otheruid": otheruid].compactMap{ "\($0)=\($1)" }.joined(separator: "&")
         }
     }
     
@@ -79,7 +83,8 @@ extension QueueRouter: TargetType {
         case .queueStop     : return .delete
         case .queueState    : return .get
         case .queueRequest  : return .post
-        case .queueAccept  : return .post
+        case .queueAccept   : return .post
+        case .queuedodge    : return .post
         }
     }
     

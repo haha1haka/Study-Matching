@@ -20,5 +20,10 @@ extension Date {
         return Calendar.current.component(.day, from: self)
     }
 
+    var dateformatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z"
+        return formatter
+    }
 
 }

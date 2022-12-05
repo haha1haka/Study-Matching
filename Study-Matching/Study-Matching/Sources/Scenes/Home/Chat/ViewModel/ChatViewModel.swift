@@ -5,30 +5,40 @@ import RxCocoa
 
 class ChatViewModel {
     
-    let chatRepository = RMChatRepository()
+    let chatRepository = ChatRepository()
+
+    var chatDataBase: Results<Chat>!
     
-    
-    //var liveChat2 = BehaviorRelay<[Chat]>(value: [])
-    var chatDataBase: Results<RMChat>!
+    var liveChat = BehaviorRelay<[Chat]>(value: [])
+        
+    //var dataList: [Chat] = []
+
+    var arr: [Chat] = []
     
     let myUid = UserDefaultsManager.standard.myUid
     
-    
-//    var otherChat = BehaviorRelay<[Left]>(value: [])
-//
-//    var myChat = BehaviorRelay<[Right]>(value: [])
-//    var chatItme = BehaviorRelay<[ChatItem]>(value: [])
+
     
     func sendChat(chatText: String, completion: @escaping (Result<Succeess, MemoleaseError>) -> Void) {
         
         let matchedUid = UserDefaultsManager.standard.matchedUid
         
-        print("❌\(matchedUid)")
+        print("❌❌❌\(matchedUid)")
+        
+        
         
         MemoleaseService.shared.requestPostChat(target: ChatRouter.chat(id: matchedUid, chatText: chatText)) {
             switch $0 {
-            case .success( _):
+            case .success(let chat):
                 completion(.success(.perfact))
+                
+                
+                
+                self.arr.append(chat)
+                self.liveChat.accept(self.arr)
+                
+                
+                self.chatRepository.addChat(item: chat)
                 return
             case .failure(let error):
                 switch error {
@@ -41,10 +51,13 @@ class ChatViewModel {
                 default:
                     return
                 }
-                
             }
         }
     }
+    
+    
+    
+    
     func checkQueueState(completion: @escaping (Result<QueueState?, MemoleaseError>) -> Void) {
         MemoleaseService.shared.requestQueueState(target: QueueRouter.queueState) {
             switch $0 {
@@ -53,8 +66,12 @@ class ChatViewModel {
                 if state.dodged == 1 || state.reviewed == 1 {
                     completion(.failure(.canceledMatch))
                 } else {
-                    UserDefaultsManager.standard.matchedUid = state.matchedUid ?? "없음"
-                    UserDefaultsManager.standard.matchedNick = state.matchedNick ?? "없음"
+                    print("🐸\(UserDefaultsManager.standard.matchedUid)")
+                    print("🐸\(UserDefaultsManager.standard.matchedNick)")
+                    print("⭐️\(state.matchedUid)")
+                    print("⭐️\(state.matchedNick)")
+                    UserDefaultsManager.standard.matchedUid = state.matchedUid ?? ""
+                    UserDefaultsManager.standard.matchedNick = state.matchedNick ?? ""
                     completion(.success(nil))
                 }
                 
@@ -71,24 +88,43 @@ class ChatViewModel {
         }
     }
     
+    func requestDodge(completion: @escaping (Result<Succeess, MemoleaseError>) -> Void) {
+        
+        let matchedUid = UserDefaultsManager.standard.matchedUid
+        
+        MemoleaseService.shared.requestDodge(target: QueueRouter.queuedodge(otheruid: matchedUid)) {
+            switch $0 {
+            case .success:
+                return
+            case .failure(let error):
+                switch error {
+                case .wrongUid:
+                    completion(.failure(.wrongUid))
+                case .idTokenError:
+                    completion(.failure(.idTokenError))
+                case .unRegistedUser:
+                    completion(.failure(.unRegistedUser))
+                default:
+                    return
+                }
+            }
+        }
+    }
+    func fetchLastChat(mathedUid: String, completion: @escaping () -> Void) {
+        
+    }
     
-//    func fetchLastChat() {
-//
-//        chatDataBase = chatRepository.fetchChat()
-//
-//        var leftChatList: [Left] = []
-//        var rightChatList: [Right] = []
-//
-//        for i in chatDataBase {
-//            if i.from == myUid {
-//                rightChatList.append(Right(text: i.chat, createdAt: i.createdAt))
-//            } else {
-//                leftChatList.append(Left(text: i.chat, createdAt: i.chat))
-//            }
-//
-//        }
-//        chatItme.accept(chatItme.map(rightChatList))
-//        otherChat.accept(leftChatList)
-//
-//    }
+    
+    
+    func fetchChat() {
+        self.chatDataBase = chatRepository.fetchChat()
+    }
+    
+    
+    
+    func fetchchatchat() {
+        //self.chatchat.value = chatRepository.fetchChat()
+        
+    }
+        
 }

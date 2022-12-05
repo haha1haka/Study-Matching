@@ -82,10 +82,12 @@ extension NearbyViewController {
         
         
         self.viewModel.cardItemList //[Card]
+
             .bind(onNext: { cards in
+                var snapShot = self.dataSource.snapshot()
+                snapShot.deleteAllItems()
                 for i in cards {
                     let currentSection = Section(label: "\(i.uid)")
-                    var snapShot = self.dataSource.snapshot()
                     snapShot.appendSections([currentSection])
                     snapShot.appendItems([i], toSection: currentSection)
                     self.dataSource.apply(snapShot)
@@ -103,8 +105,11 @@ extension NearbyViewController {
         let vc = SeSacAlertController(alertType: .findNearby)
         vc.completeButton.rx.tap
             .bind(onNext: {
+                
                 let item = self.viewModel.cardItemList.value[button.tag]
+                
                 self.requestStudy(uid: item.uid)
+                
                 print("🐶🐶🐶🐶\(item.nick)")
             })
             .disposed(by: disposeBag)

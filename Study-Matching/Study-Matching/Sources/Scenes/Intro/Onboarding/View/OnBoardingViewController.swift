@@ -3,8 +3,6 @@ import RxSwift
 import RxCocoa
 
 
-
-
 class OnBoardingViewController: BaseViewController, DataSourceRegistration {
     
     let selfView = OnBoardingView()
@@ -76,8 +74,6 @@ extension OnBoardingViewController {
 
             })
             .disposed(by: disposeBag)
-        
-        print("fdsfadsfasdfa")
 
         
     }

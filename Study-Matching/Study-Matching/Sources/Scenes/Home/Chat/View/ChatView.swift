@@ -43,7 +43,8 @@ class ChatView: BaseView {
     override func configureLayout() {
         collectionView.snp.makeConstraints {
             $0.top.equalTo(self.safeAreaLayoutGuide)
-            $0.leading.trailing.bottom.equalTo(self)
+            $0.leading.trailing.equalTo(self)
+            $0.bottom.equalTo(stackView.snp.top)
         }
         
         stackView.snp.makeConstraints {

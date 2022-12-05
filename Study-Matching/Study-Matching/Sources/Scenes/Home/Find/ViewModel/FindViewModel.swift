@@ -47,15 +47,17 @@ class FindViewModel: ResultType {
         return sesacFriendDataStore.value.fromQueueDB.isEmpty // --> ture
     }
     var cardItemList =  BehaviorRelay<[Card]>(value: [])
+    var requestedCardItemList =  BehaviorRelay<[Card]>(value: [])
     
     
 
 }
 
 extension FindViewModel {
+    
+    
     func requestQueueSearch(completion: @escaping (Result<String, MemoleaseError>) -> Void) {
-        
-        
+            
         MemoleaseService.shared.requestQueueSearch(
             target: QueueRouter.queueSearch(
                 lat: lat.value,
@@ -69,13 +71,23 @@ extension FindViewModel {
 //                        self.makeData()
                         
                         var arr: [Card] = []
+                        var requestedArr: [Card] = []
                         for item in seacFriendDB.fromQueueDB {
+                            
                             arr.append(Card(nick: item.nick, reputation: item.reputation, studyList: item.studylist, reviews: item.reviews, gender: item.gender, type: item.type, sesac: item.sesac, background: item.background, uid: item.uid))
+                        }
+                        for item in seacFriendDB.fromQueueDBRequested {
+                            
+                            requestedArr.append(Card(nick: item.nick, reputation: item.reputation, studyList: item.studylist, reviews: item.reviews, gender: item.gender, type: item.type, sesac: item.sesac, background: item.background, uid: item.uid))
                         }
                         
 
                         print("📣📣fromQueueDB📣📣📣\(arr)")
+                        print("📣📣fromQueueDB📣📣📣\(requestedArr)")
                         self.cardItemList.accept(arr)
+                        self.requestedCardItemList.accept(requestedArr)
+                        
+                        
                         
                         completion(.success(""))
                         

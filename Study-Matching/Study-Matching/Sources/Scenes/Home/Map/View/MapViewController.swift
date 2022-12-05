@@ -134,6 +134,8 @@ extension MapViewController {
                     self.transition(vc)
                 case 1:
                     print("채팅 화면으로 가기")
+                    let vc = ChatViewController()
+                    self.transition(vc)
                 default:
                     let vc = WishListViewController()
                     vc.viewModel.lat.accept(self.viewModel.lat.value)

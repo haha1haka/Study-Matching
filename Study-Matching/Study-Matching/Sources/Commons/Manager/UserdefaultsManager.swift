@@ -21,6 +21,7 @@ class UserDefaultsManager  {
         case onboardFlag, sceneType, nickFlag, smsFlag, mainFlag
         case matchedState
         case myUid, matchedUid, matchedNick
+        case lastChatDate
     }
     
     var vertificationID: String {
@@ -177,6 +178,15 @@ class UserDefaultsManager  {
         }
         set {
             userDefaults.set(newValue, forKey: UserDefaultsKey.matchedNick.rawValue)
+        }
+    }
+    
+    var lastChatDate: String {
+        get {
+            return userDefaults.string(forKey: UserDefaultsKey.lastChatDate.rawValue) ?? "없음"
+        }
+        set {
+            userDefaults.set(newValue, forKey: UserDefaultsKey.lastChatDate.rawValue)
         }
     }
     

@@ -10,16 +10,13 @@ class AuthViewModel: ResultType {
     var dividerViewFlag = BehaviorRelay<Bool>(value: false)
     var validationFlag = BehaviorRelay<Bool>(value: false)
     
+    
+    
     func validHandler(text: String) -> Bool {
-        return true
+        let textRegex = "^01([0-9])+-([0-9]{3,4})+-([0-9]{4})$"
+        let predicate = NSPredicate(format:"SELF MATCHES %@", textRegex)
+        return predicate.evaluate(with: text)
     }
-    
-    
-//    func validHandler(text: String) -> Bool {
-//        let textRegex = "^01([0-9])+-([0-9]{3,4})+-([0-9]{4})$"
-//        let predicate = NSPredicate(format:"SELF MATCHES %@", textRegex)
-//        return predicate.evaluate(with: text)
-//    }
     
 
     func applydividerView(_ inputText: String) -> Bool {
@@ -27,8 +24,7 @@ class AuthViewModel: ResultType {
     }
 
     
-    func applyHyphen(_ inputText: String) -> String
-    {
+    func applyHyphen(_ inputText: String) -> String {
         let string = inputText.replacingOccurrences(of: "-", with: "")
         let array = Array(string)
         if array.count > 3 {
@@ -47,23 +43,21 @@ class AuthViewModel: ResultType {
         return inputText
     }
     
-    func requestVertificationID(
-        phoneNumber: String,
-        completion: @escaping FirebaseResult)
-    {
+    
+    func requestVertificationID(phoneNumber: String, completion: @escaping FirebaseResult) {
+        
         FirebaseService.shared.requestVertificationID(phoneNumber: phoneNumber) {
             switch $0 {
             case .success:
-                completion(.success(.perfact)) //🚀
+                completion(.success(.perfact))
             case .failure(let error):
                 switch error {
                 case .tooManyRequest:
-                    completion(.failure(.tooManyRequest)) //🚀
+                    completion(.failure(.tooManyRequest))
                 default:
-                    completion(.failure(.unknown)) //🚀
+                    completion(.failure(.unknown))
                 }
             }
         }
     }
-
 }

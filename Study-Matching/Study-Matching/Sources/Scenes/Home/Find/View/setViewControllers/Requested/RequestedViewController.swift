@@ -22,6 +22,7 @@ class RequestedViewController: BaseViewController, DataSourceRegistration {
 }
 
 extension RequestedViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,7 +36,6 @@ extension RequestedViewController {
                 
         bind()
         
-        //dataSource.applySnapshot()
         
     }
     
@@ -52,27 +52,93 @@ extension RequestedViewController {
         header = CardHeaderRegistration (elementKind: UICollectionView.elementKindSectionHeader)
         { [weak self] supplementaryView, elementKind, indexPath in
             guard let self = self else { return }
+            
+            supplementaryView.requestButton.tag = indexPath.section
+            guard let item = self.dataSource.itemIdentifier(for: indexPath) else { return }
+            
+            
+            self.viewModel.cardItemList
+                .bind(onNext: { _ in
+                    supplementaryView.mainImageView.image = SeSacImage.sesacBackgroundImageArray[item.background]
+                    supplementaryView.subImageView.image = SeSacImage.sesacImageArray[item.sesac]
+                    supplementaryView.requestButton.tag = indexPath.section
+                    
+                })
+                .disposed(by: self.disposeBag)
+            
+            supplementaryView.requestButton.addTarget(self, action: #selector(self.tappedRequestButton), for: .touchUpInside)
         
         }
         
         mainCell = CardCellRegistration
-        { [weak self] cell, indexPath, itemIdentifier in
-            guard let self = self else { return }
-            cell.reviewButton.rx.tap
-                .bind(onNext: {
-                    let vc = ReviewViewContoller()
-                    self.transition(vc)
-                })
-                .disposed(by: self.disposeBag)
+        {  cell, indexPath, itemIdentifier in
+
+            
+            cell.configureCell(with: itemIdentifier)
 
         }
         
-        self.viewModel.lat
-            .bind(onNext: {
-            print("🐙\($0)")
-        })
-            .disposed(by: disposeBag)
+        self.viewModel.requestedCardItemList //[Card]
+            .bind(onNext: { cards in
+                var snapShot = self.dataSource.snapshot()
+                snapShot.deleteAllItems()
+                for i in cards {
+                    let currentSection = Section(label: "\(i.uid)")
+                    snapShot.appendSections([currentSection])
+                    snapShot.appendItems([i], toSection: currentSection)
+                    self.dataSource.apply(snapShot)
+                }
+
+            })
+            .disposed(by: self.disposeBag)
+
+        
+
     }
+    
+    @objc
+    func tappedRequestButton(_ button: UIButton) {
+        
+        let alertVC = SeSacAlertController(alertType: .findNearby)
+        alertVC.completeButton.rx.tap
+            .bind(onNext: {
+                
+                DispatchQueue.main.async {
+                    let vc = ChatViewController()
+                    
+                    let item = self.viewModel.requestedCardItemList.value[button.tag]
+                    print("⭐️\(item.uid)")
+                    
+
+                    self.viewModel.requestStudyAccept(uid: item.uid) {
+                        switch $0 {
+                        case .success:
+                            print("매칭 수락됨")
+                        case .failure:
+                            return
+                        
+                        }
+                    }
+
+                    
+                    alertVC.dismiss(animated: true) {
+                        self.transition(vc)
+                    }
+                    
+
+                }
+                            })
+            .disposed(by: disposeBag)
+        
+        alertVC.cancelButton.rx.tap
+            .bind(onNext: {
+                alertVC.dismiss(animated: false)
+            })
+            .disposed(by: disposeBag)
+        
+        self.transition(alertVC, transitionStyle: .SeSacAlertController)
+    }
+    
 }
 extension RequestedViewController: UICollectionViewDelegate {
     

@@ -9,30 +9,28 @@ class FirebaseService: ResultType {
     
     private init() {}
     
-    func requestVertificationID(
-        phoneNumber: String,
-        completion: @escaping FirebaseResult)
-    {
-        PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil)
-        { vertificationID, error in
+    func requestVertificationID(phoneNumber: String, completion: @escaping FirebaseResult) {
+        
+        PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { vertificationID, error in
+            
             guard let vertificationID = vertificationID else {
                 completion(.failure(.noneVertificationID))
                 return
             }
-            print("🐙🐙🐙🐙\(vertificationID)")
             
             if let error = error {
                 let errorStatus = AuthErrorCode.Code(rawValue: error._code)
                 switch errorStatus {
                 case .tooManyRequests:
-                    completion(.failure(.tooManyRequest)) // 🚀
+                    completion(.failure(.tooManyRequest))
                 default:
                     completion(.failure(.unknown))
                 }
             }
-            
-            UserDefaultsManager.standard.vertificationID = vertificationID
-            completion(.success(.perfact))
+            else {
+                UserDefaultsManager.standard.vertificationID = vertificationID
+                completion(.success(.perfact))
+            }
             
         }
         
@@ -40,11 +38,7 @@ class FirebaseService: ResultType {
     
     
     
-    func vertifySMSCode(
-        smsCode: String,
-        completion: @escaping FirebaseResult)
-    {
-        print("🟩 VerrificationID : \(UserDefaultsManager.standard.vertificationID)")
+    func vertifySMSCode(smsCode: String, completion: @escaping FirebaseResult) {
         
         let vertificationId = UserDefaultsManager.standard.vertificationID
         
@@ -52,41 +46,45 @@ class FirebaseService: ResultType {
         
         Auth.auth().signIn(with: credential) { result, error in
             
-            
             if let error = error {
                 let errorStatus = AuthErrorCode.Code(rawValue: error._code)
                 switch errorStatus {
                 case .tooManyRequests:
-                    completion(.failure(.tooManyRequest)) // 🚀
+                    completion(.failure(.tooManyRequest))
                 case .invalidVerificationCode:
-                    completion(.failure(.invalidVerificationCode)) // 🚀
+                    completion(.failure(.invalidVerificationCode))
                 default:
                     completion(.failure(.unknown))
                 }
             }
-            else { // 1. SMS 코드 일치 하면 token 깔기
+            else {
                 self.fetchIdToken { _ in }
-                completion(.success(.perfact)) // 🚀
+                completion(.success(.perfact))
             }
         }
     }
     
     
     
-    func fetchIdToken(completion: @escaping (Result<Succeess, FirebaseError>) -> Void)
-    {
+    func fetchIdToken(completion: @escaping (Result<Succeess, FirebaseError>) -> Void) {
+        
         let currentUser = Auth.auth().currentUser
+        
         currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
+            
             if let error = error {
                 print(" ❌ idToken \(error)")
                 completion(.failure(.idTokenFetchError))
                 return
-            } else {
+            }
+            else {
                 guard let idToken = idToken else { print("idToken == nil"); return }
                 
                 UserDefaultsManager.standard.idToken = idToken
+                
                 completion(.success(.perfact))
-                print("♻️idToken갱신!♻️\(UserDefaultsManager.standard.idToken)♻️♻️♻️")
+                
+                print("♻️♻️♻️IDTOKEN갱신\(UserDefaultsManager.standard.idToken)")
                 
             }
             
