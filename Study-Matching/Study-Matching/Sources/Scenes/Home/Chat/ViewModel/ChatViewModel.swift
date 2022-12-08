@@ -9,15 +9,21 @@ class ChatViewModel {
 
     var chatDataBase: Results<Chat>!
     
-    var liveChat = BehaviorRelay<[Chat]>(value: [])
+    var payloadChat = PublishRelay<[Chat]>()
+    //var a =
         
-    //var dataList: [Chat] = []
-
+    var liveChat = BehaviorRelay<[Chat]>(value: [])
+    
     var arr: [Chat] = []
+    
+    
+    
+    var dateString = ""
     
     let myUid = UserDefaultsManager.standard.myUid
     
 
+    
     
     func sendChat(chatText: String, completion: @escaping (Result<Succeess, MemoleaseError>) -> Void) {
         
@@ -35,6 +41,7 @@ class ChatViewModel {
                 
                 
                 self.arr.append(chat)
+                
                 self.liveChat.accept(self.arr)
                 
                 
@@ -110,14 +117,50 @@ class ChatViewModel {
             }
         }
     }
-    func fetchLastChat(mathedUid: String, completion: @escaping () -> Void) {
+    
+
+    
+    func fetchLastChat(completion: @escaping (Result<Succeess, MemoleaseError>) -> Void) {
         
+        let matchedUid = UserDefaultsManager.standard.matchedUid
+
+        if let lastData = chatDataBase.last {
+            print("🚨🚨🚨🚨\(lastData.createdAt)")
+            dateString = lastData.createdAt
+            
+            
+        } else {
+            dateString = "2000-01-01T00:00:00.000Z"
+        }
+        
+        
+        
+        MemoleaseService.shared.requestGetLastChat(target: ChatRouter.chatLast(otheruid: matchedUid, lastchatDate: self.dateString)) {
+            switch $0 {
+            case .success(let lastChat):
+                print("🟨🟨🟨🟨\(lastChat)")
+                self.payloadChat.accept(lastChat.payload)
+                completion(.success(.perfact))
+                return
+            case .failure(let error):
+                switch error {
+                case .idTokenError:
+                    completion(.failure(.idTokenError))
+                    print("fasdfsadfads")
+                case .unRegistedUser:
+                    print("등록 되지 않는 사용자 입니다.")
+                default:
+                    return
+                }
+            }
+        }
     }
     
     
     
-    func fetchChat() {
+    func fetchRealmChat(completion: @escaping () -> Void) {
         self.chatDataBase = chatRepository.fetchChat()
+        completion()
     }
     
     
@@ -128,3 +171,4 @@ class ChatViewModel {
     }
         
 }
+

@@ -398,7 +398,7 @@ class MemoleaseService: ResultType {
                             from: data)
                         
                         UserDefaultsManager.standard.matchedState = state.matched
-                                                
+                        print(state.matchedUid)
                         completion(.success(state))
                     }
                     
@@ -530,7 +530,7 @@ class MemoleaseService: ResultType {
                 case 200:
                     do {
                         let chat = try JSONDecoder().decode(
-                            Chat.self,
+                            Chat.self, //sting으로 넘어 오기 때문에 Datetype으로 바꿔 줘얄핢.ㄴ
                             from: data)
                         
                         

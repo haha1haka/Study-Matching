@@ -24,6 +24,7 @@ class ChatRightCell: BaseCollectionViewCell {
         let view = UILabel()
         view.backgroundColor = .white
         view.numberOfLines = 0
+        view.backgroundColor = SeSacColor.whitegreen
         view.font = SeSacFont.Body3_R14.set
         return view
     }()

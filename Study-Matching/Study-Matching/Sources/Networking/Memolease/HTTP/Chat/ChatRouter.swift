@@ -3,7 +3,7 @@ import Foundation
 enum ChatRouter {
 
     case chat(id: String, chatText: String)
-    case chatLast(id: String, lastchatDate: String)
+    case chatLast(otheruid: String, lastchatDate: String)
 }
 
 
@@ -14,7 +14,7 @@ extension ChatRouter: TargetType {
         let baseURL: String = "http://api.sesac.co.kr:1210"
         switch self {
         case .chat(let id, _): return "\(baseURL)/v1/chat/\(id)"
-        case .chatLast(let id, let lastchatDate): return "\(baseURL)/v1/chat/\(id)?lastchatDate=\(lastchatDate)"
+        case .chatLast(let otheruid, let lastchatDate): return "\(baseURL)/v1/chat/\(otheruid)?lastchatDate=\(lastchatDate)"
         }
     }
     

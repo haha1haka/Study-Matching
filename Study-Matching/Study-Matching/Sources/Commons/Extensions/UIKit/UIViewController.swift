@@ -56,6 +56,13 @@ extension UIViewController {
         }
     }
     
+    func showToast2(message: String, completion: @escaping () -> Void) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        self.present(alert, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+            self.dismiss(animated: true,completion: completion )
+        }
+    }
 
     func showToast(message : String, font: UIFont = SeSacFont.Title4_R14.set) {
         let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: self.view.frame.width, height: self.view.frame.height))

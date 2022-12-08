@@ -29,7 +29,8 @@ protocol DataSourceRegistration {
     typealias CardCellRegistration  = UICollectionView.CellRegistration<CardCollectionCell, Card>
     
     // MARK: - Chat
-    typealias ChatHeaderRegistration    = UICollectionView.SupplementaryRegistration<ChatHeaderView>
+    typealias ChatHeaderRegistration1    = UICollectionView.SupplementaryRegistration<ChatHeaderView>
+    typealias ChatHeaderRegistration2    = UICollectionView.SupplementaryRegistration<ChatHeaderView2>
     typealias ChatLeftCellRegistration  = UICollectionView.CellRegistration<ChatLeftCell, Chat>
     typealias ChatRightCellRegistration   = UICollectionView.CellRegistration<ChatRightCell, Chat>
     

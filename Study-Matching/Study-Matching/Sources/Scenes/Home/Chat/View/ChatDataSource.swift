@@ -3,7 +3,8 @@ import UIKit
 class ChatDataSource: UICollectionViewDiffableDataSource<Int, Chat>, DataSourceRegistration {
 
     convenience init(collectionView:       UICollectionView,
-                     headerRegistration:   ChatHeaderRegistration,
+                     headerRegistration1:   ChatHeaderRegistration1,
+                     headerRegistration2:   ChatHeaderRegistration2,
                      chatLeftRegistration: ChatLeftCellRegistration,
                      chatRightRegitstrion:  ChatRightCellRegistration)
     {
@@ -26,10 +27,23 @@ class ChatDataSource: UICollectionViewDiffableDataSource<Int, Chat>, DataSourceR
         }
 
         supplementaryViewProvider =  { collectionView, elementKind, indexPath in
-            let suppleymentaryView  = collectionView.dequeueConfiguredReusableSupplementary(
-                using: headerRegistration,
-                for: indexPath)
-            return suppleymentaryView }
+            
+            switch indexPath.section {
+            case 0:
+                let suppleymentaryView  = collectionView.dequeueConfiguredReusableSupplementary(
+                    using: headerRegistration1,
+                    for: indexPath)
+                return suppleymentaryView
+            default:
+                let suppleymentaryView  = collectionView.dequeueConfiguredReusableSupplementary(
+                    using: headerRegistration2,
+                    for: indexPath)
+                return suppleymentaryView
+                
+            }
+
+            
+        }
     }
 
 

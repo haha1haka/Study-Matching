@@ -267,9 +267,3 @@ extension ProfileViewController: MultiSliderEventDeledate {
     }
 }
 
-
-extension UICollectionViewDiffableDataSource {
-    typealias CellRegistraion = UICollectionView.CellRegistration
-}
- 
-

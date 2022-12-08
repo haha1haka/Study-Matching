@@ -10,13 +10,15 @@ class ChatViewController: BaseViewController, DataSourceRegistration {
     
     let selfView = ChatView()
     
-    var header: ChatHeaderRegistration?
+    var header1: ChatHeaderRegistration1?
+    var header2: ChatHeaderRegistration2?
     var leftCell: ChatLeftCellRegistration?
     var rightCell: ChatRightCellRegistration?
 
     lazy var dataSource = ChatDataSource(
         collectionView      : selfView.collectionView,
-        headerRegistration  : self.header!,
+        headerRegistration1  : self.header1!,
+        headerRegistration2  : self.header2!,
         chatLeftRegistration: self.leftCell!,
         chatRightRegitstrion : self.rightCell!)
     
@@ -25,6 +27,7 @@ class ChatViewController: BaseViewController, DataSourceRegistration {
     let disposeBag = DisposeBag()
     
     let chatRepository = ChatRepository()
+    var flag = false
 
     var chatDataBase: Results<Chat>!
     
@@ -46,15 +49,18 @@ class ChatViewController: BaseViewController, DataSourceRegistration {
 extension ChatViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        socketIOManager.establishConnection()
-        checkQueueState()
+        checkQueueState {
+            self.viewModel.fetchRealmChat { //database
+                self.fetchLastChats() //payload
+            }
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        viewModel.fetchChat()
+        
         
         socketIOManager.eventDelegate = self
         selfView.collectionView.delegate = self
@@ -77,7 +83,12 @@ extension ChatViewController {
 extension ChatViewController {
     func bind() {
         
-        header = ChatHeaderRegistration (elementKind: UICollectionView.elementKindSectionHeader)
+        header1 = ChatHeaderRegistration1 (elementKind: UICollectionView.elementKindSectionHeader)
+        {  supplementaryView, elementKind, indexPath in
+            
+        }
+        
+        header2 = ChatHeaderRegistration2 (elementKind: UICollectionView.elementKindSectionHeader)
         {  supplementaryView, elementKind, indexPath in
             
         }
@@ -116,7 +127,7 @@ extension ChatViewController {
 //            })
 //            .disposed(by: disposeBag)
         
-        
+        viewModel.chatDataBase.value
         
         
         
@@ -125,7 +136,7 @@ extension ChatViewController {
                 
                 self.sendChat()
                 
-                print(self.viewModel.chatDataBase)
+                print("램 에 채팅 로그 \(self.viewModel.chatDataBase.value)")
                 
                 self.selfView.textView.text = ""
             })
@@ -159,14 +170,17 @@ extension ChatViewController {
 //            })
 //            .disposed(by: self.disposeBag)
         
-        
-        
-        viewModel.liveChat
-            .bind(onNext: { a in
+        var snapshot = NSDiffableDataSourceSnapshot<Int, Chat>()
+        snapshot.appendSections([0, 1])
+        viewModel.payloadChat
+            .bind(onNext: { a in //[Chat]
                 print("🐶🐶🐶🐶🐶\(a)")
-                var snapshot = NSDiffableDataSourceSnapshot<Int, Chat>()
+                
+                //1. 램 마지막 날짜 가져오기, --> 2. 그걸로 payload 가져 오기 --> 3. 
+                snapshot.appendItems(self.viewModel.chatDataBase.toArray(),toSection: 0)
+                                
                 //snapshot.deleteAllItems()
-                snapshot.appendSections([0])
+                
                 if !snapshot.sectionIdentifiers.isEmpty {
                     snapshot.appendItems(a,toSection: 0)
                 }
@@ -174,6 +188,20 @@ extension ChatViewController {
                 self.dataSource.apply(snapshot)
             })
             .disposed(by: disposeBag)
+        
+        
+        viewModel.liveChat.bind(onNext: { a in // [Chat]
+            print("라이브채팅중인 내용 \(a)")
+            
+            //var snapshot = NSDiffableDataSourceSnapshot<Int, Chat>()
+            //snapshot.appendSections([1])
+            if !snapshot.sectionIdentifiers.isEmpty {
+                snapshot.appendItems(a,toSection: 1)
+            }
+            
+            self.dataSource.apply(snapshot)
+        })
+        .disposed(by: disposeBag)
     }
     
 
@@ -188,20 +216,20 @@ extension ChatViewController {
 
 
 extension ChatViewController {
-    func checkQueueState() {
+    func checkQueueState(completion: @escaping () -> Void) {
         self.viewModel.checkQueueState {
             switch $0 {
             case .success:
                 print("매칭이 성공 되었습니다.")
                 // MARK: - lastChat 불러오기
-                
+                completion()
                 return
             case .failure(let error):
                 switch error {
                 case .canceledMatch:
                     print("상대방 탈주잼")
                 case .idTokenError:
-                    self.checkQueueState()
+                    self.checkQueueState{}
                 default:
                     return
                 }
@@ -230,12 +258,21 @@ extension ChatViewController {
             
         }
     }
-//    func dodge() {
-//        self.viewModel.requestDodge {
-//
-//
-//        }
-//    }
+    func fetchLastChats() {
+        viewModel.fetchLastChat {
+            switch $0 {
+            case .success:
+                self.socketIOManager.establishConnection()
+            case .failure(let error):
+                switch error {
+                case .idTokenError:
+                    self.fetchLastChats()
+                default:
+                    return
+                }
+            }
+        }
+    }
 }
 
 
@@ -253,9 +290,9 @@ extension ChatViewController: SocketEventDelegate {
     func chat(_ manager: SocketIOManager,_  item: Chat) {
         print("라이브 통신 Chat \(item.chat)")
         
-        
         viewModel.arr.append(item)
-        self.viewModel.liveChat.accept(viewModel.arr)
+        viewModel.liveChat.accept(viewModel.arr)
+        //self.viewModel.payloadChat.accept(viewModel.arr)
     }
 }
 

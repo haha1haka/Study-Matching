@@ -25,5 +25,11 @@ extension Date {
         formatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z"
         return formatter
     }
-
+    
+    var dateToString: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        let date = dateFormatter.string(from: self)
+        return date
+    }
 }

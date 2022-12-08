@@ -50,7 +50,8 @@ class FindViewModel: ResultType {
     var requestedCardItemList =  BehaviorRelay<[Card]>(value: [])
     
     
-
+    var timer: Timer?
+    var timerFlag = BehaviorRelay<Bool>(value: false)
 }
 
 extension FindViewModel {
@@ -187,8 +188,52 @@ extension FindViewModel {
         }
     }
     
+    func checkQueueState(completion: @escaping (Result<QueueState?, MemoleaseError>) -> Void) {
+        MemoleaseService.shared.requestQueueState(target: QueueRouter.queueState) {
+            switch $0 {
+            case .success(let state):
+                guard let state = state else { return }
+                
+                
+                if state.dodged == 1 || state.reviewed == 1 {
+                    completion(.failure(.canceledMatch))
+                } else {
+                    //self.timerFlag.accept(true)
+                    completion(.success(nil))
+                }
+                
+                return
+                
+            case .failure(let error):
+                switch error {
+                case .idTokenError:
+                    completion(.failure(.idTokenError))
+                default:
+                    return
+                }
+            }
+        }
+    }
     
     
+    func startTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(ping), userInfo: nil, repeats: true)
+    }
+    @objc
+    func ping() {
+        self.checkQueueState { _ in }
+    }
+    
+    func stopTimer() {
+        if timer != nil && timer!.isValid {
+            timer!.invalidate()
+        }
+        timer = nil
+        self.timerFlag.accept(false)
+    }
+
+    
+
     
     
 }

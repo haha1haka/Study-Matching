@@ -26,6 +26,13 @@ class NearbyViewController: BaseViewController {
 
 
 extension NearbyViewController {
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.requestQueueSearch{ }
+        viewModel.startTimer()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,11 +45,12 @@ extension NearbyViewController {
             view = cardView
         }
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.requestQueueSearch{ }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
     }
+    
+
     
 }
 
@@ -96,6 +104,18 @@ extension NearbyViewController {
 
             })
             .disposed(by: self.disposeBag)
+        
+        
+        
+        viewModel.timerFlag
+            .bind(onNext: {
+                if $0 {
+                    let vc = ChatViewController()
+                    self.transition(vc)
+                    self.viewModel.stopTimer()
+                }
+            })
+            .disposed(by: disposeBag)
 
     }
     
@@ -121,7 +141,16 @@ extension NearbyViewController {
             .disposed(by: disposeBag)
         
         self.transition(vc, transitionStyle: .SeSacAlertController)
+        
+        
+        
+        
+        
+    
+        
     }
+    
+    
 }
 
 
@@ -191,6 +220,7 @@ extension NearbyViewController {
             }
         }
     }
+
 }
 
 

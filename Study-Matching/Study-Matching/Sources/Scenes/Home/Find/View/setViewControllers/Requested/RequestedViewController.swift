@@ -18,6 +18,7 @@ class RequestedViewController: BaseViewController, DataSourceRegistration {
             collectionView      : cardView.collectionView,
             headerRegistration  : self.header!,
             mainCellRegistration: self.mainCell!)
+    
     override func loadView() { view = emptyView }
 }
 

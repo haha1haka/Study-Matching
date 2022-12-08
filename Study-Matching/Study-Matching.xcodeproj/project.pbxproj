@@ -136,6 +136,7 @@
 		F4D8A6F6292A7C0100C25A57 /* WishListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D8A6F5292A7C0100C25A57 /* WishListHeaderView.swift */; };
 		F4D8A6F8292A7CC500C25A57 /* WishListBottomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D8A6F7292A7CC500C25A57 /* WishListBottomCell.swift */; };
 		F4D8A6FA292A806B00C25A57 /* WishListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D8A6F9292A806B00C25A57 /* WishListViewModel.swift */; };
+		F4D8D1BF293F395800D7E7C6 /* ChatHeaderView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D8D1BE293F395800D7E7C6 /* ChatHeaderView2.swift */; };
 		F4E4B59F292F297A00F3EBA4 /* SeSacAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E4B59E292F297A00F3EBA4 /* SeSacAnnotationView.swift */; };
 		F4E9B1CA293B95F300B83616 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = F4E9B1C9293B95F300B83616 /* SocketIO */; };
 		F4E9B1CE293B9EBB00B83616 /* WebSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E9B1CD293B9EBB00B83616 /* WebSocketService.swift */; };
@@ -272,6 +273,7 @@
 		F4D8A6F5292A7C0100C25A57 /* WishListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListHeaderView.swift; sourceTree = "<group>"; };
 		F4D8A6F7292A7CC500C25A57 /* WishListBottomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListBottomCell.swift; sourceTree = "<group>"; };
 		F4D8A6F9292A806B00C25A57 /* WishListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewModel.swift; sourceTree = "<group>"; };
+		F4D8D1BE293F395800D7E7C6 /* ChatHeaderView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHeaderView2.swift; sourceTree = "<group>"; };
 		F4E4B59E292F297A00F3EBA4 /* SeSacAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSacAnnotationView.swift; sourceTree = "<group>"; };
 		F4E9B1CD293B9EBB00B83616 /* WebSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketService.swift; sourceTree = "<group>"; };
 		F4E9B1CF293B9FB100B83616 /* WebSocketError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketError.swift; sourceTree = "<group>"; };
@@ -879,6 +881,7 @@
 				F4B83C6A2934CDC1000027E3 /* ChatLeftCell.swift */,
 				F4B83C6C2934CE48000027E3 /* ChatRightCell.swift */,
 				F4B83C6E2934CE52000027E3 /* ChatHeaderView.swift */,
+				F4D8D1BE293F395800D7E7C6 /* ChatHeaderView2.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1219,6 +1222,7 @@
 				F463F17C2929340600CE644C /* SeSacButton+.swift in Sources */,
 				F451199F29192DC80058571C /* SeSacFont.swift in Sources */,
 				F45119BD2919415D0058571C /* BirthView.swift in Sources */,
+				F4D8D1BF293F395800D7E7C6 /* ChatHeaderView2.swift in Sources */,
 				F45119972919230B0058571C /* SeSacColor.swift in Sources */,
 				F4586475291FB33600993A6D /* GenderCell.swift in Sources */,
 				F491C7D72933B0A60077DBC6 /* FindViewModel.swift in Sources */,

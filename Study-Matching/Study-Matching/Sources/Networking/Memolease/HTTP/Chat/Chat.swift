@@ -8,6 +8,7 @@ class Chat: Object, Codable {
     @Persisted var to: String
     @Persisted var chat: String
     @Persisted var createdAt: String
+    
 
     
     convenience init(id: String, from: String, to: String, chat: String, createdAt: String) {

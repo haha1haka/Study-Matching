@@ -5,6 +5,7 @@ import CoreLocation
 import MapKit
 import SnapKit
 
+
 enum MatchState: Int {
     case matching
     case matched
@@ -44,6 +45,9 @@ extension MapViewController {
         checkUserDevicelocationServiceAuthorization(locationManager: locationManager)
         selfView.totalButton.toAct //⚠️ 개선
         bind()
+        
+        
+        //FirebaseService.shared.fetchIdToken { _ in }
         
     }
     override func viewWillAppear(_ animated: Bool) {
