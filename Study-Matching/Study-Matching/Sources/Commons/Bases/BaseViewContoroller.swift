@@ -24,9 +24,6 @@ class BaseViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = attributedStringKey
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "\(rightTitle)", style: .plain, target: self, action: nil)
-        //navigationController?.isNavigationBarHidden = false
         navigationItem.rightBarButtonItem?.setTitleTextAttributes(attributedStringKey, for: .normal)
     }
-
 }
-//UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: SeSacFont.Title3_M14.set], for: .normal)

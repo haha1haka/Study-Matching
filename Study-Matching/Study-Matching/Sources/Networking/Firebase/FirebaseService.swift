@@ -53,6 +53,8 @@ class FirebaseService: ResultType {
                     completion(.failure(.tooManyRequest))
                 case .invalidVerificationCode:
                     completion(.failure(.invalidVerificationCode))
+                case .sessionExpired:
+                    completion(.failure(.expired))
                 default:
                     completion(.failure(.unknown))
                 }

@@ -74,13 +74,20 @@ extension SMSViewController {
                         switch $0 {
                         case .success:
                             UserDefaultsManager.standard.smsFlag = true //⭐️ 전화번호 인증완료된후에는 시작 화면 Nick 으로 나오게 할려고
-                            self.checkUser()
+                            
+                            FirebaseService.shared.fetchIdToken { _ in
+                                self.checkUser()
+                            }
+                            
+                            return
                         case .failure(let error):
                             switch error {
                             case .invalidVerificationCode:
-                                self.showToast(message: "전화 번호 인증 실패")
+                                self.showToastAlert(message: "전화 번호 인증 실패")
+                                return
                             case .tooManyRequest:
-                                self.showToast(message: "전화 번호 인증 실패")
+                                self.showToastAlert(message: "전화 번호 인증 실패")
+                                return
                             default:
                                 return
                             }

@@ -7,6 +7,7 @@ enum FirebaseError: String, Error {
     //Auth
     case noneVertificationID
     case tooManyRequest
+    case expired
     case unknown
     
     //SMS

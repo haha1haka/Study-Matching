@@ -18,7 +18,6 @@ class MemoleaseService: ResultType {
     private init() {}
     
     
-    
     func requestGetUser(target: TargetType, completion: @escaping (Result<MemoleaseUser, MemoleaseError>) -> Void ){
         
         session.dataTask(with: target.request) { data, response, error in

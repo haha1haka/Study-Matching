@@ -47,16 +47,16 @@ extension UIViewController {
         case .presentNavigation:
             let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
             let sceneDelegate =  windowScene?.delegate as? SceneDelegate
-            let navi = UINavigationController(rootViewController: viewController)
-            sceneDelegate?.window?.rootViewController = navi
+            let vc = viewController
+            sceneDelegate?.window?.rootViewController = viewController
             sceneDelegate?.window?.makeKeyAndVisible()
-            self.present(navi, animated: true)
+            self.present(vc, animated: true)
         default:
             return
         }
     }
     
-    func showToast2(message: String, completion: @escaping () -> Void) {
+    func showToastAlert(message: String, completion: @escaping () -> Void = {}) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         self.present(alert, animated: true)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {

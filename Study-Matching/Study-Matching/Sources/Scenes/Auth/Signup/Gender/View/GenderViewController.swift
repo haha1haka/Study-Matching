@@ -78,6 +78,7 @@ extension GenderViewController {
                         case .success:
                             let vc = TabBarController()
                             self.transitionRootViewController(vc)
+                            UserDefaultsManager.standard.smsFlag = false
                         case .failure(let error):
                             switch error {
                             case .alreadyUser:

@@ -50,6 +50,7 @@ extension MapViewController {
         //FirebaseService.shared.fetchIdToken { _ in }
         
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)

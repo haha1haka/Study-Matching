@@ -210,7 +210,7 @@ extension ProfileViewController {
             cell.withDrawView.withdrawButton.rx.tap
                 .bind(onNext: { _ in
                     
-                    let vc = SeSacAlertController()
+                    let vc = SeSacAlertController(alertType: .myInfo)
                     
                     vc.completeButton.rx.tap
                         .bind(onNext: { _ in

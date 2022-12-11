@@ -17,12 +17,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-//        window?.rootViewController = UINavigationController(
-//                rootViewController: SearchViewController())
         
-//        window?.rootViewController = UINavigationController(rootViewController: ChatViewController())
-        //window?.makeKeyAndVisible()
-        window?.rootViewController = TabBarController()
+        
+        //window?.rootViewController = UINavigationController(
+        //        rootViewController: SplashViewController())
+        
+        
+        
+        window?.rootViewController = SplashViewController()
         window?.makeKeyAndVisible()
     }
 }

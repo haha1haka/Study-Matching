@@ -67,7 +67,7 @@ extension AuthViewController {
         
         
         
-        // MARK: - 🟨 1 vertificationID
+        
         self.selfView.button.rx.tap
             .bind(onNext: { _ in
                 if self.viewModel.validationFlag.value

@@ -67,8 +67,10 @@ extension SMSViewModel {
                     completion(.failure(.invalidVerificationCode)) //🚀
                 case .tooManyRequest:
                     completion(.failure(.tooManyRequest)) //🚀
+                    print("2")
                 default:
                     completion(.failure(.unknown)) //🚀
+                    print("1")
                 }
                 
             }

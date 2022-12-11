@@ -19,11 +19,6 @@ class MyInfoViewModel: ResultType {
     let age        = BehaviorRelay<[Int]>(value: [])
     var user       = BehaviorRelay<MemoleaseUser?>(value: nil)
     
-    //회원 탈퇴
-    //저장버튼
-    
-    
-    //UserRe 포지토리
 }
 
 extension MyInfoViewModel {

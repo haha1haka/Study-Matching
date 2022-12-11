@@ -18,7 +18,7 @@ class UserDefaultsManager  {
     enum UserDefaultsKey: String {
         case vertificationID, FCMToken, idToken
         case phoneNumber, nick, birth, email, gender
-        case onboardFlag, sceneType, nickFlag, smsFlag, mainFlag
+        case onboardFlag, coordinator, nickFlag, smsFlag, mainFlag
         case matchedState
         case myUid, matchedUid, matchedNick
         case lastChatDate
@@ -109,12 +109,12 @@ class UserDefaultsManager  {
         }
     }
 
-    var sceneType: String {
+    var coordinator: String {
         get {
-            return userDefaults.string(forKey: UserDefaultsKey.sceneType.rawValue)!
+            return userDefaults.string(forKey: UserDefaultsKey.coordinator.rawValue)!
         }
         set {
-            userDefaults.set(newValue, forKey: UserDefaultsKey.sceneType.rawValue)
+            userDefaults.set(newValue, forKey: UserDefaultsKey.coordinator.rawValue)
         }
     }
     
