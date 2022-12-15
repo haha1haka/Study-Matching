@@ -31,7 +31,7 @@ extension RequestedViewController {
         
         if !viewModel.fromQueueDBisEmpty {
             view = emptyView
-        } else {
+        } else { //⚠️개선
             view = cardView
         }
                 

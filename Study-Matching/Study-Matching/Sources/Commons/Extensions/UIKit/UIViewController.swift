@@ -78,8 +78,6 @@ extension UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
             print("completion")
             self.dismiss(animated: true, completion: completion)
-            completion()
-            
         }
     }
     

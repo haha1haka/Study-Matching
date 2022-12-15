@@ -2,6 +2,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import SnapKit
+import Toast
 
 
 
@@ -13,7 +14,7 @@ class FindViewController: BaseViewController {
     let disposeBag = DisposeBag()
     
     let pageViewController = SeSacPageViewController(.scroll)
-
+    
     override func loadView() { view = selfView }
     
     override func setNavigationBar(title: String, rightTitle: String ) {
@@ -22,11 +23,19 @@ class FindViewController: BaseViewController {
 }
 
 extension FindViewController {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.startTimer()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         embedidIn(pageViewController: pageViewController)
         pageViewController.eventDelegate = self
         bind()
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        viewModel.stopTimer()
     }
 }
 
@@ -56,7 +65,7 @@ extension FindViewController {
             .bind(onNext: {
                 let requestedViewController = self.pageViewController.pageContentViewControllers[self.selfView.requestedButton.tag]
                 self.pageViewController.setControllers([requestedViewController])
-
+                
                 self.selfView.makeRequestedAct()
             })
             .disposed(by: disposeBag)
@@ -71,6 +80,21 @@ extension FindViewController {
                 }
             })
             .disposed(by: disposeBag)
+        
+        
+        
+        viewModel.timerFlag
+            .bind(onNext: {
+                if $0 {
+                    self.showToastAlert(message: "매칭 되었습니다. 채팅으로 이동") {
+                        let vc = ChatViewController()
+                        self.transition(vc)
+                        self.viewModel.stopTimer()
+                    }
+                }
+            })
+            .disposed(by: disposeBag)
+        
     }
 }
 
@@ -91,9 +115,16 @@ extension FindViewController {
                 }
             }
         }
-
+        
+    }
+    
+    func checkQueueState() {
+//
+//        self.view.makeToast("매칭 되었습니다. 잠시후 채팅방으로 이동합니다", position: .top)
+//        self.view.makeToast("스터디가 종료되어 채팅을 전송할 수 없습니다", position: .top)
     }
 }
+
 
 
 
@@ -102,7 +133,7 @@ extension FindViewController {
         if let vc = self.navigationController?.viewControllers.last(where: { $0.isKind(of: MapViewController.self) }) {
             self.navigationController?.popToViewController(vc, animated: true)
         }
-
+        
     }
 }
 

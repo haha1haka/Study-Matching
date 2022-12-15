@@ -92,6 +92,7 @@
 		F491C7D72933B0A60077DBC6 /* FindViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491C7D62933B0A60077DBC6 /* FindViewModel.swift */; };
 		F499C449291F546000C4B117 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F499C448291F546000C4B117 /* FirebaseService.swift */; };
 		F499C44C291F55C200C4B117 /* UserdefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F499C44B291F55C200C4B117 /* UserdefaultsManager.swift */; };
+		F4A3A336294AB2F00081CB82 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = F4A3A335294AB2F00081CB82 /* Toast */; };
 		F4A6F0712938E872006D75CC /* ReviewViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A6F0702938E872006D75CC /* ReviewViewContoller.swift */; };
 		F4A79EB0292D05310010E44F /* MemoleaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A79EAF292D05310010E44F /* MemoleaseTargetType.swift */; };
 		F4A868602930EA4B00E75958 /* NearbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A8685F2930EA4B00E75958 /* NearbyViewController.swift */; };
@@ -290,6 +291,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4A3A336294AB2F00081CB82 /* Toast in Frameworks */,
 				F4334032291E12FA00F46725 /* RxSwift in Frameworks */,
 				F464068229287898008E6F8F /* MultiSlider in Frameworks */,
 				F41B45D22939DA5900931354 /* RealmSwift in Frameworks */,
@@ -1104,6 +1106,7 @@
 				F41B45D12939DA5900931354 /* RealmSwift */,
 				F4E9B1C9293B95F300B83616 /* SocketIO */,
 				F4AC89E6293DAFD400FAE5B5 /* RxRealm */,
+				F4A3A335294AB2F00081CB82 /* Toast */,
 			);
 			productName = "Study-Matching";
 			productReference = F463402F2918FE53008A50D6 /* Study-Matching.app */;
@@ -1141,6 +1144,7 @@
 				F41B45CE2939DA5900931354 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				F4E9B1C8293B95F300B83616 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
 				F4AC89E5293DAFD400FAE5B5 /* XCRemoteSwiftPackageReference "RxRealm" */,
+				F4A3A334294AB2F00081CB82 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = F46340302918FE53008A50D6 /* Products */;
 			projectDirPath = "";
@@ -1555,6 +1559,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		F4A3A334294AB2F00081CB82 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		F4AC89E5293DAFD400FAE5B5 /* XCRemoteSwiftPackageReference "RxRealm" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RxSwiftCommunity/RxRealm.git";
@@ -1613,6 +1625,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F464068029287898008E6F8F /* XCRemoteSwiftPackageReference "MultiSlider" */;
 			productName = MultiSlider;
+		};
+		F4A3A335294AB2F00081CB82 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4A3A334294AB2F00081CB82 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
 		};
 		F4AC89E6293DAFD400FAE5B5 /* RxRealm */ = {
 			isa = XCSwiftPackageProductDependency;

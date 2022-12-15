@@ -30,7 +30,7 @@ extension NearbyViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.requestQueueSearch{ }
-        viewModel.startTimer()
+        
     }
     
     override func viewDidLoad() {
@@ -45,11 +45,7 @@ extension NearbyViewController {
             view = cardView
         }
     }
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-    }
-    
+
 
     
 }
@@ -107,15 +103,7 @@ extension NearbyViewController {
         
         
         
-        viewModel.timerFlag
-            .bind(onNext: {
-                if $0 {
-                    let vc = ChatViewController()
-                    self.transition(vc)
-                    self.viewModel.stopTimer()
-                }
-            })
-            .disposed(by: disposeBag)
+
 
     }
     

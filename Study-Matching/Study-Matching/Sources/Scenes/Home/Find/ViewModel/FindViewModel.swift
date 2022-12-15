@@ -198,8 +198,12 @@ extension FindViewModel {
                 if state.dodged == 1 || state.reviewed == 1 {
                     completion(.failure(.canceledMatch))
                 } else {
-                    //self.timerFlag.accept(true)
-                    completion(.success(nil))
+                    if UserDefaultsManager.standard.matchedState == 1 {
+                        self.timerFlag.accept(true)
+                        completion(.success(nil))
+                    }
+                    
+                
                 }
                 
                 return

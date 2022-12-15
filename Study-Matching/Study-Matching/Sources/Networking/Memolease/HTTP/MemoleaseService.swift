@@ -397,7 +397,9 @@ class MemoleaseService: ResultType {
                             from: data)
                         
                         UserDefaultsManager.standard.matchedState = state.matched
+                        
                         print(state.matchedUid)
+                        
                         completion(.success(state))
                     }
                     

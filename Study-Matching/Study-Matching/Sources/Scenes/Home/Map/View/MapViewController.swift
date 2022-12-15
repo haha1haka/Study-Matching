@@ -150,7 +150,7 @@ extension MapViewController {
         
         
         selfView.currentLocationButton.rx.tap
-            .bind(onNext: { 
+            .bind(onNext: {
                 self.setRegionAndAnnotation(center: self.viewModel.currentLocation)
             })
             .disposed(by: disposeBag)
