@@ -44,7 +44,7 @@ extension LocationAuthorizationCheckable {
             
         case .authorizedWhenInUse:
             print("🎊"+"WHEN IN USE") //한번만 허용 or 앱사용하는 동안 허용
-            locationManager.startUpdatingLocation() // 🐷 불르기
+            //locationManager.startUpdatingLocation() // 🐷 불르기
             locationManager.startMonitoringSignificantLocationChanges()
             
         default: print("DEFAULT")

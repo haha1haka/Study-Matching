@@ -9,12 +9,16 @@ extension UIViewController {
         case presentNavigation
         case presentFullNavigation
         case SeSacAlertController
+        case toRoot
+        case toRootWithNavi
         
     }
     
     func transition<T: UIViewController>(_ viewController: T,
                                          transitionStyle: TransitionStyle = .push)
     {
+        
+        
         switch transitionStyle {
             
         case .push:
@@ -38,13 +42,25 @@ extension UIViewController {
             let vc = viewController
             vc.modalPresentationStyle = .overFullScreen
             self.present(vc, animated: true)
+        case .toRoot:
+            return
+        case .toRootWithNavi:
+            return
         }
+        
     }
     func transitionRootViewController<T: UIViewController>(_ viewController: T,
-                                         transitionStyle: TransitionStyle = .presentNavigation)
+                                                           transitionStyle: TransitionStyle)
     {
         switch transitionStyle {
-        case .presentNavigation:
+        case .toRootWithNavi:
+            let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+            let sceneDelegate =  windowScene?.delegate as? SceneDelegate
+            let vc = UINavigationController(rootViewController: viewController)
+            sceneDelegate?.window?.rootViewController = vc
+            sceneDelegate?.window?.makeKeyAndVisible()
+            self.present(vc, animated: true)
+        case .toRoot:
             let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
             let sceneDelegate =  windowScene?.delegate as? SceneDelegate
             let vc = viewController
@@ -56,31 +72,34 @@ extension UIViewController {
         }
     }
     
-    func showToastAlert(message: String, completion: @escaping () -> Void = {}) {
+    func showToastAlert(message: String, completion: @escaping () -> Void) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         self.present(alert, animated: true)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-            self.dismiss(animated: true,completion: completion )
+            print("completion")
+            self.dismiss(animated: true, completion: completion)
+            completion()
+            
         }
     }
-
+    
     func showToast(message : String, font: UIFont = SeSacFont.Title4_R14.set) {
         let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: self.view.frame.width, height: self.view.frame.height))
         
-         toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-         toastLabel.textColor = UIColor.white
-         toastLabel.font = font
-         toastLabel.textAlignment = .center
-         toastLabel.text = message
-         toastLabel.alpha = 1.0
-         toastLabel.layer.cornerRadius = 10;
-         toastLabel.clipsToBounds  =  true
-         self.view.addSubview(toastLabel)
-         UIView.animate(withDuration: 3.0, delay: 0.1, options: .curveEaseOut, animations: {
-              toastLabel.alpha = 0.0
-         }, completion: {(isCompleted) in
-             toastLabel.removeFromSuperview()
-         })
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.font = font
+        toastLabel.textAlignment = .center
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10;
+        toastLabel.clipsToBounds  =  true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 3.0, delay: 0.1, options: .curveEaseOut, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
     }
     
     
@@ -106,8 +125,8 @@ extension UIViewController {
         requestLocationServiceAlert.addAction(goSetting)
         present(requestLocationServiceAlert, animated: true, completion: nil)
     }
-
     
-
+    
+    
     
 }

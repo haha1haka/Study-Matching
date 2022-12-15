@@ -30,15 +30,17 @@ extension SplashViewController {
             
             UserDefaultsManager.standard.smsFlag = false
             let vc = NicknameViewController()
-            self.transitionRootViewController(vc)
+            self.transitionRootViewController(vc, transitionStyle: .toRootWithNavi)
             
         } else {
             
             sleep(3)
             
             saveSceneType {
+                DispatchQueue.main.async {
+                    self.coordinator()
+                }
                 
-                self.coordinator()
                 
                 
             }
@@ -57,9 +59,12 @@ extension SplashViewController {
             if UserDefaultsManager.standard.idToken == "" {
 
                 UserDefaultsManager.standard.coordinator = SceneType.auth.rawValue
-
+                completion()
             } else {
-                requestGetUser()
+                requestGetUser {
+                    completion()
+                }
+                
             }
             
         } else { ///최초에 무조건 온보딩으로 가기
@@ -79,54 +84,54 @@ extension SplashViewController {
         let coordinator = UserDefaultsManager.standard.coordinator
         let firstScene = SceneType(rawValue: coordinator)
         print("✨\(coordinator)")
-        DispatchQueue.main.async {
+        
             switch firstScene {
             case .onboarding:
                 let vc = OnBoardingViewController()
-                self.transitionRootViewController(vc, transitionStyle: .presentNavigation)
+                self.transitionRootViewController(vc, transitionStyle: .toRootWithNavi)
             case .auth:
                 let vc = AuthViewController()
-                self.transitionRootViewController(vc, transitionStyle: .presentNavigation)
+                self.transitionRootViewController(vc, transitionStyle: .toRootWithNavi)
 
             case .nick:
                 let vc = NicknameViewController()
-                self.transitionRootViewController(vc, transitionStyle: .presentNavigation)
+                self.transitionRootViewController(vc, transitionStyle: .toRootWithNavi)
 
             case .home:
                 let vc = TabBarController()
-                self.transitionRootViewController(vc, transitionStyle: .presentNavigation)
+                self.transitionRootViewController(vc, transitionStyle: .toRoot)
 
             default:
                 return
             }
-        }
+        
 
     }
 }
 
 extension SplashViewController {
-    func requestGetUser() {
+    func requestGetUser(completion: @escaping () -> Void) {
         MemoleaseService.shared.requestGetUser(target: UserRouter.signIn) { result in
             switch result {
             case .success:
                 UserDefaultsManager.standard.coordinator = SceneType.home.rawValue
-                self.coordinator()
+                completion()
             case .failure(let error):
                 switch error {
                 case .idTokenError:
-                    self.requestGetUser()
+                    self.requestGetUser { }
                     
                 case .unRegistedUser:
                     UserDefaultsManager.standard.coordinator = SceneType.nick.rawValue
-                    self.coordinator()
+                    completion()
                 case .serverError:
-                    self.showToastAlert(message: "서버 점검중 입니다. 다음에 시도해 주세요")
+                    self.showToastAlert(message: "서버 점검중 입니다. 다음에 시도해 주세요", completion: {})
                     
                 case .clientError:
-                    self.showToastAlert(message: "서버 점검중 입니다. 다음에 시도해 주세요")
+                    self.showToastAlert(message: "서버 점검중 입니다. 다음에 시도해 주세요", completion: {})
                     
                 default:
-                    self.showToastAlert(message: "서버 점검중 입니다. 다음에 시도해 주세요")
+                    self.showToastAlert(message: "서버 점검중 입니다. 다음에 시도해 주세요", completion: {})
                     
                 }
             }

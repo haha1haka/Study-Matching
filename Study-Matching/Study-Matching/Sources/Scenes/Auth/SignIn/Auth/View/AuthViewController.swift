@@ -79,15 +79,18 @@ extension AuthViewController {
                     self.viewModel.requestVertificationID(phoneNumber: phoneNumber) {
                         switch $0 {
                         case .success:
-                            self.showToast(message: "전화번호 인증 시작")
+                            //self.showToastAlert(message: "전화번호 인증 시작") {
+                            //}
+                            
                             let vc = SMSViewController()
                             self.transition(vc, transitionStyle: .push)
                         case .failure(let error):
                             switch error {
                             case .tooManyRequest :
-                                self.showToast(message: "과도한 인증 시도가 있었습니다. 나중에 다시 시도해 주세요.")
+                                self.showToastAlert(message: "과도한 인증 시도가 있었습니다. 나중에 다시 시도해 주세요.", completion: {})
                             default:
-                                self.showToast(message: "에러가 발생했습니다 다시 시도해주세요")
+                                self.showToastAlert(message: "에러가 발생했습니다 다시 시도해주세요", completion: {})
+                                
                             }
                         }
                     }

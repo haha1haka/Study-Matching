@@ -70,7 +70,7 @@ extension OnBoardingViewController {
                 print("🟩",UserDefaultsManager.standard.onboardFlag)
                 
                 let vc = AuthViewController()
-                self.transitionRootViewController(vc, transitionStyle: .presentNavigation)
+                self.transitionRootViewController(vc, transitionStyle: .toRootWithNavi)
 
             })
             .disposed(by: disposeBag)

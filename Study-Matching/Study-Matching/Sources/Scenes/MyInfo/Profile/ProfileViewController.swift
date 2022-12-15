@@ -70,17 +70,19 @@ extension ProfileViewController {
             
             self.viewModel.background
                 .bind(onNext: { int in
-                    if int == 0 {
-                        supplementaryView.mainImageView.image = SeSacImage.sesacBg01
-                    }
+//                    if int == 0 {
+//                        supplementaryView.mainImageView.image = SeSacImage.sesacB
+//                    }
+                    supplementaryView.mainImageView.image = SeSacImage.sesacBackgroundImageArray[int]
                 })
                 .disposed(by: self.disposeBag)
             // MARK: - 개선해야됨 5
             self.viewModel.sesac
                 .bind(onNext: { int in
-                    if int == 0 {
-                        supplementaryView.subImageView.image = SeSacImage.sesacFace2
-                    }
+//                    if int == 0 {
+//                        supplementaryView.subImageView.image = SeSacImage.sesacFace2
+//                    }
+                    supplementaryView.subImageView.image = SeSacImage.sesacImageArray[int]
                 })
                 .disposed(by: self.disposeBag)
 
@@ -219,9 +221,9 @@ extension ProfileViewController {
                                 let vc = OnBoardingViewController()
                                 switch result {
                                 case .success: // 탈퇴 설공
-                                    self.transitionRootViewController(vc)
+                                    self.transitionRootViewController(vc, transitionStyle: .toRootWithNavi)
                                 case .failure: // 이미 탈퇴 되어 있음
-                                    self.transitionRootViewController(vc)
+                                    self.transitionRootViewController(vc, transitionStyle: .toRootWithNavi)
                                 }
                             }
                         })

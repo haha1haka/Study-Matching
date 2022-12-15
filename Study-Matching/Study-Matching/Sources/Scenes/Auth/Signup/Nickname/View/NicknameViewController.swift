@@ -80,10 +80,14 @@ extension NicknameViewController {
                     
                     UserDefaultsManager.standard.nick = nick
                     
-                    let vc = BirthViewController()
-                    self.transition(vc, transitionStyle: .push)
+                    
+                        let vc = BirthViewController()
+                        self.transition(vc, transitionStyle: .push)
+
+                    
                 } else {
-                    self.showToast(message: "닉네임은 1자 이상 10자 이내로 부탁드려요")
+                    
+                    self.showToastAlert(message: "닉네임은 1자 이상 10자 이내로 부탁드려요", completion: {})
                 }
             })
             .disposed(by: disposeBag)

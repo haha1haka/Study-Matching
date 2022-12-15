@@ -47,8 +47,6 @@ extension MapViewController {
         bind()
         
         
-        //FirebaseService.shared.fetchIdToken { _ in }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -147,25 +145,6 @@ extension MapViewController {
                     vc.viewModel.long.accept(self.viewModel.long.value)
                     self.transition(vc)
                 }
-                
-                
-                
-                
-                                
-                
-//                self.viewModel.requestQueueSearch {
-//                    switch $0 {
-//                    case .success:
-//                        return
-//                    case .failure(let error):
-//                        switch error {
-//                        case .idTokenError:
-//                            self.viewModel.requestQueueSearch { _ in }
-//                        default:
-//                            return
-//                        }
-//                    }
-//                }
             })
             .disposed(by: disposeBag)
     }
@@ -240,7 +219,7 @@ extension MapViewController {
 
 // MARK: - LocationCheckable
 ///1)위치서비스활성화 여부확인 2) 승인상태 분기처리
-extension MapViewController: LocationAuthorizationCheckable {}
+extension MapViewController: LocationAuthorizationCheckable { }
 
 
 extension MapViewController {
@@ -248,12 +227,12 @@ extension MapViewController {
         let region = MKCoordinateRegion(center: center, latitudinalMeters: 700, longitudinalMeters: 700)
         selfView.mapView.setRegion(region, animated: true)
     }
+    
     func makeAnnotation(_ friends: FromQueueDB) {
         let coordinate = CLLocationCoordinate2D(latitude: friends.lat, longitude: friends.long)
         let friendsPin = SeSacAnnotation(coordinate: coordinate, sesac: friends.sesac)
         self.selfView.mapView.addAnnotation(friendsPin)
     }
-    
 }
 
 // MARK: - CLLocationManagerDelegate

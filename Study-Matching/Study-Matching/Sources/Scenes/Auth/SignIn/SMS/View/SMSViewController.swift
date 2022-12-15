@@ -83,10 +83,10 @@ extension SMSViewController {
                         case .failure(let error):
                             switch error {
                             case .invalidVerificationCode:
-                                self.showToastAlert(message: "전화 번호 인증 실패")
+                                self.showToastAlert(message: "전화 번호 인증 실패", completion: {})
                                 return
                             case .tooManyRequest:
-                                self.showToastAlert(message: "전화 번호 인증 실패")
+                                self.showToastAlert(message: "전화 번호 인증 실패", completion: {})
                                 return
                             default:
                                 return
@@ -111,7 +111,7 @@ extension SMSViewController {
             switch $0 {
             case .success:
                     let vc = TabBarController()
-                    self.transitionRootViewController(vc)
+                self.transitionRootViewController(vc, transitionStyle: .toRoot)
             case .failure(let error):
                 switch error {
                 case .unRegistedUser:

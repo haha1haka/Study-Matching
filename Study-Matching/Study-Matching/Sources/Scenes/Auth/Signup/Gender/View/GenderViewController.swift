@@ -77,13 +77,13 @@ extension GenderViewController {
                         switch $0 {
                         case .success:
                             let vc = TabBarController()
-                            self.transitionRootViewController(vc)
+                            self.transitionRootViewController(vc, transitionStyle: .toRoot)
                             UserDefaultsManager.standard.smsFlag = false
                         case .failure(let error):
                             switch error {
                             case .alreadyUser:
                                 let vc = TabBarController()
-                                self.transitionRootViewController(vc)
+                                self.transitionRootViewController(vc, transitionStyle: .toRoot)
                             case .nickError:
                                 self.toNickNameViewController()
                                 UserDefaultsManager.standard.nickFlag = true    

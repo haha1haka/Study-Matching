@@ -436,9 +436,9 @@
 		F4034CC229191B1400423FAF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F4641DA62934455D00B680B0 /* Assets */,
 				F454E49F291A1C6C0064BCC4 /* Font */,
 				F4641DA72934456200B680B0 /* Storyboards */,
-				F4641DA62934455D00B680B0 /* Assets */,
 				F4034CC329191B1400423FAF /* BaseCode */,
 			);
 			path = Resources;
