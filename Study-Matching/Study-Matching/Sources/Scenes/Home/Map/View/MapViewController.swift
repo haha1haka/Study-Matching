@@ -147,6 +147,15 @@ extension MapViewController {
                 }
             })
             .disposed(by: disposeBag)
+        
+        
+        selfView.currentLocationButton.rx.tap
+            .bind(onNext: { 
+                self.setRegionAndAnnotation(center: self.viewModel.currentLocation)
+            })
+            .disposed(by: disposeBag)
+        
+        
     }
     
     
@@ -243,7 +252,9 @@ extension MapViewController: CLLocationManagerDelegate {
         
         if let coordinate = locations.last?.coordinate {
             setRegionAndAnnotation(center: coordinate)
+            viewModel.currentLocation = coordinate
         }
+        
         
         locationManager.stopUpdatingLocation()
     }

@@ -1,4 +1,5 @@
 import Foundation
+import CoreLocation
 import RxSwift
 import RxCocoa
 
@@ -9,7 +10,7 @@ class MapViewModel: ResultType {
     
     let lat = BehaviorRelay<Double>(value: 37.51818789942772)
     let long = BehaviorRelay<Double>(value: 126.88541765534976)
-    
+    var currentLocation = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     var sesacFriendsDataStore = BehaviorRelay<Queue>(
         value: Queue(
             fromQueueDB: [],
