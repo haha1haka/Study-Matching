@@ -6,6 +6,7 @@ class ChatHeaderView: UICollectionReusableView {
 
     let dateLabel: SeSacLabel = {
         let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko")
         formatter.dateFormat = "M월 dd일 E요일"
         let today = Date()
         let view = SeSacLabel(text_: formatter.string(from: today), color: SeSacColor.white, font_: SeSacFont.Title5_M12.set)
@@ -19,7 +20,6 @@ class ChatHeaderView: UICollectionReusableView {
             imageView, mainLabel
         ])
         view.axis = .horizontal
-        //view.distribution = .fillProportionally
         return view
     }()
     
@@ -30,12 +30,20 @@ class ChatHeaderView: UICollectionReusableView {
     }()
     
     let mainLabel: SeSacLabel = {
-        let view = SeSacLabel(text_: "고래밥님과 매칭 되었습니다", color: SeSacColor.gray7, font_: SeSacFont.Title3_M14.set)
+        let view = SeSacLabel(
+            text_:"\(UserDefaultsManager.standard.matchedNick)님과 매칭 되었습니다",
+            color: SeSacColor.gray7,
+            font_: SeSacFont.Title3_M14.set
+        )
         return view
     }()
     
     let subLabel: SeSacLabel = {
-        let view = SeSacLabel(text_: "채팅을 통해 약속을 정해보세요 :0", color: SeSacColor.gray6, font_: SeSacFont.Title4_R14.set)
+        let view = SeSacLabel(
+            text_: "채팅을 통해 약속을 정해보세요",
+            color: SeSacColor.gray6,
+            font_: SeSacFont.Title4_R14.set
+        )
         return view
     }()
     

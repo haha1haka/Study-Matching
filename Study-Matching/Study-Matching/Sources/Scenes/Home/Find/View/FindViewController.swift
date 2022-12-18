@@ -119,9 +119,8 @@ extension FindViewController {
     }
     
     func checkQueueState() {
-//
-//        self.view.makeToast("매칭 되었습니다. 잠시후 채팅방으로 이동합니다", position: .top)
-//        self.view.makeToast("스터디가 종료되어 채팅을 전송할 수 없습니다", position: .top)
+
+
     }
 }
 

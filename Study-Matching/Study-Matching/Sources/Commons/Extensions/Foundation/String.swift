@@ -16,4 +16,12 @@ extension String {
         let date = dateFormatter.date(from: self)!
         return date
     }
+    
+//    var prettyDate: Date {
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "HH:mm"
+//        let date = dateFormatter.date(from: self)!
+//        return date
+//    }
+    
 }

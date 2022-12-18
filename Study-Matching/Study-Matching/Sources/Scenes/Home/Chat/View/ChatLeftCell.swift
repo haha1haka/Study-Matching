@@ -61,5 +61,10 @@ class ChatLeftCell: BaseCollectionViewCell {
 
     }
     
+    func configureCell(with itemIdentifier: Chat) {
+        label.text = itemIdentifier.chat
+        dateLabel.text = itemIdentifier.createdAt.stringToDate.toString
+    }
+    
 
 }

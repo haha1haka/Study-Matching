@@ -64,7 +64,8 @@ class ChatView: BaseView {
                 { sectionIndex, layoutEnvironment in
                     
                     switch sectionIndex {
-                    default: return self.cellLayout()
+                    case 0:  return self.cellLayout()
+                    default: return self.cellLayout2()
                     }
                 },
             configuration: configuration)
@@ -104,11 +105,53 @@ class ChatView: BaseView {
             elementKind: UICollectionView.elementKindSectionHeader,
             alignment: .top)
         
+
+        
         section.boundarySupplementaryItems = [header]
         
         
         return section
     }
+    func cellLayout2() -> NSCollectionLayoutSection {
+        
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .estimated(32))
+        
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16)
+        
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .estimated(32))
+        
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: groupSize,
+            subitems: [item])
+        //group.contentInsets = NSDirectionalEdgeInsets(top: 30, leading: 0, bottom: 30, trailing: 0)
+        
+        let section = NSCollectionLayoutSection(group: group)
+
+        
+        
+        let headerSize2 = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(0.88),
+            heightDimension: .absolute(1))
+        
+        let header2 = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize2,
+            elementKind: "aa",
+            alignment: .top)
+        
+
+        
+        section.boundarySupplementaryItems = [header2]
+        
+        
+        return section
+    }
+
     
     
 

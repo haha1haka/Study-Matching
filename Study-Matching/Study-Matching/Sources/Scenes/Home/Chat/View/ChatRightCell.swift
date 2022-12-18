@@ -14,9 +14,8 @@ class ChatRightCell: BaseCollectionViewCell {
     let containerView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 8
-        view.layer.masksToBounds = true
         view.layer.borderColor = SeSacColor.gray4.cgColor
-        view.layer.borderWidth = 1
+        view.backgroundColor = SeSacColor.whitegreen
         return view
     }()
     
@@ -57,5 +56,11 @@ class ChatRightCell: BaseCollectionViewCell {
             $0.bottom.equalTo(containerView.snp.bottom)
         }
 
+    }
+    
+    func configureCell(with itemIdentifier: Chat) {
+        label.text = itemIdentifier.chat
+        dateLabel.text = itemIdentifier.createdAt.stringToDate.toString
+        
     }
 }

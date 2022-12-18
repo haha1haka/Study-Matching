@@ -78,8 +78,8 @@ extension NearbyViewController {
         
         mainCell = CardCellRegistration
         {  cell, indexPath, itemIdentifier in
-            //guard let self = self else { return }
-            // MARK: - 개선 하기 6
+            
+            
             cell.configureCell(with: itemIdentifier)
         }
         
@@ -101,7 +101,11 @@ extension NearbyViewController {
             })
             .disposed(by: self.disposeBag)
         
-        
+//        self.viewModel.timerFlag
+//            .bind(onNext: {
+//
+//            })
+//            .disposed(by: disposeBag)
         
 
 

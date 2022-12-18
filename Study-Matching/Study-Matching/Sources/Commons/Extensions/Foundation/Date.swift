@@ -32,4 +32,10 @@ extension Date {
         let date = dateFormatter.string(from: self)
         return date
     }
+    var toString: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:MM"
+        let date = dateFormatter.string(from: self)
+        return date
+    }
 }

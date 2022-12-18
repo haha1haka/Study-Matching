@@ -25,9 +25,9 @@ class ProfileViewController: BaseViewController, DataSourceRegistration {
     override func loadView() { view = selfView }
     
     override func setNavigationBar(title: String, rightTitle: String) {
-        super.setNavigationBar(title: "내정보")
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
-            title: "저장", style: .plain, target: self, action: nil)
+        super.setNavigationBar(title: "내정보", rightTitle: "저장")
+//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+//            title: "저장", style: .plain, target: self, action: nil)
     }
 
     
@@ -55,7 +55,14 @@ extension ProfileViewController {
                 self.viewModel.updateUserInfo { result in
                     switch result {
                     case .success:
-                        print("성공적으로 userinfo 가 update 되었습니다.")
+                        
+                        DispatchQueue.main.async {
+                            self.showToastAlert(message: "성공정으로 정보가 저장 되었습니다.") {
+                                self.navigationController?.dismiss(animated: true)
+                            }
+
+                        }
+                                                
                     case .failure:
                         print("에러")
                     
@@ -63,6 +70,7 @@ extension ProfileViewController {
                 }
             })
             .disposed(by: disposeBag)
+        
         
         header = ProfileHeaderRegistration (elementKind: UICollectionView.elementKindSectionHeader)
         { [weak self] supplementaryView, elementKind, indexPath in

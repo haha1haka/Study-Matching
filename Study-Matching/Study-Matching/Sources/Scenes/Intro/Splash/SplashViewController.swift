@@ -22,10 +22,17 @@ class SplashViewController: BaseViewController {
 }
 
 extension SplashViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        NetworkMonitor.shared.startMonitoring { str in
+            self.showToastAlert(message: str, completion: { return })
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        /// 로그인 하고 나갔다 온 경우 대응
+        /// 로그인 하고 나갔다 온 경우
         if UserDefaultsManager.standard.smsFlag {
             
             UserDefaultsManager.standard.smsFlag = false
@@ -40,8 +47,6 @@ extension SplashViewController {
                 DispatchQueue.main.async {
                     self.coordinator()
                 }
-                
-                
                 
             }
         }
@@ -119,7 +124,9 @@ extension SplashViewController {
             case .failure(let error):
                 switch error {
                 case .idTokenError:
-                    self.requestGetUser { }
+                    self.requestGetUser {
+                        completion()
+                    }
                     
                 case .unRegistedUser:
                     UserDefaultsManager.standard.coordinator = SceneType.nick.rawValue

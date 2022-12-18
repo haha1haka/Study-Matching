@@ -36,7 +36,7 @@ class ChatViewController: BaseViewController, DataSourceRegistration {
     override func loadView() { view = selfView }
     
     override func setNavigationBar(title: String, rightTitle: String) {
-        super.setNavigationBar(title: "고래밥")
+        super.setNavigationBar(title: "\(UserDefaultsManager.standard.matchedNick)")
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: SeSacImage.more, style: .plain, target: nil, action: nil)
         self.navigationController?.isNavigationBarHidden = false
@@ -50,28 +50,28 @@ extension ChatViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         checkQueueState {
-            self.viewModel.fetchRealmChat { //database
+            self.viewModel.fetchRealmChat {  //database
                 self.fetchLastChats() //payload
+                
             }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-        
+
         socketIOManager.eventDelegate = self
         selfView.collectionView.delegate = self
         bind()
+        //selfView.collectionView.scrollToBottom(animated: false)
+
         
-        
-        
-        
-        
-        
-        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let attributes = self.selfView.collectionView.collectionViewLayout.layoutAttributesForSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, at: IndexPath(item: 0, section: 1)) {
+            self.selfView.collectionView.setContentOffset(CGPoint(x: 0, y: attributes.frame.origin.y - 100), animated: true)
+        }
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
@@ -88,21 +88,19 @@ extension ChatViewController {
             
         }
         
-        header2 = ChatHeaderRegistration2 (elementKind: UICollectionView.elementKindSectionHeader)
+        header2 = ChatHeaderRegistration2 (elementKind: "aa")
         {  supplementaryView, elementKind, indexPath in
             
         }
         
         leftCell = ChatLeftCellRegistration
         {  cell, indexPath, itemIdentifier in
-            cell.label.text = itemIdentifier.chat
-            
+            cell.configureCell(with: itemIdentifier)
         }
         
         rightCell = ChatRightCellRegistration
         {  cell, indexPath, itemIdentifier in
-            cell.label.text = itemIdentifier.chat
-            
+            cell.configureCell(with: itemIdentifier)
         }
         
         self.navigationItem.rightBarButtonItem?.rx.tap
@@ -114,67 +112,27 @@ extension ChatViewController {
             })
             .disposed(by: disposeBag)
         
+    
         
         
-        
-//        viewModel.live
-//            .bind(onNext: {
-//                var snashot = self.dataSource.snapshot()
-//                snashot.deleteAllItems()
-//                snashot.appendSections([0])
-//                snashot.appendItems($0)
-//                self.dataSource.apply(snashot)
-//            })
-//            .disposed(by: disposeBag)
-        
-        viewModel.chatDataBase.value
         
         
         
         selfView.sendButton.rx.tap
             .bind(onNext: {
-                
                 self.sendChat()
-                
-                print("램 에 채팅 로그 \(self.viewModel.chatDataBase.value)")
-                
                 self.selfView.textView.text = ""
             })
             .disposed(by: self.disposeBag)
         
-
         
-        
-        
-//        Observable.changeset(from: viewModel.chatDataBase)
-//            .bind(onNext: { array, changes in
-//
-//
-//
-//                var snapshot = self.dataSource.snapshot()
-//                snapshot.deleteAllItems()
-//                snapshot.appendSections([0])
-//
-//                snapshot.appendItems(array.toArray(), toSection: 0)
-//
-//
-//
-//
-//                //snashot.reconfigureItems(array.toArray())
-//                self.dataSource.apply(snapshot)
-//            })
-//            .disposed(by: self.disposeBag)
-//        Observable.of(viewModel.dataList)
-//            .bind(onNext: {
-//                print("🟥\($0)")
-//            })
-//            .disposed(by: self.disposeBag)
         
         var snapshot = NSDiffableDataSourceSnapshot<Int, Chat>()
         snapshot.appendSections([0, 1])
+        
         viewModel.payloadChat
-            .bind(onNext: { a in //[Chat]
-                print("🐶🐶🐶🐶🐶\(a)")
+            .bind(onNext: { payloadChat in //[Chat]
+                
                 
                 //1. 램 마지막 날짜 가져오기, --> 2. 그걸로 payload 가져 오기 --> 3. 
                 snapshot.appendItems(self.viewModel.chatDataBase.toArray(),toSection: 0)
@@ -182,26 +140,54 @@ extension ChatViewController {
                 //snapshot.deleteAllItems()
                 
                 if !snapshot.sectionIdentifiers.isEmpty {
-                    snapshot.appendItems(a,toSection: 0)
+                    snapshot.appendItems(payloadChat,toSection: 0)
                 }
                 
                 self.dataSource.apply(snapshot)
+                
+                if payloadChat.count > 0 {
+                    //let index = IndexPath(row: payloadChat.count - 1, section: 0)
+                    //self.selfView.collectionView.scrollToItem(at: index, at: .bottom, animated: true)
+                }
             })
             .disposed(by: disposeBag)
         
         
-        viewModel.liveChat.bind(onNext: { a in // [Chat]
-            print("라이브채팅중인 내용 \(a)")
+        viewModel.liveChat.bind(onNext: { socketChat in // [Chat]
+            print("라이브채팅중인 내용 \(socketChat)")
             
-            //var snapshot = NSDiffableDataSourceSnapshot<Int, Chat>()
-            //snapshot.appendSections([1])
+
             if !snapshot.sectionIdentifiers.isEmpty {
-                snapshot.appendItems(a,toSection: 1)
+                snapshot.appendItems(socketChat,toSection: 1)
             }
             
             self.dataSource.apply(snapshot)
+            
+            if socketChat.count > 0 {
+                let index = IndexPath(row: self.viewModel.liveChat.value.count - 1, section: 1)
+                DispatchQueue.main.async {
+                    self.selfView.collectionView.scrollToItem(at: index, at: .bottom, animated: true)
+                }
+                
+                
+                //self.selfView.collectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+            }
+
         })
         .disposed(by: disposeBag)
+        
+        
+        selfView.textView.rx.didBeginEditing
+            .bind(onNext: {
+                if let attributes = self.selfView.collectionView.collectionViewLayout.layoutAttributesForSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, at: IndexPath(item: 0, section: 1)) {
+                    self.selfView.collectionView.setContentOffset(CGPoint(x: 0, y: attributes.frame.origin.y - 244), animated: true)
+                }
+            })
+            .disposed(by: disposeBag)
+            
+        
+
+        
     }
     
 

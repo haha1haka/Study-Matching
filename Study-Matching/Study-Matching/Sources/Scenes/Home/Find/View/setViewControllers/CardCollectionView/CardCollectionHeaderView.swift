@@ -14,7 +14,7 @@ class CardCollectionHeaderView: UICollectionReusableView {
         return view
     }()
     
-    let requestButton = SeSacButton(title: "요청하기")
+    let requestButton = SeSacButton(title: "요청하기", color: SeSacColor.error)
     
     
     override init(frame: CGRect) {

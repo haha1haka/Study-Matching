@@ -31,7 +31,7 @@ extension RequestedViewController {
         
         if !viewModel.fromQueueDBisEmpty {
             view = emptyView
-        } else { //⚠️개선
+        } else { 
             view = cardView
         }
                 
@@ -55,6 +55,8 @@ extension RequestedViewController {
             guard let self = self else { return }
             
             supplementaryView.requestButton.tag = indexPath.section
+            supplementaryView.requestButton.backgroundColor = SeSacColor.success
+            supplementaryView.requestButton.titleLabel?.text = "요청받기"
             guard let item = self.dataSource.itemIdentifier(for: indexPath) else { return }
             
             

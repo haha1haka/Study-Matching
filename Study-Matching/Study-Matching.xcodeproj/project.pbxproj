@@ -92,6 +92,7 @@
 		F491C7D72933B0A60077DBC6 /* FindViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491C7D62933B0A60077DBC6 /* FindViewModel.swift */; };
 		F499C449291F546000C4B117 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F499C448291F546000C4B117 /* FirebaseService.swift */; };
 		F499C44C291F55C200C4B117 /* UserdefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F499C44B291F55C200C4B117 /* UserdefaultsManager.swift */; };
+		F4A2DCE7294EBFF400B58BB6 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A2DCE6294EBFF400B58BB6 /* NetworkMonitor.swift */; };
 		F4A3A336294AB2F00081CB82 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = F4A3A335294AB2F00081CB82 /* Toast */; };
 		F4A6F0712938E872006D75CC /* ReviewViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A6F0702938E872006D75CC /* ReviewViewContoller.swift */; };
 		F4A79EB0292D05310010E44F /* MemoleaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A79EAF292D05310010E44F /* MemoleaseTargetType.swift */; };
@@ -231,6 +232,7 @@
 		F491C7D62933B0A60077DBC6 /* FindViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindViewModel.swift; sourceTree = "<group>"; };
 		F499C448291F546000C4B117 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		F499C44B291F55C200C4B117 /* UserdefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserdefaultsManager.swift; sourceTree = "<group>"; };
+		F4A2DCE6294EBFF400B58BB6 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		F4A6F0702938E872006D75CC /* ReviewViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewContoller.swift; sourceTree = "<group>"; };
 		F4A79EAF292D05310010E44F /* MemoleaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoleaseTargetType.swift; sourceTree = "<group>"; };
 		F4A8685F2930EA4B00E75958 /* NearbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyViewController.swift; sourceTree = "<group>"; };
@@ -411,6 +413,7 @@
 		F4034CBD29191B1400423FAF /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				F4A2DCE5294EBFCB00B58BB6 /* NetworkMonitor */,
 				F47D76422920959900F747DA /* Memolease */,
 				F47D76402920958800F747DA /* Firebase */,
 			);
@@ -921,6 +924,14 @@
 			path = Requested;
 			sourceTree = "<group>";
 		};
+		F4A2DCE5294EBFCB00B58BB6 /* NetworkMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				F4A2DCE6294EBFF400B58BB6 /* NetworkMonitor.swift */,
+			);
+			path = NetworkMonitor;
+			sourceTree = "<group>";
+		};
 		F4A3FC6A2939FA48004EE86E /* Realm */ = {
 			isa = PBXGroup;
 			children = (
@@ -1272,6 +1283,7 @@
 				F44FFB3C29332D660053D2A7 /* MiniCell.swift in Sources */,
 				F456375D2921538700CDF1BA /* User.swift in Sources */,
 				F4D29806292508E000A3AAB7 /* MyInfoCell.swift in Sources */,
+				F4A2DCE7294EBFF400B58BB6 /* NetworkMonitor.swift in Sources */,
 				F4586473291FB32800993A6D /* GenderViewModel.swift in Sources */,
 				F4B83C6229347A2A000027E3 /* EmbedInPageViewController.swift in Sources */,
 				F4034CCB29191B1400423FAF /* BaseView.swift in Sources */,

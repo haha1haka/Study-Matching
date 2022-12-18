@@ -10,9 +10,11 @@ class ChatViewModel {
     var chatDataBase: Results<Chat>!
     
     var payloadChat = PublishRelay<[Chat]>()
-    //var a =
         
     var liveChat = BehaviorRelay<[Chat]>(value: [])
+    
+    
+    
     
     var arr: [Chat] = []
     
@@ -160,15 +162,14 @@ class ChatViewModel {
     
     func fetchRealmChat(completion: @escaping () -> Void) {
         self.chatDataBase = chatRepository.fetchChat()
+
         completion()
-    }
     
-    
-    
-    func fetchchatchat() {
-        //self.chatchat.value = chatRepository.fetchChat()
         
     }
+    
+    
+
         
 }
 
