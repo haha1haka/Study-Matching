@@ -12,8 +12,6 @@
 
 # SeSAC Study Matching
 
-<br/>
-
 API 명세와 디자인 리소스를 전달 받아 실제 현업 개발 환경을 경함한 프로젝트 입니다.
 
 회원 가입과 로그인이 가능하고, 내정보를 확인 및 수정 할 수 있습니다.
@@ -34,11 +32,9 @@ API 명세와 디자인 리소스를 전달 받아 실제 현업 개발 환경�
 
 # Table Of Contents
 
-<br/>
-
-* Tech Stack
-* Team Collaboration
-* Simulation
+* [Tech Stack](https://github.com/haha1haka/Study-Matching#tech-stack)
+* [Team Collaboration](https://github.com/haha1haka/Study-Matching#team-collaboration)
+* [Simulation](https://github.com/haha1haka/Study-Matching#simulation)
 * Error Handling
 * Tech Posting
 
@@ -49,8 +45,6 @@ API 명세와 디자인 리소스를 전달 받아 실제 현업 개발 환경�
 
 
 ## Tech Stack 
-
-<br/>
 
 * MVVM
 
@@ -90,15 +84,11 @@ API 명세와 디자인 리소스를 전달 받아 실제 현업 개발 환경�
 
 ## Team Collaboration
 
-<br/>
-
 
 
 > 팀명: 문어단(개발하다 머리 빠져서 문어의 머리처럼 되는것 영광으로 생각하자는?? ㅎㅎ)
 
-<img width="763" alt="스크린샷 2022-12-15 16 19 21" src="https://user-images.githubusercontent.com/106936018/207797401-bc0f1525-1529-47d2-adb8-f45c8c900778.png">
-
-<br/><br/>
+<img width="763" alt="스크린샷 2022-12-15 16 19 21" src="https://user-images.githubusercontent.com/106936018/207797401-bc0f1525-1529-47d2-adb8-f45c8c900778.png"><br/>
 
 ### Team Communication
 
@@ -111,8 +101,6 @@ API 명세와 디자인 리소스를 전달 받아 실제 현업 개발 환경�
 
 
 <img width="589" alt="스크린샷 2022-12-15 16 19 32" src="https://user-images.githubusercontent.com/106936018/207797434-377e15cf-35c1-4f40-a32f-1e226c8264f1.png">
-
-<br/>
 
 
 
@@ -130,7 +118,7 @@ API 명세와 디자인 리소스를 전달 받아 실제 현업 개발 환경�
 
 <br/>
 
-Figma
+### Figma
 
 <img width="858" alt="스크린샷 2022-12-17 16 49 23" src="https://user-images.githubusercontent.com/106936018/208231725-996689b6-7f72-4d86-8594-dcf96892b747.png">
 
@@ -141,8 +129,6 @@ Figma
 <br/><br/><br/>
 
 ## Simulation
-
-<br/>
 
 ### 1. SplashViewController & Onboarding
 
