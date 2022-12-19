@@ -40,36 +40,21 @@
 ## Tech Stack 
 
 * MVVM
-
 * Swift5.7
-
 * UIKit
-
 * RxSwift
-
 * RxCocoa
-
 * RealmDatabase
-
 * URLSession
-
 * FirebaseAuth
-
 * APNs
-
 * Mapkit
-
 * SnapKit
-
 * Confluence
-
 * Swagger
-
 * InSomnia
-
 * Figma
 
-  ​    
 
 
 
