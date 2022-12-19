@@ -6,53 +6,28 @@ import RxCocoa
 class ChatViewModel {
     
     let chatRepository = ChatRepository()
-
     var chatDataBase: Results<Chat>!
-    
     var payloadChat = PublishRelay<[Chat]>()
-        
     var liveChat = BehaviorRelay<[Chat]>(value: [])
-    
-    
-    
-    
     var arr: [Chat] = []
-    
-    
-    
     var dateString = ""
-    
     let myUid = UserDefaultsManager.standard.myUid
     
-
-    
-    
     func sendChat(chatText: String, completion: @escaping (Result<Succeess, MemoleaseError>) -> Void) {
-        
+    
         let matchedUid = UserDefaultsManager.standard.matchedUid
-        
-        print("❌❌❌\(matchedUid)")
-        
-        
-        
+
         MemoleaseService.shared.requestPostChat(target: ChatRouter.chat(id: matchedUid, chatText: chatText)) {
             switch $0 {
             case .success(let chat):
                 completion(.success(.perfact))
-                
-                
-                
                 self.arr.append(chat)
-                
                 self.liveChat.accept(self.arr)
-                
-                
                 self.chatRepository.addChat(item: chat)
                 return
             case .failure(let error):
                 switch error {
                 case .unableChat:
-                    // MARK: -해결하기 8
                     completion(.failure(.unableChat))
                     return
                 case .idTokenError:
@@ -64,9 +39,6 @@ class ChatViewModel {
         }
     }
     
-    
-    
-    
     func checkQueueState(completion: @escaping (Result<QueueState?, MemoleaseError>) -> Void) {
         MemoleaseService.shared.requestQueueState(target: QueueRouter.queueState) {
             switch $0 {
@@ -75,17 +47,11 @@ class ChatViewModel {
                 if state.dodged == 1 || state.reviewed == 1 {
                     completion(.failure(.canceledMatch))
                 } else {
-                    print("🐸\(UserDefaultsManager.standard.matchedUid)")
-                    print("🐸\(UserDefaultsManager.standard.matchedNick)")
-                    print("⭐️\(state.matchedUid)")
-                    print("⭐️\(state.matchedNick)")
                     UserDefaultsManager.standard.matchedUid = state.matchedUid ?? ""
                     UserDefaultsManager.standard.matchedNick = state.matchedNick ?? ""
                     completion(.success(nil))
                 }
-                
                 return
-                
             case .failure(let error):
                 switch error {
                 case .idTokenError:
@@ -121,21 +87,15 @@ class ChatViewModel {
     }
     
 
-    
     func fetchLastChat(completion: @escaping (Result<Succeess, MemoleaseError>) -> Void) {
         
         let matchedUid = UserDefaultsManager.standard.matchedUid
 
         if let lastData = chatDataBase.last {
-            print("🚨🚨🚨🚨\(lastData.createdAt)")
             dateString = lastData.createdAt
-            
-            
         } else {
             dateString = "2000-01-01T00:00:00.000Z"
         }
-        
-        
         
         MemoleaseService.shared.requestGetLastChat(target: ChatRouter.chatLast(otheruid: matchedUid, lastchatDate: self.dateString)) {
             switch $0 {
@@ -158,18 +118,9 @@ class ChatViewModel {
         }
     }
     
-    
-    
     func fetchRealmChat(completion: @escaping () -> Void) {
         self.chatDataBase = chatRepository.fetchChat()
-
         completion()
-    
-        
     }
-    
-    
-
-        
 }
 

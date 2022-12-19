@@ -4,7 +4,6 @@ protocol PageReadable {
     func page(_ viewController: SeSacPageViewController, pageIndex: Int)
 }
 
-
 class SeSacPageViewController: UIPageViewController {
     
     let nearbyViewController = NearbyViewController()
@@ -25,8 +24,6 @@ class SeSacPageViewController: UIPageViewController {
     convenience init(_ transitionStyle: UIPageViewController.TransitionStyle = .scroll) {
         self.init(transitionStyle: transitionStyle, navigationOrientation: .horizontal)
     }
-
-
 }
 
 extension SeSacPageViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
@@ -43,8 +40,6 @@ extension SeSacPageViewController: UIPageViewControllerDataSource, UIPageViewCon
         return nil
     }
     
-    
-
     func pageViewController(_ pageViewController: UIPageViewController,
                             viewControllerAfter viewController: UIViewController) -> UIViewController?
     {
@@ -57,8 +52,6 @@ extension SeSacPageViewController: UIPageViewControllerDataSource, UIPageViewCon
         return nil
     }
     
-    
-    
     func pageViewController(_ pageViewController: UIPageViewController,
                             didFinishAnimating finished: Bool,
                             previousViewControllers: [UIViewController], transitionCompleted completed: Bool)
@@ -69,7 +62,6 @@ extension SeSacPageViewController: UIPageViewControllerDataSource, UIPageViewCon
             self.eventDelegate?.page(self, pageIndex: currentIndex)
         }
     }
-
 }
 
 extension SeSacPageViewController {

@@ -3,7 +3,6 @@ import SnapKit
 
 class WithDrawView: UIView {
     
-    
     let withdrawButton: UIButton = {
         let button = UIButton()
         button.setTitle("회원탈퇴", for: .normal)
@@ -15,10 +14,8 @@ class WithDrawView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         configureHierarcy()
         configureLayout()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -35,5 +32,4 @@ class WithDrawView: UIView {
             $0.centerY.equalTo(self.snp.centerY)
         }
     }
-    
 }

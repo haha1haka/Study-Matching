@@ -2,7 +2,6 @@ import UIKit
 import SnapKit
 
 class ChatHeaderView: UICollectionReusableView {
-    
 
     let dateLabel: SeSacLabel = {
         let formatter = DateFormatter()
@@ -47,8 +46,6 @@ class ChatHeaderView: UICollectionReusableView {
         return view
     }()
     
-    
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureHierarcy()
@@ -66,9 +63,8 @@ class ChatHeaderView: UICollectionReusableView {
         addSubview(subLabel)
     }
     
-    
     func configureLayout() {
-        
+
         dateLabel.snp.makeConstraints {
             $0.top.equalTo(self.safeAreaLayoutGuide).offset(16)
             $0.leading.trailing.equalTo(self).inset(120)
@@ -92,15 +88,12 @@ class ChatHeaderView: UICollectionReusableView {
             $0.leading.trailing.equalTo(self).inset(70)
             $0.height.equalTo(22)
         }
-        
     }
     
     func configureAttributes() {
         layer.cornerRadius = 8
         layer.masksToBounds = true
     }
-
-    
 }
 
 

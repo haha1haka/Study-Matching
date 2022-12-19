@@ -18,7 +18,6 @@ class MyInfoViewModel: ResultType {
     var searchable = BehaviorRelay<Int>(value: 0)
     let age        = BehaviorRelay<[Int]>(value: [])
     var user       = BehaviorRelay<MemoleaseUser?>(value: nil)
-    
 }
 
 extension MyInfoViewModel {
@@ -50,37 +49,6 @@ extension MyInfoViewModel {
     }
 }
 
-
-//    func updateFCMToken(completion: @escaping (Result<Succeess, MemoleaseError>) -> Void) {
-//
-//        let target = MemoleaseRouter.updateToken(FCMtoken: UserDefaultsManager.standard.FCMToken)
-//
-//        MemoleaseService.shared.updateFCMToken(
-//            path: target.path,
-//            queryItems: target.queryItems,
-//            httpMethod: target.httpMethod,
-//            headers: target.headers) { result in
-//
-//            switch result {
-//            case .success:
-//                completion(.success(.perfact))
-//            case .failure(let error):
-//                switch error {
-//                case .idTokenError: //또 재갱신? 무한 츠크요미
-//                    return
-//                case .unRegistedUser: // 이럴 경우 없음
-//                    return
-//                case .serverError: // 이럴 경우 없음
-//                    return
-//                case .clientError:
-//                    print("\(error.localizedDescription)")
-//                default:
-//                    print("\(error.localizedDescription)")
-//
-//                }
-//            }
-//        }
-//    }
 extension MyInfoViewModel {
     func updateUserInfo(completion: @escaping (Result<Succeess, MemoleaseError>) -> Void) {
         
@@ -103,7 +71,6 @@ extension MyInfoViewModel {
                     
                 case .unRegistedUser:
                     completion(.failure(.unRegistedUser))
-                    //⚠️다시 회원가입 -> 로그인 로직 타야됨 --> 회원가입 으로 이동
                 default:
                     return
                 }
@@ -123,17 +90,16 @@ extension MyInfoViewModel {
                 
                 switch result {
                 case .success:
-                    completion(.success(.perfact)) //🚀 vc 에서 처리
+                    completion(.success(.perfact))
                 case .failure(let error):
                     switch error {
                     case .idTokenError:
-                        self.updateUserInfo { _  in } // 💫 재귀 로그인 시작
+                        self.updateUserInfo { _  in }
                     case .aleadyWithdraw:
-                        completion(.failure(.aleadyWithdraw)) // 🚀 vc 에서 처리
+                        completion(.failure(.aleadyWithdraw))
                     default:
                         return
                     }
-                    
                 }
             }
     }

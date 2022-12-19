@@ -28,10 +28,6 @@ class ChatRightCell: BaseCollectionViewCell {
         return view
     }()
     
-
-    
-
-    
     override func configureHierarchy() {
         addSubview(containerView)
         containerView.addSubview(label)
@@ -57,10 +53,9 @@ class ChatRightCell: BaseCollectionViewCell {
         }
 
     }
-    
+
     func configureCell(with itemIdentifier: Chat) {
         label.text = itemIdentifier.chat
         dateLabel.text = itemIdentifier.createdAt.stringToDate.toString
-        
     }
 }

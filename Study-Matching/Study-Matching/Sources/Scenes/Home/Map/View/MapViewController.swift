@@ -11,6 +11,7 @@ enum MatchState: Int {
     case matched
     case `default`
 }
+
 extension MatchState {
     var setImage: UIImage {
         switch self {
@@ -26,7 +27,7 @@ extension MatchState {
 
 
 
-class MapViewController: BaseViewController {
+class MapViewController: BaseViewController, LocationAuthorizationCheckable {
     
     let selfView        = MapView()
     let viewModel       = MapViewModel()
@@ -39,14 +40,11 @@ class MapViewController: BaseViewController {
 extension MapViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         selfView.mapView.delegate = self
         locationManager.delegate = self
         checkUserDevicelocationServiceAuthorization(locationManager: locationManager)
-        selfView.totalButton.toAct //⚠️ 개선
+        selfView.totalButton.toAct
         bind()
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,11 +60,9 @@ extension MapViewController {
     }
 }
 
-
 extension MapViewController {
     func bind() {
         
-        // MARK: - 위치바뀔때마다 호출
         viewModel.sesacFriendsList
             .bind(onNext: {
                 $0.forEach {
@@ -75,26 +71,18 @@ extension MapViewController {
             })
             .disposed(by: disposeBag)
         
-        
-
-        // MARK: - 전체버튼
         selfView.totalButton.rx.tap
             .bind(onNext: {
-                print("fasfasdfsdfsdafasdfsadfadf")
                 self.requestQueueSearch {
                     self.selfView.mapView.removeAnnotations(self.selfView.mapView.annotations)
                     self.viewModel.sesacFriendsList.value.forEach {
                         self.makeAnnotation($0)
                     }
-                    
                 }
                 self.selfView.makeActByGender(gender: .total)
-
-
             })
             .disposed(by: disposeBag)
         
-        // MARK: - 남자버튼
         selfView.manButton.rx.tap
             .bind(onNext: {
                 
@@ -108,8 +96,6 @@ extension MapViewController {
             })
             .disposed(by: disposeBag)
 
-        
-        // MARK: - 여자버튼
         selfView.womanButton.rx.tap
             .bind(onNext: {
                 self.requestQueueSearch {
@@ -123,14 +109,9 @@ extension MapViewController {
             })
             .disposed(by: disposeBag)
         
-        
-        // MARK: - 플로팅 버튼
         selfView.floattingButton.rx.tap
             .bind(onNext: {
                 let state = UserDefaultsManager.standard.matchedState
-                
-                
-                
                 switch state {
                 case 0:
                     let vc = FindViewController()
@@ -148,21 +129,12 @@ extension MapViewController {
             })
             .disposed(by: disposeBag)
         
-        
         selfView.currentLocationButton.rx.tap
             .bind(onNext: {
                 self.setRegionAndAnnotation(center: self.viewModel.currentLocation)
             })
             .disposed(by: disposeBag)
-        
-        
     }
-    
-    
-    func checkState() {
-        
-    }
-    
 }
 
 
@@ -188,9 +160,7 @@ extension MapViewController {
         self.viewModel.checkQueueState {
             switch $0 {
             case .success:
-                
                 let state = UserDefaultsManager.standard.matchedState
-                
                 switch state {
                 case 0:
                     self.selfView.floattingButton.setImage(SeSacImage.matching, for: .normal)
@@ -208,28 +178,11 @@ extension MapViewController {
                 default:
                     return
                 }
-            
             }
         }
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-// MARK: - LocationCheckable
-///1)위치서비스활성화 여부확인 2) 승인상태 분기처리
-extension MapViewController: LocationAuthorizationCheckable { }
-
 
 extension MapViewController {
     func setRegionAndAnnotation(center: CLLocationCoordinate2D) {
@@ -244,29 +197,21 @@ extension MapViewController {
     }
 }
 
-// MARK: - CLLocationManagerDelegate
+
 ///1) 위치 받아오는함수  2) 디바이스 위치서비스  Auth 확인 --> 항상 초장에호출됨 --> 안에 "위치서비스" 여부 확인하는 코드 심어주기
 extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("🐷","내 위치 호출!",#function, locations)
-        
         if let coordinate = locations.last?.coordinate {
             setRegionAndAnnotation(center: coordinate)
             viewModel.currentLocation = coordinate
         }
-        
-        
         locationManager.stopUpdatingLocation()
     }
     
-    
-    
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        print("🐶")
         checkUserDevicelocationServiceAuthorization(locationManager: locationManager)
     }
-    
-    
 }
 
 
@@ -296,7 +241,6 @@ extension MapViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        print("🔥\(mapView.centerCoordinate.latitude), \(mapView.centerCoordinate.longitude)")
         viewModel.lat.accept(mapView.centerCoordinate.latitude)
         viewModel.long.accept(mapView.centerCoordinate.longitude)
         requestQueueSearch{}

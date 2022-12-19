@@ -40,7 +40,6 @@ class CardCollectionView: BaseView {
     }
 
     func headerCellLayout() -> NSCollectionLayoutSection {
-        
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .estimated(128))

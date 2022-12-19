@@ -6,9 +6,7 @@ class NicknameView: BaseView {
     let label = SeSacLabel(text_: "닉네임을 입력해 주세요")
     let textFiled = SeSacTexField(title: "10자 이내로 입력")
     let button = SeSacButton(title: "다음")
-    
 
-    
     override func configureHierarchy() {
         [label, textFiled, button].forEach { self.addSubview($0) }
     }

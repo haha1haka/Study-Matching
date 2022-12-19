@@ -10,7 +10,6 @@ class SesacDateLabel: UILabel {
         return view
     }()
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureHierarchy()
@@ -20,7 +19,6 @@ class SesacDateLabel: UILabel {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
 
 extension SesacDateLabel {
@@ -31,6 +29,7 @@ extension SesacDateLabel {
             $0.height.equalTo(1)
         }
     }
+    
     func configureHierarchy() {
         self.addSubview(dividerView)
     }

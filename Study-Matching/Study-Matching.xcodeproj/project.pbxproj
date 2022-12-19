@@ -16,7 +16,6 @@
 		F4034CCD29191B1400423FAF /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CBB29191B1400423FAF /* NSObject.swift */; };
 		F4034CCE29191B1400423FAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CBF29191B1400423FAF /* AppDelegate.swift */; };
 		F4034CCF29191B1400423FAF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CC029191B1400423FAF /* SceneDelegate.swift */; };
-		F4034CD029191B1400423FAF /* BaseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4034CC429191B1400423FAF /* BaseCode.swift */; };
 		F41B45D02939DA5900931354 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F41B45CF2939DA5900931354 /* Realm */; };
 		F41B45D22939DA5900931354 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F41B45D12939DA5900931354 /* RealmSwift */; };
 		F41B45D42939DD5800931354 /* ChatRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41B45D32939DD5800931354 /* ChatRepository.swift */; };
@@ -161,7 +160,6 @@
 		F4034CBB29191B1400423FAF /* NSObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
 		F4034CBF29191B1400423FAF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4034CC029191B1400423FAF /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F4034CC429191B1400423FAF /* BaseCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCode.swift; sourceTree = "<group>"; };
 		F41B45D32939DD5800931354 /* ChatRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRepository.swift; sourceTree = "<group>"; };
 		F41BA510292F0045002EEFEA /* LocationAuthorizationCheckable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAuthorizationCheckable.swift; sourceTree = "<group>"; };
 		F41E0E312925A12E00B28291 /* ProfileDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataSource.swift; sourceTree = "<group>"; };
@@ -444,17 +442,8 @@
 				F4641DA62934455D00B680B0 /* Assets */,
 				F454E49F291A1C6C0064BCC4 /* Font */,
 				F4641DA72934456200B680B0 /* Storyboards */,
-				F4034CC329191B1400423FAF /* BaseCode */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		F4034CC329191B1400423FAF /* BaseCode */ = {
-			isa = PBXGroup;
-			children = (
-				F4034CC429191B1400423FAF /* BaseCode.swift */,
-			);
-			path = BaseCode;
 			sourceTree = "<group>";
 		};
 		F41E0E3D2925D39D00B28291 /* Components */ = {
@@ -1203,7 +1192,6 @@
 				F4B83C6B2934CDC1000027E3 /* ChatLeftCell.swift in Sources */,
 				F4F103D2291CC66600C2020C /* OnBoardingFooterView.swift in Sources */,
 				F4586464291F8A0900993A6D /* BirthViewModel.swift in Sources */,
-				F4034CD029191B1400423FAF /* BaseCode.swift in Sources */,
 				F4D83D132930C00A00F78530 /* FindView.swift in Sources */,
 				F41B45D42939DD5800931354 /* ChatRepository.swift in Sources */,
 				F4B83C6F2934CE52000027E3 /* ChatHeaderView.swift in Sources */,

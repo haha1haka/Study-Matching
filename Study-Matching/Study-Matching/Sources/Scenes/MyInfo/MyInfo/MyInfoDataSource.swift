@@ -7,9 +7,6 @@
 
 import UIKit
 
-
-
-
 class MyInfoDataSource: UICollectionViewDiffableDataSource<MyInfoSection, Setting>, DataSourceRegistration {
     
     convenience init(collectionView: UICollectionView,

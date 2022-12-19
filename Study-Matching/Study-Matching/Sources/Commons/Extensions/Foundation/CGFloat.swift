@@ -12,6 +12,7 @@ extension CGFloat {
         return Int(self)
     }
 }
+
 extension Int {
     var toCGFloat: CGFloat {
          return CGFloat(self)

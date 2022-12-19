@@ -146,7 +146,7 @@ Figma
 
 ### 1. SplashViewController & Onboarding
 
-
+![11온보딩](https://user-images.githubusercontent.com/106936018/208286582-db48a7e9-1899-4403-8efd-1a8e34bc9327.gif)
 
 
 
@@ -156,9 +156,11 @@ Figma
 
 * NWPathMonitor 를 이용한 실시간 네트워크 모니터링
 
+<br/><br/>
+
 ### 2. SignUp & SignIn
 
-
+![2222회원](https://user-images.githubusercontent.com/106936018/208286586-a042406c-7868-4ec3-af25-447268403e62.gif)
 
 
 
@@ -169,33 +171,33 @@ Figma
 * 전화번호, 이메일, 생년월일 유효성 검사 
 * 이미 회원가입이 된 유저, 금지된 단어의 닉네임, 토큰만료 등 다양한 서비스 case 대응 
 
-
+<br/><br/>
 
 
 ### 3. MyInfo
 
 
 
-
+![33myinfo](https://user-images.githubusercontent.com/106936018/208286593-70071d1c-1a2d-4f93-815b-f0518584c3a6.gif)
 
 
 
 * CompositionalLayout을 이용한 Expandable Cell UI 구성
 
+<br/><br/>
+
 ### 4. Map & 주변 유저 매칭
 
 
 
-
+![44map](https://user-images.githubusercontent.com/106936018/208286597-e4c3250f-6bd6-4ed2-bddb-30688e480931.gif)
 
 * CLLocation을 이용한 위치서비스 확인 권한요청
 * Mapkit을 이용하여, 주변 사용자 탐색 및 CustomAnnotation 표시 
 
-
+<br/><br/>
 
 ### 5. Chat
-
-
 
 
 

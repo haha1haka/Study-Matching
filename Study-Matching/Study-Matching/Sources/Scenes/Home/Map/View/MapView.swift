@@ -110,6 +110,7 @@ class MapView: BaseView {
             $0.width.height.equalTo(48)
         }
     }
+    
     override func configureAttributes() {
         topStackView.toRadius
         currentLocationButton.toRadius
@@ -121,12 +122,9 @@ class MapView: BaseView {
             totalButton.titleLabel?.font = SeSacFont.Title3_M14.set
             totalButton.backgroundColor = SeSacColor.green
             totalButton.setTitleColor(SeSacColor.white, for: .normal)
-            
             manButton.titleLabel?.font = SeSacFont.Title4_R14.set
             manButton.backgroundColor = SeSacColor.white
             manButton.setTitleColor(SeSacColor.black, for: .normal)
-            
-            
             womanButton.titleLabel?.font = SeSacFont.Title4_R14.set
             womanButton.backgroundColor = SeSacColor.white
             womanButton.setTitleColor(SeSacColor.black, for: .normal)
@@ -135,13 +133,9 @@ class MapView: BaseView {
             totalButton.titleLabel?.font = SeSacFont.Title4_R14.set
             totalButton.backgroundColor = SeSacColor.white
             totalButton.setTitleColor(SeSacColor.black, for: .normal)
-            
-            
             manButton.titleLabel?.font = SeSacFont.Title3_M14.set
             manButton.backgroundColor = SeSacColor.green
             manButton.setTitleColor(SeSacColor.white, for: .normal)
-            
-            
             womanButton.titleLabel?.font = SeSacFont.Title4_R14.set
             womanButton.backgroundColor = SeSacColor.white
             womanButton.setTitleColor(SeSacColor.black, for: .normal)
@@ -149,19 +143,14 @@ class MapView: BaseView {
             totalButton.titleLabel?.font = SeSacFont.Title4_R14.set
             totalButton.backgroundColor = SeSacColor.white
             totalButton.setTitleColor(SeSacColor.black, for: .normal)
-            
-            
-
             manButton.titleLabel?.font = SeSacFont.Title4_R14.set
             manButton.backgroundColor = SeSacColor.white
             manButton.setTitleColor(SeSacColor.black, for: .normal)
-            
             womanButton.titleLabel?.font = SeSacFont.Title3_M14.set
             womanButton.backgroundColor = SeSacColor.green
             womanButton.setTitleColor(SeSacColor.white, for: .normal)
         }
     }
-    
 }
 
 

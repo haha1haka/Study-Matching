@@ -14,7 +14,6 @@ class ProfileHeaderView: UICollectionReusableView {
         return view
     }()
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureHierarcy()

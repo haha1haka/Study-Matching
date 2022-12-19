@@ -32,7 +32,6 @@ class ProfileDataSource: UICollectionViewDiffableDataSource<Int, Item>, DataSour
             return suppleymentaryView }
     }
     
-
     func applySnapshot() {
         var snapshot = snapshot()
         snapshot.appendSections([0, 1])
@@ -45,7 +44,6 @@ class ProfileDataSource: UICollectionViewDiffableDataSource<Int, Item>, DataSour
         apply(snapshot(), animatingDifferences: true)
     }
 }
-
 
 enum Item: Hashable {
     case main(Main)

@@ -51,7 +51,6 @@ class FindView: BaseView {
         view.backgroundColor = SeSacColor.gray2
         return view
     }()
-    
 
     override func configureHierarchy() {
         addSubview(topStackView)

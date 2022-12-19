@@ -4,10 +4,12 @@ import RxCocoa
 
 
 
-class NearbyViewController: BaseViewController {
+class NearbyViewController: BaseViewController, DataSourceRegistration {
     
     let emptyView = EmptyView()
     let cardView = CardCollectionView()
+    
+    override func loadView() { view = emptyView }
     
     let viewModel = FindViewModel()
     let disposeBag = DisposeBag()
@@ -19,23 +21,17 @@ class NearbyViewController: BaseViewController {
         collectionView      : cardView.collectionView,
         headerRegistration  : self.header!,
         mainCellRegistration: self.mainCell!)
-    
-    override func loadView() { view = emptyView }
-    
 }
-
 
 extension NearbyViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.requestQueueSearch{ }
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         cardView.collectionView.delegate = self
         bind()
         
@@ -45,9 +41,6 @@ extension NearbyViewController {
             view = cardView
         }
     }
-
-
-    
 }
 
 extension NearbyViewController {
@@ -57,7 +50,6 @@ extension NearbyViewController {
         header = CardHeaderRegistration (elementKind: UICollectionView.elementKindSectionHeader)
         { [weak self] supplementaryView, elementKind, indexPath in
             guard let self = self else { return }
-            
             supplementaryView.requestButton.tag = indexPath.section
             guard let item = self.dataSource.itemIdentifier(for: indexPath) else { return }
             
@@ -70,22 +62,15 @@ extension NearbyViewController {
                     
                 })
                 .disposed(by: self.disposeBag)
-            
             supplementaryView.requestButton.addTarget(self, action: #selector(self.tappedRequestButton), for: .touchUpInside)
-                                    
         }
 
-        
         mainCell = CardCellRegistration
         {  cell, indexPath, itemIdentifier in
-            
-            
             cell.configureCell(with: itemIdentifier)
         }
         
-        
-        
-        self.viewModel.cardItemList //[Card]
+        self.viewModel.cardItemList
 
             .bind(onNext: { cards in
                 var snapShot = self.dataSource.snapshot()
@@ -96,19 +81,8 @@ extension NearbyViewController {
                     snapShot.appendItems([i], toSection: currentSection)
                     self.dataSource.apply(snapShot)
                 }
-
-
             })
             .disposed(by: self.disposeBag)
-        
-//        self.viewModel.timerFlag
-//            .bind(onNext: {
-//
-//            })
-//            .disposed(by: disposeBag)
-        
-
-
     }
     
     @objc
@@ -117,11 +91,8 @@ extension NearbyViewController {
         let vc = SeSacAlertController(alertType: .findNearby)
         vc.completeButton.rx.tap
             .bind(onNext: {
-                
                 let item = self.viewModel.cardItemList.value[button.tag]
-                
                 self.requestStudy(uid: item.uid)
-                
                 print("🐶🐶🐶🐶\(item.nick)")
             })
             .disposed(by: disposeBag)
@@ -131,18 +102,8 @@ extension NearbyViewController {
                 vc.dismiss(animated: false)
             })
             .disposed(by: disposeBag)
-        
         self.transition(vc, transitionStyle: .SeSacAlertController)
-        
-        
-        
-        
-        
-    
-        
     }
-    
-    
 }
 
 
@@ -155,7 +116,6 @@ extension NearbyViewController {
                 case .perfact:
                     print("성공적으로 스터디 요청을 보냈습니다")
                 case .alreadyRequested:
-                    // MARK: - studyAccept api 호출2 ✅
                     self.requestStudyAccept(uid: uid)
                     return
                 default:
@@ -182,18 +142,14 @@ extension NearbyViewController {
                 switch success {
                 case .perfact:
                     print("매칭 성공")
-                    // MARK: - 채팅 화면으로 이동4
                     let vc = ChatViewController()
                     self.transition(vc)
-                    
                 case .alreadyMatching:
                     print("상대방이 이미 다른 새싹과 스터디를 함께 하는 중입니다")
                 case .searchStoping:
                     print("상대방이 스터디 찾기를 그만 두었습니다.")
                 case .someoneWhoLikesMe:
                     print("앗! 누군가가 나의 스터디를 수락 하였어요!")
-                    // MARK: - state api 호출 하기 3
-                    
                 default:
                     return
                 }
@@ -208,17 +164,10 @@ extension NearbyViewController {
                 default:
                     return
                 }
-                
             }
         }
     }
-
 }
-
-
-
-
-extension NearbyViewController: DataSourceRegistration {}
 
 extension NearbyViewController: UICollectionViewDelegate {
     
@@ -234,8 +183,6 @@ extension NearbyViewController: UICollectionViewDelegate {
         
         return false
     }
-    
-    
 }
 
 
@@ -244,7 +191,6 @@ extension NearbyViewController {
         self.viewModel.requestQueueSearch {
             switch $0 {
             case .success:
-                print("완료")
                 completion()
                 return
             case .failure(let error):

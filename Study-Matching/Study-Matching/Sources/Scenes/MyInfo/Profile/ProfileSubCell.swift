@@ -3,7 +3,6 @@ import SnapKit
 
 class ProfileSubCell: BaseCollectionViewCell {
     
-
     let genderView: Gender2View = {
         let view = Gender2View()
         return view
@@ -29,7 +28,6 @@ class ProfileSubCell: BaseCollectionViewCell {
         return view
     }()
 
-    
     override func configureHierarchy() {
         addSubview(genderView)
         addSubview(studyView)
@@ -66,6 +64,5 @@ class ProfileSubCell: BaseCollectionViewCell {
             $0.leading.trailing.equalTo(self)
             $0.height.equalTo(74)
         }
-
     }
 }

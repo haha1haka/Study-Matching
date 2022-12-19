@@ -19,7 +19,6 @@ class SeSacTexField: UITextField {
         configureHierarcy()
         configureLayout()
         configureAttributes()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -43,9 +42,7 @@ extension SeSacTexField {
     
     func configureAttributes() {
         backgroundColor = .clear
-        
         dividerView.backgroundColor = SeSacColor.gray3
     }
-    
 }
 

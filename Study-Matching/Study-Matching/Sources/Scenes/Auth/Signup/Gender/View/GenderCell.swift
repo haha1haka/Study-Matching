@@ -31,6 +31,7 @@ class GenderCell: BaseCollectionViewCell {
     override func configureHierarchy() {
         self.addSubview(imageView)
     }
+    
     override func configureLayout() {
         imageView.snp.makeConstraints {
             $0.edges.equalTo(self)

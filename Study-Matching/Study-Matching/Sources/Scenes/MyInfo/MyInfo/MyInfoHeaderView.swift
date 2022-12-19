@@ -1,10 +1,6 @@
 import UIKit
 import SnapKit
 
-
-
-
-
 class MyInfoHeaderView: UICollectionReusableView {
     
     let imageView: UIImageView = {
@@ -79,7 +75,6 @@ class MyInfoHeaderView: UICollectionReusableView {
             $0.edges.equalTo(self)
         }
     }
-    
 }
 
 

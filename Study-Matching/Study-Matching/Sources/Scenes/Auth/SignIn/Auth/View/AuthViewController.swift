@@ -21,6 +21,7 @@ extension AuthViewController {
 extension AuthViewController {
     
     func bind() {
+        
         selfView.textFiled.rx.text.orEmpty
             .map(viewModel.applyHyphen)
             .bind(to: viewModel.textFieldTextObserverable)
@@ -48,7 +49,6 @@ extension AuthViewController {
             .bind(onNext: { b in
                 if b {
                     self.selfView.textFiled.dividerView.backgroundColor = SeSacColor.gray3
-                    
                 } else {
                     self.selfView.textFiled.dividerView.backgroundColor = SeSacColor.black
                 }
@@ -70,18 +70,12 @@ extension AuthViewController {
         
         self.selfView.button.rx.tap
             .bind(onNext: { _ in
-                if self.viewModel.validationFlag.value
-                {
+                if self.viewModel.validationFlag.value {
                     guard let phoneNumber = self.selfView.textFiled.text?.toPureNumber else { return }
-                    
                     UserDefaultsManager.standard.phoneNumber = phoneNumber
-                    
                     self.viewModel.requestVertificationID(phoneNumber: phoneNumber) {
                         switch $0 {
                         case .success:
-                            //self.showToastAlert(message: "전화번호 인증 시작") {
-                            //}
-                            
                             let vc = SMSViewController()
                             self.transition(vc, transitionStyle: .push)
                         case .failure(let error):

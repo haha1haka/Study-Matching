@@ -14,13 +14,11 @@ class Gender2View: UIView {
     
     let manButton: SeSacButton = {
         let view = SeSacButton(title: "남자")
-        
         return view
     }()
     
     let womanButton: SeSacButton = {
         let view = SeSacButton(title: "여자")
-        
         return view
     }()
     
@@ -62,7 +60,6 @@ class Gender2View: UIView {
         totalStackView.snp.makeConstraints {
             $0.edges.equalTo(self)
         }
-        
         buttonStackView.snp.makeConstraints {
             $0.width.equalToSuperview().multipliedBy(0.33)
             $0.height.equalTo(buttonStackView.snp.width).multipliedBy(0.4)

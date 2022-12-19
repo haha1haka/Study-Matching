@@ -17,5 +17,4 @@ class MiniCell: BaseCollectionViewCell {
             $0.edges.equalTo(self).inset(10)
         }
     }
-
 }

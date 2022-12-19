@@ -3,10 +3,11 @@ import RxSwift
 import RxCocoa
 
 class BirthViewController: BaseViewController {
+    
     let selfView = BirthView()
-    override func loadView() {
-        view = selfView
-    }
+    
+    override func loadView() { view = selfView }
+    
     let viewModel = BirthViewModel()
     let disposeBag = DisposeBag()
 }
@@ -15,7 +16,6 @@ extension BirthViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
-        
     }
 }
 extension BirthViewController {
@@ -29,8 +29,6 @@ extension BirthViewController {
             .bind(to: viewModel.validationFlag)
             .disposed(by: disposeBag)
 
-        
-        
         viewModel.datePickerObservable
             .bind(onNext: { d in
                 self.selfView.yearDateLabel.text = String(d.year)
@@ -69,13 +67,6 @@ extension BirthViewController {
                 }
             })
             .disposed(by: disposeBag)
-        
-        
     }
-
-}
-
-extension BirthViewController {
-
 }
 

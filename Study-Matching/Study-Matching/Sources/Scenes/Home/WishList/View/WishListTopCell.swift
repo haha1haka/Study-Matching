@@ -12,13 +12,13 @@ class WishListTopCell: BaseCollectionViewCell {
     override func configureHierarchy() {
         addSubview(label)
     }
+    
     override func configureLayout() {
         label.snp.makeConstraints {
             $0.top.bottom.equalTo(self).inset(5)
             $0.leading.trailing.equalTo(self).inset(16)
         }
     }
-    
     
     override func configureAttributesInit() {
         layer.cornerRadius = 8

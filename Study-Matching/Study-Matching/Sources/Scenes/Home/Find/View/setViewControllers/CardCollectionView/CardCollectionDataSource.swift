@@ -35,7 +35,6 @@ struct Section: Hashable {
 
 }
 
-
 struct Card: Hashable {
     let uuid = UUID()
     var nick: String

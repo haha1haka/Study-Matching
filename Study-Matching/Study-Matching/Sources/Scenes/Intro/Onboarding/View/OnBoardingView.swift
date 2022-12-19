@@ -17,7 +17,6 @@ class OnBoardingView: BaseView {
     
     var eventDelegate: OnBoardingViewEvent?
     
-    
     override func configureHierarchy() {
         addSubview(collectionView)
         addSubview(button)
@@ -39,19 +38,37 @@ class OnBoardingView: BaseView {
     }
     
     func configureCollectionViewLayout() -> UICollectionViewLayout {
-        let itemLayoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+        let itemLayoutSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(1.0))
+        
         let itemLayout = NSCollectionLayoutItem(layoutSize: itemLayoutSize)
-        let groupLayoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(0.98))
-        let groupLayout = NSCollectionLayoutGroup.horizontal(layoutSize: groupLayoutSize, subitems: [itemLayout])
+        
+        let groupLayoutSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalWidth(0.98))
+        
+        let groupLayout = NSCollectionLayoutGroup.horizontal(
+            layoutSize: groupLayoutSize,
+            subitems: [itemLayout])
+        
         let sectionLayout = NSCollectionLayoutSection(group: groupLayout)
         sectionLayout.orthogonalScrollingBehavior = .paging
         sectionLayout.visibleItemsInvalidationHandler = { [weak self] visibleItems, contentOffset, environment in
             guard let self = self else { return }
             self.eventDelegate?.page(self, pageIndex: Int(contentOffset.x / environment.container.contentSize.width))
         }
-        let footerItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(44))
-        let footerItemLayout = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: footerItemSize, elementKind: UICollectionView.elementKindSectionFooter, alignment: .bottom)
+        let footerItemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .estimated(44))
+        
+        let footerItemLayout = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: footerItemSize,
+            elementKind: UICollectionView.elementKindSectionFooter,
+            alignment: .bottom)
+        
         sectionLayout.boundarySupplementaryItems = [footerItemLayout]
+        
         return UICollectionViewCompositionalLayout(section: sectionLayout)
     }
 }

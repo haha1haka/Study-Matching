@@ -1,18 +1,19 @@
 import UIKit
 import SnapKit
 
-enum AlertType {
-    case myInfo
-    case findNearby
-    case findRequested
-}
+
 
 class SeSacAlertController: UIViewController {
+    
+    enum AlertType {
+        case myInfo
+        case findNearby
+        case findRequested
+    }
     
     var mainLabelText: String?
     var subLabelText: String?
     var heightControl = 0
-    
     
     convenience init(alertType: AlertType) {
         self.init()
@@ -28,7 +29,6 @@ class SeSacAlertController: UIViewController {
             mainLabelText = "스터디를 수락할까요?"
             subLabelText = "요청을 수락하면 채팅창에서 대화를 나룰 수 있어요"
             self.heightControl = 20
-            
         }
     }
     
@@ -39,7 +39,6 @@ class SeSacAlertController: UIViewController {
         view.backgroundColor = .white
         return view
     }()
-    
     
     lazy var labelStackView: UIStackView = {
         let view = UIStackView(arrangedSubviews: [
@@ -54,13 +53,15 @@ class SeSacAlertController: UIViewController {
     
     lazy var mainLabel: SeSacLabel = {
         let view = SeSacLabel(text_: self.mainLabelText!, font_: SeSacFont.Body1_M16.set)
-        return view
-    }()
-    lazy var subLabel: SeSacLabel = {
-        let view = SeSacLabel(text_: self.subLabelText!, font_: SeSacFont.Title4_R14.set)
+        view.numberOfLines = 0
         return view
     }()
     
+    lazy var subLabel: SeSacLabel = {
+        let view = SeSacLabel(text_: self.subLabelText!, font_: SeSacFont.Title4_R14.set)
+        view.numberOfLines = 0
+        return view
+    }()
     
     lazy var buttonStackView: UIStackView = {
         let view = UIStackView(arrangedSubviews: [
@@ -76,13 +77,12 @@ class SeSacAlertController: UIViewController {
         let view = SeSacButton(title: "취소")
         return view
     }()
+    
     let completeButton: SeSacButton = {
         let view = SeSacButton(title: "확인")
         view.toAct
         return view
     }()
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,8 +90,6 @@ class SeSacAlertController: UIViewController {
         configureLayout()
         configureAttributes()
     }
-    
-    
     
     func configureHierarchy() {
         view.addSubview(containerView)
@@ -105,16 +103,17 @@ class SeSacAlertController: UIViewController {
             $0.bottom.equalToSuperview().inset(327 - heightControl)
         }
         
-        
         labelStackView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview().inset(16)
-            $0.height.equalTo(60)
+            $0.height.equalTo(80)
         }
         buttonStackView.snp.makeConstraints {
             $0.top.equalTo(labelStackView.snp.bottom).offset(16)
-            $0.leading.trailing.bottom.equalToSuperview().inset(16)
+            $0.height.equalTo(66)
+            $0.leading.trailing.equalToSuperview().inset(16)
         }
     }
+    
     func configureAttributes() {
         view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
     }

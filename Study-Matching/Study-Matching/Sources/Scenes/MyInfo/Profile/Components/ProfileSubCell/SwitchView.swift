@@ -28,7 +28,6 @@ class SwitchView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         configureHierarchy()
         configureLayout()
     }
@@ -41,7 +40,6 @@ class SwitchView: UIView {
         addSubview(totalStackView)
         [switchLabel, switchUI].forEach { totalStackView.addArrangedSubview($0) }
     }
-    
     
     func configureLayout() {
         totalStackView.snp.makeConstraints {

@@ -3,10 +3,11 @@ import RxSwift
 import RxCocoa
 
 class EmailViewController: BaseViewController {
+    
     let selfView = EmailView()
-    override func loadView() {
-        view = selfView
-    }
+    
+    override func loadView() { view = selfView }
+    
     let viewModel = EmailViewModel()
     let disposeBag = DisposeBag()
 }
@@ -15,10 +16,11 @@ extension EmailViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
-
     }
 }
+
 extension EmailViewController {
+    
     func bind() {
         selfView.textFiled.rx.text.orEmpty
             .bind(to: viewModel.textFieldTextObserverable)
@@ -34,22 +36,16 @@ extension EmailViewController {
             .bind(to: viewModel.validationFlag)
             .disposed(by: disposeBag)
         
-
-        
-        
         viewModel.textFieldTextObserverable
             .bind(onNext: { text in
                 self.selfView.textFiled.text = text
             })
             .disposed(by: disposeBag)
         
-        
-        
         viewModel.dividerViewFlag
             .bind(onNext: { b in
                 if b {
                     self.selfView.textFiled.dividerView.backgroundColor = SeSacColor.gray3
-                    
                 } else {
                     self.selfView.textFiled.dividerView.backgroundColor = SeSacColor.black
                 }
@@ -66,29 +62,18 @@ extension EmailViewController {
             })
             .disposed(by: disposeBag)
         
-        
-
         selfView.button.rx.tap
             .bind(onNext: { _ in
                 if self.viewModel.validationFlag.value {
-                    
                     guard let email = self.selfView.textFiled.text else { return }
                     UserDefaultsManager.standard.email = email
-                    
-                    
                     let vc = GenderViewController()
                     self.transition(vc,transitionStyle: .push)
-                    
                 } else {
                     self.showToast(message: "이메일 형식이 올바르지 않습니다.")
                 }
             })
             .disposed(by: disposeBag)
     }
-
-}
-
-extension EmailViewController {
-
 }
 

@@ -20,9 +20,6 @@ class CardCollectionCell: BaseCollectionViewCell {
     
     var dataSource: UICollectionViewDiffableDataSource<Int, Study>!
  
-    
-    
-    
     func configureCollectionViewDataSource() {
         let miniCellRegistration = UICollectionView.CellRegistration<MiniCell, Study> { cell,indexPath,itemIdentifier in
             cell.label.text = itemIdentifier.label
@@ -34,7 +31,6 @@ class CardCollectionCell: BaseCollectionViewCell {
         }
     }
 
-    
     lazy var collectionViewStackView: UIStackView = {
         let view = UIStackView(arrangedSubviews: [
             collectionView
@@ -60,7 +56,6 @@ class CardCollectionCell: BaseCollectionViewCell {
     
     lazy var topStackView: UIStackView = {
         let view = UIStackView(arrangedSubviews: [nameLabel, disclosureView])
-        //view.distribution = .fillProportionally
         view.distribution = .fill
         view.axis = .horizontal
         return view
@@ -83,11 +78,9 @@ class CardCollectionCell: BaseCollectionViewCell {
         ])
         view.axis = .vertical
         view.spacing = 16
-        
         return view
     }()
 
-    
     var nameLabel: UILabel = {
         let view = UILabel()
         view.text = "김새싹"
@@ -104,12 +97,10 @@ class CardCollectionCell: BaseCollectionViewCell {
         return disclosureView
     }()
     
-
     var sectionLabel1: UILabel = {
         let view = UILabel()
         view.text = "새싹 타이틀"
         view.font = SeSacFont.Title6_R12.set
-
         return view
     }()
     
@@ -129,9 +120,9 @@ class CardCollectionCell: BaseCollectionViewCell {
         view.addSubview(reviewButton)
         return view
     }()
+    
     var reviewButton: UIButton = {
         let view = UIButton()
-        
         view.backgroundColor = .clear
         return view
     }()
@@ -145,14 +136,11 @@ class CardCollectionCell: BaseCollectionViewCell {
         return view
     }()
     
-    
-
     override var isSelected: Bool {
         didSet {
             updateAppearance()
         }
     }
-    
 
     override func configureHierarchy() {
         contentView.addSubview(totalStackView)
@@ -172,7 +160,6 @@ class CardCollectionCell: BaseCollectionViewCell {
             $0.top.leading.trailing.equalToSuperview()
         }
 
-        
         middleStackView.snp.makeConstraints( {
             $0.top.equalTo(topStackView.snp.bottom)
             $0.leading.trailing.equalToSuperview()
@@ -187,8 +174,6 @@ class CardCollectionCell: BaseCollectionViewCell {
             $0.top.leading.trailing.equalToSuperview()
             $0.width.equalToSuperview()
             $0.height.equalTo(50)
-                
-            
         }
         
         bottomStackView.snp.makeConstraints {
@@ -204,9 +189,6 @@ class CardCollectionCell: BaseCollectionViewCell {
         disclosureView.snp.makeConstraints {
             $0.trailing.equalToSuperview()
             $0.width.equalTo(12)
-            
-            
-            
         }
 
         closedConstraint =
@@ -218,14 +200,6 @@ class CardCollectionCell: BaseCollectionViewCell {
         openConstraint?.priority = .defaultLow
         
         updateAppearance()
-        
-
-        
-    }
-    
-    
-    override func configureAttributesInit() {
-
     }
     
     func configureCollectionViewLayout() -> UICollectionViewLayout {
@@ -245,7 +219,6 @@ class CardCollectionCell: BaseCollectionViewCell {
         return collectionViewLayout
     }
     
-    
     func cellLayout() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .estimated(32),
@@ -263,25 +236,12 @@ class CardCollectionCell: BaseCollectionViewCell {
         
         section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 24, trailing: 16)
         section.interGroupSpacing = 8
-        
-//        let headerSize = NSCollectionLayoutSize(
-//            widthDimension: .fractionalWidth(1.0),
-//            heightDimension: .estimated(64))
-//
-//        let header = NSCollectionLayoutBoundarySupplementaryItem(
-//            layoutSize: headerSize,
-//            elementKind: UICollectionView.elementKindSectionHeader,
-//            alignment: .top)
-        
-        //section.boundarySupplementaryItems = [header]
         return section
     }
     
     func configureCell(with item: Card) {
         nameLabel.text = item.nick
-        
-        
-        
+
         for i in cardStackView.buttons {
             if item.reputation[i.tag] != 0 {
                 i.toAct
@@ -298,21 +258,11 @@ class CardCollectionCell: BaseCollectionViewCell {
         layer.borderColor = SeSacColor.gray2.cgColor
         layer.masksToBounds = true
         layer.cornerRadius = 8
-        
-        
     }
-
-
-    
-    
-    
-
 }
-
 
 extension CardCollectionCell {
     func updateAppearance() {
-        print("fasdfasdfas")
         closedConstraint?.isActive = !isSelected
         openConstraint?.isActive = isSelected
         

@@ -8,7 +8,6 @@ class WishListView: BaseView {
 
     lazy var collectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionViewLayout())
-        
         view.alwaysBounceVertical = false
         return view
     }()
@@ -24,14 +23,12 @@ class WishListView: BaseView {
         return view
     }()
 
-    
     override func configureHierarchy() {
         addSubview(collectionView)
         addSubview(searchButton)
     }
     
     override func configureLayout() {
-
         collectionView.snp.makeConstraints {
             $0.edges.equalTo(self)
         }
@@ -40,11 +37,7 @@ class WishListView: BaseView {
             $0.leading.trailing.equalTo(self.safeAreaLayoutGuide)
             $0.bottom.equalTo(keyboardLayoutGuide.snp.top)
             $0.height.equalTo(48)
-            
-            
-            
         }
-        
     }
 
     func configureCollectionViewLayout() -> UICollectionViewLayout {

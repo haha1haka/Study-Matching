@@ -29,7 +29,6 @@ class StudyView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         configureHierarchy()
         configureLayout()
     }
@@ -41,7 +40,6 @@ class StudyView: UIView {
     func configureHierarchy() {
         addSubview(totalStackView)
     }
-    
     
     func configureLayout() {
         totalStackView.snp.makeConstraints {

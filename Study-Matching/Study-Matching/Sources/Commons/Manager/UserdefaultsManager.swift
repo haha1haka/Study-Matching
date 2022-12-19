@@ -51,7 +51,6 @@ class UserDefaultsManager  {
         }
     }
     
-    
     var phoneNumber: String {
         get {
             return userDefaults.string(forKey: UserDefaultsKey.phoneNumber.rawValue)!

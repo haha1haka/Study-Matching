@@ -8,8 +8,8 @@ class OnboardCell: BaseCollectionViewCell {
     
     override func configureHierarchy() {
         [labelImageView, mainImageView].forEach { self.addSubview($0) }
-
     }
+    
     override func configureLayout() {
         labelImageView.snp.makeConstraints {
             $0.top.equalTo(self)
@@ -24,7 +24,6 @@ class OnboardCell: BaseCollectionViewCell {
     }
     
     override func configureAttributesInit() {
-        
         labelImageView.contentMode = .scaleAspectFit
         mainImageView.contentMode = .scaleAspectFit
     }

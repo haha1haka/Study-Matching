@@ -6,7 +6,7 @@ import RxCocoa
 
 class WishListViewController: BaseViewController, DataSourceRegistration {
     
-    let selfView  = WishListView()
+    let selfView   = WishListView()
     let viewModel  = WishListViewModel()
     let disposeBag = DisposeBag()
     
@@ -34,18 +34,15 @@ class WishListViewController: BaseViewController, DataSourceRegistration {
 extension WishListViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         bind()
         selfView.collectionView.delegate = self
         requestQueueSearch()
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.wantedStudyDataStore = []
     }
-    
 }
 
 extension WishListViewController {
@@ -90,7 +87,6 @@ extension WishListViewController {
         viewModel.wantedStudyList
             
             .bind(onNext: {
-                print("🔆🔆🔆🔆\(print(self.viewModel.wantedStudyList.value))")
                 var snapshot = self.dataSource.snapshot()
                 snapshot.deleteSections([1])
                 snapshot.appendSections([1])
@@ -111,14 +107,6 @@ extension WishListViewController {
                 } else {
                     //self.showToast(message: "이미 존재")
                 }
-                
-                
-                
-                //self.studyList.append(Wanted(label: searchBarText))
-                
-                
-                
-                
             })
             .disposed(by: disposeBag)
         
@@ -128,36 +116,21 @@ extension WishListViewController {
                 self.requestQueue()
             })
             .disposed(by: disposeBag)
-        
-        
-        
     }
-    
-    
 }
-
-
-
-
 
 extension WishListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         self.selfView.searchBar.resignFirstResponder()
-        
         let sectionItem = dataSource.itemIdentifier(for: indexPath)
-        
         switch sectionItem {
         case .nearby(let nearby):
-            
             if !viewModel.wantedStudyDataStore.contains(nearby.label) {
                 self.viewModel.wantedStudyDataStore.append(nearby.label)
             } else {
                 //self.showToast(message: "이미 존재")
             }
-
         case .wanted(let wanted):
-            
             if self.viewModel.wantedStudyDataStore.contains(wanted!.label) {
                 guard let index = self.viewModel.wantedStudyDataStore.firstIndex(of: wanted!.label) else { return }
                 self.viewModel.wantedStudyDataStore.remove(at: index)
@@ -168,12 +141,6 @@ extension WishListViewController: UICollectionViewDelegate {
         }
     }
 }
-
-
-extension WishListViewController: UISearchBarDelegate {
-    
-}
-
 
 extension WishListViewController {
     func requestQueueSearch() {
@@ -195,22 +162,16 @@ extension WishListViewController {
         }
     }
     
-    
     func requestQueue() {
         self.viewModel.requestQueue {
             switch $0 {
             case .success:
-                print("fdsfsd")
-                
                 let vc = FindViewController()
                 vc.pageViewController.nearbyViewController.viewModel.lat.accept(self.viewModel.lat.value)
                 vc.pageViewController.nearbyViewController.viewModel.long.accept(self.viewModel.long.value)
-                
                 vc.pageViewController.requestedViewController.viewModel.lat.accept(self.viewModel.lat.value)
                 vc.pageViewController.requestedViewController.viewModel.long.accept(self.viewModel.long.value)
                 self.transition(vc)
-                
-                
             case .failure(let error):
                 switch error {
                 case .unavailable:
@@ -227,7 +188,6 @@ extension WishListViewController {
                     return //다시 로그인 부터 ⚠️
                 default:
                     return
-                    
                 }
             }
         }

@@ -14,7 +14,6 @@ class BirthView: BaseView {
     let monthLabel = UILabel()
     let dayLabel = UILabel()
     
-    
     override func configureHierarchy() {
         [label, button, datePicker].forEach { self.addSubview($0) }
         self.addSubview(containerView)

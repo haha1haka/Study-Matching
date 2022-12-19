@@ -9,9 +9,7 @@ class EmailView: BaseView {
                               font_: SeSacFont.Title2_R16.set)
     let textFiled = SeSacTexField(title: "10자 이내로 입력")
     let button = SeSacButton(title: "다음")
-    
 
-    
     override func configureHierarchy() {
         [label, subLabel, textFiled, button].forEach { self.addSubview($0) }
     }
@@ -39,6 +37,4 @@ class EmailView: BaseView {
             
         }
     }
-
-
 }

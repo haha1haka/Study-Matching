@@ -4,10 +4,11 @@ import RxSwift
 
 
 class MyInfoViewController: BaseViewController, DataSourceRegistration {
+    
     let selfView = MyInfoView()
-    override func loadView() {
-        view = selfView
-    }
+    
+    override func loadView() { view = selfView }
+    
     var `cell`: MyInfoCellRegistration?
     var header: MyInfoHeaderRegistration?
     
@@ -22,7 +23,6 @@ class MyInfoViewController: BaseViewController, DataSourceRegistration {
     override func setNavigationBar(title: String, rightTitle: String) {
         super.setNavigationBar(title: "내정보")
     }
-    
 }
 
 extension MyInfoViewController {
@@ -32,10 +32,9 @@ extension MyInfoViewController {
         dataSource.applySnapshot()
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+    
         viewModel.fetchUserInfo { result in
             switch result {
             case .success:
@@ -48,18 +47,16 @@ extension MyInfoViewController {
                 }
             }
         }
-        
-        
     }
 }
 
-
 extension MyInfoViewController  {
+    
     func bind() {
+        
         `cell` = MyInfoCellRegistration{ cell, indexPath, itemIdentifier in
             cell.configure(with: itemIdentifier)
         }
-        
         header = MyInfoHeaderRegistration(elementKind: UICollectionView.elementKindSectionHeader) { [weak self] supplementaryView, elementKind, indexPath in
             guard let self = self else { return }
             
@@ -74,8 +71,6 @@ extension MyInfoViewController  {
                 })
                 .disposed(by: self.disposeBag)
         }
-        
-        
     }
 }
 

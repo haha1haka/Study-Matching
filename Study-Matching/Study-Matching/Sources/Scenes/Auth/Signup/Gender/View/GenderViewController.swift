@@ -5,9 +5,8 @@ import RxCocoa
 class GenderViewController: BaseViewController, DataSourceRegistration {
     
     let selfView = GenderView()
-    override func loadView() {
-        view = selfView
-    }
+    
+    override func loadView() { view = selfView }
     
     var cell: GenderCellRegistration?
     
@@ -28,9 +27,6 @@ extension GenderViewController {
     }
 }
 
-
-
-
 extension GenderViewController {
     
     func bind() {
@@ -39,7 +35,6 @@ extension GenderViewController {
         { cell, indexPath, itemIdentifier in
             cell.configure(with: itemIdentifier)
         }
-        
         
         viewModel.collectionViewObservable
             .bind(onNext: { b in
@@ -52,27 +47,12 @@ extension GenderViewController {
                 } else {
                     self.selfView.button.backgroundColor = SeSacColor.gray3
                 }
-                
             })
             .disposed(by: disposeBag)
-        
-        
-        
-        
         
         selfView.button.rx.tap
             .bind(onNext: { _ in
                 if self.viewModel.collectionViewObservable.value != -1 {
-                    
-                    print(UserDefaultsManager.standard.phoneNumber)
-                    print(UserDefaultsManager.standard.FCMToken)
-                    print(UserDefaultsManager.standard.nick)
-                    print(UserDefaultsManager.standard.birth)
-                    print(UserDefaultsManager.standard.email)
-                    print(UserDefaultsManager.standard.gender)
-                    print(UserDefaultsManager.standard.idToken)
-                    
-                    
                     self.viewModel.requestSignup {
                         switch $0 {
                         case .success:
@@ -101,13 +81,11 @@ extension GenderViewController {
 
 extension GenderViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         if indexPath.item == 1 {
             viewModel.collectionViewObservable.accept(0)
         } else {
             viewModel.collectionViewObservable.accept(1)
         }
-        
     }
 }
 

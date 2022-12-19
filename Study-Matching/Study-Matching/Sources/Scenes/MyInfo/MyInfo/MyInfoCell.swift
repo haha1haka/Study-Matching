@@ -22,8 +22,8 @@ class MyInfoCell: BaseCollectionViewCell {
     
     override func configureHierarchy() {
         [imageView, label, dividerView].forEach { addSubview($0) }
-        
     }
+    
     override func configureLayout() {
         imageView.snp.makeConstraints {
             $0.leading.equalTo(20)

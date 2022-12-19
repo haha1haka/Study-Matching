@@ -11,6 +11,7 @@ class CardStackView: UIStackView {
     let button3 = SeSacButton(title: "능숙한 실력", type: .myInfo, tag_: 4)
     let button5 = SeSacButton(title: "유익한 시간", type: .myInfo, tag_: 5)
     lazy var buttons = [button0, button1,button2,button3,button4,button5]
+    
     let leftVerticalStackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -38,13 +39,10 @@ class CardStackView: UIStackView {
         return stack
     }()
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         configureHierarchy()
         configureLayout()
-        //configureAttributes()
     }
     
     required init(coder: NSCoder) {
@@ -68,8 +66,8 @@ class CardStackView: UIStackView {
         [button1, button3, button5].forEach { subView in
             rightVerticalStackView.addArrangedSubview(subView)
         }
-
     }
+    
     func configureLayout() {
         totalStackView.snp.makeConstraints {
             $0.edges.equalTo(self)

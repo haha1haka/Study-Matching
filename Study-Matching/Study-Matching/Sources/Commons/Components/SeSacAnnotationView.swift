@@ -17,14 +17,12 @@ class SeSacAnnotationView: MKAnnotationView {
     private func setupUI() {
         backgroundColor = .clear
     }
-    
 }
 
 
 class SeSacAnnotation: NSObject, MKAnnotation {
     let sesac: Int
     let coordinate: CLLocationCoordinate2D
-    
     init(coordinate: CLLocationCoordinate2D, sesac: Int) {
         self.coordinate = coordinate
         self.sesac = sesac

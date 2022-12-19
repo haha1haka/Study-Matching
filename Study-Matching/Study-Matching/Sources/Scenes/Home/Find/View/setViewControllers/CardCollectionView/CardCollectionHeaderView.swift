@@ -5,17 +5,15 @@ class CardCollectionHeaderView: UICollectionReusableView {
     
     let mainImageView: UIImageView = {
         let view = UIImageView()
-        
         return view
     }()
+    
     let subImageView: UIImageView = {
         let view = UIImageView()
-        
         return view
     }()
     
     let requestButton = SeSacButton(title: "요청하기", color: SeSacColor.error)
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)

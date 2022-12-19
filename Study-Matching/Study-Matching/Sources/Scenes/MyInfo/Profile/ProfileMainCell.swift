@@ -20,7 +20,6 @@ class ProfileMainCell: BaseCollectionViewCell {
         return rootStack
     }()
     
-    
     lazy var topStackView: UIStackView = {
         let view = UIStackView(arrangedSubviews: [nameLabel, disclosureView])
         view.distribution = .fillProportionally
@@ -37,6 +36,7 @@ class ProfileMainCell: BaseCollectionViewCell {
         view.spacing = 16
         return view
     }()
+    
     lazy var bottomStackView: UIStackView = {
         let view = UIStackView(arrangedSubviews: [
             sectionLabel2,
@@ -48,7 +48,6 @@ class ProfileMainCell: BaseCollectionViewCell {
         return view
     }()
 
-    
     var nameLabel: UILabel = {
         let view = UILabel()
         view.text = "김새싹"
@@ -64,7 +63,6 @@ class ProfileMainCell: BaseCollectionViewCell {
         disclosureView.tintColor = SeSacColor.gray7
         return disclosureView
     }()
-    
 
     var sectionLabel1: UILabel = {
         let view = UILabel()
@@ -78,7 +76,6 @@ class ProfileMainCell: BaseCollectionViewCell {
         let view = CardStackView()
         return view
     }()
-    
 
     var sectionLabel2: UILabel = {
         let view = UILabel()
@@ -95,14 +92,11 @@ class ProfileMainCell: BaseCollectionViewCell {
         return view
     }()
     
-    
-
     override var isSelected: Bool {
         didSet {
             updateAppearance()
         }
     }
-    
 
     override func configureHierarchy() {
         contentView.addSubview(totalStackView)
@@ -138,7 +132,6 @@ class ProfileMainCell: BaseCollectionViewCell {
         disclosureView.snp.makeConstraints {
             $0.trailing.equalToSuperview().inset(26)
             $0.width.equalTo(12)
-            
         }
 
         closedConstraint =
@@ -159,11 +152,7 @@ class ProfileMainCell: BaseCollectionViewCell {
         layer.masksToBounds = true
         layer.cornerRadius = 8
     }
-    
-    
-
 }
-
 
 extension ProfileMainCell {
     func updateAppearance() {

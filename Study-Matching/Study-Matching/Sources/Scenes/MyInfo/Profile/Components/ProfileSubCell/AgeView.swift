@@ -5,7 +5,6 @@ import MultiSlider
 protocol MultiSliderEventDeledate {
     func slider(_ view: AgeView, slider: [Int])
 }
- 
 
 class AgeView: UIView {
     
@@ -27,7 +26,6 @@ class AgeView: UIView {
         label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         return label
     }()
-    
     
     lazy var totalStackView: UIStackView = {
         let stack = UIStackView(
@@ -62,7 +60,6 @@ class AgeView: UIView {
         self.delegate?.slider(self, slider: [minAge, maxAge])
     }
 
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureHierarchy()
@@ -81,8 +78,8 @@ class AgeView: UIView {
     func configureLayout() {
         totalStackView.snp.makeConstraints {
             $0.top.leading.trailing.equalTo(self)
-            
         }
+        
         multislider.snp.makeConstraints {
             $0.top.equalTo(totalStackView.snp.bottom)
             $0.leading.trailing.equalToSuperview().inset(5)

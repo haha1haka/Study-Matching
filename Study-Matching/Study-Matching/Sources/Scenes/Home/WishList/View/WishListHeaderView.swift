@@ -29,7 +29,6 @@ class WishListHeaderView: UICollectionReusableView {
             $0.trailing.top.bottom.equalTo(self)
         }
     }
-
 }
 
 

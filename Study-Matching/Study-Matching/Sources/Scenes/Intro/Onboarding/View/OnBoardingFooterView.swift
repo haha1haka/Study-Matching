@@ -3,8 +3,6 @@ import SnapKit
 
 class OnBoardingFooterView: UICollectionReusableView {
     
-    
-    
     lazy var pageControl: UIPageControl = {
         let control = UIPageControl()
         control.translatesAutoresizingMaskIntoConstraints = false
@@ -15,18 +13,15 @@ class OnBoardingFooterView: UICollectionReusableView {
         return control
     }()
     
-    
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureHierarcy()
         configureLayout()
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     func configureHierarcy() {
         self.addSubview(pageControl)
     }
@@ -37,7 +32,6 @@ class OnBoardingFooterView: UICollectionReusableView {
         }
     }
     
-
     func configure(with numberOfPages: Int) {
         pageControl.numberOfPages = numberOfPages
     }

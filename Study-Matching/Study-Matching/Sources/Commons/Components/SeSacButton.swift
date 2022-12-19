@@ -19,7 +19,6 @@ class SeSacButton: UIButton {
                      type: SeSacButtonType = .login,
                      tag_: Int = .zero
                      )
-                     
     {
         self.init(frame: frame)
 
@@ -62,25 +61,15 @@ class SeSacButton: UIButton {
             layer.cornerRadius = 8
             layer.masksToBounds = true
         }
-
-
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureAttributes()
-
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
-extension SeSacButton {
-    func configureAttributes() {
-
-    }
-}
-
 

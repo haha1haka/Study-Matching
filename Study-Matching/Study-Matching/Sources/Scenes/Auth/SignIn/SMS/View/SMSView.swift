@@ -8,8 +8,6 @@ class SMSView: BaseView {
     let reSandButton = SeSacButton(title: "재전송", color: SeSacColor.green)
     let button = SeSacButton(title: "인증하고 시작하기")
     
-
-    
     override func configureHierarchy() {
         [label, textFiled, reSandButton, button].forEach { self.addSubview($0) }
     }
@@ -37,9 +35,6 @@ class SMSView: BaseView {
             $0.top.equalTo(textFiled.snp.bottom).offset(72)
             $0.leading.trailing.equalTo(self.safeAreaLayoutGuide).inset(16)
             $0.height.equalTo(48)
-            
         }
     }
-
-
 }

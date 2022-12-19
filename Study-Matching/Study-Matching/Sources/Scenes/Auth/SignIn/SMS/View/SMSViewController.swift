@@ -25,20 +25,15 @@ extension SMSViewController {
             .disposed(by: disposeBag)
         
         selfView.textFiled.rx.text.orEmpty
-            .map(viewModel.applydividerView) // true
+            .map(viewModel.applydividerView)
             .bind(to: viewModel.dividerViewFlag)
             .disposed(by: disposeBag)
         
-        
-        
         viewModel.textFieldTextObserverable
-            .map(viewModel.validHandler) // bool
+            .map(viewModel.validHandler)
             .bind(to: viewModel.validationFlag)
             .disposed(by: disposeBag)
-        
-        
-        
-        
+    
         viewModel.validationFlag
             .bind(onNext: { b in
                 if b {
@@ -48,7 +43,6 @@ extension SMSViewController {
                 }
             })
             .disposed(by: disposeBag)
-        
         
         viewModel.dividerViewFlag
             .bind(onNext: { b in
@@ -61,24 +55,18 @@ extension SMSViewController {
             })
             .disposed(by: disposeBag)
         
-        
-        //🥶 토큰 받았는데도 에러 나면 다시 보내야 되는 경우 토의 해보기
-        // MARK: -🟨 2.SMS확인 -> 3.fetchIdToken -> 4.로그인(가입 미가입 확인)
         selfView.button.rx.tap
             .bind(onNext: {
                 if self.viewModel.validationFlag.value {
-
                     guard let smsCode = self.selfView.textFiled.text else { return }
-                    
                     self.viewModel.vertifySMSCode(smsCode: smsCode) {
                         switch $0 {
                         case .success:
-                            UserDefaultsManager.standard.smsFlag = true //⭐️ 전화번호 인증완료된후에는 시작 화면 Nick 으로 나오게 할려고
+                            UserDefaultsManager.standard.smsFlag = true
                             
                             FirebaseService.shared.fetchIdToken { _ in
                                 self.checkUser()
                             }
-                            
                             return
                         case .failure(let error):
                             switch error {
@@ -98,12 +86,8 @@ extension SMSViewController {
                 }
             })
             .disposed(by: disposeBag)
-        
     }
-    
 }
-
-
 
 extension SMSViewController {
     func checkUser() {
@@ -115,11 +99,9 @@ extension SMSViewController {
             case .failure(let error):
                 switch error {
                 case .unRegistedUser:
-                    print("ㅇㄹㄴㄹㄴㅇ")
                     let vc = NicknameViewController()
                     self.transition(vc)
                 case .idTokenError:
-                    print("이거이거이거이거이거이거이거")
                     self.checkUser()
                 default:
                     return

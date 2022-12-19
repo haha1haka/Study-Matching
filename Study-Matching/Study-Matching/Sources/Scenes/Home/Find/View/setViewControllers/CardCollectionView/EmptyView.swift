@@ -76,15 +76,11 @@ class EmptyView: BaseView {
         }
         bottomTotalStackView.snp.makeConstraints {
             $0.leading.trailing.equalTo(self.safeAreaLayoutGuide).inset(16)
-            $0.bottom.equalTo(self).inset(50)
+            $0.bottom.equalTo(self.safeAreaLayoutGuide)
             $0.height.equalTo(48)
         }
         searchButton.snp.makeConstraints {
             $0.width.equalTo(287)
         }
     }
-//    override func configureAttributes() {
-//        <#code#>
-//    }
-
 }

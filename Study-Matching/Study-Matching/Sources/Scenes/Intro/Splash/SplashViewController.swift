@@ -1,20 +1,17 @@
 import UIKit
 
-
-
-enum SceneType: String {
-    case onboarding
-    case auth
-    case nick
-    case home
-}
-
-
 class SplashViewController: BaseViewController {
     
     let selfView = SplashView()
     
     override func loadView() { view = selfView }
+    
+    enum SceneType: String {
+        case onboarding
+        case auth
+        case nick
+        case home
+    }
     
     deinit {
         print("SplashViewController - deinit")
@@ -31,8 +28,7 @@ extension SplashViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        /// 로그인 하고 나갔다 온 경우
+    
         if UserDefaultsManager.standard.smsFlag {
             
             UserDefaultsManager.standard.smsFlag = false
@@ -47,7 +43,6 @@ extension SplashViewController {
                 DispatchQueue.main.async {
                     self.coordinator()
                 }
-                
             }
         }
     }

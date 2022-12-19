@@ -3,10 +3,11 @@ import RxSwift
 import RxCocoa
 
 class RequestedViewController: BaseViewController, DataSourceRegistration {
-    
 
     let emptyView = EmptyView()
     let cardView = CardCollectionView()
+    
+    override func loadView() { view = emptyView }
     
     let viewModel = FindViewModel()
     let disposeBag = DisposeBag()
@@ -18,49 +19,35 @@ class RequestedViewController: BaseViewController, DataSourceRegistration {
             collectionView      : cardView.collectionView,
             headerRegistration  : self.header!,
             mainCellRegistration: self.mainCell!)
-    
-    override func loadView() { view = emptyView }
 }
 
 extension RequestedViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         cardView.collectionView.delegate = self
-        
-        if !viewModel.fromQueueDBisEmpty {
-            view = emptyView
-        } else { 
-            view = cardView
-        }
-                
         bind()
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.requestQueueSearch { }
-        
     }
-
 }
 
 extension RequestedViewController {
+    
     func bind() {
+        
         header = CardHeaderRegistration (elementKind: UICollectionView.elementKindSectionHeader)
         { [weak self] supplementaryView, elementKind, indexPath in
             guard let self = self else { return }
-            
             supplementaryView.requestButton.tag = indexPath.section
             supplementaryView.requestButton.backgroundColor = SeSacColor.success
             supplementaryView.requestButton.titleLabel?.text = "요청받기"
             guard let item = self.dataSource.itemIdentifier(for: indexPath) else { return }
             
-            
-            self.viewModel.cardItemList
+        self.viewModel.cardItemList
                 .bind(onNext: { _ in
                     supplementaryView.mainImageView.image = SeSacImage.sesacBackgroundImageArray[item.background]
                     supplementaryView.subImageView.image = SeSacImage.sesacImageArray[item.sesac]
@@ -68,20 +55,15 @@ extension RequestedViewController {
                     
                 })
                 .disposed(by: self.disposeBag)
-            
             supplementaryView.requestButton.addTarget(self, action: #selector(self.tappedRequestButton), for: .touchUpInside)
-        
         }
         
         mainCell = CardCellRegistration
         {  cell, indexPath, itemIdentifier in
-
-            
             cell.configureCell(with: itemIdentifier)
-
         }
         
-        self.viewModel.requestedCardItemList //[Card]
+        self.viewModel.requestedCardItemList
             .bind(onNext: { cards in
                 var snapShot = self.dataSource.snapshot()
                 snapShot.deleteAllItems()
@@ -91,12 +73,8 @@ extension RequestedViewController {
                     snapShot.appendItems([i], toSection: currentSection)
                     self.dataSource.apply(snapShot)
                 }
-
             })
             .disposed(by: self.disposeBag)
-
-        
-
     }
     
     @objc
@@ -105,32 +83,22 @@ extension RequestedViewController {
         let alertVC = SeSacAlertController(alertType: .findNearby)
         alertVC.completeButton.rx.tap
             .bind(onNext: {
-                
                 DispatchQueue.main.async {
                     let vc = ChatViewController()
-                    
                     let item = self.viewModel.requestedCardItemList.value[button.tag]
-                    print("⭐️\(item.uid)")
-                    
-
                     self.viewModel.requestStudyAccept(uid: item.uid) {
                         switch $0 {
                         case .success:
                             print("매칭 수락됨")
                         case .failure:
                             return
-                        
                         }
                     }
-
-                    
                     alertVC.dismiss(animated: true) {
                         self.transition(vc)
                     }
-                    
-
                 }
-                            })
+            })
             .disposed(by: disposeBag)
         
         alertVC.cancelButton.rx.tap
@@ -138,11 +106,10 @@ extension RequestedViewController {
                 alertVC.dismiss(animated: false)
             })
             .disposed(by: disposeBag)
-        
         self.transition(alertVC, transitionStyle: .SeSacAlertController)
     }
-    
 }
+
 extension RequestedViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
@@ -157,8 +124,6 @@ extension RequestedViewController: UICollectionViewDelegate {
         
         return false
     }
-    
-    
 }
 
 extension RequestedViewController {

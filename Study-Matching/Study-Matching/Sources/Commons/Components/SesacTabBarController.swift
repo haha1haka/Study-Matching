@@ -2,7 +2,6 @@ import UIKit
 
 class TabBarController: UITabBarController {
 
-
     let mapViewController  = UINavigationController(
         rootViewController: MapViewController())
     
@@ -40,15 +39,13 @@ class TabBarController: UITabBarController {
             title: "내정보",
             image: SeSacImage.ProfileInAct,
             selectedImage: SeSacImage.ProfileAct)
-        
-
+    
         setViewControllers(
             [mapViewController,
              shopViewController,
              friendViewController,
              myInfoViewController],
             animated: true)
-        
     }
 
 }

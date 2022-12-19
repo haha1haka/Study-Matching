@@ -34,23 +34,15 @@ extension LocationAuthorizationCheckable {
     func checkUserCurrentLocationAuthorization(locationManager: CLLocationManager, _ authorizationStatus: CLAuthorizationStatus) {
         switch authorizationStatus {
         case .notDetermined:
-            print("❓","NOTDETERMINED") // 최초 정의 되어 있지 않으니깐
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest //정확도 넣어주기,정확도에 따라 🐷 호출 빈도 다른듯?
-            locationManager.requestWhenInUseAuthorization() //얼럿띄워!
-            
-        case .restricted, .denied: // 허용 안한다 했을때
+            print("❓","NOTDETERMINED")
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.requestWhenInUseAuthorization()
+        case .restricted, .denied:
             print("❌DENEIED, 아이폰 설정으로 유도")
-            //showRequestLocationServiceAlert() //설정 창으로 이동
-            
         case .authorizedWhenInUse:
-            print("🎊"+"WHEN IN USE") //한번만 허용 or 앱사용하는 동안 허용
-            //locationManager.startUpdatingLocation() // 🐷 불르기
+            print("🎊"+"WHEN IN USE")
             locationManager.startMonitoringSignificantLocationChanges()
-            
         default: print("DEFAULT")
-            
         }
     }
-    
-    
 }

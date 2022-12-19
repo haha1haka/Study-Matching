@@ -398,8 +398,6 @@ class MemoleaseService: ResultType {
                         
                         UserDefaultsManager.standard.matchedState = state.matched
                         
-                        print(state.matchedUid)
-                        
                         completion(.success(state))
                     }
                     

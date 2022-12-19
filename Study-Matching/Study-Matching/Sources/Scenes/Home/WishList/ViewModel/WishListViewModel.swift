@@ -6,8 +6,11 @@ class WishListViewModel: ResultType {
     
     let lat = BehaviorRelay<Double>(value: 37.51818789942772)
     let long = BehaviorRelay<Double>(value: 126.88541765534976)
+    let nearbyStudyList = PublishSubject<[Nearby]>()
+    var wantedStudyList = BehaviorRelay<[Wanted]>(value: [])
     
-    var sesacFriendDataStore = BehaviorRelay<Queue>(value: Queue(fromQueueDB: [], fromQueueDBRequested: [], fromRecommend: []))
+    var sesacFriendDataStore = BehaviorRelay<Queue>(
+        value: Queue(fromQueueDB: [], fromQueueDBRequested: [], fromRecommend: []))
     
     var recomandStudyList: [String] {
         return sesacFriendDataStore.value.fromRecommend
@@ -23,11 +26,7 @@ class WishListViewModel: ResultType {
             .map{$0.studylist}
             .flatMap{$0}
     }
-    
-    let nearbyStudyList = PublishSubject<[Nearby]>()
-    
-    var wantedStudyList = BehaviorRelay<[Wanted]>(value: [])
-    
+        
     var wantedStudyDataStore: [String] = [] {
         didSet {
             print("🙀\(wantedStudyDataStore)")
@@ -40,11 +39,9 @@ class WishListViewModel: ResultType {
         wantedStudyDataStore.forEach { arr.append(Wanted(label: $0)) }
         return arr
     }
-    
-    
 }
 
-// MARK: - Methods
+
 extension WishListViewModel {
     func requestQueueSearch(completion: @escaping MemoleaseQueueSearchPostResult) {
                 
@@ -55,11 +52,8 @@ extension WishListViewModel {
                     
             switch $0 {
             case .success(let seacFriendDB):
-                
                 self.sesacFriendDataStore.accept(seacFriendDB)
-            
-                self.makeDataStore2()
-                
+                self.makeData()
                 return
             case .failure(let error):
                 switch error {
@@ -77,7 +71,7 @@ extension WishListViewModel {
     }
     
     func requestQueue(completion: @escaping (Result<Succeess, MemoleaseError>) -> Void) {
-        print("🟩🟩🟩🟩🟩🟩🟩\(lat.value), \(long.value), \(wantedStudyDataStore)")
+        
         MemoleaseService.shared.requestGetQueue(target: QueueRouter.queue(lat: lat.value, long: long.value, studylist: {
             if wantedStudyDataStore.isEmpty {
                 return ["anything"]
@@ -85,8 +79,7 @@ extension WishListViewModel {
                 return wantedStudyDataStore
             }
         }())) {
-            
-            
+                
             switch $0 {
             case .success:
                 completion(.success(.perfact))
@@ -112,9 +105,7 @@ extension WishListViewModel {
         }
     }
 
-    
-    //개선 하기 ⚠️
-    func makeDataStore2() {
+    func makeData() {
         var nearbyStudyList1: [Nearby] = []
         var nearbyStudyList2: [Nearby] = []
         var overlapStudyList: [String] = []
@@ -122,25 +113,18 @@ extension WishListViewModel {
         recomandStudyList.forEach {
             overlapStudyList.append($0)
             nearbyStudyList1.append(Nearby(label: $0, titleColor: SeSacColor.error))
-            print("🥶\($0)")
         }
         
-        print("🫡\(overlapStudyList)")
         friendsStudyList.forEach {
             overlapStudyList.append($0)
         }
-        print("🫡\(overlapStudyList)")
         
         requestedStudyList.forEach {
             overlapStudyList.append($0)
         }
-        print("🫡\(overlapStudyList)")
         
         let makeCleanStudyList = Set(overlapStudyList)
-        print("🙀\(overlapStudyList)")
-        print("🚀\(makeCleanStudyList)")
         let cleanedStudyList = Array(makeCleanStudyList)
-        
                                 
     A: for i in 0..<cleanedStudyList.count {
             for _ in 0..<recomandStudyList.count {
@@ -151,8 +135,6 @@ extension WishListViewModel {
             }
         }
         nearbyStudyList.onNext(nearbyStudyList1 + nearbyStudyList2)
-        
-        
     }
 }
     

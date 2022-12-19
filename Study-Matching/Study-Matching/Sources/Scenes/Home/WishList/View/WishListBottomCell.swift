@@ -20,6 +20,7 @@ class WishListBottomCell: BaseCollectionViewCell {
         view.font = SeSacFont.Title4_R14.set
         return view
     }()
+    
     let button: UIButton = {
         let view = UIButton(type: .custom)
         view.setImage(SeSacImage.closeSmall?.withRenderingMode(.alwaysTemplate), for: .normal)
@@ -36,18 +37,15 @@ class WishListBottomCell: BaseCollectionViewCell {
             $0.top.bottom.equalTo(self).inset(5)
             $0.leading.trailing.equalTo(self).inset(16)
         }
-
-        
     }
+    
     override func configureAttributesInit() {
         layer.cornerRadius = 8
         layer.borderWidth = 1
         layer.masksToBounds = true
         layer.borderColor = SeSacColor.green.cgColor
-        
-        
-        
     }
+    
     func configure(with item: Wanted) {
         label.text = item.label
         

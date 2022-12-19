@@ -60,12 +60,9 @@ class SocketIOManager: NSObject {
             
             self.eventDelegate?.chat(self, rmChat)
             
-            
-            
             self.chatRepository.addChat(item: rmChat)
             
         }
-        
     }
     
     func establishConnection() {

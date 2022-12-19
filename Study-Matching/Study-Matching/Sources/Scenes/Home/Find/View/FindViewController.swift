@@ -6,16 +6,16 @@ import Toast
 
 
 
-class FindViewController: BaseViewController {
+class FindViewController: BaseViewController, EmbedInPageViewController, DataSourceRegistration {
     
     let selfView = FindView()
+    
+    override func loadView() { view = selfView }
     
     let viewModel = FindViewModel()
     let disposeBag = DisposeBag()
     
     let pageViewController = SeSacPageViewController(.scroll)
-    
-    override func loadView() { view = selfView }
     
     override func setNavigationBar(title: String, rightTitle: String ) {
         super.setNavigationBar(title: "내정보", rightTitle: "찾기중단")
@@ -27,12 +27,14 @@ extension FindViewController {
         super.viewWillAppear(animated)
         viewModel.startTimer()
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         embedidIn(pageViewController: pageViewController)
         pageViewController.eventDelegate = self
         bind()
     }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         viewModel.stopTimer()
@@ -46,17 +48,14 @@ extension FindViewController {
             .bind(onNext: { [weak self]_ in
                 guard let self = self else { return }
                 self.requestQueueStop {
-                    
                 }
             })
             .disposed(by: disposeBag)
-        
         
         selfView.nearbyButton.rx.tap
             .bind(onNext: {
                 let nearbyViewController = self.pageViewController.pageContentViewControllers[self.selfView.nearbyButton.tag]
                 self.pageViewController.setControllers([nearbyViewController])
-                
                 self.selfView.makeNearbyAct()
             })
             .disposed(by: disposeBag)
@@ -65,7 +64,6 @@ extension FindViewController {
             .bind(onNext: {
                 let requestedViewController = self.pageViewController.pageContentViewControllers[self.selfView.requestedButton.tag]
                 self.pageViewController.setControllers([requestedViewController])
-                
                 self.selfView.makeRequestedAct()
             })
             .disposed(by: disposeBag)
@@ -80,9 +78,7 @@ extension FindViewController {
                 }
             })
             .disposed(by: disposeBag)
-        
-        
-        
+
         viewModel.timerFlag
             .bind(onNext: {
                 if $0 {
@@ -94,7 +90,6 @@ extension FindViewController {
                 }
             })
             .disposed(by: disposeBag)
-        
     }
 }
 
@@ -103,7 +98,6 @@ extension FindViewController {
         self.viewModel.requestQueueStop {
             switch $0 {
             case .success:
-                print("찾기 중단 완료")
                 self.toMapViewController()
                 return
             case .failure(let error):
@@ -117,11 +111,6 @@ extension FindViewController {
         }
         
     }
-    
-    func checkQueueState() {
-
-
-    }
 }
 
 
@@ -132,7 +121,6 @@ extension FindViewController {
         if let vc = self.navigationController?.viewControllers.last(where: { $0.isKind(of: MapViewController.self) }) {
             self.navigationController?.popToViewController(vc, animated: true)
         }
-        
     }
 }
 
@@ -142,7 +130,3 @@ extension FindViewController: PageReadable {
         viewModel.pageIndex.accept(pageIndex)
     }
 }
-
-extension FindViewController: DataSourceRegistration {}
-
-extension FindViewController: EmbedInPageViewController {}

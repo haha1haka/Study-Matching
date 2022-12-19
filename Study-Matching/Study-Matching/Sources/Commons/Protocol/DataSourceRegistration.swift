@@ -2,33 +2,33 @@ import UIKit
 
 protocol DataSourceRegistration {
     
-    // MARK: - GenderVC
+    /// MARK: - GenderVC
     typealias GenderCellRegistration       = UICollectionView.CellRegistration<GenderCell,Int>
     
-    // MARK: - OnBoardingBV
+    /// MARK: - OnBoardingBV
     typealias OnBoardingCellRegistration   = UICollectionView.CellRegistration<OnboardCell, Page>
     typealias OnBoardingFooterRegistration = UICollectionView.SupplementaryRegistration<OnBoardingFooterView>
     
-    // MARK: - MyInfoVC
+    /// MARK: - MyInfoVC
     typealias MyInfoCellRegistration       = UICollectionView.CellRegistration<MyInfoCell,Setting>
     typealias MyInfoHeaderRegistration     = UICollectionView.SupplementaryRegistration<MyInfoHeaderView>
     
-    // MARK: - ProfileVC
+    /// MARK: - ProfileVC
     typealias ProfileHeaderRegistration    = UICollectionView.SupplementaryRegistration<ProfileHeaderView>
     typealias ProfileMainCellRegistration  = UICollectionView.CellRegistration<ProfileMainCell, Main>
     typealias ProfileSubCellRegistration   = UICollectionView.CellRegistration<ProfileSubCell, Sub>
     
     
-    // MARK: - SearchVC
+    /// MARK: - SearchVC
     typealias SearchHeaderRegistration    = UICollectionView.SupplementaryRegistration<WishListHeaderView>
     typealias SearchTopCellRegistration  = UICollectionView.CellRegistration<WishListTopCell, Nearby>
     typealias SearchBottomCellRegistration   = UICollectionView.CellRegistration<WishListBottomCell, Wanted>
     
-    // MARK: - RequestedVC
+    /// MARK: - RequestedVC
     typealias CardHeaderRegistration    = UICollectionView.SupplementaryRegistration<CardCollectionHeaderView>
     typealias CardCellRegistration  = UICollectionView.CellRegistration<CardCollectionCell, Card>
     
-    // MARK: - Chat
+    /// MARK: - Chat
     typealias ChatHeaderRegistration1    = UICollectionView.SupplementaryRegistration<ChatHeaderView>
     typealias ChatHeaderRegistration2    = UICollectionView.SupplementaryRegistration<ChatHeaderView2>
     typealias ChatLeftCellRegistration  = UICollectionView.CellRegistration<ChatLeftCell, Chat>

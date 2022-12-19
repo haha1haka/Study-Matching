@@ -6,9 +6,8 @@ import RxCocoa
 class OnBoardingViewController: BaseViewController, DataSourceRegistration {
     
     let selfView = OnBoardingView()
-    override func loadView() {
-        view = selfView
-    }
+    
+    override func loadView() { view = selfView }
 
     var cell: OnBoardingCellRegistration?
     var footer: OnBoardingFooterRegistration?
@@ -31,9 +30,9 @@ class OnBoardingViewController: BaseViewController, DataSourceRegistration {
 extension OnBoardingViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        selfView.eventDelegate = self
         bind()
         dataSoruce.applySnapshot()
-        selfView.eventDelegate = self
     }
 }
 
@@ -74,8 +73,6 @@ extension OnBoardingViewController {
 
             })
             .disposed(by: disposeBag)
-
-        
     }
 }
 
