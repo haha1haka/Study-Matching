@@ -199,7 +199,7 @@ Figma
 
 ### 5. Chat
 
-
+![chat](https://user-images.githubusercontent.com/106936018/208351792-6e73ddf5-08c0-4696-9226-b3bd7bc81854.gif)
 
 * WebSocket 을 이용한 1 : 1 채팅 구현
 * 지난내역의 채팅들을 realmDB상에 저장, 채팅방에 입장시, 지난 채팅 내역들 fetch
@@ -215,20 +215,6 @@ Figma
 <br/><br/><br/>
 
 ## Tech Posting
-
-
-
-
-
-![스크린샷 2022-12-11 21.59.55](/Users/haha1haka/Desktop/Workspace/정리정리정리/0.imageServer/스크린샷 2022-12-11 21.59.55.png)
-
-
-
-
-
-> [https://woozzang.tistory.com/33](https://woozzang.tistory.com/33)
-
-
 
 
 
