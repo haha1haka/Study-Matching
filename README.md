@@ -142,7 +142,7 @@ API 명세와 디자인 리소스를 전달 받아 실제 현업 개발 환경�
 
 * NWPathMonitor 를 이용한 실시간 네트워크 모니터링
 
-<br/><br/>
+<br/>
 
 ### 2. SignUp & SignIn
 
@@ -157,7 +157,7 @@ API 명세와 디자인 리소스를 전달 받아 실제 현업 개발 환경�
 * 전화번호, 이메일, 생년월일 유효성 검사 
 * 이미 회원가입이 된 유저, 금지된 단어의 닉네임, 토큰만료 등 다양한 서비스 case 대응 
 
-<br/><br/>
+<br/>
 
 
 ### 3. MyInfo
@@ -170,7 +170,7 @@ API 명세와 디자인 리소스를 전달 받아 실제 현업 개발 환경�
 
 * CompositionalLayout을 이용한 Expandable Cell UI 구성
 
-<br/><br/>
+<br/>
 
 ### 4. Map & 주변 유저 매칭
 
@@ -181,7 +181,7 @@ API 명세와 디자인 리소스를 전달 받아 실제 현업 개발 환경�
 * CLLocation을 이용한 위치서비스 확인 권한요청
 * Mapkit을 이용하여, 주변 사용자 탐색 및 CustomAnnotation 표시 
 
-<br/><br/>
+<br/>
 
 ### 5. Chat
 
