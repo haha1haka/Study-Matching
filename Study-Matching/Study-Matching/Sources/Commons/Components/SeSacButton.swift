@@ -67,6 +67,9 @@ class SeSacButton: UIButton {
         super.init(frame: frame)
         configureAttributes()
     }
+    func configureAttributes() {
+        
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

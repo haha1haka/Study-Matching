@@ -24,7 +24,6 @@ class WishListViewController: BaseViewController, DataSourceRegistration {
     
     override func setNavigationBar(title: String, rightTitle: String) {
         super.setNavigationBar()
-        selfView.searchBar.delegate = self
         self.navigationItem.titleView = selfView.searchBar
         self.tabBarController?.tabBar.isHidden = true
     }

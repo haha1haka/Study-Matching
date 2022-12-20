@@ -130,9 +130,9 @@
 
 
 
+* FirebaseAuth 전화번호 인증을 이용한 로그인
 * 로그인시 해당 updateFCMToken을 서버에 post. 멀티디바이스 대응
-* FirebaseAuth 전화번호 인증을 이용한 회원가입
-* 전화번호, 이메일, 생년월일 유효성 검사 
+* 전화번호, 이메일, 생년월일 등 유효성 검사 
 * 이미 회원가입이 된 유저, 금지된 단어의 닉네임, 토큰만료 등 다양한 서비스 case 대응 
 
 <br/>
@@ -147,6 +147,8 @@
 
 
 * CompositionalLayout을 이용한 Expandable Cell UI 구성
+* 저장버튼 클릭시 정보 update 
+* 회원 탈퇴진행 및 화면 분기처리
 
 <br/>
 
@@ -157,7 +159,11 @@
 ![44map](https://user-images.githubusercontent.com/106936018/208286597-e4c3250f-6bd6-4ed2-bddb-30688e480931.gif)
 
 * CLLocation을 이용한 위치서비스 확인 권한요청
+* 사용자 위치 변경시마다 user탐색, 성별구분, GPS버튼을 통한 본인 위치 확인
+* 사용자의 현재상태(탐색, 매칭대기, 매칭)에 따라 UI처리
 * Mapkit을 이용하여, 주변 사용자 탐색 및 CustomAnnotation 표시 
+* 추천 스터디 상단 배치, 중복 스터디 제거 등 대응
+* 5초마다 서버 호출을 통해 사용자(본인)상태 확인하여, 매칭확정되면 자동으로 채팅화면 진입
 
 <br/>
 
@@ -167,26 +173,11 @@
 
 * WebSocket 을 이용한 1 : 1 채팅 구현
 * 지난내역의 채팅들을 realmDB상에 저장, 채팅방에 입장시, 지난 채팅 내역들 fetch
+* 소켓을 연결하고 해제 해줘야하는 시점 대응
 
 
 
 <br/><br/><br/>
-
-## Error Handling
-
-
-
-<br/><br/><br/>
-
-## Tech Posting
-
-
-
-
-
-
-
-
 
 
 

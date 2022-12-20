@@ -7,7 +7,7 @@ class RequestedViewController: BaseViewController, DataSourceRegistration {
     let emptyView = EmptyView()
     let cardView = CardCollectionView()
     
-    override func loadView() { view = emptyView }
+    override func loadView() { view = cardView }
     
     let viewModel = FindViewModel()
     let disposeBag = DisposeBag()
