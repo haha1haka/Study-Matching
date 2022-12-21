@@ -26,10 +26,14 @@
 # Table Of Contents
 
 * [Tech Stack](https://github.com/haha1haka/Study-Matching#tech-stack)
+
 * [Team Collaboration](https://github.com/haha1haka/Study-Matching#team-collaboration)
+
 * [Simulation](https://github.com/haha1haka/Study-Matching#simulation)
-* Trouble Shooting
-* 
+
+* [Trouble Shooting](https://github.com/haha1haka/Study-Matching#trouble-shooting)
+
+    
 
 
 
@@ -215,33 +219,11 @@ case .queue(let lat, let long, let studylist):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Content-Type의 이해
+#### Content-Type의 이해
 
 > * api 연동시 Message Body 에 들어가는 타입을 HTTP Header 에 명시할 수 있도록 해주는 필드
 > * Message Body 의 type 정보를 나타냅
-> * application/json 과 application/x-www.form-urlencoded 두종류 존대
+> * application/json 과 application/x-www.form-urlencoded 두종류 존재
 
 
 
