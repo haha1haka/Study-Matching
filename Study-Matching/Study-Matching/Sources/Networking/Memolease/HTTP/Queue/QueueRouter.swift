@@ -46,14 +46,15 @@ extension QueueRouter: TargetType {
         case .queueSearch(let lat, let long):
             return ["lat": "\(lat)",
                     "long": "\(long)"].compactMap{ "\($0)=\($1)" }.joined(separator: "&")
-                        
-        case .queue(let lat, let long, let studylist):
-            var parameters = ["lat": "\(lat)",
-                              "long": "\(long)"].compactMap{ "\($0)=\($1)" }.joined(separator: "&")
+                    
             
-            studylist.forEach{
-                parameters += "&studylist=\($0)"
-            }
+            
+        case .queue(let lat, let long, let studylist):
+            var parameters = ["lat": "\(lat)", "long": "\(long)"]
+                                .compactMap{ "\($0)=\($1)" }
+                                .joined(separator: "&")
+            
+            studylist.forEach { parameters += "&studylist=\($0)" }
             
             return parameters
                 

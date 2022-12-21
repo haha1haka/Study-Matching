@@ -28,9 +28,9 @@ extension ChatRouter: TargetType {
     }
     
     // MARK: - 바디
+    
     var parameters: String? {
         switch self {
-
         case .chat(_ ,let chatText):
             return ["chat": chatText].compactMap{ "\($0)=\($1)" }.joined(separator: "&")
         case .chatLast:

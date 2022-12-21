@@ -28,8 +28,8 @@
 * [Tech Stack](https://github.com/haha1haka/Study-Matching#tech-stack)
 * [Team Collaboration](https://github.com/haha1haka/Study-Matching#team-collaboration)
 * [Simulation](https://github.com/haha1haka/Study-Matching#simulation)
-* Error Handling
-* Tech Posting
+* Trouble Shooting
+* 
 
 
 
@@ -178,6 +178,72 @@
 
 
 <br/><br/><br/>
+
+
+
+
+
+
+
+## Trouble Shooting
+
+
+
+* ContentType이 **application/x-www.form-urlencoded** 일경우
+    * 서버에 post 시 encoding 을 필수로 진행 해야하는데 생략
+    * key=value&key=&value&key=&value..형태로 데이터 전송
+    * Router body parameter 구조개선
+
+```swift
+case .queue(let lat, let long, let studylist):
+    var parameters = ["lat": "\(lat)", "long": "\(long)"]
+                        .compactMap{ "\($0)=\($1)" }
+                        .joined(separator: "&")
+            
+    studylist.forEach { parameters += "&studylist=\($0)" }
+            
+    return parameters
+```
+
+* Alomofire, Moya등 외부 라이브러리가 자동으로 encoding 하도록 구현 해놓아져 있을 것이여서 간과하고 넘어갔음
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Content-Type의 이해
+
+> * api 연동시 Message Body 에 들어가는 타입을 HTTP Header 에 명시할 수 있도록 해주는 필드
+> * Message Body 의 type 정보를 나타냅
+> * application/json 과 application/x-www.form-urlencoded 두종류 존대
+
+
 
 
 
