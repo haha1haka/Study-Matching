@@ -26,11 +26,8 @@
 # Table Of Contents
 
 * [Tech Stack](https://github.com/haha1haka/Study-Matching#tech-stack)
-
 * [Team Collaboration](https://github.com/haha1haka/Study-Matching#team-collaboration)
-
 * [Simulation](https://github.com/haha1haka/Study-Matching#simulation)
-
 * [Trouble Shooting](https://github.com/haha1haka/Study-Matching#trouble-shooting)
 
     
