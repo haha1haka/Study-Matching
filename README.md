@@ -6,10 +6,6 @@
 
 <br/>
 
-<br/>
-
-<br/>
-
 # SeSAC Study Matching
 
 > *개발기간: 22.11.08 ~ 22.11.30*
@@ -20,8 +16,7 @@
 * 원하는 스터디 wishList를 작성하고, wishList에 해당하는 사람들을 불러 올 수 있습니다.
 * 상대방의 원하는 스터디를 확인 할 수 있고, 1 : 1 채팅 요청을 보낼 수 있습니다.
 
-
-<br/><br/><br/>
+<br/>
 
 # Table Of Contents
 
@@ -34,7 +29,7 @@
 
 
 
-<br/><br/>
+<br/>
 
 
 
@@ -59,7 +54,7 @@
 
 
 
-<br/><br/>
+<br/>
 
 ## Team Collaboration
 
@@ -67,7 +62,7 @@
 
 > 팀명: 문어단(개발하다 머리 빠져서 문어의 머리처럼 되는것 영광으로 생각하자는?? ㅎㅎ)
 
-<img width="763" alt="스크린샷 2022-12-15 16 19 21" src="https://user-images.githubusercontent.com/106936018/207797401-bc0f1525-1529-47d2-adb8-f45c8c900778.png"><br/>
+<img width="763" alt="스크린샷 2022-12-15 16 19 21" src="https://user-images.githubusercontent.com/106936018/207797401-bc0f1525-1529-47d2-adb8-f45c8c900778.png">
 
 ### Team Communication
 
@@ -85,17 +80,17 @@
 
 <img width="587" alt="스크린샷 2022-12-15 16 19 41" src="https://user-images.githubusercontent.com/106936018/207797465-2492b29c-028a-4cea-95cb-366ac8eddca8.png">
 
-<br/>
+
 
 <img width="559" alt="스크린샷 2022-12-15 16 19 50" src="https://user-images.githubusercontent.com/106936018/207797498-3d662e9c-0b95-4dad-a44c-5426d06a06dc.png">
 
 <img width="565" alt="스크린샷 2022-12-15 16 19 59" src="https://user-images.githubusercontent.com/106936018/207797521-7880dbb2-623d-4fd3-ba3a-e40a6c695172.png">
 
-<br/>
+
 
 <img width="181" alt="스크린샷 2022-12-15 16 20 12" src="https://user-images.githubusercontent.com/106936018/207797566-5bd3c092-3d57-4e36-a398-65a222ac8e5d.png">
 
-<br/>
+
 
 ### Figma
 
@@ -105,7 +100,7 @@
 
 
 
-<br/><br/><br/>
+<br/>
 
 ## Simulation
 
@@ -118,10 +113,9 @@
 
 
 * LauchScreen을 controller 로 만들어 네트워킹 신호 약할시  대응
-
 * NWPathMonitor 를 이용한 실시간 네트워크 모니터링
 
-<br/>
+
 
 ### 2. SignUp & SignIn
 
@@ -136,7 +130,7 @@
 * 전화번호, 이메일, 생년월일 등 유효성 검사 
 * 이미 회원가입이 된 유저, 금지된 단어의 닉네임, 토큰만료 등 다양한 서비스 case 대응 
 
-<br/>
+
 
 
 ### 3. MyInfo
@@ -151,7 +145,7 @@
 * 저장버튼 클릭시 정보 update 
 * 회원 탈퇴진행 및 화면 분기처리
 
-<br/>
+
 
 ### 4. Map & 주변 유저 매칭
 
@@ -166,7 +160,7 @@
 * 추천 스터디 상단 배치, 중복 스터디 제거 등 대응
 * 5초마다 서버 호출을 통해 사용자(본인)상태 확인하여, 매칭확정되면 자동으로 채팅화면 진입
 
-<br/>
+
 
 ### 5. Chat
 
@@ -178,7 +172,7 @@
 
 
 
-<br/><br/><br/>
+<br/>
 
 
 
@@ -186,9 +180,11 @@
 
 
 
-## Trouble Shooting
+## 💥 Trouble Shooting
 
 
+
+### application/x-www.form-urlencoded
 
 * ContentType이 **application/x-www.form-urlencoded** 일경우
     * 서버에 post 시 encoding 을 필수로 진행 해야하는데 생략
@@ -206,21 +202,202 @@ case .queue(let lat, let long, let studylist):
     return parameters
 ```
 
-* Alomofire, Moya등 외부 라이브러리가 자동으로 encoding 하도록 구현 해놓아져 있을 것이여서 간과하고 넘어갔음
+* Alomofire, Moya등 외부 라이브러리에서는 Array를 encode 할때 `.noBracket`으로 Encoding 후에 통신 하면 쉽게됌
 
-
-
-
-
-
-
-
+    
 
 #### Content-Type의 이해
 
 > * api 연동시 Message Body 에 들어가는 타입을 HTTP Header 에 명시할 수 있도록 해주는 필드
 > * Message Body 의 type 정보를 나타냅
 > * application/json 과 application/x-www.form-urlencoded 두종류 존재
+
+
+
+<br/>
+
+
+
+### RxRelam 을 이용한 채팅 구현 
+
+* 모든 채팅Log realm 에 저장해서, log(Data)가 변경될시 UI구성 할려고함
+* 채팅이 안 이루어지고 있을시, 상대방의 chatting 내역은 realm 에 존재 하지 않는 문제점으로,
+* 이전 내역의 chatting 을 불러올시 sync 안맞음
+* 상대의 마지막 chatting 시각으로   `{baseURL}/v1/chat/{from}?lastchatDate={lastchatDate}` api 호출로 해결
+
+### 기존코드
+
+```swift
+Observable.changeset(from: viewModel.chatDataBase) 
+    .bind(onNext: { array, changes in
+     var snapshot = self.dataSource.snapshot()
+    snapshot.appendSections([0])
+    snapshot.appendItems(array.toArray(), toSection: 0)
+    snashot.reconfigureItems(array.toArray())
+    self.dataSource.apply(snapshot)
+})
+```
+
+### 개선
+
+```swift
+viewModel.payloadChat // payloadChat: 상대 마지막 chat data 기준으로 이전채팅 내역 api 호출 후 넘어온 chat
+    .bind(onNext: { payloadChat in
+    snapshot.appendItems(self.viewModel.chatDataBase.toArray(),toSection: 0)
+    if !snapshot.sectionIdentifiers.isEmpty {
+    snapshot.appendItems(payloadChat,toSection: 0)
+    }
+    self.dataSource.apply(snapshot)
+})
+.disposed(by: disposeBag)
+```
+
+<br/>
+
+### 멀티디바이스 대응 
+
+* 타인의 Device에 내 아이디로 로그인을 진행 했을시, 타인의 `FCM(Firebase Cloud Message)` 을 내가 쓰게 되는것을 방지
+* `{baseURL}/v1/user/update_fcm_token` api 를 **로그인시 서버로 보내** 본인과 서버 FCMToken sync를 맞춰주기
+
+
+
+
+
+<br/>
+
+### dataSource(cell)의 ItemType 구분하기
+
+* 1개의 collectionView 각각 다른 cell 에 각각 다른 ItemType 을 구분지어야 하는 문제
+* 해당 각 cell의  ItemType을 enum case 연관값으로 담아놓기
+
+```swift
+enum Item: Hashable {
+    case main(Main)
+    case sub(Sub)
+}
+```
+
+* 각각 구분된 Type 으로 구성된 Item 을 ItemTyped으로 diffableDatasource 구성
+
+```swift
+class ProfileDataSource: UICollectionViewDiffableDataSource<Int, Item> {
+    convenience init(collectionView:       UICollectionView,
+                     mainCellRegistration: ProfileMainCellRegistration,
+                     subCellRegistration:  ProfileSubCellRegistration)
+    {
+        self.init(collectionView: collectionView) {
+            collectionView, indexPath, itemIdentifier in
+            switch itemIdentifier {
+            case .main(let main):
+                let cell = collectionView.dequeueConfiguredReusableCell(
+                    using: mainCellRegistration,
+                    for: indexPath,
+                    item: main)
+                return cell
+            case .sub(let sub):
+                let cell = collectionView.dequeueConfiguredReusableCell(
+                    using: subCellRegistration,
+                    for: indexPath,
+                    item: sub)
+                return cell
+            }
+        }
+}
+```
+
+
+
+<br/>
+
+
+
+### ExpandableCell
+
+* cell 클릭시 expandable 하게 구현 해야 하는 문제 
+* 카드뷰가 접혀 있을때와, 열려 있을때 constrains 를 둬서
+* cell이 isSelected 될시 updateAppearance()해주는 방식으로 해결
+
+```swift
+func updateAppearance() {
+    closedConstraint?.isActive = !isSelected
+    openConstraint?.isActive = isSelected
+        
+    UIView.animate(withDuration: 0.3) {
+        let upsideDown = CGAffineTransform(rotationAngle: .pi * 0.999 )
+        self.disclosureView.transform = self.isSelected ? upsideDown :.identity
+    }
+}
+```
+
+* 여기서,  UI를 업데이트 시켜주기 위해 datasource 를 refresh 해주는 코드를 **shouldSelectItemAt** (Delegate매서드)에 구현 해서 해결
+
+```swift
+    func collectionView(
+        _ collectionView: UICollectionView,
+        shouldSelectItemAt indexPath: IndexPath
+    ) -> Bool {
+
+        if collectionView.indexPathsForSelectedItems?.contains(indexPath) ?? false {
+            collectionView.deselectItem(at: indexPath, animated: true)
+        } else {
+            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
+        }
+        
+        dataSource.refresh()
+        
+        return false
+    }
+```
+
+
+
+#### shouldSelectItemAt이해
+
+> cell 을 선택된 상태로 할건지 안할건지 true false 로 처리 가능
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
