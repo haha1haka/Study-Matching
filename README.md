@@ -23,7 +23,7 @@
 * [Tech Stack](https://github.com/haha1haka/Study-Matching#tech-stack)
 * [Team Collaboration](https://github.com/haha1haka/Study-Matching#team-collaboration)
 * [Simulation](https://github.com/haha1haka/Study-Matching#simulation)
-* [Trouble Shooting](https://github.com/haha1haka/Study-Matching#trouble-shooting)
+* [Trouble Shooting](https://github.com/haha1haka/Study-Matching#-trouble-shooting)
 
     
 
@@ -70,11 +70,6 @@
 
 * 매일 스크럼을 작성하여,서로의 기술을 공유하고, 논의 했던 점과 진행 상황을 소통 하였습니다.
 
-  ​    
-
-
-
-<img width="589" alt="스크린샷 2022-12-15 16 19 32" src="https://user-images.githubusercontent.com/106936018/207797434-377e15cf-35c1-4f40-a32f-1e226c8264f1.png">
 
 
 
@@ -225,7 +220,7 @@ case .queue(let lat, let long, let studylist):
 * 이전 내역의 chatting 을 불러올시 sync 안맞음
 * 상대의 마지막 chatting 시각으로   `{baseURL}/v1/chat/{from}?lastchatDate={lastchatDate}` api 호출로 해결
 
-### 기존코드
+#### 기존코드
 
 ```swift
 Observable.changeset(from: viewModel.chatDataBase) 
@@ -238,7 +233,7 @@ Observable.changeset(from: viewModel.chatDataBase)
 })
 ```
 
-### 개선
+#### 개선
 
 ```swift
 viewModel.payloadChat // payloadChat: 상대 마지막 chat data 기준으로 이전채팅 내역 api 호출 후 넘어온 chat
